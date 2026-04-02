@@ -35,19 +35,24 @@ const navGroups = [
     ],
   },
   {
+    label: 'nav.group.place' as const,
+    links: [
+      { key: 'nav.traditions' as const, desc: 'nav.desc.traditions' as const, path: '/traditions' },
+      { key: 'nav.safety' as const, desc: 'nav.desc.safety' as const, path: '/safety' },
+      { key: 'nav.health' as const, desc: 'nav.desc.health' as const, path: '/health' },
+      { key: 'nav.economy' as const, desc: 'nav.desc.economy' as const, path: '/economy' },
+      { key: 'nav.gallery' as const, desc: 'nav.desc.gallery' as const, path: '/gallery' },
+    ],
+  },
+  {
     label: 'nav.group.learn' as const,
     links: [
-      { key: 'nav.community' as const, desc: 'nav.desc.community' as const, path: '/community' },
       { key: 'nav.governance' as const, desc: 'nav.desc.governance' as const, path: '/governance' },
-      { key: 'nav.health' as const, desc: 'nav.desc.health' as const, path: '/health' },
-      { key: 'nav.safety' as const, desc: 'nav.desc.safety' as const, path: '/safety' },
-      { key: 'nav.economy' as const, desc: 'nav.desc.economy' as const, path: '/economy' },
-      { key: 'nav.traditions' as const, desc: 'nav.desc.traditions' as const, path: '/traditions' },
-      { key: 'nav.gallery' as const, desc: 'nav.desc.gallery' as const, path: '/gallery' },
+      { key: 'nav.community' as const, desc: 'nav.desc.community' as const, path: '/community' },
       { key: 'nav.explore' as const, desc: 'nav.desc.explore' as const, path: '/explore' },
-      { key: 'nav.glossary' as const, desc: 'nav.desc.glossary' as const, path: '/glossary' },
       { key: 'nav.faq' as const, desc: 'nav.desc.faq' as const, path: '/faq' },
       { key: 'nav.risk' as const, desc: 'nav.desc.risk' as const, path: '/risk' },
+      { key: 'nav.glossary' as const, desc: 'nav.desc.glossary' as const, path: '/glossary' },
     ],
   },
 ];
