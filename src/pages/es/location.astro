@@ -1,8 +1,35 @@
 ---
-import ContentPage from '../../components/ContentPage.astro';
+import Base from '../../layouts/Base.astro';
 ---
 
-<ContentPage title="Location" subtitle="Coroico and the Yungas — where cloud forest meets civilization.">
+<Base title="Location">
+
+  <!-- Hero image — Coroico in morning cloud -->
+  <section class="relative h-[50vh] min-h-[400px] flex items-end overflow-hidden">
+    <img src="/images/yungas/coroico-clouds.jpg" alt="Coroico en la neblina matutina, Yungas, Bolivia" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
+    <div class="absolute inset-0 bg-gradient-to-t from-bark-900/90 via-bark-900/50 to-transparent"></div>
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pb-12 w-full">
+      <span class="text-label text-accent">Coroico, Yungas</span>
+      <h1 class="text-headline text-bark-50 mt-2">The Location</h1>
+      <p class="text-body-lg text-bark-200 mt-2 max-w-xl">Coroico and the Yungas — where cloud forest meets civilization.</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="pb-32 px-6 lg:px-10 pt-16">
+    <div class="max-w-[900px] mx-auto
+      [&>p]:text-bark-600 [&>p]:text-[1.1rem] [&>p]:leading-[1.85] [&>p]:mb-6
+      [&>h2]:font-display [&>h2]:text-title [&>h2]:text-bark-800 [&>h2]:mt-16 [&>h2]:mb-6
+      [&>ul]:space-y-3 [&>ul]:mb-8 [&>ul]:pl-0
+      [&>ul>li]:text-bark-600 [&>ul>li]:text-[1.05rem] [&>ul>li]:leading-relaxed [&>ul>li]:pl-6 [&>ul>li]:relative
+      [&>ul>li]:before:content-[''] [&>ul>li]:before:absolute [&>ul>li]:before:left-0 [&>ul>li]:before:top-[0.6em]
+      [&>ul>li]:before:w-2 [&>ul>li]:before:h-px [&>ul>li]:before:bg-accent
+      [&>ul>li>strong]:text-bark-800 [&>ul>li>strong]:font-medium
+      [&>strong]:text-bark-800 [&>strong]:font-medium
+      [&>a]:text-accent [&>a]:underline [&>a]:underline-offset-4 [&>a]:decoration-accent/30 hover:[&>a]:decoration-accent
+      [&>blockquote]:border-l-2 [&>blockquote]:border-accent [&>blockquote]:pl-6 [&>blockquote]:text-bark-500 [&>blockquote]:italic
+      [&>.cta-box]:mt-16 [&>.cta-box]:p-8 [&>.cta-box]:bg-bark-100 [&>.cta-box]:rounded-xl [&>.cta-box]:border [&>.cta-box]:border-bark-200
+    ">
 
   <h2>Geography & Position</h2>
   <p>
@@ -131,4 +158,10 @@ import ContentPage from '../../components/ContentPage.astro';
     <li>[9] Constituci&oacute;n Pol&iacute;tica del Estado, Art. 261. Restrictions on foreign ownership near borders.</li>
     <li>[10] Ley 356 — Ley General de Cooperativas (2013). <a href="https://www.gacetaoficialdebolivia.gob.bo/" target="_blank" rel="noopener noreferrer">Gaceta Oficial de Bolivia</a></li>
   </ul>
-</ContentPage>
+
+  <!-- Photo credit -->
+  <p class="!text-xs !text-bark-400 !mt-12 !pt-6 !border-t !border-bark-200">Photo: Coroico by Claudio Laura Daza, CC BY 4.0 via Wikimedia Commons</p>
+
+    </div>
+  </section>
+</Base>

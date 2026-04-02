@@ -1,8 +1,35 @@
 ---
-import ContentPage from '../../components/ContentPage.astro';
+import Base from '../../layouts/Base.astro';
 ---
 
-<ContentPage title="Location" subtitle="Coroico and the Yungas — where cloud forest meets civilization.">
+<Base title="Location">
+
+  <!-- Hero image — Coroico in morning cloud -->
+  <section class="relative h-[50vh] min-h-[400px] flex items-end overflow-hidden">
+    <img src="/images/yungas/coroico-clouds.jpg" alt="Coroico town in morning cloud, Yungas, Bolivia" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
+    <div class="absolute inset-0 bg-gradient-to-t from-bark-900/90 via-bark-900/50 to-transparent"></div>
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pb-12 w-full">
+      <span class="text-label text-accent">Coroico, Yungas</span>
+      <h1 class="text-headline text-bark-50 mt-2">The Location</h1>
+      <p class="text-body-lg text-bark-200 mt-2 max-w-xl">Coroico and the Yungas — where cloud forest meets civilization.</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="pb-32 px-6 lg:px-10 pt-16">
+    <div class="max-w-[900px] mx-auto
+      [&>p]:text-bark-600 [&>p]:text-[1.1rem] [&>p]:leading-[1.85] [&>p]:mb-6
+      [&>h2]:font-display [&>h2]:text-title [&>h2]:text-bark-800 [&>h2]:mt-16 [&>h2]:mb-6
+      [&>ul]:space-y-3 [&>ul]:mb-8 [&>ul]:pl-0
+      [&>ul>li]:text-bark-600 [&>ul>li]:text-[1.05rem] [&>ul>li]:leading-relaxed [&>ul>li]:pl-6 [&>ul>li]:relative
+      [&>ul>li]:before:content-[''] [&>ul>li]:before:absolute [&>ul>li]:before:left-0 [&>ul>li]:before:top-[0.6em]
+      [&>ul>li]:before:w-2 [&>ul>li]:before:h-px [&>ul>li]:before:bg-accent
+      [&>ul>li>strong]:text-bark-800 [&>ul>li>strong]:font-medium
+      [&>strong]:text-bark-800 [&>strong]:font-medium
+      [&>a]:text-accent [&>a]:underline [&>a]:underline-offset-4 [&>a]:decoration-accent/30 hover:[&>a]:decoration-accent
+      [&>blockquote]:border-l-2 [&>blockquote]:border-accent [&>blockquote]:pl-6 [&>blockquote]:text-bark-500 [&>blockquote]:italic
+      [&>.cta-box]:mt-16 [&>.cta-box]:p-8 [&>.cta-box]:bg-bark-100 [&>.cta-box]:rounded-xl [&>.cta-box]:border [&>.cta-box]:border-bark-200
+    ">
 
   <h2>Geography & Position</h2>
   <p>
@@ -37,14 +64,14 @@ import ContentPage from '../../components/ContentPage.astro';
 
   <h2>Biodiversity & Ecology</h2>
   <p>
-    The Coroico area is adjacent to <strong>Cotapata National Park</strong> (ANMI Cotapata), a 40,000-hectare
+    The Coroico area is adjacent to <strong>ANMI Cotapata</strong> (a managed conservation area), a 40,000-hectare
     protected area spanning multiple ecological zones from 1,000m to over 5,000m. The broader Yungas region is
     recognized as one of the world's biodiversity hotspots.
   </p>
   <ul>
     <li><strong>Bird species</strong> — 400&ndash;500+ documented in the Yungas corridor, including Andean cock-of-the-rock, toucans, and dozens of hummingbird species. Coroico is a known birding destination.<sup>[1]</sup></li>
     <li><strong>Plant species</strong> — 3,000+ in the Cotapata-Yungas zone, including orchids, tree ferns, bromeliads, and medicinal plants used for centuries by indigenous communities.<sup>[2]</sup></li>
-    <li><strong>Wildlife</strong> — Spectacled bear (Tremarctos ornatus) habitat, plus Andean fox, puma, and multiple primate species in the lower cloud forest.</li>
+    <li><strong>Wildlife</strong> — Spectacled bear (Tremarctos ornatus) in the protected areas and less-inhabited zones of the Yungas corridor, plus Andean fox, puma, and primate species in the lower-altitude sections of the Yungas corridor (below 1,200m).</li>
     <li><strong>Cultural heritage</strong> — Part of the UNESCO-listed <strong>Qhapaq &Ntilde;an</strong> (Andean Road System). The pre-Columbian road from La Paz to the Yungas passes through this area, a route used for over 1,000 years.<sup>[3]</sup></li>
   </ul>
 
@@ -85,7 +112,7 @@ import ContentPage from '../../components/ContentPage.astro';
     No location is perfect. Transparency about risks is essential for anyone considering this project seriously.
   </p>
   <ul>
-    <li><strong>Landslides</strong> — The primary natural hazard. Steep terrain + heavy rainfall = periodic landslides, especially during the wet season (December&ndash;February). Road closures between La Paz and Coroico occur multiple times per rainy season. Serious infrastructure planning must account for slope stability.<sup>[8]</sup></li>
+    <li><strong>Landslides</strong> — The primary natural hazard. Steep terrain + heavy rainfall = periodic landslides, especially during the wet season (November&ndash;March). Road closures between La Paz and Coroico occur multiple times per rainy season. Serious infrastructure planning must account for slope stability.<sup>[8]</sup></li>
     <li><strong>Rainy season road closures</strong> — The La Paz&ndash;Coroico road can be blocked for hours or occasionally days during major landslide events. Stockpiling essential supplies and having local self-sufficiency is not optional — it's survival planning.</li>
     <li><strong>Seismic activity</strong> — Moderate. Bolivia sits on the South American tectonic plate with the Nazca plate subducting beneath. Earthquakes occur but are generally less severe than in Chile or Peru. Building codes should account for seismic loads.</li>
     <li><strong>Political stability</strong> — Bolivia has experienced significant political turbulence (most recently in 2019). While democratic institutions have held, political risk is real and should be factored into long-term planning. Community buy-in and legal resilience matter.</li>
@@ -103,7 +130,7 @@ import ContentPage from '../../components/ContentPage.astro';
 
   <h2>Integration, Not Colonization</h2>
   <p>
-    We are guests in this land. BARK's relationship with the local community is built on mutual benefit:
+    We are newcomers building in a place with deep existing roots. Our legitimacy depends on earned trust, not assumed welcome. BARK's relationship with the local community is built on mutual benefit:
     local employment, shared infrastructure, cultural exchange, economic integration. We bring resources
     and skills; the community brings knowledge, culture, and belonging. This is a partnership.
   </p>
@@ -131,4 +158,10 @@ import ContentPage from '../../components/ContentPage.astro';
     <li>[9] Constituci&oacute;n Pol&iacute;tica del Estado, Art. 261. Restrictions on foreign ownership near borders.</li>
     <li>[10] Ley 356 — Ley General de Cooperativas (2013). <a href="https://www.gacetaoficialdebolivia.gob.bo/" target="_blank" rel="noopener noreferrer">Gaceta Oficial de Bolivia</a></li>
   </ul>
-</ContentPage>
+
+  <!-- Photo credit -->
+  <p class="!text-xs !text-bark-400 !mt-12 !pt-6 !border-t !border-bark-200">Photo: Coroico by Claudio Laura Daza, CC BY 4.0 via Wikimedia Commons</p>
+
+    </div>
+  </section>
+</Base>

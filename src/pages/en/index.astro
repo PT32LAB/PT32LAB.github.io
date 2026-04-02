@@ -15,7 +15,7 @@ const pillars = [
   { name: 'Techno Park', desc: 'Fabrication lab, open-source R&D, and the tools to build what the supply chain forgot.', link: `/${lang}/pillars/technopark` },
   { name: 'Incubator', desc: 'Ventures born at altitude -- serving Coroico first, then the world.', link: `/${lang}/pillars/incubator` },
   { name: 'Trading House', desc: 'Yungas coffee, cacao, and craft moving through channels we control.', link: `/${lang}/pillars/trading` },
-  { name: 'Retreat Center', desc: 'Ayahuasca ceremony meets biofeedback lab. Healing taken seriously.', link: `/${lang}/pillars/retreat` },
+  { name: 'Retreat Center', desc: 'Plant medicine meets biofeedback lab. Indigenous wisdom and modern practice, taken seriously.', link: `/${lang}/pillars/retreat` },
   { name: 'Infrastructure', desc: 'Solar arrays, spring-fed water, vertical farms, mesh network. The quiet engine underneath.', link: `/${lang}/pillars/infrastructure` },
 ];
 ---
@@ -135,16 +135,17 @@ const pillars = [
       <div class="max-w-3xl mx-auto text-center">
         <span class="text-label text-accent reveal">The Thesis</span>
         <h2 class="text-headline text-bark-50 mt-6 text-split">
-          Not a bunker. A living community.
+          Civilization is a supply chain problem.
         </h2>
         <p class="text-body-lg text-bark-400 mt-8 leading-relaxed reveal" data-delay="200">
-          The world faces unprecedented convergence — geopolitical fragmentation,
-          ecological pressure, technological disruption. We're building a place that
-          preserves humanistic values, human diversity, and the technologies that
-          sustain a good life.
+          Every generation assumes the grid will hold. Ours is the first to watch
+          supply chains, institutions, and climate shift simultaneously -- and to
+          have the tools to do something about it before the lights flicker. BARK
+          is not a bunker. It is an operating system for a community that intends
+          to keep living well regardless of what the next decades deliver.
         </p>
         <a href={`/${lang}/why`} class="inline-flex items-center gap-3 mt-10 text-accent hover:text-accent-light font-display text-sm tracking-wide transition-colors duration-300 reveal" data-delay="300">
-          Read the full thesis
+          The full argument
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
       </div>
@@ -156,11 +157,11 @@ const pillars = [
     <div class="max-w-[1400px] mx-auto">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
         <div>
-          <span class="text-label text-accent reveal">Structure</span>
-          <h2 class="text-headline text-bark-800 mt-4 text-split">Five Components</h2>
+          <span class="text-label text-accent reveal">Anatomy</span>
+          <h2 class="text-headline text-bark-800 mt-4 text-split">Five Organs, One Body</h2>
         </div>
         <a href={`/${lang}/pillars`} class="text-accent font-display text-sm tracking-wide hover:text-accent-dim transition-colors reveal" data-delay="200">
-          View all components —
+          Deep dive --
         </a>
       </div>
 
@@ -188,29 +189,39 @@ const pillars = [
         <span class="text-label text-accent reveal">Location</span>
         <h2 class="text-headline text-bark-800 mt-4 text-split">Coroico, Yungas</h2>
         <p class="text-body-lg text-bark-500 mt-6 leading-relaxed reveal" data-delay="200">
-          Subtropical cloud forest at 1,750m in the Bolivian Andes. Year-round growing season,
-          abundant water, extraordinary biodiversity. 3 hours from La Paz.
+          The road from La Paz drops 3,400 meters in three hours. When the altiplano
+          dust gives way to orchids and the air turns wet, you have arrived. The Yungas
+          cloud forest sits in a climate band that never freezes, never scorches, and
+          grows food twelve months a year. The Inca knew this. We are paying attention.
         </p>
         <a href={`/${lang}/location`} class="inline-flex items-center gap-2 mt-6 text-accent font-display text-sm tracking-wide hover:text-accent-dim transition-colors reveal" data-delay="300">
-          Why here —
+          The geography in detail --
         </a>
       </div>
-      <div class="md:w-1/2 grid grid-cols-2 gap-4">
-        <div class="bg-bark-50 p-6 rounded-xl reveal" data-delay="100">
-          <div class="text-title text-bark-800 font-display counter" data-target="1750" data-suffix="m">0</div>
-          <span class="text-label text-bark-400 mt-1 block">Elevation</span>
+      <div class="md:w-1/2 space-y-4">
+        <div class="relative rounded-xl overflow-hidden reveal">
+          <img src="/images/yungas/valley.jpg" alt="Yungas valley, Bolivia — dramatic green slopes descending into cloud forest" class="w-full h-64 md:h-80 object-cover" loading="lazy" />
+          <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-bark-900/80 to-transparent">
+            <span class="text-xs text-bark-300">Photo: CC BY-SA 3.0, Jerrye & Roy Klotz MD via Wikimedia Commons</span>
+          </div>
         </div>
-        <div class="bg-bark-50 p-6 rounded-xl reveal" data-delay="200">
-          <div class="text-title text-bark-800 font-display">18-28°C</div>
-          <span class="text-label text-bark-400 mt-1 block">Temperature</span>
-        </div>
-        <div class="bg-bark-50 p-6 rounded-xl reveal" data-delay="300">
-          <div class="text-title text-accent font-display">Top 5%</div>
-          <span class="text-label text-bark-400 mt-1 block">Biodiversity</span>
-        </div>
-        <div class="bg-bark-50 p-6 rounded-xl reveal" data-delay="400">
-          <div class="text-title text-bark-800 font-display">3h</div>
-          <span class="text-label text-bark-400 mt-1 block">From La Paz</span>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-bark-50 p-6 rounded-xl reveal" data-delay="100">
+            <div class="text-title text-bark-800 font-display counter" data-target="1750" data-suffix="m">0</div>
+            <span class="text-label text-bark-400 mt-1 block">Cloud Forest Line</span>
+          </div>
+          <div class="bg-bark-50 p-6 rounded-xl reveal" data-delay="200">
+            <div class="text-title text-bark-800 font-display">18-28°C</div>
+            <span class="text-label text-bark-400 mt-1 block">Eternal Spring</span>
+          </div>
+          <div class="bg-bark-50 p-6 rounded-xl reveal" data-delay="300">
+            <div class="text-title text-accent font-display">Top 5%</div>
+            <span class="text-label text-bark-400 mt-1 block">Global Hotspot</span>
+          </div>
+          <div class="bg-bark-50 p-6 rounded-xl reveal" data-delay="400">
+            <div class="text-title text-bark-800 font-display">3h</div>
+            <span class="text-label text-bark-400 mt-1 block">La Paz by Road</span>
+          </div>
         </div>
       </div>
     </div>
@@ -223,19 +234,20 @@ const pillars = [
     </div>
     <div class="relative max-w-3xl mx-auto text-center">
       <h2 class="text-headline text-bark-50 text-split">
-        Ready to build something that matters?
+        This is not a spectator project.
       </h2>
       <p class="text-body-lg text-bark-400 mt-6 reveal" data-delay="200">
-        We're looking for co-creators — builders, investors, thinkers, and doers
-        who'd rather prepare than hope.
+        We are assembling the first cohort now. If you have capital, engineering
+        skill, or the kind of restlessness that reads a page like this all the
+        way to the bottom -- we should talk.
       </p>
       <div class="mt-10 flex flex-wrap justify-center gap-4 reveal" data-delay="300">
         <a href={`/${lang}/participate`} class="group inline-flex items-center gap-3 px-8 py-4 bg-accent text-night font-display font-semibold text-sm tracking-wide rounded hover:bg-accent-light transition-colors duration-300">
-          Get Involved
+          Start a Conversation
           <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
         <a href="https://github.com/PT32LAB" class="inline-flex items-center gap-2 px-8 py-4 border border-bark-700 text-bark-300 hover:text-bark-50 hover:border-bark-500 font-display text-sm tracking-wide rounded transition-all duration-300">
-          View Source
+          Read the Source Code
         </a>
       </div>
     </div>

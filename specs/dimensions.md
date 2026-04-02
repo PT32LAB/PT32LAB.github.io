@@ -9,7 +9,7 @@ Every piece of knowledge in the vault exists in a multidimensional space. Each d
 | Dimension | Key | Question It Answers | Low (0.0) | High (1.0) |
 |-----------|-----|---------------------|-----------|------------|
 | Autonomy | autonomy | How independent is this from state/corporate systems? | Requires institutional support | Fully self-governing |
-| Technical Complexity | tech_complexity | How much technical infrastructure does this require? | No-tech, purely social/human | Requires advanced engineering |
+| Technical Complexity | tech | How much technical infrastructure does this require? | No-tech, purely social/human | Requires advanced engineering |
 | Governance | governance | How relevant is this to decision-making and organization? | No governance implications | Core governance mechanism |
 | Economic | economic | How much does this contribute to economic self-sufficiency? | No economic function | Primary economic engine |
 | Resilience | resilience | How much does this improve crisis survival? | No resilience benefit | Critical for survival |
@@ -86,7 +86,7 @@ The current view state is encoded in the URL hash for shareability:
 ```
 pt32lab.github.io/#d=1&axis=overview
 pt32lab.github.io/#d=1&axis=governance
-pt32lab.github.io/#d=2&x=autonomy&y=tech_complexity
+pt32lab.github.io/#d=2&x=autonomy&y=tech
 pt32lab.github.io/#d=3&x=autonomy&y=governance&z=resilience&focus=ayllu-system
 ```
 
