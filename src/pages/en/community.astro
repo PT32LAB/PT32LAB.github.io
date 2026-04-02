@@ -82,6 +82,72 @@ const globalProjects = [
   },
 ];
 
+const localNeighbors = [
+  {
+    name: 'Afro-Bolivian Communities',
+    location: 'Tocana, Mururata, Chijchipa — Nor Yungas',
+    desc: 'The cultural heart of Nor Yungas. Descendants of enslaved Africans brought to work in colonial mines and haciendas. Keepers of the saya music tradition — drum-driven call-and-response that is now recognized as Bolivian national cultural heritage. An estimated 15,000–25,000 Afro-Bolivians nationally, concentrated in this area.',
+    lesson: 'BARK\'s immediate neighbors. Any community project in Nor Yungas that ignores Afro-Bolivian history, culture, and land rights is building on a lie. Collaboration must be genuine, not performative.',
+  },
+  {
+    name: 'CENAPROC',
+    location: 'Yungas, Bolivia',
+    desc: 'An award-winning organic coffee cooperative operating in the Yungas. Demonstrates that cooperative agricultural enterprises — the exact model BARK\'s Trading House proposes — already work in this specific region with these specific crops.',
+    lesson: 'Proof of concept for cooperative agriculture in the Yungas. CENAPROC\'s existence means BARK doesn\'t need to theorize about whether coffee cooperatives work here — they already do.',
+  },
+  {
+    name: 'Carmen Pampa University',
+    location: '12 km from Coroico (Unidad Académica Campesina)',
+    url: 'https://www.uac-carmenpampa.edu.bo/',
+    desc: 'A rural university offering degrees in agronomy, veterinary science, nursing, education, and ecotourism. Located just 12 km from Coroico, it is a major local institution training the next generation of Yungas professionals.',
+    lesson: 'A major asset for BARK. Students and faculty in agronomy and ecotourism are natural collaborators. Internship programs, joint research, shared facilities — the partnership opportunities are obvious.',
+  },
+  {
+    name: 'La Senda Verde',
+    location: 'Yungas, Bolivia',
+    url: 'https://www.sendaverde.com/',
+    desc: 'A wildlife refuge and ecotourism resort operating in the Yungas since 2003. Rescues and rehabilitates wild animals while running a sustainable tourism operation. Over 20 years of continuous operation.',
+    lesson: 'Demonstrates that conservation-based enterprises work in the Yungas. Their ecotourism model proves that visitors will travel to this region for nature-based experiences — relevant to BARK\'s retreat center plans.',
+  },
+  {
+    name: 'Irupana Municipality',
+    location: 'Sud Yungas, Bolivia',
+    desc: 'Neighboring Yungas municipality that has achieved organic certification for its agricultural production. Shows that organic certification — a key component of BARK\'s agricultural strategy — is achievable in this region through existing Bolivian regulatory frameworks.',
+    lesson: 'Regulatory proof that organic certification works in the Yungas. Irupana\'s example removes one more "but can it work here?" objection from the list.',
+  },
+];
+
+const globalMovement = [
+  {
+    name: 'Transition Towns',
+    location: 'Global (1,000+ communities)',
+    url: 'https://transitionnetwork.org/',
+    desc: 'A worldwide movement of communities building local resilience in the face of climate change, economic instability, and resource depletion. Over 1,000 communities in more than 40 countries, sharing practical tools for local food systems, community energy, and economic localization.',
+    lesson: 'The Transition model provides tested tools for community resilience building. Their "Great Reskilling" workshops and local currency experiments are directly applicable to BARK.',
+  },
+  {
+    name: 'Practical Action',
+    location: 'Global (active in Bolivia)',
+    url: 'https://practicalaction.org/',
+    desc: 'An appropriate technology NGO that already operates in Bolivia. Founded on E.F. Schumacher\'s "Small is Beautiful" philosophy. Provides technical assistance for small-scale energy, agriculture, and infrastructure in developing regions.',
+    lesson: 'Practical Action already has Bolivia expertise, local contacts, and proven appropriate technology designs. A natural partner rather than a competitor — they solve problems BARK will face.',
+  },
+  {
+    name: 'Savory Institute',
+    location: 'Global network',
+    url: 'https://savory.global/',
+    desc: 'A regenerative agriculture network promoting holistic land management. Their approach to restoring degraded land through managed grazing and soil health is relevant to the Yungas agricultural landscape.',
+    lesson: 'Regenerative agriculture methods for BARK\'s food systems. Their hub network model — local practitioners connected to a global knowledge base — mirrors BARK\'s open-source philosophy.',
+  },
+  {
+    name: 'Fab City Network',
+    location: 'Global (38 cities)',
+    url: 'https://fab.city/',
+    desc: '38 cities worldwide committed to producing everything they consume by 2054. Built on the Fab Lab model of distributed digital fabrication and the principle that cities should share knowledge globally while producing locally.',
+    lesson: 'The "globally connected, locally productive" model is BARK\'s techno park philosophy at city scale. Fab City membership gives access to design files, training, and a global fabrication community.',
+  },
+];
+
 const governanceExperiments = [
   {
     name: 'Cabin DAO',
@@ -113,6 +179,41 @@ const governanceExperiments = [
         and study both successes and failures honestly. No project this ambitious succeeds by reinventing every wheel.
       </p>
       <div class="accent-line mt-10 reveal" data-delay="300"></div>
+    </div>
+  </section>
+
+  <!-- Our Actual Neighbors (Local Yungas) -->
+  <section class="pb-20 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <h2 class="text-title text-bark-800 mb-3 reveal">Our Actual Neighbors</h2>
+      <p class="text-bark-500 mb-10 max-w-2xl reveal" data-delay="100">
+        Before looking at the global map, BARK needs to know its own neighborhood. These are the communities,
+        institutions, and organizations already operating in and around the Yungas — the people we'll share roads,
+        markets, and weather with.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-px bg-bark-200 rounded-xl overflow-hidden reveal" data-delay="200">
+        {localNeighbors.map(p => (
+          <div class="bg-bark-50 p-10">
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div>
+                <h3 class="font-display font-semibold text-bark-800 text-lg">{p.name}</h3>
+                <span class="text-label text-bark-400 text-[0.65rem]">{p.location}</span>
+              </div>
+              {p.url && (
+                <a href={p.url} target="_blank" rel="noopener noreferrer" class="text-accent text-sm font-display font-medium shrink-0 hover:underline">
+                  Visit &rarr;
+                </a>
+              )}
+            </div>
+            <p class="text-bark-600 text-[0.95rem] leading-relaxed mb-4">{p.desc}</p>
+            <div class="border-t border-bark-200 pt-4 mt-auto">
+              <span class="text-label text-accent text-[0.6rem]">What BARK learns</span>
+              <p class="text-bark-500 text-sm leading-relaxed mt-1">{p.lesson}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -251,6 +352,41 @@ const governanceExperiments = [
             practiced in this exact geography for centuries. Humility is not optional.
           </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Movement -->
+  <section class="pb-20 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <h2 class="text-title text-bark-800 mb-3 reveal">Global Movement</h2>
+      <p class="text-bark-500 mb-10 max-w-2xl reveal" data-delay="100">
+        Organizations and networks building the infrastructure for local resilience at global scale.
+        These are not theoretical — they have active programs, open-source tools, and in some cases
+        already operate in Bolivia.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-px bg-bark-200 rounded-xl overflow-hidden reveal" data-delay="200">
+        {globalMovement.map(p => (
+          <div class="bg-bark-50 p-10">
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div>
+                <h3 class="font-display font-semibold text-bark-800 text-lg">{p.name}</h3>
+                <span class="text-label text-bark-400 text-[0.65rem]">{p.location}</span>
+              </div>
+              {p.url && (
+                <a href={p.url} target="_blank" rel="noopener noreferrer" class="text-accent text-sm font-display font-medium shrink-0 hover:underline">
+                  Visit &rarr;
+                </a>
+              )}
+            </div>
+            <p class="text-bark-600 text-[0.95rem] leading-relaxed mb-4">{p.desc}</p>
+            <div class="border-t border-bark-200 pt-4 mt-auto">
+              <span class="text-label text-accent text-[0.6rem]">What BARK learns</span>
+              <p class="text-bark-500 text-sm leading-relaxed mt-1">{p.lesson}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
