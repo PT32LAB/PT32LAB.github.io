@@ -21,27 +21,29 @@ const pillars = [
 ---
 
 <Base title="Home">
-  <!-- Hero — dark, immersive, kinetic typography -->
+  <!-- Hero -- dark, immersive, kinetic typography -->
   <section class="relative min-h-screen flex items-end pb-20 overflow-hidden bg-night">
     <MyceliumCanvas />
     <div class="absolute inset-0 bg-gradient-to-t from-night via-night/80 to-transparent z-[1]"></div>
 
     <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
       <div class="mb-8 reveal" data-delay="100">
-        <span class="text-label text-accent tracking-widest">Coroico, Bolivia -- 1,750m</span>
+        <span class="text-label text-accent tracking-widest">Coroico, Bolivia -- 1,750 m</span>
       </div>
 
-      <!-- Kinetic headline — word-by-word reveal -->
+      <!-- Kinetic headline -- word-by-word reveal -->
       <h1 class="text-display text-bark-50 max-w-5xl text-split">
         The Andes dissolve into cloud forest here. We're building into the seam.
       </h1>
 
       <div class="mt-8 max-w-2xl reveal" data-delay="400">
         <p class="text-body-lg text-bark-300 leading-relaxed">
-          BARK — the Bolivian Ark — is a community being built in the Yungas
-          cloud forest. Five interlocking systems designed to produce their own
-          energy, grow their own food, and govern themselves transparently.
-          Every plan published. Every decision on the record.
+          BARK -- the <strong class="text-bark-100">Bolivian Ark</strong> -- is a
+          semi-autonomous community taking shape in the Yungas cloud forest. Solar power,
+          spring-fed water, vertical farms, a fabrication lab, a startup incubator, and
+          a trading house -- five interlocking components designed to produce their own
+          energy, grow their own food, and govern themselves transparently. Every plan
+          published. Every decision on the record.
         </p>
       </div>
 
@@ -64,39 +66,53 @@ const pillars = [
     </div>
   </section>
 
-  <!-- Stats strip — animated counters with verified data -->
-  <section class="bg-bark-900 py-10 px-6 lg:px-10 border-t border-bark-800">
-    <div class="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-5 gap-8">
-      <div class="text-center reveal">
-        <div class="text-headline text-accent font-display">
-          <span class="counter" data-target="1750" data-suffix="m">0</span>
-        </div>
-        <span class="text-label text-bark-500 mt-1 block">Above Sea Level</span>
-      </div>
-      <div class="text-center reveal" data-delay="100">
-        <div class="text-headline text-bark-50 font-display">
-          <span class="counter" data-target="400" data-suffix="+">0</span>
-        </div>
-        <span class="text-label text-bark-500 mt-1 block">Bird Species Recorded</span>
-      </div>
-      <div class="text-center reveal" data-delay="150">
-        <div class="text-headline text-bark-50 font-display">
-          <span class="counter" data-target="3000" data-suffix="+">0</span>
-        </div>
-        <span class="text-label text-bark-500 mt-1 block">Documented Plant Species</span>
-      </div>
-      <div class="text-center reveal" data-delay="200">
-        <div class="text-headline text-bark-50 font-display">18-28°C</div>
-        <span class="text-label text-bark-500 mt-1 block">Twelve Months a Year</span>
-      </div>
-      <div class="text-center reveal" data-delay="300">
-        <div class="text-headline text-accent font-display">Open Source</div>
-        <span class="text-label text-bark-500 mt-1 block">Plans, Code, Governance</span>
+  <!-- What BARK is -- concise value prop -->
+  <section class="bg-bark-50 py-24 px-6 lg:px-10">
+    <div class="max-w-[900px] mx-auto text-center">
+      <span class="text-label text-accent reveal">What This Is</span>
+      <h2 class="text-title text-bark-800 mt-4 reveal" data-delay="100">
+        Not a bunker. Not a resort. An operating system for a community that intends to keep living well -- regardless of what the next decades deliver.
+      </h2>
+      <p class="text-body-lg text-bark-500 mt-6 leading-relaxed reveal" data-delay="200">
+        BARK integrates energy, food, manufacturing, commerce, and governance into a single
+        self-reinforcing system. Each component makes the others stronger. The whole thing
+        is open-source -- because projects that survive their founders are projects worth building.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider-accent"></div>
+
+  <!-- Why -- dark pull-quote section -->
+  <section class="bg-bark-900 py-28 px-6 lg:px-10 overflow-hidden">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="text-label text-accent reveal">The Thesis</span>
+        <h2 class="text-headline text-bark-50 mt-6 text-split">
+          Civilization is a supply chain problem.
+        </h2>
+        <p class="text-body-lg text-bark-400 mt-8 leading-relaxed reveal" data-delay="200">
+          Every generation assumes the grid will hold. Ours is the first to watch
+          supply chains, institutions, and climate shift simultaneously -- and to
+          have the tools to do something about it before the lights flicker.
+        </p>
+
+        <!-- Pull-quote in dark section -->
+        <blockquote class="mt-12 mb-8 py-8 border-t border-b border-bark-700 reveal" data-delay="300">
+          <p class="font-display text-bark-100 text-xl md:text-2xl font-semibold leading-snug italic">
+            "Resilience cannot be improvised. A solar installation takes months. A food forest takes years. Community trust compounds slowly and cannot be rushed."
+          </p>
+        </blockquote>
+
+        <a href={`/${lang}/why`} class="inline-flex items-center gap-3 mt-4 text-accent hover:text-accent-light font-display text-sm tracking-wide transition-colors duration-300 reveal" data-delay="400">
+          The full argument
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Pathways — four audience entry points -->
+  <!-- Who it's for -- four audience entry points -->
   <section class="py-32 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
       <div class="max-w-xl mb-20">
@@ -129,30 +145,109 @@ const pillars = [
     </div>
   </section>
 
-  <!-- Why strip — dark, typographic, dramatic -->
-  <section class="bg-bark-900 py-32 px-6 lg:px-10 overflow-hidden">
+  <div class="divider"></div>
+
+  <!-- Evidence -- stats that matter -->
+  <section class="bg-bark-900 py-16 px-6 lg:px-10 border-t border-bark-800">
     <div class="max-w-[1400px] mx-auto">
-      <div class="max-w-3xl mx-auto text-center">
-        <span class="text-label text-accent reveal">The Thesis</span>
-        <h2 class="text-headline text-bark-50 mt-6 text-split">
-          Civilization is a supply chain problem.
-        </h2>
-        <p class="text-body-lg text-bark-400 mt-8 leading-relaxed reveal" data-delay="200">
-          Every generation assumes the grid will hold. Ours is the first to watch
-          supply chains, institutions, and climate shift simultaneously -- and to
-          have the tools to do something about it before the lights flicker. BARK
-          is not a bunker. It is an operating system for a community that intends
-          to keep living well regardless of what the next decades deliver.
-        </p>
-        <a href={`/${lang}/why`} class="inline-flex items-center gap-3 mt-10 text-accent hover:text-accent-light font-display text-sm tracking-wide transition-colors duration-300 reveal" data-delay="300">
-          The full argument
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </a>
+      <div class="text-center mb-12">
+        <span class="text-label text-accent reveal">The Numbers</span>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+        <div class="text-center reveal">
+          <div class="text-headline text-accent font-display">
+            <span class="counter" data-target="1750" data-suffix="m">0</span>
+          </div>
+          <span class="text-label text-bark-500 mt-2 block">Above Sea Level</span>
+          <span class="text-xs text-bark-600 mt-1 block">Cloud forest altitude</span>
+        </div>
+        <div class="text-center reveal" data-delay="100">
+          <div class="text-headline text-bark-50 font-display">
+            <span class="counter" data-target="400" data-suffix="+">0</span>
+          </div>
+          <span class="text-label text-bark-500 mt-2 block">Bird Species</span>
+          <span class="text-xs text-bark-600 mt-1 block">One of Earth's hotspots</span>
+        </div>
+        <div class="text-center reveal" data-delay="150">
+          <div class="text-headline text-bark-50 font-display">
+            <span class="counter" data-target="3000" data-suffix="+">0</span>
+          </div>
+          <span class="text-label text-bark-500 mt-2 block">Plant Species</span>
+          <span class="text-xs text-bark-600 mt-1 block">Documented in the Yungas</span>
+        </div>
+        <div class="text-center reveal" data-delay="200">
+          <div class="text-headline text-bark-50 font-display">18-28°C</div>
+          <span class="text-label text-bark-500 mt-2 block">Year Round</span>
+          <span class="text-xs text-bark-600 mt-1 block">Never freezes, never scorches</span>
+        </div>
+        <div class="text-center reveal" data-delay="300">
+          <div class="text-headline text-accent font-display">Open Source</div>
+          <span class="text-label text-bark-500 mt-2 block">Everything</span>
+          <span class="text-xs text-bark-600 mt-1 block">Plans, code, governance</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Five Components — horizontal scroll on mobile, list on desktop -->
+  <!-- Location teaser with prominent imagery -->
+  <section class="py-32 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <!-- Full-width hero image -->
+      <div class="relative rounded-xl overflow-hidden mb-16 reveal">
+        <img src="/images/yungas/coroico-clouds.jpg" alt="Coroico valley at dawn, clouds rolling through the Yungas cloud forest" class="w-full h-72 md:h-[28rem] object-cover" loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-bark-900/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <span class="text-label text-accent">Location</span>
+          <h2 class="text-headline text-bark-50 mt-2">Coroico, Yungas</h2>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row md:items-start gap-16">
+        <div class="md:w-1/2">
+          <p class="text-body-lg text-bark-500 leading-relaxed reveal">
+            The road from La Paz drops 3,400 meters in three hours. When the altiplano
+            dust gives way to orchids and the air turns wet, you have arrived. The Yungas
+            cloud forest sits in a climate band that never freezes, never scorches, and
+            grows food twelve months a year. The Inca knew this. We are paying attention.
+          </p>
+          <a href={`/${lang}/location`} class="inline-flex items-center gap-2 mt-6 text-accent font-display text-sm tracking-wide hover:text-accent-dim transition-colors reveal" data-delay="100">
+            The geography in detail --
+          </a>
+        </div>
+        <div class="md:w-1/2">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-bark-100 p-6 rounded-xl reveal" data-delay="100">
+              <div class="text-title text-bark-800 font-display counter" data-target="1750" data-suffix="m">0</div>
+              <span class="text-label text-bark-400 mt-1 block">Cloud Forest Line</span>
+            </div>
+            <div class="bg-bark-100 p-6 rounded-xl reveal" data-delay="200">
+              <div class="text-title text-bark-800 font-display">18-28°C</div>
+              <span class="text-label text-bark-400 mt-1 block">Eternal Spring</span>
+            </div>
+            <div class="bg-bark-100 p-6 rounded-xl reveal" data-delay="300">
+              <div class="text-title text-accent font-display">Top 5%</div>
+              <span class="text-label text-bark-400 mt-1 block">Global Biodiversity</span>
+            </div>
+            <div class="bg-bark-100 p-6 rounded-xl reveal" data-delay="400">
+              <div class="text-title text-bark-800 font-display">3h</div>
+              <span class="text-label text-bark-400 mt-1 block">La Paz by Road</span>
+            </div>
+          </div>
+          <!-- Valley photo below stats -->
+          <div class="relative rounded-xl overflow-hidden mt-4 reveal" data-delay="500">
+            <img src="/images/yungas/valley.jpg" alt="Yungas valley, Bolivia -- dramatic green slopes descending into cloud forest" class="w-full h-48 object-cover" loading="lazy" />
+            <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-bark-900/80 to-transparent">
+              <span class="text-xs text-bark-300">Photo: CC BY-SA 3.0, Jerrye & Roy Klotz MD via Wikimedia Commons</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Five Components -- clean list -->
   <section class="py-32 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
@@ -182,51 +277,6 @@ const pillars = [
     </div>
   </section>
 
-  <!-- Location teaser -->
-  <section class="bg-bark-100 py-24 px-6 lg:px-10">
-    <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-center gap-16">
-      <div class="md:w-1/2">
-        <span class="text-label text-accent reveal">Location</span>
-        <h2 class="text-headline text-bark-800 mt-4 text-split">Coroico, Yungas</h2>
-        <p class="text-body-lg text-bark-500 mt-6 leading-relaxed reveal" data-delay="200">
-          The road from La Paz drops 3,400 meters in three hours. When the altiplano
-          dust gives way to orchids and the air turns wet, you have arrived. The Yungas
-          cloud forest sits in a climate band that never freezes, never scorches, and
-          grows food twelve months a year. The Inca knew this. We are paying attention.
-        </p>
-        <a href={`/${lang}/location`} class="inline-flex items-center gap-2 mt-6 text-accent font-display text-sm tracking-wide hover:text-accent-dim transition-colors reveal" data-delay="300">
-          The geography in detail --
-        </a>
-      </div>
-      <div class="md:w-1/2 space-y-4">
-        <div class="relative rounded-xl overflow-hidden reveal">
-          <img src="/images/yungas/valley.jpg" alt="Yungas valley, Bolivia — dramatic green slopes descending into cloud forest" class="w-full h-64 md:h-80 object-cover" loading="lazy" />
-          <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-bark-900/80 to-transparent">
-            <span class="text-xs text-bark-300">Photo: CC BY-SA 3.0, Jerrye & Roy Klotz MD via Wikimedia Commons</span>
-          </div>
-        </div>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="bg-bark-50 p-6 rounded-xl reveal" data-delay="100">
-            <div class="text-title text-bark-800 font-display counter" data-target="1750" data-suffix="m">0</div>
-            <span class="text-label text-bark-400 mt-1 block">Cloud Forest Line</span>
-          </div>
-          <div class="bg-bark-50 p-6 rounded-xl reveal" data-delay="200">
-            <div class="text-title text-bark-800 font-display">18-28°C</div>
-            <span class="text-label text-bark-400 mt-1 block">Eternal Spring</span>
-          </div>
-          <div class="bg-bark-50 p-6 rounded-xl reveal" data-delay="300">
-            <div class="text-title text-accent font-display">Top 5%</div>
-            <span class="text-label text-bark-400 mt-1 block">Global Hotspot</span>
-          </div>
-          <div class="bg-bark-50 p-6 rounded-xl reveal" data-delay="400">
-            <div class="text-title text-bark-800 font-display">3h</div>
-            <span class="text-label text-bark-400 mt-1 block">La Paz by Road</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA -->
   <section class="relative bg-night py-32 px-6 lg:px-10 overflow-hidden">
     <div class="absolute inset-0 opacity-30">
@@ -241,6 +291,13 @@ const pillars = [
         skill, or the kind of restlessness that reads a page like this all the
         way to the bottom -- we should talk.
       </p>
+
+      <!-- Founded by teaser -->
+      <p class="text-bark-500 mt-8 text-sm reveal" data-delay="250">
+        Started by Drow Dvorkin. Growing through contributors.
+        <a href={`/${lang}/team`} class="text-accent hover:text-accent-light transition-colors">Meet the team &rarr;</a>
+      </p>
+
       <div class="mt-10 flex flex-wrap justify-center gap-4 reveal" data-delay="300">
         <a href={`/${lang}/participate`} class="group inline-flex items-center gap-3 px-8 py-4 bg-accent text-night font-display font-semibold text-sm tracking-wide rounded hover:bg-accent-light transition-colors duration-300">
           Start a Conversation
