@@ -25,18 +25,18 @@
   --color-gold: #d4a853;
   --color-cyan: #22d3ee;
 
-  --font-display: 'Cormorant Garamond', 'Georgia', serif;
-  --font-body: 'Source Sans 3', 'Source Sans 3 Fallback', system-ui, sans-serif;
+  --font-display: 'Libre Franklin', 'Libre Franklin Fallback', system-ui, sans-serif;
+  --font-body: 'Lora', 'Georgia', serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
 /* Font fallback metrics to reduce CLS during font swap */
 @font-face {
-  font-family: 'Source Sans 3 Fallback';
+  font-family: 'Libre Franklin Fallback';
   src: local('Arial');
-  size-adjust: 103%;
-  ascent-override: 93%;
-  descent-override: 25%;
+  size-adjust: 100%;
+  ascent-override: 92%;
+  descent-override: 24%;
   line-gap-override: 0%;
 }
 

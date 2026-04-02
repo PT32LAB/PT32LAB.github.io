@@ -4,45 +4,74 @@ import { getLangFromUrl, t, getLocalePath, languages, type Lang } from '../i18n/
 const lang = getLangFromUrl(Astro.url);
 const otherLang: Lang = lang === 'en' ? 'es' : 'en';
 
-const links = [
+const primaryLinks = [
   { key: 'nav.vision' as const, path: '/vision' },
-  { key: 'nav.why' as const, path: '/why' },
   { key: 'nav.pillars' as const, path: '/pillars' },
   { key: 'nav.location' as const, path: '/location' },
+  { key: 'nav.participate' as const, path: '/participate' },
+];
+
+const moreLinks = [
+  { key: 'nav.why' as const, path: '/why' },
   { key: 'nav.governance' as const, path: '/governance' },
   { key: 'nav.community' as const, path: '/community' },
-  { key: 'nav.participate' as const, path: '/participate' },
   { key: 'nav.team' as const, path: '/team' },
   { key: 'nav.roadmap' as const, path: '/roadmap' },
   { key: 'nav.explore' as const, path: '/explore' },
 ];
+
+const allLinks = [...primaryLinks, ...moreLinks];
 ---
 
 <nav id="main-nav" class="fixed top-0 w-full z-50 transition-all duration-500">
   <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
-    <div class="flex items-center justify-between h-20">
+    <div class="flex items-center justify-between h-16">
       <a href={getLocalePath(lang, '/')} class="font-display font-bold text-bark-800 text-lg tracking-tight hover:text-accent transition-colors" transition:name="logo">
         BARK
       </a>
 
-      <div class="hidden md:flex items-center gap-8">
-        {links.map(link => (
+      <div class="hidden lg:flex items-center gap-7">
+        {primaryLinks.map(link => (
           <a
             href={getLocalePath(lang, link.path)}
-            class="text-label text-bark-500 hover:text-bark-800 transition-colors duration-300"
+            class="text-[0.7rem] font-display font-medium tracking-[0.12em] uppercase text-bark-500 hover:text-bark-800 transition-colors duration-300"
           >
             {t(lang, link.key)}
           </a>
         ))}
+
+        <!-- More dropdown -->
+        <div class="relative" id="more-dropdown">
+          <button
+            class="text-[0.7rem] font-display font-medium tracking-[0.12em] uppercase text-bark-500 hover:text-bark-800 transition-colors duration-300 flex items-center gap-1"
+            id="more-btn"
+          >
+            More
+            <svg class="w-3 h-3 transition-transform duration-200" id="more-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div id="more-panel" class="hidden absolute right-0 top-full mt-2 w-48 bg-bark-50 border border-bark-200 rounded-lg shadow-lg py-2 z-50">
+            {moreLinks.map(link => (
+              <a
+                href={getLocalePath(lang, link.path)}
+                class="block px-4 py-2 text-[0.7rem] font-display font-medium tracking-[0.1em] uppercase text-bark-500 hover:text-bark-800 hover:bg-bark-100 transition-colors duration-200"
+              >
+                {t(lang, link.key)}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <span class="w-px h-4 bg-bark-200"></span>
+
         <a
           href={getLocalePath(otherLang, Astro.url.pathname.replace(`/${lang}`, '') || '/')}
-          class="text-label text-bark-400 hover:text-accent transition-colors duration-300"
+          class="text-[0.7rem] font-display font-medium tracking-[0.12em] uppercase text-bark-400 hover:text-accent transition-colors duration-300"
         >
           {languages[otherLang]}
         </a>
       </div>
 
-      <button id="mobile-menu-btn" class="md:hidden p-2 text-bark-600" aria-label="Menu">
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-bark-600" aria-label="Menu">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/>
         </svg>
@@ -50,20 +79,21 @@ const links = [
     </div>
   </div>
 
-  <div id="mobile-menu" class="hidden md:hidden bg-bark-50/95 backdrop-blur-md border-t border-bark-200/50">
-    <div class="px-6 py-6 space-y-4">
-      {links.map(link => (
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-bark-50/98 backdrop-blur-md border-t border-bark-200/50">
+    <div class="px-6 py-5 space-y-1">
+      {allLinks.map(link => (
         <a
           href={getLocalePath(lang, link.path)}
-          class="block text-label text-bark-500 hover:text-bark-800 transition-colors"
+          class="block py-2 text-[0.7rem] font-display font-medium tracking-[0.1em] uppercase text-bark-500 hover:text-bark-800 transition-colors"
         >
           {t(lang, link.key)}
         </a>
       ))}
-      <div class="pt-2 border-t border-bark-200/50">
+      <div class="pt-3 mt-2 border-t border-bark-200/50">
         <a
           href={getLocalePath(otherLang, Astro.url.pathname.replace(`/${lang}`, '') || '/')}
-          class="text-label text-bark-400"
+          class="text-[0.7rem] font-display font-medium tracking-[0.1em] uppercase text-bark-400"
         >
           {languages[otherLang]}
         </a>
@@ -77,6 +107,9 @@ const links = [
     const nav = document.getElementById('main-nav');
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
+    const moreBtn = document.getElementById('more-btn');
+    const morePanel = document.getElementById('more-panel');
+    const moreChevron = document.getElementById('more-chevron');
     if (!nav) return;
 
     let lastY = 0;
@@ -87,12 +120,12 @@ const links = [
       ticking = true;
       requestAnimationFrame(() => {
         const y = window.scrollY;
-        if (y > 100) {
+        if (y > 80) {
           nav.classList.add('bg-bark-50/90', 'backdrop-blur-md', 'shadow-sm');
         } else {
           nav.classList.remove('bg-bark-50/90', 'backdrop-blur-md', 'shadow-sm');
         }
-        if (y > lastY && y > 400) {
+        if (y > lastY && y > 300) {
           nav.style.transform = 'translateY(-100%)';
         } else {
           nav.style.transform = 'translateY(0)';
@@ -103,6 +136,18 @@ const links = [
     });
 
     btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+
+    // More dropdown
+    moreBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      morePanel?.classList.toggle('hidden');
+      moreChevron?.classList.toggle('rotate-180');
+    });
+
+    document.addEventListener('click', () => {
+      morePanel?.classList.add('hidden');
+      moreChevron?.classList.remove('rotate-180');
+    });
   }
 
   initNav();
