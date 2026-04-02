@@ -1,0 +1,322 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const reasons = [
+  {
+    num: '01',
+    title: 'Resilience Hedge',
+    desc: 'Physical, productive, community-owned assets in a geographically isolated, self-sufficient setting. In an era of geopolitical instability, supply chain disruptions, and climate uncertainty, a functioning off-grid community with food production, energy independence, and local manufacturing is a hedge against civilization-level risks.',
+    detail: 'The same logic behind agricultural land investment and rural property acquisition, but with active community management and productive capacity.',
+  },
+  {
+    num: '02',
+    title: 'Impact Investing',
+    desc: 'Measurable social and environmental impact across multiple UN Sustainable Development Goals: education and vocational training in one of Bolivia\'s poorest regions, agroforestry replacing deforestation, renewable energy deployment, and biodiversity conservation in a global hotspot.',
+    detail: 'SDG 2 (Zero Hunger), SDG 7 (Clean Energy), SDG 8 (Decent Work), SDG 11 (Sustainable Communities), SDG 13 (Climate Action), SDG 15 (Life on Land).',
+  },
+  {
+    num: '03',
+    title: 'Early-Stage Opportunity',
+    desc: 'Ground floor of a replicable model. Early participants shape governance, design, and culture. The open-source documentation means others can build their own — each new BARK-inspired community validates the model and increases the value of the original.',
+    detail: 'Network effects from replication. The model compounds.',
+  },
+  {
+    num: '04',
+    title: 'Real Asset Backing',
+    desc: 'Unlike purely financial instruments, BARK investment is backed by land in the Yungas, solar infrastructure, water systems, processing equipment, buildings, fabrication tools, and productive agricultural operations.',
+    detail: 'Land in a region with increasing interest from eco-tourists, retirees, and remote workers.',
+  },
+  {
+    num: '05',
+    title: 'Revenue-Generating Components',
+    desc: 'BARK is not a charity. Multiple active revenue streams: specialty coffee and cacao, a technoshamanic retreat center, solar installation services for Bolivia\'s 140,000-family electrification program, permaculture courses, and fabrication services.',
+    detail: 'Each component can operate independently. Revenue diversification reduces risk.',
+  },
+];
+
+const modalities = [
+  {
+    title: 'Cooperative Shares',
+    icon: 'vote',
+    desc: 'Membership under Bolivia\'s Ley 356. Democratic governance: one member, one vote. Surplus distributed per cooperative statute. Share certificates grant voting rights in the General Assembly.',
+    note: 'Shares are not liquid — no secondary market. Exit requires cooperative approval.',
+  },
+  {
+    title: 'Component Funding',
+    icon: 'build',
+    desc: 'Sponsor a specific processing line or infrastructure component: solar micro-grid ($15K-$30K), coffee processing ($10K-$25K), cacao processing ($10K-$25K), Fab Lab ($15K-$40K), or water systems ($8K-$20K).',
+    note: 'Named facility, priority access, share of component revenue, impact reporting.',
+  },
+  {
+    title: 'In-Kind Contributions',
+    icon: 'gift',
+    desc: 'Equipment, expertise, or intellectual property. Solar panels, tools, engineering design, legal services, architectural plans, open-source software, training curricula.',
+    note: 'Valued at fair market value, converted to cooperative share equivalents.',
+  },
+  {
+    title: 'Residency Investment',
+    icon: 'home',
+    desc: 'Buy-in for community membership plus a living space. Includes cooperative share, land use allocation, and community services. Land remains collectively owned by the cooperative.',
+    note: 'Estimated $5K-$30K depending on housing tier and phase. Earlier is cheaper.',
+  },
+  {
+    title: 'Working Contributions',
+    icon: 'labor',
+    desc: 'Earn cooperative shares through labor: construction, agriculture, teaching, technical skills, administration. Hours tracked and converted to share value at a rate set by the General Assembly.',
+    note: 'Sweat equity with a cap to prevent governance power concentration.',
+  },
+];
+
+const projections = [
+  {
+    scenario: 'Conservative',
+    timeline: 'Year 3-5',
+    revenue: '$43,000/yr',
+    investment: '~$65,000',
+    breakeven: 'Year 3-4',
+    assumptions: 'Coffee and cacao at minimal scale. No retreat revenue. Basic solar services.',
+  },
+  {
+    scenario: 'Base',
+    timeline: 'Year 5-7',
+    revenue: '$80,000/yr',
+    investment: '~$110,000',
+    breakeven: 'Year 4-5',
+    assumptions: 'Moderate scale with established supply chains. Retreat center operational. Solar training active.',
+  },
+  {
+    scenario: 'Optimistic',
+    timeline: 'Year 7-10',
+    revenue: '$129,000/yr',
+    investment: '~$158,000',
+    breakeven: 'Year 3-4',
+    assumptions: 'All components operational. Premium brands established. Fab Lab generating incubator revenue.',
+  },
+];
+---
+
+<Base title="Investment Thesis" description="Why BARK is an investable project — real assets, real revenue, real impact.">
+  <!-- Header -->
+  <section class="pt-32 pb-16 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <span class="text-label text-accent reveal">Investment</span>
+      <h1 class="text-headline text-bark-800 mt-4 max-w-3xl reveal" data-delay="100">
+        Investment Thesis
+      </h1>
+      <p class="text-body-lg text-bark-500 mt-6 max-w-2xl reveal" data-delay="200">
+        BARK is not a speculative venture or a feel-good donation. It is an investable project
+        backed by real assets, generating real revenue, in a real place. Here is why it deserves
+        serious consideration.
+      </p>
+      <div class="accent-line mt-10 max-w-xl reveal" data-delay="300"></div>
+    </div>
+  </section>
+
+  <!-- Why Invest -->
+  <section class="pb-24 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <span class="text-label text-bark-400 reveal">Why Invest</span>
+      <h2 class="text-title text-bark-800 mt-4 mb-10 reveal" data-delay="100">Five reasons this matters.</h2>
+
+      <div class="space-y-px bg-bark-200 rounded-xl overflow-hidden">
+        {reasons.map((r, i) => (
+          <div class="bg-bark-50 p-10 reveal" data-delay={String(i * 80)}>
+            <div class="flex items-start gap-6">
+              <span class="text-label text-accent text-2xl font-bold shrink-0 mt-1">{r.num}</span>
+              <div>
+                <h3 class="font-display font-semibold text-bark-800 text-xl">{r.title}</h3>
+                <p class="text-bark-600 mt-3 leading-relaxed">{r.desc}</p>
+                <p class="text-bark-400 mt-2 text-sm leading-relaxed">{r.detail}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Revenue Projections -->
+  <section class="bg-bark-900 py-24 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <span class="text-label text-accent reveal">Financial Model</span>
+      <h2 class="text-title text-bark-100 mt-4 mb-4 reveal" data-delay="100">Revenue Projections</h2>
+      <p class="text-bark-400 mb-12 max-w-2xl reveal" data-delay="200">
+        Combined portfolio projections across all revenue-generating components.
+        These are estimates based on comparable projects in Bolivia, not guarantees.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {projections.map((p, i) => (
+          <div class="bg-bark-800/60 rounded-xl p-8 reveal" data-delay={String(i * 100)}>
+            <span class="text-label text-accent text-[0.6rem]">{p.scenario}</span>
+            <div class="text-bark-100 font-display font-bold text-3xl mt-2">{p.revenue}</div>
+            <span class="text-bark-400 text-sm">{p.timeline}</span>
+            <div class="border-t border-bark-700 mt-6 pt-6 space-y-3">
+              <div class="flex justify-between text-sm">
+                <span class="text-bark-400">Total investment</span>
+                <span class="text-bark-200 font-medium">{p.investment}</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-bark-400">Break-even</span>
+                <span class="text-bark-200 font-medium">{p.breakeven}</span>
+              </div>
+            </div>
+            <p class="text-bark-500 text-xs mt-4 leading-relaxed">{p.assumptions}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-bark-500 text-xs mt-8 max-w-2xl reveal" data-delay="400">
+        Revenue figures represent combined annual revenue from coffee, cacao, retreats, solar
+        services, education, and fabrication on total investment ranges of $65K-$158K. Effective
+        return to members is lower after mandatory reinvestment per cooperative statute.
+      </p>
+    </div>
+  </section>
+
+  <!-- Investment Modalities -->
+  <section class="py-24 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <span class="text-label text-bark-400 reveal">How to Invest</span>
+      <h2 class="text-title text-bark-800 mt-4 mb-10 reveal" data-delay="100">Investment Modalities</h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-bark-200 rounded-xl overflow-hidden">
+        {modalities.map((m, i) => (
+          <div class="bg-bark-50 p-8 reveal" data-delay={String(i * 80)}>
+            <h3 class="font-display font-semibold text-bark-800 text-lg">{m.title}</h3>
+            <p class="text-bark-600 mt-3 leading-relaxed text-[0.95rem]">{m.desc}</p>
+            <p class="text-bark-400 text-xs mt-4 leading-relaxed border-t border-bark-200 pt-3">{m.note}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Government Alignment -->
+  <section class="bg-bark-100 py-24 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <span class="text-label text-accent reveal">Government Alignment</span>
+      <h2 class="text-title text-bark-800 mt-4 mb-4 reveal" data-delay="100">
+        BARK operates within Bolivia's national priorities.
+      </h2>
+      <p class="text-bark-500 mb-10 max-w-2xl reveal" data-delay="200">
+        Bolivia is actively investing in the sectors BARK operates in. This creates alignment
+        between BARK's mission and government incentives, funding programs, and regulatory frameworks.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-bark-50 rounded-xl p-8 border border-bark-200 reveal" data-delay="100">
+          <h3 class="font-display font-semibold text-bark-800 mb-2">$325M Solar Electrification Program</h3>
+          <p class="text-bark-600 text-sm leading-relaxed">
+            Government of Bolivia with IDB, World Bank, and Green Climate Fund. Targeting 140,000
+            rural families with solar systems. BARK could serve as a training center for solar
+            installation and maintenance.
+          </p>
+        </div>
+        <div class="bg-bark-50 rounded-xl p-8 border border-bark-200 reveal" data-delay="150">
+          <h3 class="font-display font-semibold text-bark-800 mb-2">IDB $4.5B Development Package</h3>
+          <p class="text-bark-600 text-sm leading-relaxed">
+            Agreed for 2026-2028 supporting economic stabilization, growth, and job creation.
+            Includes $500M for social protection and $10M for sustainable tourism development.
+          </p>
+        </div>
+        <div class="bg-bark-50 rounded-xl p-8 border border-bark-200 reveal" data-delay="200">
+          <h3 class="font-display font-semibold text-bark-800 mb-2">Ley 356 Cooperative Framework</h3>
+          <p class="text-bark-600 text-sm leading-relaxed">
+            Bolivia's constitution recognizes cooperatives in 12 articles. 15,000 active cooperatives
+            regulated by AFCOOP. BARK's cooperative structure receives favorable legal treatment and
+            government recognition.
+          </p>
+        </div>
+        <div class="bg-bark-50 rounded-xl p-8 border border-bark-200 reveal" data-delay="250">
+          <h3 class="font-display font-semibold text-bark-800 mb-2">INIAF Agriculture Programs</h3>
+          <p class="text-bark-600 text-sm leading-relaxed">
+            National coffee and cacao improvement programs. Climate-resilient varieties. Technical
+            assistance through departmental offices. BARK's processing lines align directly with
+            INIAF's mission.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Risk & Transparency -->
+  <section class="py-24 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <span class="text-label text-bark-400 reveal">Honesty</span>
+      <h2 class="text-title text-bark-800 mt-4 mb-4 reveal" data-delay="100">Risk & Transparency</h2>
+      <p class="text-bark-500 mb-10 max-w-2xl reveal" data-delay="200">
+        We refuse to minimize what we don't yet know. If you're considering investing in BARK,
+        you should understand the real risks.
+      </p>
+
+      <div class="bg-bark-100 rounded-xl p-10 border border-bark-200 reveal" data-delay="300">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="font-display font-semibold text-bark-800 mb-4">Key Risks</h3>
+            <ul class="space-y-3">
+              <li class="text-bark-600 text-sm pl-5 leading-relaxed relative before:content-[''] before:absolute before:left-0 before:top-[0.6em] before:w-2 before:h-px before:bg-ember">
+                <strong class="text-bark-800">Illiquidity.</strong> Cooperative shares cannot be freely traded. No secondary market exists.
+              </li>
+              <li class="text-bark-600 text-sm pl-5 leading-relaxed relative before:content-[''] before:absolute before:left-0 before:top-[0.6em] before:w-2 before:h-px before:bg-ember">
+                <strong class="text-bark-800">Early-stage.</strong> BARK does not yet exist as an operating entity. All projections are forward-looking estimates.
+              </li>
+              <li class="text-bark-600 text-sm pl-5 leading-relaxed relative before:content-[''] before:absolute before:left-0 before:top-[0.6em] before:w-2 before:h-px before:bg-ember">
+                <strong class="text-bark-800">Country risk.</strong> Bolivia is experiencing economic instability: fuel shortages, dollar scarcity, evolving investment law.
+              </li>
+              <li class="text-bark-600 text-sm pl-5 leading-relaxed relative before:content-[''] before:absolute before:left-0 before:top-[0.6em] before:w-2 before:h-px before:bg-ember">
+                <strong class="text-bark-800">Operational risk.</strong> Off-grid infrastructure in a remote, subtropical mountain environment. Landslides, road blockades, supply chain constraints.
+              </li>
+              <li class="text-bark-600 text-sm pl-5 leading-relaxed relative before:content-[''] before:absolute before:left-0 before:top-[0.6em] before:w-2 before:h-px before:bg-ember">
+                <strong class="text-bark-800">Currency risk.</strong> Revenue in Bolivianos (BOB); fixed exchange rate regime under pressure.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-display font-semibold text-bark-800 mb-4">What BARK Does About It</h3>
+            <ul class="space-y-3">
+              <li class="text-bark-600 text-sm pl-5 leading-relaxed relative before:content-[''] before:absolute before:left-0 before:top-[0.6em] before:w-2 before:h-px before:bg-accent">
+                Open-source documentation means the knowledge survives even if a specific site doesn't.
+              </li>
+              <li class="text-bark-600 text-sm pl-5 leading-relaxed relative before:content-[''] before:absolute before:left-0 before:top-[0.6em] before:w-2 before:h-px before:bg-accent">
+                Cooperative governance distributes decision-making and reduces single-point-of-failure risk.
+              </li>
+              <li class="text-bark-600 text-sm pl-5 leading-relaxed relative before:content-[''] before:absolute before:left-0 before:top-[0.6em] before:w-2 before:h-px before:bg-accent">
+                Multiple revenue streams reduce dependence on any single income source.
+              </li>
+              <li class="text-bark-600 text-sm pl-5 leading-relaxed relative before:content-[''] before:absolute before:left-0 before:top-[0.6em] before:w-2 before:h-px before:bg-accent">
+                Community self-sufficiency in food, energy, and water reduces external dependency.
+              </li>
+              <li class="text-bark-600 text-sm pl-5 leading-relaxed relative before:content-[''] before:absolute before:left-0 before:top-[0.6em] before:w-2 before:h-px before:bg-accent">
+                Strong NGO and academic partnerships provide institutional support and legitimacy.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-8 pt-6 border-t border-bark-200">
+          <a href="/en/risk" class="text-accent font-display font-medium text-sm hover:underline underline-offset-4 decoration-accent/30 hover:decoration-accent">
+            Read the full risk assessment &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-bark-900 py-24 px-6 lg:px-10">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="text-headline text-bark-100 reveal">Interested?</h2>
+      <p class="text-body-lg text-bark-400 mt-4 reveal" data-delay="100">
+        We're looking for investors who understand what they're getting into and want to build
+        something real. No hard sells. Just honest conversation.
+      </p>
+      <a
+        href="mailto:contact@pt32lab.org"
+        class="group inline-flex items-center gap-3 mt-8 px-7 py-4 bg-accent text-night font-display font-semibold text-sm tracking-wide rounded hover:bg-accent-light transition-colors duration-300 reveal" data-delay="200"
+      >
+        Express Interest
+        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </section>
+</Base>

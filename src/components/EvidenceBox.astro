@@ -1,0 +1,19 @@
+---
+interface Props {
+  source?: string;
+  url?: string;
+}
+const { source, url } = Astro.props;
+---
+
+<div class="evidence-box reveal">
+  <slot />
+  {source && url && (
+    <div class="mt-2 text-bark-400 text-xs">
+      Source: <a href={url} target="_blank" rel="noopener noreferrer">{source}</a>
+    </div>
+  )}
+  {source && !url && (
+    <div class="mt-2 text-bark-400 text-xs">Source: {source}</div>
+  )}
+</div>

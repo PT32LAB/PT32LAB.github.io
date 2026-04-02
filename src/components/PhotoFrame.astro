@@ -1,0 +1,15 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  credit?: string;
+  height?: string;
+  class?: string;
+}
+const { src, alt, credit, height = 'h-64 md:h-80', class: className = '' } = Astro.props;
+---
+
+<div class:list={["photo-frame", height, className]}>
+  <img src={src} alt={alt} loading="lazy" />
+  {credit && <div class="photo-credit">{credit}</div>}
+</div>

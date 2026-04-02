@@ -25,6 +25,15 @@ const { title, description = 'BARK — Bolivian Ark. An off-grid community prese
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript><link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" /></noscript>
     <title>{title} | BARK</title>
+    <meta property="og:title" content={`${title} | BARK — Bolivian Ark`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://pt32lab.github.io/images/yungas/valley.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BARK — Bolivian Ark" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | BARK`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://pt32lab.github.io/images/yungas/valley.jpg" />
     <ClientRouter />
   </head>
   <body class="min-h-screen flex flex-col">

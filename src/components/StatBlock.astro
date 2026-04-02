@@ -1,0 +1,23 @@
+---
+interface Props {
+  value: string;
+  label: string;
+  context?: string;
+  accent?: boolean;
+  countTo?: number;
+  suffix?: string;
+}
+const { value, label, context, accent = false, countTo, suffix } = Astro.props;
+---
+
+<div class="stat-block reveal">
+  {countTo ? (
+    <div class:list={["stat-value", { "text-accent": accent }]}>
+      <span class="counter" data-target={String(countTo)} data-suffix={suffix || ''}>0</span>
+    </div>
+  ) : (
+    <div class:list={["stat-value", { "text-accent": accent }]}>{value}</div>
+  )}
+  <div class="stat-label">{label}</div>
+  {context && <div class="stat-context">{context}</div>}
+</div>
