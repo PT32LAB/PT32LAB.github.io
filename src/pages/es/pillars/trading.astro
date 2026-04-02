@@ -11,32 +11,91 @@ import ContentPage from '../../../components/ContentPage.astro';
 
   <h2>Export Goods</h2>
 
-  <ul>
-    <li><strong>Specialty Coffee</strong> — Yungas coffee is Bolivia's primary specialty export. Current FOB (farm gate) price for specialty-grade Bolivian coffee: approximately <strong>$4.60/lb</strong>. Roasted and branded for direct-to-consumer sales, retail prices reach $25&ndash;45/lb. Bolivia's coffee production is small-scale and high-altitude, which commands premium prices in specialty markets.<sup>[1]</sup></li>
-    <li><strong>Cacao</strong> — Bolivia exported approximately <strong>621 metric tons</strong> of cacao in 2023, valued at roughly <strong>$2.9 million</strong>. Bolivian cacao (especially wild Beniano and Alto Beni varieties) is increasingly recognized for quality. Bean-to-bar chocolate commands $8&ndash;15 per 70g bar at retail.<sup>[2]</sup></li>
-    <li><strong>Tropical Fruits</strong> — Bolivia's fruit exports reached approximately <strong>$221 million</strong> nationally in recent years, with <strong>38% growth</strong> year-over-year. The Yungas produces passion fruit, papaya, avocado, banana, citrus, and cherimoya. Most is consumed domestically, meaning export channels are underdeveloped — an opportunity.<sup>[3]</sup></li>
-    <li><strong>Essential Oils</strong> — The Yungas biodiversity supports distillation of eucalyptus, rosemary, lemongrass, and native aromatic species. Small-batch essential oils from identifiable origins command significant premiums in international markets.</li>
-    <li><strong>Honey</strong> — Yungas honey from native stingless bees (Meliponini) and Apis mellifera is a niche product with growing demand. Organic, single-origin honey sells at premium prices.</li>
-  </ul>
+  <p>
+    Real market data on what the Yungas produces and where it goes. These are verified figures from
+    international trade databases, not projections.
+  </p>
+
+  <div class="overflow-x-auto mb-8">
+    <table class="w-full text-left border-collapse text-[0.95rem]">
+      <thead>
+        <tr class="border-b-2 border-bark-300">
+          <th class="py-3 pr-4 font-display font-semibold text-bark-800">Product</th>
+          <th class="py-3 pr-4 font-display font-semibold text-bark-800">Market Data</th>
+          <th class="py-3 font-display font-semibold text-bark-800">Destinations</th>
+        </tr>
+      </thead>
+      <tbody class="text-bark-600">
+        <tr class="border-b border-bark-200">
+          <td class="py-3 pr-4"><strong class="text-bark-800 font-medium">Coffee (green)</strong></td>
+          <td class="py-3 pr-4">$4.60/lb FOB median specialty. Roasted retail: $25&ndash;45/lb. Yungas produces ~95% of Bolivia's coffee, almost entirely arabica.<sup>[1]</sup></td>
+          <td class="py-3">US, Europe, Japan, Australia</td>
+        </tr>
+        <tr class="border-b border-bark-200">
+          <td class="py-3 pr-4"><strong class="text-bark-800 font-medium">Cacao</strong></td>
+          <td class="py-3 pr-4">$2.9M exports 2023, 621 metric tons. Bolivian wild/fine-flavor varieties command premiums. Bean-to-bar: $8&ndash;15 per 70g bar.<sup>[2]</sup></td>
+          <td class="py-3">Germany, Argentina, Switzerland</td>
+        </tr>
+        <tr class="border-b border-bark-200">
+          <td class="py-3 pr-4"><strong class="text-bark-800 font-medium">Tropical fruits</strong></td>
+          <td class="py-3 pr-4">$221M nationally, 38% growth YoY. Passion fruit, papaya, avocado, banana, citrus, cherimoya. Most consumed domestically — export channels underdeveloped.<sup>[3]</sup></td>
+          <td class="py-3">Regional + export (dried fruit 5&ndash;10x fresh price by weight)</td>
+        </tr>
+        <tr class="border-b border-bark-200">
+          <td class="py-3 pr-4"><strong class="text-bark-800 font-medium">Essential oils</strong></td>
+          <td class="py-3 pr-4">High value-to-weight ratio. Yungas biodiversity supports eucalyptus, rosemary, lemongrass, and unique native botanicals. Retail: $15&ndash;50 per 10ml bottle.</td>
+          <td class="py-3">International wellness, specialty retail</td>
+        </tr>
+        <tr>
+          <td class="py-3 pr-4"><strong class="text-bark-800 font-medium">Honey</strong></td>
+          <td class="py-3 pr-4">Organic potential from native stingless bees (Meliponini) and Apis mellifera. Single-origin, organic honey commands premium pricing.</td>
+          <td class="py-3">Domestic + regional</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <h2>Import Needs</h2>
   <p>
     BARK will need to import goods that cannot be produced locally, especially during the build-out phase.
     Strategic bulk procurement reduces per-unit costs significantly.
   </p>
-  <ul>
-    <li><strong>Solar equipment</strong> — Panels, inverters, batteries, charge controllers. Bolivia's government has committed <strong>$325 million</strong> to solar infrastructure with an additional <strong>$125 million</strong> from the World Bank, which may create domestic supply chains over time.<sup>[4]</sup></li>
-    <li><strong>Construction materials</strong> — Cement, steel, glass, specialized fasteners. Available in La Paz but transport costs to Coroico add 15&ndash;25% to base prices.</li>
-    <li><strong>Medical supplies</strong> — Basic pharmaceuticals, surgical supplies, diagnostic equipment. La Paz has medical supply markets, but specialized items may need international sourcing.</li>
-    <li><strong>Processing machinery</strong> — Coffee roasters, cacao processing equipment, essential oil stills. Mostly imported from Brazil, Colombia, or Asia. Details in the <a href="/en/pillars/technopark">Techno Park</a> page.</li>
-  </ul>
+
+  <div class="overflow-x-auto mb-8">
+    <table class="w-full text-left border-collapse text-[0.95rem]">
+      <thead>
+        <tr class="border-b-2 border-bark-300">
+          <th class="py-3 pr-4 font-display font-semibold text-bark-800">Product</th>
+          <th class="py-3 font-display font-semibold text-bark-800">Context</th>
+        </tr>
+      </thead>
+      <tbody class="text-bark-600">
+        <tr class="border-b border-bark-200">
+          <td class="py-3 pr-4"><strong class="text-bark-800 font-medium">Solar equipment</strong></td>
+          <td class="py-3">Panels, inverters, batteries, charge controllers. Bolivia's <a href="/en/investors">$325M solar electrification program</a> targets 140,000 families — may create domestic supply chains over time.<sup>[4]</sup></td>
+        </tr>
+        <tr class="border-b border-bark-200">
+          <td class="py-3 pr-4"><strong class="text-bark-800 font-medium">Construction materials</strong></td>
+          <td class="py-3">Cement, steel, glass, specialized fasteners. Bolivia imported $16.8M in construction materials in January 2026 alone. Available in La Paz but transport to Coroico adds 15&ndash;25%.</td>
+        </tr>
+        <tr class="border-b border-bark-200">
+          <td class="py-3 pr-4"><strong class="text-bark-800 font-medium">Medical supplies</strong></td>
+          <td class="py-3">Basic pharmaceuticals, surgical supplies, diagnostic equipment. Rural healthcare gap means specialized items need international sourcing. La Paz has medical supply markets for basics.</td>
+        </tr>
+        <tr>
+          <td class="py-3 pr-4"><strong class="text-bark-800 font-medium">Processing machinery</strong></td>
+          <td class="py-3">Coffee roasters, cacao processing equipment, essential oil stills. All tech lines need initial imports from Brazil, Colombia, or Asia. Details in the <a href="/en/pillars/technopark">Techno Park</a>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <h2>Regional Trade Routes</h2>
   <p>
     BARK sits on the La Paz&ndash;Yungas corridor with access to Bolivia's main economic hubs:
   </p>
   <ul>
-    <li><strong>La Paz</strong> — 2.5&ndash;3.5 hours by road. Primary market for all goods. <strong>Mercado Rodriguez</strong> (5 km from city center) is the main wholesale market for Yungas agricultural products. International airport for exports.</li>
+    <li><strong>La Paz</strong> — 3&ndash;3.5 hours by road. Primary market for all goods. <strong>Mercado Rodriguez</strong> (5 km from city center) is the main wholesale market for Yungas agricultural products. International airport for exports.</li>
     <li><strong>Cochabamba</strong> — 8&ndash;10 hours by road (via La Paz or Oruro). Bolivia's agricultural processing center and the country's second-largest consumer market.</li>
     <li><strong>Santa Cruz</strong> — 12&ndash;14 hours by road. Bolivia's commercial capital and primary <strong>export gateway</strong> with the largest airport and connections to Brazilian logistics networks.</li>
     <li><strong>El Alto</strong> — Adjacent to La Paz. Bolivia's fastest-growing city and a major hub for informal trade, manufacturing, and the country's largest open-air market (Feria 16 de Julio).</li>
