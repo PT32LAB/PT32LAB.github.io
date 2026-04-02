@@ -4,97 +4,145 @@ import { getLangFromUrl, t, getLocalePath, languages, type Lang } from '../i18n/
 const lang = getLangFromUrl(Astro.url);
 const otherLang: Lang = lang === 'en' ? 'es' : 'en';
 
-const primaryLinks = [
-  { key: 'nav.vision' as const, path: '/vision' },
-  { key: 'nav.pillars' as const, path: '/pillars' },
-  { key: 'nav.location' as const, path: '/location' },
-  { key: 'nav.investors' as const, path: '/investors' },
+const navGroups = [
+  {
+    label: 'nav.group.project' as const,
+    links: [
+      { key: 'nav.vision' as const, desc: 'nav.desc.vision' as const, path: '/vision' },
+      { key: 'nav.why' as const, desc: 'nav.desc.why' as const, path: '/why' },
+      { key: 'nav.location' as const, desc: 'nav.desc.location' as const, path: '/location' },
+      { key: 'nav.roadmap' as const, desc: 'nav.desc.roadmap' as const, path: '/roadmap' },
+    ],
+  },
+  {
+    label: 'nav.group.build' as const,
+    links: [
+      { key: 'nav.pillars' as const, desc: 'nav.desc.pillars' as const, path: '/pillars' },
+      { key: 'nav.pillars' as const, desc: 'nav.desc.technopark' as const, path: '/pillars/technopark', sublabel: 'Techno Park' },
+      { key: 'nav.pillars' as const, desc: 'nav.desc.incubator' as const, path: '/pillars/incubator', sublabel: 'Incubator' },
+      { key: 'nav.pillars' as const, desc: 'nav.desc.trading' as const, path: '/pillars/trading', sublabel: 'Trading House' },
+      { key: 'nav.pillars' as const, desc: 'nav.desc.retreat' as const, path: '/pillars/retreat', sublabel: 'Retreat Center' },
+      { key: 'nav.pillars' as const, desc: 'nav.desc.infrastructure' as const, path: '/pillars/infrastructure', sublabel: 'Infrastructure' },
+    ],
+  },
+  {
+    label: 'nav.group.join' as const,
+    links: [
+      { key: 'nav.investors' as const, desc: 'nav.desc.investors' as const, path: '/investors' },
+      { key: 'nav.participate' as const, desc: 'nav.desc.participate' as const, path: '/participate' },
+      { key: 'nav.partners' as const, desc: 'nav.desc.partners' as const, path: '/partners' },
+      { key: 'nav.team' as const, desc: 'nav.desc.team' as const, path: '/team' },
+    ],
+  },
+  {
+    label: 'nav.group.learn' as const,
+    links: [
+      { key: 'nav.community' as const, desc: 'nav.desc.community' as const, path: '/community' },
+      { key: 'nav.governance' as const, desc: 'nav.desc.governance' as const, path: '/governance' },
+      { key: 'nav.explore' as const, desc: 'nav.desc.explore' as const, path: '/explore' },
+      { key: 'nav.faq' as const, desc: 'nav.desc.faq' as const, path: '/faq' },
+      { key: 'nav.risk' as const, desc: 'nav.desc.risk' as const, path: '/risk' },
+    ],
+  },
 ];
-
-const moreLinks = [
-  { key: 'nav.why' as const, path: '/why' },
-  { key: 'nav.governance' as const, path: '/governance' },
-  { key: 'nav.community' as const, path: '/community' },
-  { key: 'nav.partners' as const, path: '/partners' },
-  { key: 'nav.team' as const, path: '/team' },
-  { key: 'nav.participate' as const, path: '/participate' },
-  { key: 'nav.roadmap' as const, path: '/roadmap' },
-  { key: 'nav.explore' as const, path: '/explore' },
-  { key: 'nav.faq' as const, path: '/faq' },
-  { key: 'nav.risk' as const, path: '/risk' },
-];
-
-const allLinks = [...primaryLinks, ...moreLinks];
 ---
 
 <nav id="main-nav" class="fixed top-0 w-full z-50 transition-all duration-500">
   <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
     <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
       <a href={getLocalePath(lang, '/')} class="font-display font-bold text-bark-800 text-lg tracking-tight hover:text-accent transition-colors" transition:name="logo">
         BARK
       </a>
 
-      <div class="hidden lg:flex items-center gap-7">
-        {primaryLinks.map(link => (
-          <a
-            href={getLocalePath(lang, link.path)}
-            class="text-[0.7rem] font-display font-medium tracking-[0.12em] uppercase text-bark-500 hover:text-bark-800 transition-colors duration-300"
-          >
-            {t(lang, link.key)}
-          </a>
+      <!-- Desktop nav -->
+      <div class="hidden lg:flex items-center gap-1">
+        {navGroups.map((group, gi) => (
+          <div class="relative" data-nav-group={gi}>
+            <button
+              class="nav-group-btn text-[0.7rem] font-display font-medium tracking-[0.12em] uppercase text-bark-500 hover:text-bark-800 transition-colors duration-200 px-3 py-5 flex items-center gap-1"
+              data-group-trigger={gi}
+            >
+              {t(lang, group.label)}
+              <svg class="w-3 h-3 transition-transform duration-200 nav-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div
+              class="nav-dropdown absolute left-1/2 -translate-x-1/2 top-full pt-1 opacity-0 pointer-events-none translate-y-1 transition-all duration-200 z-50"
+              data-group-panel={gi}
+            >
+              <div class="bg-bark-50 border border-bark-200 rounded-lg shadow-lg py-3 px-2 min-w-[260px]" style={`box-shadow: var(--shadow-lg);`}>
+                {group.links.map(link => (
+                  <a
+                    href={getLocalePath(lang, link.path)}
+                    class="group flex flex-col px-3 py-2 rounded-md hover:bg-bark-100 transition-colors duration-150"
+                  >
+                    <span class="text-[0.75rem] font-display font-medium text-bark-700 group-hover:text-bark-900 transition-colors">
+                      {link.sublabel || t(lang, link.key)}
+                    </span>
+                    <span class="text-[0.65rem] text-bark-400 leading-snug mt-0.5">
+                      {t(lang, link.desc)}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
         ))}
 
-        <!-- More dropdown -->
-        <div class="relative" id="more-dropdown">
-          <button
-            class="text-[0.7rem] font-display font-medium tracking-[0.12em] uppercase text-bark-500 hover:text-bark-800 transition-colors duration-300 flex items-center gap-1"
-            id="more-btn"
-          >
-            More
-            <svg class="w-3 h-3 transition-transform duration-200" id="more-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div id="more-panel" class="hidden absolute right-0 top-full mt-2 w-48 bg-bark-50 border border-bark-200 rounded-lg shadow-lg py-2 z-50">
-            {moreLinks.map(link => (
-              <a
-                href={getLocalePath(lang, link.path)}
-                class="block px-4 py-2 text-[0.7rem] font-display font-medium tracking-[0.1em] uppercase text-bark-500 hover:text-bark-800 hover:bg-bark-100 transition-colors duration-200"
-              >
-                {t(lang, link.key)}
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <span class="w-px h-4 bg-bark-200"></span>
+        <span class="w-px h-4 bg-bark-200 mx-2"></span>
 
         <a
           href={getLocalePath(otherLang, Astro.url.pathname.replace(`/${lang}`, '') || '/')}
-          class="text-[0.7rem] font-display font-medium tracking-[0.12em] uppercase text-bark-400 hover:text-accent transition-colors duration-300"
+          class="text-[0.7rem] font-display font-medium tracking-[0.12em] uppercase text-bark-400 hover:text-accent transition-colors duration-300 px-2"
         >
           {languages[otherLang]}
         </a>
       </div>
 
+      <!-- Mobile menu button -->
       <button id="mobile-menu-btn" class="lg:hidden p-2 text-bark-600" aria-label="Menu">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <svg class="w-5 h-5 mobile-icon-open" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+        <svg class="w-5 h-5 mobile-icon-close hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" d="M6 6l12 12M6 18L18 6"/>
         </svg>
       </button>
     </div>
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-bark-50/98 backdrop-blur-md border-t border-bark-200/50">
-    <div class="px-6 py-5 space-y-1">
-      {allLinks.map(link => (
-        <a
-          href={getLocalePath(lang, link.path)}
-          class="block py-2 text-[0.7rem] font-display font-medium tracking-[0.1em] uppercase text-bark-500 hover:text-bark-800 transition-colors"
-        >
-          {t(lang, link.key)}
-        </a>
+  <div id="mobile-menu" class="hidden lg:hidden bg-bark-50/98 backdrop-blur-md border-t border-bark-200/50 max-h-[calc(100dvh-4rem)] overflow-y-auto">
+    <div class="px-6 py-4">
+      {navGroups.map((group, gi) => (
+        <div class="mobile-accordion border-b border-bark-100 last:border-b-0" data-mobile-group={gi}>
+          <button
+            class="mobile-accordion-btn w-full flex items-center justify-between py-3 text-left"
+            data-mobile-trigger={gi}
+          >
+            <span class="text-[0.7rem] font-display font-semibold tracking-[0.12em] uppercase text-bark-700">
+              {t(lang, group.label)}
+            </span>
+            <svg class="w-4 h-4 text-bark-400 transition-transform duration-200 mobile-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="mobile-accordion-panel hidden pb-3 pl-2">
+            {group.links.map(link => (
+              <a
+                href={getLocalePath(lang, link.path)}
+                class="flex flex-col py-2 px-2 rounded-md hover:bg-bark-100 transition-colors"
+              >
+                <span class="text-[0.75rem] font-display font-medium text-bark-600">
+                  {link.sublabel || t(lang, link.key)}
+                </span>
+                <span class="text-[0.6rem] text-bark-400 leading-snug mt-0.5">
+                  {t(lang, link.desc)}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
       ))}
-      <div class="pt-3 mt-2 border-t border-bark-200/50">
+      <div class="pt-3 mt-1">
         <a
           href={getLocalePath(otherLang, Astro.url.pathname.replace(`/${lang}`, '') || '/')}
           class="text-[0.7rem] font-display font-medium tracking-[0.1em] uppercase text-bark-400"
@@ -111,11 +159,9 @@ const allLinks = [...primaryLinks, ...moreLinks];
     const nav = document.getElementById('main-nav');
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
-    const moreBtn = document.getElementById('more-btn');
-    const morePanel = document.getElementById('more-panel');
-    const moreChevron = document.getElementById('more-chevron');
     if (!nav) return;
 
+    // --- Scroll behavior: glassmorphism on scroll, hide/show on direction ---
     let lastY = 0;
     let ticking = false;
 
@@ -139,18 +185,88 @@ const allLinks = [...primaryLinks, ...moreLinks];
       });
     });
 
-    btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+    // --- Mobile menu toggle ---
+    const iconOpen = btn?.querySelector('.mobile-icon-open');
+    const iconClose = btn?.querySelector('.mobile-icon-close');
 
-    // More dropdown
-    moreBtn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      morePanel?.classList.toggle('hidden');
-      moreChevron?.classList.toggle('rotate-180');
+    btn?.addEventListener('click', () => {
+      const isHidden = menu?.classList.contains('hidden');
+      menu?.classList.toggle('hidden');
+      iconOpen?.classList.toggle('hidden');
+      iconClose?.classList.toggle('hidden');
     });
 
+    // --- Desktop dropdowns: hover open/close with 150ms delay ---
+    const groups = nav.querySelectorAll<HTMLElement>('[data-nav-group]');
+    const timers: Record<string, number> = {};
+
+    groups.forEach(group => {
+      const idx = group.dataset.navGroup!;
+      const panel = group.querySelector<HTMLElement>('[data-group-panel]');
+      const chevron = group.querySelector<HTMLElement>('.nav-chevron');
+
+      function show() {
+        clearTimeout(timers[idx]);
+        // Close all other panels first
+        groups.forEach(g => {
+          if (g !== group) {
+            const p = g.querySelector<HTMLElement>('[data-group-panel]');
+            const c = g.querySelector<HTMLElement>('.nav-chevron');
+            if (p) { p.classList.add('opacity-0', 'pointer-events-none', 'translate-y-1'); p.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0'); }
+            if (c) c.classList.remove('rotate-180');
+          }
+        });
+        if (panel) { panel.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-1'); panel.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0'); }
+        if (chevron) chevron.classList.add('rotate-180');
+      }
+
+      function hide() {
+        timers[idx] = window.setTimeout(() => {
+          if (panel) { panel.classList.add('opacity-0', 'pointer-events-none', 'translate-y-1'); panel.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0'); }
+          if (chevron) chevron.classList.remove('rotate-180');
+        }, 150);
+      }
+
+      group.addEventListener('mouseenter', show);
+      group.addEventListener('mouseleave', hide);
+      // Also support keyboard: toggle on click
+      const trigger = group.querySelector<HTMLElement>('[data-group-trigger]');
+      trigger?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isVisible = panel?.classList.contains('opacity-100');
+        if (isVisible) hide(); else show();
+      });
+    });
+
+    // Close all desktop panels on outside click
     document.addEventListener('click', () => {
-      morePanel?.classList.add('hidden');
-      moreChevron?.classList.remove('rotate-180');
+      groups.forEach(g => {
+        const p = g.querySelector<HTMLElement>('[data-group-panel]');
+        const c = g.querySelector<HTMLElement>('.nav-chevron');
+        if (p) { p.classList.add('opacity-0', 'pointer-events-none', 'translate-y-1'); p.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0'); }
+        if (c) c.classList.remove('rotate-180');
+      });
+    });
+
+    // --- Mobile accordion ---
+    const mobileGroups = menu?.querySelectorAll<HTMLElement>('[data-mobile-group]');
+    mobileGroups?.forEach(mg => {
+      const trigger = mg.querySelector<HTMLElement>('[data-mobile-trigger]');
+      const panel = mg.querySelector<HTMLElement>('.mobile-accordion-panel');
+      const chevron = mg.querySelector<HTMLElement>('.mobile-chevron');
+
+      trigger?.addEventListener('click', () => {
+        const isHidden = panel?.classList.contains('hidden');
+        // Close all other mobile panels
+        mobileGroups.forEach(other => {
+          if (other !== mg) {
+            other.querySelector('.mobile-accordion-panel')?.classList.add('hidden');
+            other.querySelector('.mobile-chevron')?.classList.remove('rotate-180');
+          }
+        });
+        panel?.classList.toggle('hidden');
+        chevron?.classList.toggle('rotate-180');
+      });
     });
   }
 

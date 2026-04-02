@@ -11,31 +11,346 @@ const { title, subtitle, description } = Astro.props;
 ---
 
 <Base title={title} description={description}>
+  <!-- Accent band at the top of the page -->
+  <div class="h-1.5 bg-gradient-to-r from-accent via-accent-dim to-transparent"></div>
+
   <!-- Page header -->
-  <section class="pt-32 pb-16 px-6 lg:px-10">
-    <div class="max-w-[900px] mx-auto">
-      <h1 class="text-headline text-bark-800 reveal">{title}</h1>
-      {subtitle && <p class="text-body-lg text-bark-500 mt-4 max-w-2xl reveal" data-delay="100">{subtitle}</p>}
-      <div class="accent-line mt-10 reveal" data-delay="200"></div>
+  <section class="pt-28 pb-12 px-6 lg:px-10">
+    <div class="max-w-[900px] mx-auto lg:max-w-[1100px]">
+      <div class="max-w-[900px]">
+        <h1 class="text-headline text-bark-800 reveal">{title}</h1>
+        {subtitle && <p class="text-body-lg text-bark-500 mt-4 max-w-2xl reveal" data-delay="100">{subtitle}</p>}
+        <div class="accent-line mt-10 reveal" data-delay="200"></div>
+      </div>
     </div>
   </section>
 
-  <!-- Content -->
+  <!-- Content with optional sidebar TOC -->
   <section class="pb-32 px-6 lg:px-10">
-    <div class="max-w-[900px] mx-auto
-      [&>p]:text-bark-600 [&>p]:text-[1.1rem] [&>p]:leading-[1.85] [&>p]:mb-6
-      [&>h2]:font-display [&>h2]:text-title [&>h2]:text-bark-800 [&>h2]:mt-16 [&>h2]:mb-6
-      [&>ul]:space-y-3 [&>ul]:mb-8 [&>ul]:pl-0
-      [&>ul>li]:text-bark-600 [&>ul>li]:text-[1.05rem] [&>ul>li]:leading-relaxed [&>ul>li]:pl-6 [&>ul>li]:relative
-      [&>ul>li]:before:content-[''] [&>ul>li]:before:absolute [&>ul>li]:before:left-0 [&>ul>li]:before:top-[0.6em]
-      [&>ul>li]:before:w-2 [&>ul>li]:before:h-px [&>ul>li]:before:bg-accent
-      [&>ul>li>strong]:text-bark-800 [&>ul>li>strong]:font-medium
-      [&>strong]:text-bark-800 [&>strong]:font-medium
-      [&>a]:text-accent [&>a]:underline [&>a]:underline-offset-4 [&>a]:decoration-accent/30 hover:[&>a]:decoration-accent
-      [&>blockquote]:border-l-2 [&>blockquote]:border-accent [&>blockquote]:pl-6 [&>blockquote]:text-bark-500 [&>blockquote]:italic
-      [&>.cta-box]:mt-16 [&>.cta-box]:p-8 [&>.cta-box]:bg-bark-100 [&>.cta-box]:rounded-xl [&>.cta-box]:border [&>.cta-box]:border-bark-200
-    ">
-      <slot />
+    <div class="max-w-[900px] mx-auto lg:max-w-[1100px] lg:flex lg:gap-16">
+
+      <!-- Sidebar TOC (desktop only) -->
+      <aside class="hidden lg:block lg:w-[200px] lg:shrink-0 lg:order-2">
+        <div class="sticky top-24" id="toc-container">
+          <p class="text-label text-bark-400 mb-4">On this page</p>
+          <nav id="toc-nav" class="space-y-1.5" aria-label="Table of contents">
+            <!-- Populated by JS from h2 elements -->
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <div class="content-prose lg:flex-1 lg:min-w-0 lg:order-1">
+        <slot />
+      </div>
     </div>
   </section>
 </Base>
+
+<style is:global>
+  /* ============================================
+     CONTENT PROSE STYLES
+     ============================================ */
+
+  .content-prose > p {
+    color: var(--color-bark-600);
+    font-size: 1.1rem;
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-prose > strong,
+  .content-prose > p > strong {
+    color: var(--color-bark-800);
+    font-weight: 600;
+  }
+
+  /* --- Headings with section dividers --- */
+  .content-prose > h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--color-bark-800);
+    margin-top: 3.5rem;
+    margin-bottom: 1.5rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--color-bark-200);
+  }
+
+  .content-prose > h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .content-prose > h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-bark-800);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  /* --- Links --- */
+  .content-prose a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: rgba(16, 185, 129, 0.3);
+    transition: text-decoration-color 0.2s;
+  }
+
+  .content-prose a:hover {
+    text-decoration-color: var(--color-accent);
+  }
+
+  /* --- Lists with accent markers --- */
+  .content-prose > ul,
+  .content-prose > ol {
+    margin-bottom: 2rem;
+    padding-left: 0;
+  }
+
+  .content-prose > ul > li,
+  .content-prose > ol > li {
+    color: var(--color-bark-600);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.75rem;
+  }
+
+  .content-prose > ul > li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.7;
+  }
+
+  .content-prose > ol {
+    counter-reset: ol-counter;
+  }
+
+  .content-prose > ol > li {
+    counter-increment: ol-counter;
+  }
+
+  .content-prose > ol > li::before {
+    content: counter(ol-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    width: 1.2em;
+    text-align: center;
+  }
+
+  .content-prose > ul > li > strong,
+  .content-prose > ol > li > strong {
+    color: var(--color-bark-800);
+    font-weight: 600;
+  }
+
+  /* --- Blockquotes as pull-quotes --- */
+  .content-prose > blockquote {
+    margin: 2.5rem 0;
+    padding: 1.75rem 2rem;
+    border-left: 3px solid var(--color-accent);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.03), transparent);
+    border-radius: 0 0.75rem 0.75rem 0;
+    position: relative;
+  }
+
+  .content-prose > blockquote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.1em;
+    left: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    opacity: 0.15;
+    line-height: 1;
+  }
+
+  .content-prose > blockquote > p {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--color-bark-700);
+    margin-bottom: 0;
+    font-style: italic;
+  }
+
+  /* --- Evidence callout boxes --- */
+  .content-prose .evidence {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-bark-100);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--color-bark-600);
+  }
+
+  .content-prose .evidence > p:last-child {
+    margin-bottom: 0;
+  }
+
+  .content-prose .evidence a {
+    color: var(--color-accent-dim);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(5, 150, 105, 0.3);
+  }
+
+  .content-prose .evidence a:hover {
+    text-decoration-color: var(--color-accent-dim);
+  }
+
+  /* --- Data tables (base styles, low specificity to allow inline overrides) --- */
+  .content-prose table {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .content-prose table:not([class]) {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid var(--color-bark-200);
+  }
+
+  .content-prose table:not([class]) thead {
+    background: var(--color-bark-800);
+  }
+
+  .content-prose table:not([class]) thead th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-bark-50);
+  }
+
+  .content-prose table:not([class]) tbody tr {
+    border-bottom: 1px solid var(--color-bark-100);
+  }
+
+  .content-prose table:not([class]) tbody tr:nth-child(even) {
+    background: var(--color-bark-50);
+  }
+
+  .content-prose table:not([class]) tbody tr:nth-child(odd) {
+    background: white;
+  }
+
+  .content-prose table:not([class]) tbody td {
+    padding: 0.75rem 1rem;
+    color: var(--color-bark-600);
+    line-height: 1.5;
+  }
+
+  /* --- CTA box --- */
+  .content-prose .cta-box {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--color-bark-100);
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-bark-200);
+  }
+
+  /* --- TOC active state --- */
+  #toc-nav a {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--color-bark-400);
+    padding: 0.3rem 0.75rem;
+    border-left: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    text-decoration: none;
+    line-height: 1.4;
+  }
+
+  #toc-nav a:hover {
+    color: var(--color-bark-700);
+  }
+
+  #toc-nav a.toc-active {
+    color: var(--color-accent);
+    border-left-color: var(--color-accent);
+  }
+</style>
+
+<script>
+  function initContentPage() {
+    const content = document.querySelector('.content-prose');
+    const tocNav = document.getElementById('toc-nav');
+    if (!content || !tocNav) return;
+
+    // Build TOC from h2 elements
+    const headings = content.querySelectorAll('h2');
+    if (headings.length < 2) {
+      // Hide TOC if there are fewer than 2 sections
+      const tocContainer = document.getElementById('toc-container');
+      if (tocContainer) tocContainer.style.display = 'none';
+      return;
+    }
+
+    // Clear existing TOC entries using DOM methods
+    while (tocNav.firstChild) {
+      tocNav.removeChild(tocNav.firstChild);
+    }
+
+    headings.forEach((h2) => {
+      // Ensure heading has an ID for anchor linking
+      if (!h2.id) {
+        h2.id = 'section-' + (h2.textContent || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      }
+      const link = document.createElement('a');
+      link.href = '#' + h2.id;
+      link.textContent = h2.textContent || '';
+      tocNav.appendChild(link);
+    });
+
+    // Intersection observer for active TOC item
+    const tocLinks = tocNav.querySelectorAll('a');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          tocLinks.forEach(link => {
+            link.classList.toggle('toc-active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+
+    headings.forEach(h2 => observer.observe(h2));
+  }
+
+  initContentPage();
+  document.addEventListener('astro:page-load', initContentPage);
+</script>

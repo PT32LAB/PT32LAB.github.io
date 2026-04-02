@@ -28,6 +28,28 @@
   --font-display: 'Libre Franklin', 'Libre Franklin Fallback', system-ui, sans-serif;
   --font-body: 'Lora', 'Georgia', serif;
   --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing scale */
+  --space-section: clamp(4rem, 8vw, 8rem);
+  --space-block: clamp(2rem, 4vw, 4rem);
+  --space-element: clamp(1rem, 2vw, 2rem);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.08);
+
+  /* Border radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
 }
 
 /* Font fallback metrics to reduce CLS during font swap */

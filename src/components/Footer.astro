@@ -1,39 +1,97 @@
 ---
 import { getLangFromUrl, t } from '../i18n/ui';
 const lang = getLangFromUrl(Astro.url);
+
+type FooterLink = {
+  path: string;
+  key?: keyof typeof import('../i18n/ui').ui['en'];
+  label?: string;
+};
+
+const footerGroups: { label: keyof typeof import('../i18n/ui').ui['en']; links: FooterLink[] }[] = [
+  {
+    label: 'nav.group.project',
+    links: [
+      { key: 'nav.vision', path: '/vision' },
+      { key: 'nav.why', path: '/why' },
+      { key: 'nav.location', path: '/location' },
+      { key: 'nav.roadmap', path: '/roadmap' },
+    ],
+  },
+  {
+    label: 'nav.group.build',
+    links: [
+      { key: 'nav.pillars', path: '/pillars' },
+      { label: 'Techno Park', path: '/pillars/technopark' },
+      { label: 'Incubator', path: '/pillars/incubator' },
+      { label: 'Trading House', path: '/pillars/trading' },
+      { label: 'Retreat Center', path: '/pillars/retreat' },
+      { label: 'Infrastructure', path: '/pillars/infrastructure' },
+    ],
+  },
+  {
+    label: 'nav.group.join',
+    links: [
+      { key: 'nav.investors', path: '/investors' },
+      { key: 'nav.participate', path: '/participate' },
+      { key: 'nav.partners', path: '/partners' },
+      { key: 'nav.team', path: '/team' },
+    ],
+  },
+  {
+    label: 'nav.group.learn',
+    links: [
+      { key: 'nav.community', path: '/community' },
+      { key: 'nav.governance', path: '/governance' },
+      { key: 'nav.explore', path: '/explore' },
+      { key: 'nav.faq', path: '/faq' },
+      { key: 'nav.risk', path: '/risk' },
+    ],
+  },
+];
 ---
 
 <footer class="bg-bark-900 text-bark-300">
   <div class="accent-line"></div>
   <div class="max-w-[1400px] mx-auto px-6 lg:px-10 py-16">
-    <div class="grid md:grid-cols-4 gap-12">
-      <div class="md:col-span-2">
-        <div class="font-display font-bold text-bark-50 text-xl mb-4 tracking-tight">BARK</div>
-        <p class="text-body-lg text-bark-300 max-w-md leading-relaxed">{t(lang, 'footer.tagline')}</p>
-      </div>
-      <div>
-        <h3 class="text-label text-bark-500 mb-5">Navigate</h3>
-        <div class="space-y-3">
-          <a href={`/${lang}/vision`} class="block text-bark-300 hover:text-accent transition-colors duration-300">{t(lang, 'nav.vision')}</a>
-          <a href={`/${lang}/pillars`} class="block text-bark-300 hover:text-accent transition-colors duration-300">{t(lang, 'nav.pillars')}</a>
-          <a href={`/${lang}/investors`} class="block text-bark-300 hover:text-accent transition-colors duration-300">{t(lang, 'nav.investors')}</a>
-          <a href={`/${lang}/faq`} class="block text-bark-300 hover:text-accent transition-colors duration-300">{t(lang, 'nav.faq')}</a>
-          <a href={`/${lang}/risk`} class="block text-bark-300 hover:text-accent transition-colors duration-300">{t(lang, 'nav.risk')}</a>
-          <a href={`/${lang}/team`} class="block text-bark-300 hover:text-accent transition-colors duration-300">{t(lang, 'nav.team')}</a>
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-10 lg:gap-12">
+
+      <!-- Brand column -->
+      <div class="col-span-2">
+        <div class="font-display font-bold text-bark-50 text-xl mb-3 tracking-tight">BARK</div>
+        <p class="text-[0.9rem] text-bark-400 max-w-xs leading-relaxed mb-6">{t(lang, 'footer.tagline')}</p>
+        <div class="mb-2">
+          <p class="text-label text-bark-500 mb-3">Open Source</p>
+          <p class="text-xs text-bark-500 mb-3">{t(lang, 'footer.license')}</p>
+          <a
+            href="https://github.com/PT32LAB"
+            class="inline-flex items-center gap-2 text-sm text-accent hover:text-accent-light transition-colors duration-300"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
         </div>
       </div>
-      <div>
-        <h3 class="text-label text-bark-500 mb-5">Open Source</h3>
-        <p class="text-sm text-bark-300 mb-4">{t(lang, 'footer.license')}</p>
-        <a
-          href="https://github.com/PT32LAB"
-          class="inline-flex items-center gap-2 text-sm text-accent hover:text-accent-light transition-colors duration-300"
-        >
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          GitHub
-        </a>
-      </div>
+
+      <!-- Link columns -->
+      {footerGroups.map(group => (
+        <div>
+          <h3 class="text-label text-bark-500 mb-4">{t(lang, group.label)}</h3>
+          <div class="space-y-2.5">
+            {group.links.map(link => (
+              <a
+                href={`/${lang}${link.path}`}
+                class="block text-[0.85rem] text-bark-400 hover:text-accent transition-colors duration-300"
+              >
+                {link.key ? t(lang, link.key) : link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
+
+    <!-- Bottom bar -->
     <div class="mt-12 pt-8 border-t border-bark-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-bark-600">
       <span>&copy; {new Date().getFullYear()} BARK Project</span>
       <span>Bolivian Ark — Built for what comes next</span>
