@@ -22,7 +22,8 @@ const { title, description = 'BARK — Bolivian Ark. An off-grid community prese
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" /></noscript>
     <title>{title} | BARK</title>
     <ClientRouter />
   </head>
@@ -99,9 +100,36 @@ const { title, description = 'BARK — Bolivian Ark. An off-grid community prese
         });
       }
 
+      // Text-split word-by-word reveal animation
+      function initTextSplits() {
+        document.querySelectorAll('.text-split:not(.is-split)').forEach(el => {
+          const text = (el.textContent || '').trim();
+          if (!text) return;
+          const words = text.split(/\s+/);
+          el.innerHTML = words.map((w, i) =>
+            `<span style="display:inline-block;overflow:hidden;"><span class="split-word" style="display:inline-block;transform:translateY(100%);opacity:0;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1) ${i * 60}ms, opacity 0.6s cubic-bezier(0.16,1,0.3,1) ${i * 60}ms;">${w}</span></span>`
+          ).join(' ');
+          el.classList.add('is-split');
+
+          const obs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                el.querySelectorAll('.split-word').forEach(w => {
+                  (w as HTMLElement).style.transform = 'translateY(0)';
+                  (w as HTMLElement).style.opacity = '1';
+                });
+                obs.unobserve(el);
+              }
+            });
+          }, { threshold: 0.2 });
+          obs.observe(el);
+        });
+      }
+
       initReveals();
       initCounters();
-      document.addEventListener('astro:page-load', () => { initReveals(); initCounters(); });
+      initTextSplits();
+      document.addEventListener('astro:page-load', () => { initReveals(); initCounters(); initTextSplits(); });
     </script>
   </body>
 </html>

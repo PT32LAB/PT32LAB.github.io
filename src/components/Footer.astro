@@ -9,20 +9,20 @@ const lang = getLangFromUrl(Astro.url);
     <div class="grid md:grid-cols-4 gap-12">
       <div class="md:col-span-2">
         <div class="font-display font-bold text-bark-50 text-xl mb-4 tracking-tight">BARK</div>
-        <p class="text-body-lg text-bark-400 max-w-md leading-relaxed">{t(lang, 'footer.tagline')}</p>
+        <p class="text-body-lg text-bark-300 max-w-md leading-relaxed">{t(lang, 'footer.tagline')}</p>
       </div>
       <div>
         <h3 class="text-label text-bark-500 mb-5">Navigate</h3>
         <div class="space-y-3">
-          <a href={`/${lang}/vision`} class="block text-bark-400 hover:text-accent transition-colors duration-300">{t(lang, 'nav.vision')}</a>
-          <a href={`/${lang}/why`} class="block text-bark-400 hover:text-accent transition-colors duration-300">{t(lang, 'nav.why')}</a>
-          <a href={`/${lang}/pillars`} class="block text-bark-400 hover:text-accent transition-colors duration-300">{t(lang, 'nav.pillars')}</a>
-          <a href={`/${lang}/participate`} class="block text-bark-400 hover:text-accent transition-colors duration-300">{t(lang, 'nav.participate')}</a>
+          <a href={`/${lang}/vision`} class="block text-bark-300 hover:text-accent transition-colors duration-300">{t(lang, 'nav.vision')}</a>
+          <a href={`/${lang}/why`} class="block text-bark-300 hover:text-accent transition-colors duration-300">{t(lang, 'nav.why')}</a>
+          <a href={`/${lang}/pillars`} class="block text-bark-300 hover:text-accent transition-colors duration-300">{t(lang, 'nav.pillars')}</a>
+          <a href={`/${lang}/participate`} class="block text-bark-300 hover:text-accent transition-colors duration-300">{t(lang, 'nav.participate')}</a>
         </div>
       </div>
       <div>
         <h3 class="text-label text-bark-500 mb-5">Open Source</h3>
-        <p class="text-sm text-bark-400 mb-4">{t(lang, 'footer.license')}</p>
+        <p class="text-sm text-bark-300 mb-4">{t(lang, 'footer.license')}</p>
         <a
           href="https://github.com/PT32LAB"
           class="inline-flex items-center gap-2 text-sm text-accent hover:text-accent-light transition-colors duration-300"

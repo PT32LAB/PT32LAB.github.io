@@ -1,0 +1,195 @@
+---
+import Base from '../../layouts/Base.astro';
+
+// Knowledge nodes — dimensional data from across the site
+// Each node has scores on Oleg's 6 dimensions (0.0–1.0)
+const dimensions = [
+  { key: 'autonomy', label: 'Autonomy', desc: 'Independence from state/corporate systems' },
+  { key: 'tech', label: 'Technology', desc: 'Technical infrastructure required' },
+  { key: 'governance', label: 'Governance', desc: 'Decision-making relevance' },
+  { key: 'economic', label: 'Economic', desc: 'Economic self-sufficiency contribution' },
+  { key: 'resilience', label: 'Resilience', desc: 'Crisis survival improvement' },
+  { key: 'scalability', label: 'Scalability', desc: 'Works at larger scale' },
+];
+
+const clusters = [
+  {
+    name: 'Infrastructure', color: '#10b981',
+    nodes: [
+      { title: 'Solar Energy Systems', dims: { autonomy: 0.9, tech: 0.7, governance: 0.2, economic: 0.6, resilience: 0.95, scalability: 0.8 } },
+      { title: 'Micro-Hydro Power', dims: { autonomy: 0.95, tech: 0.6, governance: 0.1, economic: 0.5, resilience: 0.9, scalability: 0.4 } },
+      { title: 'Water Purification', dims: { autonomy: 0.85, tech: 0.5, governance: 0.1, economic: 0.3, resilience: 1.0, scalability: 0.7 } },
+      { title: 'Mesh Communications', dims: { autonomy: 0.95, tech: 0.8, governance: 0.3, economic: 0.2, resilience: 0.9, scalability: 0.6 } },
+      { title: 'Permaculture Food Systems', dims: { autonomy: 0.9, tech: 0.3, governance: 0.2, economic: 0.7, resilience: 0.95, scalability: 0.5 } },
+    ],
+  },
+  {
+    name: 'Governance', color: '#9333ea',
+    nodes: [
+      { title: 'Cooperative Legal Structure', dims: { autonomy: 0.7, tech: 0.1, governance: 1.0, economic: 0.5, resilience: 0.6, scalability: 0.8 } },
+      { title: 'DAO Governance Layer', dims: { autonomy: 0.9, tech: 0.9, governance: 1.0, economic: 0.3, resilience: 0.4, scalability: 0.9 } },
+      { title: 'Ayllu System (Andean)', dims: { autonomy: 0.8, tech: 0.0, governance: 0.9, economic: 0.6, resilience: 0.8, scalability: 0.3 } },
+      { title: 'Sociocracy', dims: { autonomy: 0.6, tech: 0.1, governance: 0.95, economic: 0.2, resilience: 0.5, scalability: 0.7 } },
+    ],
+  },
+  {
+    name: 'Economy', color: '#f59e0b',
+    nodes: [
+      { title: 'Yungas Coffee Export', dims: { autonomy: 0.4, tech: 0.4, governance: 0.3, economic: 1.0, resilience: 0.5, scalability: 0.8 } },
+      { title: 'Cacao-to-Bar Chocolate', dims: { autonomy: 0.5, tech: 0.5, governance: 0.2, economic: 0.9, resilience: 0.4, scalability: 0.6 } },
+      { title: 'Retreat Center Revenue', dims: { autonomy: 0.3, tech: 0.2, governance: 0.4, economic: 0.85, resilience: 0.3, scalability: 0.5 } },
+      { title: 'Digital Services Hub', dims: { autonomy: 0.6, tech: 0.9, governance: 0.2, economic: 0.8, resilience: 0.4, scalability: 0.9 } },
+      { title: 'Essential Oil Distillation', dims: { autonomy: 0.7, tech: 0.4, governance: 0.1, economic: 0.7, resilience: 0.5, scalability: 0.5 } },
+    ],
+  },
+  {
+    name: 'Technology', color: '#22d3ee',
+    nodes: [
+      { title: 'Open-Source Hardware Lab', dims: { autonomy: 0.8, tech: 1.0, governance: 0.2, economic: 0.5, resilience: 0.7, scalability: 0.6 } },
+      { title: '3D Printing Workshop', dims: { autonomy: 0.7, tech: 0.8, governance: 0.1, economic: 0.4, resilience: 0.6, scalability: 0.5 } },
+      { title: 'Agricultural Automation', dims: { autonomy: 0.8, tech: 0.7, governance: 0.1, economic: 0.7, resilience: 0.8, scalability: 0.7 } },
+      { title: 'Local Server Infrastructure', dims: { autonomy: 0.95, tech: 0.9, governance: 0.3, economic: 0.3, resilience: 0.85, scalability: 0.6 } },
+    ],
+  },
+  {
+    name: 'Culture & Human', color: '#ec4899',
+    nodes: [
+      { title: 'Technoshamanic Practices', dims: { autonomy: 0.7, tech: 0.3, governance: 0.2, economic: 0.4, resilience: 0.6, scalability: 0.3 } },
+      { title: 'Knowledge Preservation', dims: { autonomy: 0.8, tech: 0.6, governance: 0.3, economic: 0.2, resilience: 1.0, scalability: 0.8 } },
+      { title: 'Cultural Exchange Programs', dims: { autonomy: 0.3, tech: 0.1, governance: 0.4, economic: 0.5, resilience: 0.4, scalability: 0.6 } },
+      { title: 'Education & Research', dims: { autonomy: 0.5, tech: 0.5, governance: 0.3, economic: 0.4, resilience: 0.7, scalability: 0.9 } },
+    ],
+  },
+];
+
+const allNodes = clusters.flatMap(c => c.nodes.map(n => ({ ...n, cluster: c.name, color: c.color })));
+---
+
+<Base title="Explore the Knowledge Cosmos">
+  <!-- Dark cosmos header -->
+  <section class="bg-night pt-28 pb-12 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <span class="text-label text-accent tracking-widest reveal">Dimensional Explorer</span>
+      <h1 class="text-headline text-bark-50 mt-4 text-split">Knowledge Cosmos</h1>
+      <p class="text-body-lg text-bark-400 mt-4 max-w-2xl reveal" data-delay="200">
+        Every piece of BARK's knowledge exists in a multidimensional space. Choose a dimension to sort and explore.
+      </p>
+    </div>
+  </section>
+
+  <!-- Dimension switcher -->
+  <section class="bg-night sticky top-0 z-40 border-b border-bark-800/50">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10 py-4 flex gap-3 overflow-x-auto" id="dim-switcher">
+      <button data-dim="overview" class="dim-btn active text-label px-4 py-2 rounded bg-accent/20 text-accent border border-accent/30 whitespace-nowrap transition-all duration-300">
+        Overview
+      </button>
+      {dimensions.map(d => (
+        <button data-dim={d.key} class="dim-btn text-label px-4 py-2 rounded bg-night-surface text-bark-400 border border-bark-800 whitespace-nowrap hover:text-bark-200 hover:border-bark-600 transition-all duration-300">
+          {d.label}
+        </button>
+      ))}
+    </div>
+  </section>
+
+  <!-- 1D Horizontal scroll — clusters as blocks -->
+  <section class="bg-night min-h-screen py-12 px-6 lg:px-10" id="cosmos-view">
+    <div class="max-w-[1400px] mx-auto">
+      <!-- Cluster blocks -->
+      {clusters.map((cluster, ci) => (
+        <div class="mb-16 reveal" data-delay={String(ci * 100)}>
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-3 h-3 rounded-full" style={`background:${cluster.color}`}></div>
+            <h2 class="text-title text-bark-50 font-display">{cluster.name}</h2>
+            <span class="text-label text-bark-600">{cluster.nodes.length} nodes</span>
+          </div>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {cluster.nodes.map((node, ni) => (
+              <div class="group cosmos-node bg-night-surface border border-bark-800 rounded-xl p-6 hover:border-bark-600 transition-all duration-300 cursor-default" data-dims={JSON.stringify(node.dims)}>
+                <h3 class="text-bark-50 font-display font-semibold mb-4">{node.title}</h3>
+
+                <!-- Dimension bars -->
+                <div class="space-y-2">
+                  {dimensions.map(d => (
+                    <div class="flex items-center gap-2">
+                      <span class="text-[10px] text-bark-600 w-16 truncate">{d.label}</span>
+                      <div class="flex-1 h-1.5 bg-bark-800 rounded-full overflow-hidden">
+                        <div
+                          class="h-full rounded-full transition-all duration-700"
+                          style={`width:${((node.dims as any)[d.key] || 0) * 100}%;background:${cluster.color};opacity:0.8`}
+                        ></div>
+                      </div>
+                      <span class="text-[10px] text-bark-600 w-6 text-right">{((node.dims as any)[d.key] * 10).toFixed(0)}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <!-- Subtle floating dots behind (depth hint) -->
+                <div class="mt-4 flex gap-1 opacity-30">
+                  {Array.from({length: 5}).map((_, i) => (
+                    <div class="w-1 h-1 rounded-full" style={`background:${cluster.color};animation:pulse 2s infinite;animation-delay:${i * 0.3}s`}></div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <!-- Coming soon hint -->
+      <div class="text-center py-20 border-t border-bark-800 mt-8">
+        <span class="text-label text-bark-600">Phase 2: 2D Graph View</span>
+        <h3 class="text-title text-bark-400 mt-4">The cosmos expands</h3>
+        <p class="text-bark-500 mt-2 max-w-md mx-auto">
+          2D graph layout, 3D force-directed navigation, and AI-assisted exploration — coming as the knowledge base grows.
+        </p>
+        <div class="mt-8 flex justify-center gap-3">
+          <span class="text-label px-3 py-1 rounded border border-bark-800 text-bark-600">2D Graph</span>
+          <span class="text-label px-3 py-1 rounded border border-bark-800 text-bark-600">3D Cosmos</span>
+          <span class="text-label px-3 py-1 rounded border border-bark-800 text-bark-600">AI Agent</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    @keyframes pulse {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.8; }
+    }
+  </style>
+
+  <script>
+    function initExplorer() {
+      const btns = document.querySelectorAll('.dim-btn');
+      const nodes = document.querySelectorAll('.cosmos-node');
+
+      btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          btns.forEach(b => {
+            b.classList.remove('active', 'bg-accent/20', 'text-accent', 'border-accent/30');
+            b.classList.add('bg-night-surface', 'text-bark-400', 'border-bark-800');
+          });
+          btn.classList.add('active', 'bg-accent/20', 'text-accent', 'border-accent/30');
+          btn.classList.remove('bg-night-surface', 'text-bark-400', 'border-bark-800');
+
+          const dim = (btn as HTMLElement).dataset.dim;
+          if (dim === 'overview') {
+            nodes.forEach(n => (n as HTMLElement).style.opacity = '1');
+            return;
+          }
+
+          // Sort visual emphasis by selected dimension
+          nodes.forEach(n => {
+            const dims = JSON.parse((n as HTMLElement).dataset.dims || '{}');
+            const score = dims[dim!] || 0;
+            (n as HTMLElement).style.opacity = String(0.3 + score * 0.7);
+          });
+        });
+      });
+    }
+
+    initExplorer();
+    document.addEventListener('astro:page-load', initExplorer);
+  </script>
+</Base>
