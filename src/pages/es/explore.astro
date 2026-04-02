@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import MyceliumCanvas from '../../components/MyceliumCanvas.astro';
 
 // Knowledge nodes — dimensional data from across the site
 // Each node has scores on Oleg's 6 dimensions (0.0–1.0)
@@ -66,9 +67,10 @@ const allNodes = clusters.flatMap(c => c.nodes.map(n => ({ ...n, cluster: c.name
 ---
 
 <Base title="Explore the Knowledge Cosmos">
-  <!-- Dark cosmos header -->
-  <section class="bg-night pt-28 pb-12 px-6 lg:px-10">
-    <div class="max-w-[1400px] mx-auto">
+  <!-- Dark cosmos header with mycelium background -->
+  <section class="bg-night pt-28 pb-12 px-6 lg:px-10 relative overflow-hidden">
+    <MyceliumCanvas />
+    <div class="max-w-[1400px] mx-auto relative z-10">
       <span class="text-label text-accent tracking-widest reveal">Dimensional Explorer</span>
       <h1 class="text-headline text-bark-50 mt-4 text-split">Knowledge Cosmos</h1>
       <p class="text-body-lg text-bark-400 mt-4 max-w-2xl reveal" data-delay="200">
@@ -80,11 +82,11 @@ const allNodes = clusters.flatMap(c => c.nodes.map(n => ({ ...n, cluster: c.name
   <!-- Dimension switcher -->
   <section class="bg-night sticky top-0 z-40 border-b border-bark-800/50">
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10 py-4 flex gap-3 overflow-x-auto" id="dim-switcher">
-      <button data-dim="overview" class="dim-btn active text-label px-4 py-2 rounded bg-accent/20 text-accent border border-accent/30 whitespace-nowrap transition-all duration-300">
+      <button data-dim="overview" class="dim-btn active text-label px-5 py-2.5 rounded-lg bg-accent/20 text-accent border-2 border-accent/50 whitespace-nowrap transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.25)]">
         Overview
       </button>
       {dimensions.map(d => (
-        <button data-dim={d.key} class="dim-btn text-label px-4 py-2 rounded bg-night-surface text-bark-400 border border-bark-800 whitespace-nowrap hover:text-bark-200 hover:border-bark-600 transition-all duration-300">
+        <button data-dim={d.key} class="dim-btn text-label px-5 py-2.5 rounded-lg bg-night-surface text-bark-400 border-2 border-bark-800 whitespace-nowrap hover:text-bark-200 hover:border-bark-600 transition-all duration-300">
           {d.label}
         </button>
       ))}
@@ -96,20 +98,34 @@ const allNodes = clusters.flatMap(c => c.nodes.map(n => ({ ...n, cluster: c.name
     <div class="max-w-[1400px] mx-auto">
       <!-- Cluster blocks -->
       {clusters.map((cluster, ci) => (
-        <div class="mb-16 reveal" data-delay={String(ci * 100)}>
-          <div class="flex items-center gap-4 mb-8">
-            <div class="w-3 h-3 rounded-full" style={`background:${cluster.color}`}></div>
+        <div class="mb-16 reveal relative" data-delay={String(ci * 100)}>
+          <!-- Floating particle dots behind cluster section -->
+          <div class="cluster-particles absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+            {Array.from({length: 12}).map((_, i) => (
+              <div
+                class="particle-dot absolute rounded-full"
+                style={`background:${cluster.color};width:${2 + Math.random() * 3}px;height:${2 + Math.random() * 3}px;left:${Math.random() * 100}%;top:${Math.random() * 100}%;animation:particleFloat ${4 + Math.random() * 6}s ease-in-out infinite;animation-delay:${Math.random() * 5}s;opacity:0`}
+              ></div>
+            ))}
+          </div>
+
+          <div class="flex items-center gap-4 mb-8 relative z-10">
+            <div class="w-3 h-3 rounded-full" style={`background:${cluster.color};box-shadow:0 0 8px ${cluster.color}60`}></div>
             <h2 class="text-title text-bark-50 font-display">{cluster.name}</h2>
             <span class="text-label text-bark-600">{cluster.nodes.length} nodes</span>
           </div>
 
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 relative z-10">
             {cluster.nodes.map((node, ni) => (
-              <div class="group cosmos-node bg-night-surface border border-bark-800 rounded-xl p-6 hover:border-bark-600 transition-all duration-300 cursor-default" data-dims={JSON.stringify(node.dims)}>
-                <h3 class="text-bark-50 font-display font-semibold mb-4">{node.title}</h3>
+              <div class="group cosmos-node knowledge-node bg-night-surface border border-bark-800 rounded-xl p-6 hover:border-bark-600 transition-all duration-300 cursor-default relative overflow-hidden" data-dims={JSON.stringify(node.dims)} style={`--node-color:${cluster.color}`}>
+                <!-- Left edge gradient glow -->
+                <div class="absolute left-0 top-0 bottom-0 w-1 rounded-l-xl" style={`background:${cluster.color};opacity:0.5`}></div>
+                <div class="absolute left-0 top-0 bottom-0 w-16 pointer-events-none" style={`background:linear-gradient(to right, ${cluster.color}12, transparent)`}></div>
+
+                <h3 class="text-bark-50 font-display font-semibold mb-4 relative">{node.title}</h3>
 
                 <!-- Dimension bars -->
-                <div class="space-y-2">
+                <div class="space-y-2 relative">
                   {dimensions.map(d => (
                     <div class="flex items-center gap-2">
                       <span class="text-[10px] text-bark-600 w-16 truncate">{d.label}</span>
@@ -136,17 +152,31 @@ const allNodes = clusters.flatMap(c => c.nodes.map(n => ({ ...n, cluster: c.name
         </div>
       ))}
 
-      <!-- Coming soon hint -->
-      <div class="text-center py-20 border-t border-bark-800 mt-8">
-        <span class="text-label text-bark-600">Phase 2: 2D Graph View</span>
-        <h3 class="text-title text-bark-400 mt-4">The cosmos expands</h3>
-        <p class="text-bark-500 mt-2 max-w-md mx-auto">
-          2D graph layout, 3D force-directed navigation, and AI-assisted exploration — coming as the knowledge base grows.
-        </p>
-        <div class="mt-8 flex justify-center gap-3">
-          <span class="text-label px-3 py-1 rounded border border-bark-800 text-bark-600">2D Graph</span>
-          <span class="text-label px-3 py-1 rounded border border-bark-800 text-bark-600">3D Cosmos</span>
-          <span class="text-label px-3 py-1 rounded border border-bark-800 text-bark-600">AI Agent</span>
+      <!-- Coming soon — cosmos expanding -->
+      <div class="coming-soon-cosmos relative py-28 mt-8 overflow-hidden">
+        <!-- Distant star field -->
+        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+          {Array.from({length: 40}).map((_, i) => (
+            <div
+              class="absolute rounded-full"
+              style={`background:rgba(255,255,255,${0.1 + Math.random() * 0.3});width:${1 + Math.random() * 2}px;height:${1 + Math.random() * 2}px;left:${Math.random() * 100}%;top:${Math.random() * 100}%;animation:starTwinkle ${3 + Math.random() * 4}s ease-in-out infinite;animation-delay:${Math.random() * 5}s`}
+            ></div>
+          ))}
+        </div>
+        <!-- Radial fade from edges -->
+        <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at center, transparent 30%, var(--color-night) 80%)"></div>
+
+        <div class="text-center relative z-10">
+          <span class="text-label text-bark-600 tracking-[0.25em]">Phase 2: 2D Graph View</span>
+          <h3 class="text-title text-bark-300 mt-4">The cosmos expands</h3>
+          <p class="text-bark-500 mt-2 max-w-md mx-auto leading-relaxed">
+            2D graph layout, 3D force-directed navigation, and AI-assisted exploration — coming as the knowledge base grows.
+          </p>
+          <div class="mt-10 flex justify-center gap-4">
+            <span class="text-label px-4 py-2 rounded-lg border border-bark-800/60 text-bark-600 bg-night-surface/50 backdrop-blur-sm">2D Graph</span>
+            <span class="text-label px-4 py-2 rounded-lg border border-bark-800/60 text-bark-600 bg-night-surface/50 backdrop-blur-sm">3D Cosmos</span>
+            <span class="text-label px-4 py-2 rounded-lg border border-bark-800/60 text-bark-600 bg-night-surface/50 backdrop-blur-sm">AI Agent</span>
+          </div>
         </div>
       </div>
     </div>
@@ -156,6 +186,31 @@ const allNodes = clusters.flatMap(c => c.nodes.map(n => ({ ...n, cluster: c.name
     @keyframes pulse {
       0%, 100% { opacity: 0.2; }
       50% { opacity: 0.8; }
+    }
+
+    @keyframes particleFloat {
+      0%, 100% { opacity: 0; transform: translateY(0) translateX(0); }
+      20% { opacity: 0.25; }
+      50% { opacity: 0.15; transform: translateY(-20px) translateX(8px); }
+      80% { opacity: 0.25; }
+    }
+
+    @keyframes starTwinkle {
+      0%, 100% { opacity: 0.1; }
+      50% { opacity: 0.6; }
+    }
+
+    /* Active dimension button glow */
+    .dim-btn.active {
+      font-size: 0.8rem;
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.25), 0 0 30px rgba(16, 185, 129, 0.1);
+      border-color: rgba(16, 185, 129, 0.5);
+    }
+
+    /* Knowledge node hover lift */
+    .knowledge-node:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 15px color-mix(in srgb, var(--node-color) 15%, transparent);
     }
   </style>
 
@@ -167,10 +222,12 @@ const allNodes = clusters.flatMap(c => c.nodes.map(n => ({ ...n, cluster: c.name
       btns.forEach(btn => {
         btn.addEventListener('click', () => {
           btns.forEach(b => {
-            b.classList.remove('active', 'bg-accent/20', 'text-accent', 'border-accent/30');
+            b.classList.remove('active');
+            b.className = b.className.replace(/bg-accent\/20|text-accent|border-accent\/50|shadow-\[0_0_15px_rgba\(16,185,129,0\.25\)\]/g, '');
+            b.classList.remove('bg-accent/20', 'text-accent', 'border-accent/50');
             b.classList.add('bg-night-surface', 'text-bark-400', 'border-bark-800');
           });
-          btn.classList.add('active', 'bg-accent/20', 'text-accent', 'border-accent/30');
+          btn.classList.add('active', 'bg-accent/20', 'text-accent', 'border-accent/50');
           btn.classList.remove('bg-night-surface', 'text-bark-400', 'border-bark-800');
 
           const dim = (btn as HTMLElement).dataset.dim;

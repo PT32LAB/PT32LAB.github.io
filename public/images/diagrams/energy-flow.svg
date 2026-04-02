@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" fill="none">
+  <style>
+    .src-box { fill: #2d261e; rx: 8; }
+    .mid-box { fill: #064e3b; rx: 8; }
+    .out-box { fill: #2d261e; rx: 8; }
+    .box-text { fill: #faf6f1; font-family: system-ui, sans-serif; font-size: 13px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .sub-text { fill: #a8a29e; font-family: system-ui, sans-serif; font-size: 10px; text-anchor: middle; dominant-baseline: central; }
+    .flow { stroke: #10b981; stroke-width: 2; stroke-linecap: round; marker-end: url(#arrowhead); }
+    .flow-rev { stroke: #10b981; stroke-width: 1.5; stroke-linecap: round; stroke-dasharray: 5 3; marker-end: url(#arrowhead); }
+    .icon-text { fill: #faf6f1; font-family: system-ui, sans-serif; font-size: 18px; text-anchor: middle; dominant-baseline: central; }
+    .label { fill: #6ee7b7; font-family: system-ui, sans-serif; font-size: 9px; font-weight: 500; text-anchor: middle; dominant-baseline: central; letter-spacing: 0.05em; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <!-- SOURCE COLUMN -->
+  <!-- Solar -->
+  <rect class="src-box" x="30" y="40" width="160" height="64"/>
+  <text class="box-text" x="110" y="62">Solar PV</text>
+  <text class="sub-text" x="110" y="82">3.5 - 4.5 kWh/m2/day</text>
+
+  <!-- Micro-Hydro -->
+  <rect class="src-box" x="30" y="148" width="160" height="64"/>
+  <text class="box-text" x="110" y="170">Micro-Hydro</text>
+  <text class="sub-text" x="110" y="190">1 - 100 kW run-of-river</text>
+
+  <!-- Grid Backup -->
+  <rect class="src-box" x="30" y="256" width="160" height="64"/>
+  <text class="box-text" x="110" y="278">Grid Backup</text>
+  <text class="sub-text" x="110" y="298">Net metering enabled</text>
+
+  <!-- STORAGE COLUMN -->
+  <!-- Battery Storage -->
+  <rect class="mid-box" x="280" y="94" width="160" height="64"/>
+  <text class="box-text" x="360" y="116">Battery Storage</text>
+  <text class="sub-text" x="360" y="136">48 - 72h autonomy</text>
+
+  <!-- MANAGEMENT COLUMN -->
+  <!-- Load Management -->
+  <rect class="mid-box" x="520" y="94" width="160" height="64"/>
+  <text class="box-text" x="600" y="116">Load Management</text>
+  <text class="sub-text" x="600" y="136">Priority circuits</text>
+
+  <!-- OUTPUT COLUMN -->
+  <!-- Community -->
+  <rect class="out-box" x="520" y="240" width="160" height="64"/>
+  <text class="box-text" x="600" y="262">Community</text>
+  <text class="sub-text" x="600" y="282">Critical + general loads</text>
+
+  <!-- Net Metering / Revenue -->
+  <rect class="out-box" x="280" y="290" width="160" height="64"/>
+  <text class="box-text" x="360" y="312">Net Metering</text>
+  <text class="sub-text" x="360" y="332">Surplus revenue</text>
+
+  <!-- FLOW ARROWS -->
+  <!-- Solar -> Battery -->
+  <path class="flow" d="M190 72 L 270 120"/>
+  <text class="label" x="225" y="88">DC</text>
+
+  <!-- Hydro -> Battery -->
+  <path class="flow" d="M190 180 L 270 130"/>
+  <text class="label" x="225" y="162">AC</text>
+
+  <!-- Grid -> Battery -->
+  <path class="flow" d="M190 280 L 270 140"/>
+
+  <!-- Battery -> Load Management -->
+  <path class="flow" d="M440 126 L 510 126"/>
+  <text class="label" x="475" y="116">Regulated</text>
+
+  <!-- Load Management -> Community -->
+  <path class="flow" d="M600 158 L 600 232"/>
+  <text class="label" x="620" y="195">Distribute</text>
+
+  <!-- Community -> Net Metering (surplus) -->
+  <path class="flow-rev" d="M520 275 L 448 300"/>
+  <text class="label" x="492" y="280">Surplus</text>
+
+  <!-- Net Metering -> Grid (revenue loop) -->
+  <path class="flow-rev" d="M280 310 L 190 296"/>
+  <text class="label" x="235" y="296">Revenue</text>
+
+  <!-- Counter-cyclical indicator -->
+  <rect x="30" y="340" width="740" height="28" rx="4" fill="#2d261e" opacity="0.5"/>
+  <text class="sub-text" x="400" y="354" fill="#6ee7b7" font-size="11">Counter-cyclical: wet season = peak hydro + low solar | dry season = peak solar + low hydro</text>
+</svg>

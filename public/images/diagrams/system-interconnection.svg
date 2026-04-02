@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" fill="none">
+  <style>
+    .box { fill: #2d261e; rx: 8; }
+    .box-text { fill: #faf6f1; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .conn { stroke: #10b981; stroke-width: 2; stroke-linecap: round; }
+    .conn-dot { fill: #10b981; }
+    .label { fill: #10b981; font-family: system-ui, sans-serif; font-size: 10px; font-weight: 500; text-anchor: middle; dominant-baseline: central; letter-spacing: 0.05em; }
+  </style>
+
+  <!-- Boxes -->
+  <!-- Techno Park (top-left) -->
+  <rect class="box" x="100" y="60" width="180" height="56"/>
+  <text class="box-text" x="190" y="88">Techno Park</text>
+
+  <!-- Incubator (top-right) -->
+  <rect class="box" x="440" y="60" width="180" height="56"/>
+  <text class="box-text" x="530" y="88">Incubator</text>
+
+  <!-- Infrastructure (center-left) -->
+  <rect class="box" x="100" y="192" width="180" height="56"/>
+  <text class="box-text" x="190" y="220">Infrastructure</text>
+
+  <!-- Trading House (center-right) -->
+  <rect class="box" x="440" y="192" width="180" height="56"/>
+  <text class="box-text" x="530" y="220">Trading House</text>
+
+  <!-- Retreat Center (bottom-left) -->
+  <rect class="box" x="100" y="324" width="180" height="56"/>
+  <text class="box-text" x="190" y="352">Retreat Center</text>
+
+  <!-- Community (bottom-right) -->
+  <rect class="box" x="440" y="324" width="180" height="56"/>
+  <text class="box-text" x="530" y="352">Community</text>
+
+  <!-- Horizontal connections -->
+  <!-- Techno Park <-> Incubator -->
+  <line class="conn" x1="280" y1="88" x2="440" y2="88"/>
+  <circle class="conn-dot" cx="360" cy="88" r="3"/>
+  <text class="label" x="360" y="76">R&amp;D</text>
+
+  <!-- Infrastructure <-> Trading House -->
+  <line class="conn" x1="280" y1="220" x2="440" y2="220"/>
+  <circle class="conn-dot" cx="360" cy="220" r="3"/>
+  <text class="label" x="360" y="208">Supply</text>
+
+  <!-- Retreat Center <-> Community -->
+  <line class="conn" x1="280" y1="352" x2="440" y2="352"/>
+  <circle class="conn-dot" cx="360" cy="352" r="3"/>
+  <text class="label" x="360" y="340">Culture</text>
+
+  <!-- Vertical connections -->
+  <!-- Techno Park <-> Infrastructure -->
+  <line class="conn" x1="190" y1="116" x2="190" y2="192"/>
+  <circle class="conn-dot" cx="190" cy="154" r="3"/>
+  <text class="label" x="210" y="154">Build</text>
+
+  <!-- Infrastructure <-> Retreat Center -->
+  <line class="conn" x1="190" y1="248" x2="190" y2="324"/>
+  <circle class="conn-dot" cx="190" cy="286" r="3"/>
+  <text class="label" x="210" y="286">Power</text>
+
+  <!-- Incubator <-> Trading House -->
+  <line class="conn" x1="530" y1="116" x2="530" y2="192"/>
+  <circle class="conn-dot" cx="530" cy="154" r="3"/>
+  <text class="label" x="550" y="154">Launch</text>
+
+  <!-- Trading House <-> Community -->
+  <line class="conn" x1="530" y1="248" x2="530" y2="324"/>
+  <circle class="conn-dot" cx="530" cy="286" r="3"/>
+  <text class="label" x="556" y="286">Revenue</text>
+
+  <!-- Diagonal connections (lighter) -->
+  <!-- Techno Park <-> Trading House -->
+  <line class="conn" x1="270" y1="110" x2="450" y2="198" stroke-dasharray="6 4" opacity="0.4"/>
+
+  <!-- Incubator <-> Infrastructure -->
+  <line class="conn" x1="450" y1="110" x2="270" y2="198" stroke-dasharray="6 4" opacity="0.4"/>
+
+  <!-- Infrastructure <-> Community -->
+  <line class="conn" x1="270" y1="242" x2="450" y2="330" stroke-dasharray="6 4" opacity="0.4"/>
+
+  <!-- Retreat Center <-> Trading House -->
+  <line class="conn" x1="270" y1="330" x2="450" y2="242" stroke-dasharray="6 4" opacity="0.4"/>
+</svg>

@@ -364,6 +364,40 @@ a:focus-visible, button:focus-visible {
   border-radius: 2px;
 }
 
+/* --- Hover lift: interactive card effect --- */
+.hover-lift {
+  transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal) var(--ease-out);
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* --- Dark section utility --- */
+.section-dark {
+  background-color: var(--color-bark-900);
+  color: var(--color-bark-300);
+}
+.section-dark h2, .section-dark h3 {
+  color: var(--color-bark-50);
+}
+.section-dark .text-label {
+  color: var(--color-bark-500);
+}
+
+/* --- Gradient text utility --- */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Table hover state --- */
+.content-prose tbody tr:hover {
+  background: rgba(16, 185, 129, 0.04);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }

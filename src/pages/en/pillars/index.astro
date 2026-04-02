@@ -2,11 +2,11 @@
 import Base from '../../../layouts/Base.astro';
 
 const pillars = [
-  { num: '01', name: 'Techno Park', slug: 'technopark', desc: 'Open-source R&D laboratory and maker space. Hardware prototyping, software development, appropriate technology research.' },
-  { num: '02', name: 'Startup Incubator', slug: 'incubator', desc: 'Launch ventures that serve both the community and the global market. Mentorship, shared resources, global connectivity.' },
-  { num: '03', name: 'Trading House', slug: 'trading', desc: 'Economic engine connecting local production with regional and global markets. Fair trade, value-added processing, financial resilience.' },
-  { num: '04', name: 'Retreat Center', slug: 'retreat', desc: 'Technoshamanic retreat blending ancient wisdom with modern practice. Healing, culture, contemplation, creativity.' },
-  { num: '05', name: 'Infrastructure', slug: 'infrastructure', desc: 'Semi-autonomous systems for energy, water, food, and connectivity. The physical foundation that makes everything else possible.' },
+  { num: '01', name: 'Techno Park', slug: 'technopark', icon: '/images/icons/technopark.svg', desc: 'Open-source R&D laboratory and maker space. Hardware prototyping, software development, appropriate technology research.' },
+  { num: '02', name: 'Startup Incubator', slug: 'incubator', icon: '/images/icons/incubator.svg', desc: 'Launch ventures that serve both the community and the global market. Mentorship, shared resources, global connectivity.' },
+  { num: '03', name: 'Trading House', slug: 'trading', icon: '/images/icons/trading.svg', desc: 'Economic engine connecting local production with regional and global markets. Fair trade, value-added processing, financial resilience.' },
+  { num: '04', name: 'Retreat Center', slug: 'retreat', icon: '/images/icons/retreat.svg', desc: 'Technoshamanic retreat blending ancient wisdom with modern practice. Healing, culture, contemplation, creativity.' },
+  { num: '05', name: 'Infrastructure', slug: 'infrastructure', icon: '/images/icons/infrastructure.svg', desc: 'Semi-autonomous systems for energy, water, food, and connectivity. The physical foundation that makes everything else possible.' },
 ];
 ---
 
@@ -28,6 +28,7 @@ const pillars = [
         <a href={`/en/pillars/${p.slug}`} class="group flex flex-col md:flex-row md:items-center justify-between gap-6 py-10 px-8 bg-bark-50 hover:bg-bark-100 border-b border-bark-200 transition-colors duration-300 reveal" data-delay={String(i * 80)}>
           <div class="flex items-start md:items-center gap-6">
             <span class="text-label text-bark-300 w-8 pt-1 md:pt-0">{p.num}</span>
+            <img src={p.icon} alt="" class="w-10 h-10 text-accent opacity-60 group-hover:opacity-100 transition-opacity duration-300 hidden md:block flex-shrink-0" width="40" height="40" />
             <div>
               <h2 class="text-title text-bark-800 group-hover:text-bark-900 transition-colors">{p.name}</h2>
               <p class="text-bark-500 mt-2 leading-relaxed max-w-lg">{p.desc}</p>

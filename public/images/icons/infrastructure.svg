@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Solar panel frame -->
+  <rect x="6" y="8" width="28" height="18" rx="1"/>
+  <!-- Panel grid lines -->
+  <line x1="6" y1="14" x2="34" y2="14"/>
+  <line x1="6" y1="20" x2="34" y2="20"/>
+  <line x1="15.3" y1="8" x2="15.3" y2="26"/>
+  <line x1="24.7" y1="8" x2="24.7" y2="26"/>
+  <!-- Stand -->
+  <line x1="20" y1="26" x2="20" y2="32"/>
+  <line x1="14" y1="32" x2="26" y2="32"/>
+  <!-- Sun rays -->
+  <circle cx="34" cy="6" r="0.8" fill="currentColor" stroke="none"/>
+  <line x1="34" y1="2" x2="34" y2="3.5"/>
+  <line x1="37.5" y1="6" x2="36" y2="6"/>
+  <line x1="36.5" y1="3.5" x2="35.4" y2="4.6"/>
+</svg>
