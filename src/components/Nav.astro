@@ -1,0 +1,74 @@
+---
+import { getLangFromUrl, t, getLocalePath, languages, type Lang } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const otherLang: Lang = lang === 'en' ? 'es' : 'en';
+
+const links = [
+  { key: 'nav.vision' as const, path: '/vision' },
+  { key: 'nav.why' as const, path: '/why' },
+  { key: 'nav.pillars' as const, path: '/pillars' },
+  { key: 'nav.location' as const, path: '/location' },
+  { key: 'nav.governance' as const, path: '/governance' },
+  { key: 'nav.participate' as const, path: '/participate' },
+];
+---
+
+<nav class="fixed top-0 w-full z-50 bg-bark-cream/90 backdrop-blur-sm border-b border-bark-green/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href={getLocalePath(lang, '/')} class="flex items-center gap-2 font-bold text-bark-green text-xl tracking-tight">
+        <span class="text-2xl">🌿</span>
+        <span>BARK</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-6">
+        {links.map(link => (
+          <a
+            href={getLocalePath(lang, link.path)}
+            class="text-sm text-bark-earth-dark hover:text-bark-green transition-colors"
+          >
+            {t(lang, link.key)}
+          </a>
+        ))}
+        <a
+          href={getLocalePath(otherLang, Astro.url.pathname.replace(`/${lang}`, '') || '/')}
+          class="text-xs px-2 py-1 border border-bark-green/30 rounded text-bark-green hover:bg-bark-green hover:text-white transition-colors"
+        >
+          {languages[otherLang]}
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-bark-earth-dark" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden border-t border-bark-green/10 bg-bark-cream">
+    <div class="px-4 py-3 space-y-2">
+      {links.map(link => (
+        <a
+          href={getLocalePath(lang, link.path)}
+          class="block text-sm text-bark-earth-dark hover:text-bark-green py-1"
+        >
+          {t(lang, link.key)}
+        </a>
+      ))}
+      <a
+        href={getLocalePath(otherLang, Astro.url.pathname.replace(`/${lang}`, '') || '/')}
+        class="inline-block text-xs px-2 py-1 border border-bark-green/30 rounded text-bark-green mt-2"
+      >
+        {languages[otherLang]}
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+    document.getElementById('mobile-menu')?.classList.toggle('hidden');
+  });
+</script>

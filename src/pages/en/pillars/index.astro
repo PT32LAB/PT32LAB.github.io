@@ -1,0 +1,59 @@
+---
+import Base from '../../../layouts/Base.astro';
+
+const pillars = [
+  {
+    icon: '⚡', name: 'Techno Park', slug: 'technopark',
+    desc: 'Open-source R&D laboratory and maker space. Hardware prototyping, software development, appropriate technology research.',
+    color: 'bark-cyan',
+  },
+  {
+    icon: '🚀', name: 'Startup Incubator', slug: 'incubator',
+    desc: 'Launch ventures that serve both the community and the global market. Mentorship, shared resources, global connectivity.',
+    color: 'bark-amber',
+  },
+  {
+    icon: '💱', name: 'Trading House', slug: 'trading',
+    desc: 'Economic engine connecting local production with regional and global markets. Fair trade, value-added processing, financial resilience.',
+    color: 'bark-lime',
+  },
+  {
+    icon: '🌀', name: 'Retreat Center', slug: 'retreat',
+    desc: 'Technoshamanic retreat blending ancient wisdom with modern practice. Healing, culture, contemplation, creativity.',
+    color: 'bark-emerald',
+  },
+  {
+    icon: '🔋', name: 'Infrastructure', slug: 'infrastructure',
+    desc: 'Semi-autonomous systems for energy, water, food, and connectivity. The physical foundation that makes everything else possible.',
+    color: 'bark-green',
+  },
+];
+---
+
+<Base title="Five Pillars">
+  <section class="py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-bark-earth-dark mb-4">Five Pillars</h1>
+      <p class="text-xl text-bark-earth mb-8">BARK stands on five interconnected pillars. Each supports the others — remove one and the structure weakens.</p>
+      <div class="circuit-vine mb-12"></div>
+
+      <div class="space-y-6">
+        {pillars.map(p => (
+          <a href={`/en/pillars/${p.slug}`} class="group block p-8 bg-white rounded-xl border border-bark-green/10 hover:border-bark-emerald/30 hover:shadow-lg transition-all">
+            <div class="flex items-start gap-6">
+              <div class="text-4xl flex-shrink-0">{p.icon}</div>
+              <div>
+                <h2 class="text-2xl font-bold text-bark-earth-dark group-hover:text-bark-green transition-colors mb-2">{p.name}</h2>
+                <p class="text-bark-earth leading-relaxed">{p.desc}</p>
+                <span class="inline-flex items-center gap-1 mt-3 text-sm text-bark-green font-medium">
+                  Learn more
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

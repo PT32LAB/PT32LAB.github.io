@@ -1,0 +1,111 @@
+---
+import Base from '../../layouts/Base.astro';
+import { t } from '../../i18n/ui';
+const lang = 'en';
+
+const pathways = [
+  { key: 'builders' as const, icon: '🔧', color: 'bark-cyan', link: `/${lang}/pillars` },
+  { key: 'investors' as const, icon: '📈', color: 'bark-amber', link: `/${lang}/participate` },
+  { key: 'community' as const, icon: '🌍', color: 'bark-emerald', link: `/${lang}/governance` },
+  { key: 'locals' as const, icon: '🏔️', color: 'bark-lime', link: `/${lang}/location` },
+];
+---
+
+<Base title="Home">
+  <!-- Hero -->
+  <section class="relative min-h-[85vh] flex items-center">
+    <div class="absolute inset-0 bg-gradient-to-br from-bark-night via-bark-night-light to-bark-green opacity-95"></div>
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-20 left-10 w-72 h-72 bg-bark-emerald rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-bark-cyan rounded-full blur-3xl"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-bark-emerald/20 border border-bark-emerald/30 rounded-full text-bark-emerald text-sm mb-6">
+          <span class="w-2 h-2 bg-bark-emerald rounded-full animate-pulse"></span>
+          Open-source community project
+        </div>
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
+          <span class="text-bark-emerald">Bolivian</span> Ark
+        </h1>
+        <p class="text-2xl sm:text-3xl text-bark-sand font-medium mb-4">
+          {t(lang, 'hero.tagline')}
+        </p>
+        <p class="text-lg text-bark-sand/70 leading-relaxed mb-10 max-w-2xl">
+          {t(lang, 'hero.subtitle')}
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href={`/${lang}/participate`} class="inline-flex items-center gap-2 px-6 py-3 bg-bark-emerald text-white font-semibold rounded-lg hover:bg-bark-green-light transition-colors">
+            {t(lang, 'hero.cta')}
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href={`/${lang}/vision`} class="inline-flex items-center gap-2 px-6 py-3 border border-bark-sand/30 text-bark-sand font-semibold rounded-lg hover:bg-bark-sand/10 transition-colors">
+            {t(lang, 'hero.learn')}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Circuit vine divider -->
+  <div class="circuit-vine"></div>
+
+  <!-- Pathways -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold text-bark-earth-dark text-center mb-4">Find Your Path</h2>
+      <p class="text-bark-earth text-center mb-12 max-w-2xl mx-auto">BARK is built by many hands. Whether you code, fund, organize, or live here — there's a place for you.</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {pathways.map(p => (
+          <a href={p.link} class="group block p-6 bg-white rounded-xl border border-bark-green/10 hover:border-bark-emerald/40 hover:shadow-lg transition-all">
+            <div class="text-3xl mb-4">{p.icon}</div>
+            <h3 class="font-bold text-lg text-bark-earth-dark mb-2 group-hover:text-bark-green transition-colors">
+              {t(lang, `paths.${p.key}.title` as any)}
+            </h3>
+            <p class="text-sm text-bark-earth leading-relaxed">
+              {t(lang, `paths.${p.key}.desc` as any)}
+            </p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission strip -->
+  <section class="bg-bark-green text-white py-16 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4">Why an Ark?</h2>
+      <p class="text-lg text-bark-sand/90 leading-relaxed mb-6">
+        The world faces unprecedented turbulence — geopolitical instability, ecological crisis, technological disruption.
+        We're building a place that preserves what matters: humanistic values, human diversity, and the technologies
+        that sustain a good life. Not a bunker. A living community.
+      </p>
+      <a href={`/${lang}/why`} class="inline-flex items-center gap-2 text-bark-lime font-semibold hover:text-white transition-colors">
+        Read the full thesis
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Pillars preview -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold text-bark-earth-dark text-center mb-12">Five Pillars</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {[
+          { icon: '⚡', name: 'Techno Park', desc: 'R&D lab and maker space', link: `/${lang}/pillars/technopark` },
+          { icon: '🚀', name: 'Incubator', desc: 'Startup launchpad', link: `/${lang}/pillars/incubator` },
+          { icon: '💱', name: 'Trading House', desc: 'Economic engine', link: `/${lang}/pillars/trading` },
+          { icon: '🌀', name: 'Retreat Center', desc: 'Healing and culture', link: `/${lang}/pillars/retreat` },
+          { icon: '🔋', name: 'Infrastructure', desc: 'Energy, water, food', link: `/${lang}/pillars/infrastructure` },
+        ].map(pillar => (
+          <a href={pillar.link} class="group text-center p-5 rounded-xl bg-white border border-bark-green/10 hover:border-bark-emerald/40 hover:shadow-md transition-all">
+            <div class="text-3xl mb-2">{pillar.icon}</div>
+            <h3 class="font-semibold text-bark-earth-dark group-hover:text-bark-green transition-colors">{pillar.name}</h3>
+            <p class="text-xs text-bark-earth mt-1">{pillar.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

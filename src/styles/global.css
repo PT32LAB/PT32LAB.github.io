@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bark-green: #2d5a27;
+  --color-bark-green-light: #4a7c44;
+  --color-bark-emerald: #10b981;
+  --color-bark-lime: #84cc16;
+  --color-bark-earth: #78716c;
+  --color-bark-earth-dark: #44403c;
+  --color-bark-sand: #f5f0e8;
+  --color-bark-cream: #faf8f4;
+  --color-bark-night: #1a1a2e;
+  --color-bark-night-light: #16213e;
+  --color-bark-cyan: #06b6d4;
+  --color-bark-amber: #f59e0b;
+
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bark-cream);
+  color: var(--color-bark-earth-dark);
+}
+
+.bg-pattern {
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(45, 90, 39, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
+}
+
+.circuit-vine {
+  background: linear-gradient(90deg, var(--color-bark-green), var(--color-bark-cyan), var(--color-bark-emerald));
+  height: 2px;
+  border-radius: 1px;
+}
