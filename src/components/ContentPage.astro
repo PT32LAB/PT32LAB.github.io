@@ -11,21 +11,31 @@ const { title, subtitle, description } = Astro.props;
 ---
 
 <Base title={title} description={description}>
-  <section class="py-16 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-bark-earth-dark mb-4">{title}</h1>
-      {subtitle && <p class="text-xl text-bark-earth mb-8">{subtitle}</p>}
-      <div class="circuit-vine mb-10"></div>
-      <div class="prose prose-lg max-w-none
-        prose-headings:text-bark-earth-dark prose-headings:font-bold
-        prose-p:text-bark-earth-dark/80 prose-p:leading-relaxed
-        prose-a:text-bark-green prose-a:no-underline hover:prose-a:underline
-        prose-li:text-bark-earth-dark/80
-        prose-strong:text-bark-earth-dark
-        prose-blockquote:border-bark-emerald prose-blockquote:text-bark-earth
-      ">
-        <slot />
-      </div>
+  <!-- Page header -->
+  <section class="pt-32 pb-16 px-6 lg:px-10">
+    <div class="max-w-[900px] mx-auto">
+      <h1 class="text-headline text-bark-800 reveal">{title}</h1>
+      {subtitle && <p class="text-body-lg text-bark-500 mt-4 max-w-2xl reveal" data-delay="100">{subtitle}</p>}
+      <div class="accent-line mt-10 reveal" data-delay="200"></div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="pb-32 px-6 lg:px-10">
+    <div class="max-w-[900px] mx-auto
+      [&>p]:text-bark-600 [&>p]:text-[1.1rem] [&>p]:leading-[1.85] [&>p]:mb-6
+      [&>h2]:font-display [&>h2]:text-title [&>h2]:text-bark-800 [&>h2]:mt-16 [&>h2]:mb-6
+      [&>ul]:space-y-3 [&>ul]:mb-8 [&>ul]:pl-0
+      [&>ul>li]:text-bark-600 [&>ul>li]:text-[1.05rem] [&>ul>li]:leading-relaxed [&>ul>li]:pl-6 [&>ul>li]:relative
+      [&>ul>li]:before:content-[''] [&>ul>li]:before:absolute [&>ul>li]:before:left-0 [&>ul>li]:before:top-[0.6em]
+      [&>ul>li]:before:w-2 [&>ul>li]:before:h-px [&>ul>li]:before:bg-accent
+      [&>ul>li>strong]:text-bark-800 [&>ul>li>strong]:font-medium
+      [&>strong]:text-bark-800 [&>strong]:font-medium
+      [&>a]:text-accent [&>a]:underline [&>a]:underline-offset-4 [&>a]:decoration-accent/30 hover:[&>a]:decoration-accent
+      [&>blockquote]:border-l-2 [&>blockquote]:border-accent [&>blockquote]:pl-6 [&>blockquote]:text-bark-500 [&>blockquote]:italic
+      [&>.cta-box]:mt-16 [&>.cta-box]:p-8 [&>.cta-box]:bg-bark-100 [&>.cta-box]:rounded-xl [&>.cta-box]:border [&>.cta-box]:border-bark-200
+    ">
+      <slot />
     </div>
   </section>
 </Base>

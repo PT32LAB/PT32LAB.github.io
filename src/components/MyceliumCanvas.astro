@@ -1,0 +1,111 @@
+<!-- Generative mycelium/root network background -->
+<canvas id="mycelium-canvas" class="absolute inset-0 w-full h-full" style="z-index:0;"></canvas>
+
+<script>
+function initMycelium() {
+  const canvas = document.getElementById('mycelium-canvas') as HTMLCanvasElement;
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  let w = 0, h = 0;
+  let branches: Branch[] = [];
+  let animId = 0;
+
+  interface Branch {
+    x: number; y: number; angle: number; speed: number;
+    life: number; maxLife: number; width: number; alpha: number;
+    color: string;
+  }
+
+  function resize() {
+    const rect = canvas.parentElement?.getBoundingClientRect();
+    w = canvas.width = rect?.width || window.innerWidth;
+    h = canvas.height = rect?.height || window.innerHeight;
+  }
+
+  function spawn(x?: number, y?: number) {
+    const colors = ['rgba(16,185,129,', 'rgba(34,211,153,', 'rgba(5,150,105,', 'rgba(34,211,238,'];
+    const angle = Math.random() * Math.PI * 2;
+    branches.push({
+      x: x ?? Math.random() * w,
+      y: y ?? Math.random() * h,
+      angle,
+      speed: 0.3 + Math.random() * 0.8,
+      life: 0,
+      maxLife: 80 + Math.random() * 200,
+      width: 0.5 + Math.random() * 1.5,
+      alpha: 0.08 + Math.random() * 0.12,
+      color: colors[Math.floor(Math.random() * colors.length)],
+    });
+  }
+
+  function draw() {
+    ctx!.fillStyle = 'rgba(10, 10, 15, 0.01)';
+    ctx!.fillRect(0, 0, w, h);
+
+    for (let i = branches.length - 1; i >= 0; i--) {
+      const b = branches[i];
+      b.life++;
+      b.angle += (Math.random() - 0.5) * 0.3;
+      b.x += Math.cos(b.angle) * b.speed;
+      b.y += Math.sin(b.angle) * b.speed;
+
+      const fade = 1 - b.life / b.maxLife;
+      ctx!.strokeStyle = b.color + (b.alpha * fade) + ')';
+      ctx!.lineWidth = b.width * fade;
+      ctx!.beginPath();
+      ctx!.moveTo(b.x, b.y);
+      ctx!.lineTo(
+        b.x + Math.cos(b.angle) * b.speed * 2,
+        b.y + Math.sin(b.angle) * b.speed * 2
+      );
+      ctx!.stroke();
+
+      // Branch occasionally
+      if (Math.random() < 0.008 && branches.length < 300) {
+        spawn(b.x, b.y);
+      }
+
+      // Node glow at junctions
+      if (Math.random() < 0.003) {
+        ctx!.beginPath();
+        ctx!.arc(b.x, b.y, 1.5 + Math.random() * 2, 0, Math.PI * 2);
+        ctx!.fillStyle = b.color + (b.alpha * fade * 1.5) + ')';
+        ctx!.fill();
+      }
+
+      if (b.life >= b.maxLife || b.x < -20 || b.x > w + 20 || b.y < -20 || b.y > h + 20) {
+        branches.splice(i, 1);
+      }
+    }
+
+    // Maintain population
+    if (branches.length < 50 && Math.random() < 0.15) spawn();
+
+    animId = requestAnimationFrame(draw);
+  }
+
+  resize();
+  // Seed initial branches
+  for (let i = 0; i < 30; i++) spawn();
+  // Pre-draw some frames for initial density
+  for (let i = 0; i < 120; i++) draw();
+  cancelAnimationFrame(animId);
+  // Start live animation
+  draw();
+
+  window.addEventListener('resize', resize);
+
+  // Cleanup on page transition
+  document.addEventListener('astro:before-swap', () => {
+    cancelAnimationFrame(animId);
+    window.removeEventListener('resize', resize);
+  }, { once: true });
+}
+
+initMycelium();
+document.addEventListener('astro:page-load', () => {
+  if (document.getElementById('mycelium-canvas')) initMycelium();
+});
+</script>

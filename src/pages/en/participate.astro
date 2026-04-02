@@ -1,99 +1,82 @@
 ---
 import Base from '../../layouts/Base.astro';
+
+const ways = [
+  { num: '01', title: 'Invest', desc: 'Fund infrastructure, land acquisition, or specific pillars. We\'re structuring investment pathways that align financial return with community benefit.', items: ['Direct project funding', 'Cooperative membership shares', 'Pillar-specific sponsorship'] },
+  { num: '02', title: 'Build', desc: 'Contribute skills — engineering, agriculture, construction, software, design, medicine. On-site or remote.', items: ['Resident builder (relocate to Coroico)', 'Remote contributor (code, design, research)', 'Visiting expert (periodic on-site work)'] },
+  { num: '03', title: 'Think', desc: 'Contribute intellectual property — designs, research, methodologies, governance models. Open-source contributions to the project\'s knowledge base.', items: ['Governance model design', 'Technical architecture proposals', 'Research and analysis'] },
+  { num: '04', title: 'Spread', desc: 'Share the vision. Connect us with people, organizations, and resources. Write about the project. Translate content.', items: ['Social media and content', 'Translation (EN/ES and beyond)', 'Network connections'] },
+];
 ---
 
 <Base title="Participate">
-  <section class="py-16 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-5xl mx-auto">
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-bark-earth-dark mb-4">Get Involved</h1>
-      <p class="text-xl text-bark-earth mb-8">BARK is a project for co-creators, not spectators. Here's how you can contribute.</p>
-      <div class="circuit-vine mb-12"></div>
+  <!-- Header -->
+  <section class="pt-32 pb-16 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <span class="text-label text-accent reveal">Join Us</span>
+      <h1 class="text-headline text-bark-800 mt-4 max-w-3xl reveal" data-delay="100">
+        A project for co-creators,<br />not spectators.
+      </h1>
+      <div class="accent-line mt-10 max-w-xl reveal" data-delay="200"></div>
+    </div>
+  </section>
 
-      <div class="grid md:grid-cols-2 gap-8 mb-16">
-        <div class="p-8 bg-white rounded-xl border border-bark-green/10">
-          <div class="text-3xl mb-4">💰</div>
-          <h2 class="text-xl font-bold text-bark-earth-dark mb-3">Invest</h2>
-          <p class="text-bark-earth leading-relaxed mb-4">
-            Fund infrastructure, land acquisition, or specific pillars. We're structuring investment
-            pathways that align financial return with community benefit. Early supporters shape the foundation.
-          </p>
-          <ul class="text-sm text-bark-earth space-y-1">
-            <li>• Direct project funding</li>
-            <li>• Cooperative membership shares</li>
-            <li>• Pillar-specific sponsorship</li>
-          </ul>
-        </div>
-
-        <div class="p-8 bg-white rounded-xl border border-bark-green/10">
-          <div class="text-3xl mb-4">🔧</div>
-          <h2 class="text-xl font-bold text-bark-earth-dark mb-3">Build</h2>
-          <p class="text-bark-earth leading-relaxed mb-4">
-            Contribute skills — engineering, agriculture, construction, software, design, medicine,
-            education. On-site or remote. Full-time resident or periodic contributor.
-          </p>
-          <ul class="text-sm text-bark-earth space-y-1">
-            <li>• Resident builder (relocate to Coroico)</li>
-            <li>• Remote contributor (code, design, research)</li>
-            <li>• Visiting expert (periodic on-site work)</li>
-          </ul>
-        </div>
-
-        <div class="p-8 bg-white rounded-xl border border-bark-green/10">
-          <div class="text-3xl mb-4">🧠</div>
-          <h2 class="text-xl font-bold text-bark-earth-dark mb-3">Think</h2>
-          <p class="text-bark-earth leading-relaxed mb-4">
-            Contribute intellectual property — designs, research, methodologies, governance models.
-            Open-source contributions to the project's knowledge base.
-          </p>
-          <ul class="text-sm text-bark-earth space-y-1">
-            <li>• Governance model design</li>
-            <li>• Technical architecture proposals</li>
-            <li>• Research and analysis</li>
-          </ul>
-        </div>
-
-        <div class="p-8 bg-white rounded-xl border border-bark-green/10">
-          <div class="text-3xl mb-4">📢</div>
-          <h2 class="text-xl font-bold text-bark-earth-dark mb-3">Spread</h2>
-          <p class="text-bark-earth leading-relaxed mb-4">
-            Share the vision. Connect us with people, organizations, and resources.
-            Write about the project. Translate content. Build community.
-          </p>
-          <ul class="text-sm text-bark-earth space-y-1">
-            <li>• Social media and content</li>
-            <li>• Translation (EN/ES and beyond)</li>
-            <li>• Network connections</li>
-          </ul>
-        </div>
+  <!-- Ways to participate -->
+  <section class="pb-32 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="grid md:grid-cols-2 gap-px bg-bark-200 rounded-xl overflow-hidden">
+        {ways.map((w, i) => (
+          <div class="bg-bark-50 p-10 reveal" data-delay={String(i * 100)}>
+            <span class="text-label text-bark-300">{w.num}</span>
+            <h2 class="text-title text-bark-800 mt-3">{w.title}</h2>
+            <p class="text-bark-500 mt-4 leading-relaxed">{w.desc}</p>
+            <ul class="mt-6 space-y-2">
+              {w.items.map(item => (
+                <li class="text-bark-600 text-sm pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[0.6em] before:w-2 before:h-px before:bg-accent">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
+    </div>
+  </section>
 
-      <div class="bg-bark-night text-white rounded-xl p-8 mb-12">
-        <h2 class="text-2xl font-bold mb-4">Open Source First</h2>
-        <p class="text-bark-sand/80 leading-relaxed mb-6">
-          Everything we produce — plans, code, research, governance frameworks — lives in public GitHub repositories.
-          Fork it, improve it, replicate it. This project belongs to everyone who contributes.
+  <!-- Open Source -->
+  <section class="bg-bark-900 py-24 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-10">
+      <div class="max-w-xl">
+        <span class="text-label text-accent reveal">Open Source First</span>
+        <p class="text-body-lg text-bark-300 mt-4 leading-relaxed reveal" data-delay="100">
+          Everything we produce — plans, code, research, governance frameworks — lives
+          in public GitHub repositories. Fork it, improve it, replicate it.
         </p>
-        <a
-          href="https://github.com/PT32LAB"
-          class="inline-flex items-center gap-2 px-5 py-2.5 bg-bark-emerald text-white font-semibold rounded-lg hover:bg-bark-green-light transition-colors"
-        >
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          View on GitHub
-        </a>
       </div>
+      <a
+        href="https://github.com/PT32LAB"
+        class="group inline-flex items-center gap-3 px-7 py-4 bg-accent text-night font-display font-semibold text-sm tracking-wide rounded hover:bg-accent-light transition-colors duration-300 reveal" data-delay="200"
+      >
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+  </section>
 
-      <div class="text-center">
-        <h2 class="text-2xl font-bold text-bark-earth-dark mb-4">Ready to talk?</h2>
-        <p class="text-bark-earth mb-6">
-          Reach out directly. We respond to everyone.
-        </p>
-        <a
-          href="mailto:contact@pt32lab.org"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-bark-green text-white font-semibold rounded-lg hover:bg-bark-green-light transition-colors"
-        >
-          Contact Us
-        </a>
-      </div>
+  <!-- Contact CTA -->
+  <section class="py-32 px-6 lg:px-10">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="text-headline text-bark-800 reveal">Ready to talk?</h2>
+      <p class="text-body-lg text-bark-500 mt-4 reveal" data-delay="100">
+        Reach out directly. We respond to everyone.
+      </p>
+      <a
+        href="mailto:contact@pt32lab.org"
+        class="group inline-flex items-center gap-3 mt-8 px-7 py-4 bg-bark-800 text-bark-50 font-display font-semibold text-sm tracking-wide rounded hover:bg-bark-900 transition-colors duration-300 reveal" data-delay="200"
+      >
+        Contact Us
+        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
     </div>
   </section>
 </Base>

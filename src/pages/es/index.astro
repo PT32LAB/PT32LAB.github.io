@@ -1,110 +1,171 @@
 ---
 import Base from '../../layouts/Base.astro';
+import MyceliumCanvas from '../../components/MyceliumCanvas.astro';
 import { t } from '../../i18n/ui';
 const lang = 'es';
 
 const pathways = [
-  { key: 'builders' as const, icon: '🔧', color: 'bark-cyan', link: `/${lang}/pillars` },
-  { key: 'investors' as const, icon: '📈', color: 'bark-amber', link: `/${lang}/participate` },
-  { key: 'community' as const, icon: '🌍', color: 'bark-emerald', link: `/${lang}/governance` },
-  { key: 'locals' as const, icon: '🏔️', color: 'bark-lime', link: `/${lang}/location` },
+  { key: 'builders' as const, num: '01', link: `/${lang}/pillars` },
+  { key: 'investors' as const, num: '02', link: `/${lang}/participate` },
+  { key: 'community' as const, num: '03', link: `/${lang}/governance` },
+  { key: 'locals' as const, num: '04', link: `/${lang}/location` },
+];
+
+const pillars = [
+  { name: 'Techno Park', desc: 'Open-source R&D lab and maker space for appropriate technology.', link: `/${lang}/pillars/technopark` },
+  { name: 'Incubator', desc: 'Launch ventures that serve the community and the global market.', link: `/${lang}/pillars/incubator` },
+  { name: 'Trading House', desc: 'Economic engine connecting local production with the world.', link: `/${lang}/pillars/trading` },
+  { name: 'Retreat Center', desc: 'Where ancient wisdom meets modern practice. Healing and culture.', link: `/${lang}/pillars/retreat` },
+  { name: 'Infrastructure', desc: 'Energy, water, food, connectivity. The foundation for autonomy.', link: `/${lang}/pillars/infrastructure` },
 ];
 ---
 
 <Base title="Home">
-  <!-- Hero -->
-  <section class="relative min-h-[85vh] flex items-center">
-    <div class="absolute inset-0 bg-gradient-to-br from-bark-night via-bark-night-light to-bark-green opacity-95"></div>
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-20 left-10 w-72 h-72 bg-bark-emerald rounded-full blur-3xl"></div>
-      <div class="absolute bottom-20 right-10 w-96 h-96 bg-bark-cyan rounded-full blur-3xl"></div>
-    </div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div class="max-w-3xl">
-        <div class="inline-flex items-center gap-2 px-3 py-1 bg-bark-emerald/20 border border-bark-emerald/30 rounded-full text-bark-emerald text-sm mb-6">
-          <span class="w-2 h-2 bg-bark-emerald rounded-full animate-pulse"></span>
-          Proyecto comunitario de codigo abierto
-        </div>
-        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
-          <span class="text-bark-emerald">Bolivian</span> Ark
-        </h1>
-        <p class="text-2xl sm:text-3xl text-bark-sand font-medium mb-4">
-          {t(lang, 'hero.tagline')}
+  <!-- Hero — dark, immersive, typography-driven -->
+  <section class="relative min-h-screen flex items-end pb-20 overflow-hidden bg-night">
+    <MyceliumCanvas />
+    <div class="absolute inset-0 bg-gradient-to-t from-night via-night/80 to-transparent z-[1]"></div>
+
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
+      <div class="mb-8 reveal" data-delay="200">
+        <span class="text-label text-accent tracking-widest">Open-Source Community Project</span>
+      </div>
+
+      <h1 class="text-display text-bark-50 max-w-5xl reveal" data-delay="400">
+        Build resilience.<br />
+        <span class="text-accent">Preserve</span> what matters.
+      </h1>
+
+      <div class="mt-8 max-w-2xl reveal" data-delay="600">
+        <p class="text-body-lg text-bark-300 leading-relaxed">
+          An off-grid community in the Bolivian Yungas. Techno park, startup incubator,
+          trading house, retreat center — semi-autonomous infrastructure integrated with
+          local community and local economy.
         </p>
-        <p class="text-lg text-bark-sand/70 leading-relaxed mb-10 max-w-2xl">
-          {t(lang, 'hero.subtitle')}
-        </p>
-        <div class="flex flex-wrap gap-4">
-          <a href={`/${lang}/participate`} class="inline-flex items-center gap-2 px-6 py-3 bg-bark-emerald text-white font-semibold rounded-lg hover:bg-bark-green-light transition-colors">
-            {t(lang, 'hero.cta')}
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
-          <a href={`/${lang}/vision`} class="inline-flex items-center gap-2 px-6 py-3 border border-bark-sand/30 text-bark-sand font-semibold rounded-lg hover:bg-bark-sand/10 transition-colors">
-            {t(lang, 'hero.learn')}
-          </a>
-        </div>
+      </div>
+
+      <div class="mt-12 flex flex-wrap items-center gap-6 reveal" data-delay="800">
+        <a href={`/${lang}/participate`} class="group inline-flex items-center gap-3 px-7 py-4 bg-accent text-night font-display font-semibold text-sm tracking-wide rounded hover:bg-accent-light transition-colors duration-300">
+          {t(lang, 'hero.cta')}
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a href={`/${lang}/vision`} class="inline-flex items-center gap-2 text-bark-400 hover:text-bark-50 font-display text-sm tracking-wide transition-colors duration-300">
+          {t(lang, 'hero.learn')}
+          <span class="text-accent">—</span>
+        </a>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 right-6 lg:right-10 hidden md:flex flex-col items-center gap-2 text-bark-500 text-xs">
+        <span class="text-label tracking-widest" style="writing-mode:vertical-lr;">Scroll</span>
+        <div class="w-px h-8 bg-gradient-to-b from-bark-500 to-transparent"></div>
       </div>
     </div>
   </section>
 
-  <!-- Circuit vine divider -->
-  <div class="circuit-vine"></div>
+  <!-- Pathways — four audience entry points -->
+  <section class="py-32 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="max-w-xl mb-20">
+        <span class="text-label text-accent reveal">Find your path</span>
+        <h2 class="text-headline text-bark-800 mt-4 reveal" data-delay="100">
+          Built by many hands
+        </h2>
+        <p class="text-body-lg text-bark-500 mt-4 reveal" data-delay="200">
+          Whether you code, fund, organize, or live here — there's a place for you.
+        </p>
+      </div>
 
-  <!-- Pathways -->
-  <section class="py-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-3xl font-bold text-bark-earth-dark text-center mb-4">Encuentra Tu Camino</h2>
-      <p class="text-bark-earth text-center mb-12 max-w-2xl mx-auto">BARK se construye con muchas manos. Ya sea que programes, inviertas, organices o vivas aqui — hay un lugar para ti.</p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {pathways.map(p => (
-          <a href={p.link} class="group block p-6 bg-white rounded-xl border border-bark-green/10 hover:border-bark-emerald/40 hover:shadow-lg transition-all">
-            <div class="text-3xl mb-4">{p.icon}</div>
-            <h3 class="font-bold text-lg text-bark-earth-dark mb-2 group-hover:text-bark-green transition-colors">
+      <div class="grid md:grid-cols-2 gap-px bg-bark-200 rounded-xl overflow-hidden">
+        {pathways.map((p, i) => (
+          <a href={p.link} class="group relative bg-bark-50 p-10 hover:bg-bark-100 transition-colors duration-500 reveal" data-delay={String(i * 100)}>
+            <span class="text-label text-bark-300 group-hover:text-accent transition-colors duration-300">{p.num}</span>
+            <h3 class="text-title text-bark-800 mt-3 group-hover:text-bark-900 transition-colors duration-300">
               {t(lang, `paths.${p.key}.title` as any)}
             </h3>
-            <p class="text-sm text-bark-earth leading-relaxed">
+            <p class="text-bark-500 mt-3 leading-relaxed max-w-sm">
               {t(lang, `paths.${p.key}.desc` as any)}
             </p>
+            <div class="mt-6 flex items-center gap-2 text-accent opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-[-8px] group-hover:translate-x-0">
+              <span class="text-sm font-display font-medium">Explore</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </div>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Mission strip -->
-  <section class="bg-bark-green text-white py-16 px-4">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-2xl sm:text-3xl font-bold mb-4">Por Que un Arca?</h2>
-      <p class="text-lg text-bark-sand/90 leading-relaxed mb-6">
-        El mundo enfrenta una turbulencia sin precedentes — inestabilidad geopolitica, crisis ecologica, disrupcion tecnologica.
-        Estamos construyendo un lugar que preserva lo que importa: valores humanisticos, diversidad humana y las tecnologias
-        que sostienen una buena vida. No un bunker. Una comunidad viva.
-      </p>
-      <a href={`/${lang}/why`} class="inline-flex items-center gap-2 text-bark-lime font-semibold hover:text-white transition-colors">
-        Leer la tesis completa
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
+  <!-- Why strip — dark, typographic -->
+  <section class="bg-bark-900 py-32 px-6 lg:px-10 overflow-hidden">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="text-label text-accent reveal">The Thesis</span>
+        <h2 class="text-headline text-bark-50 mt-6 reveal" data-delay="100">
+          Not a bunker.<br />A living community.
+        </h2>
+        <p class="text-body-lg text-bark-400 mt-8 leading-relaxed reveal" data-delay="200">
+          The world faces unprecedented convergence — geopolitical fragmentation,
+          ecological pressure, technological disruption. We're building a place that
+          preserves humanistic values, human diversity, and the technologies that
+          sustain a good life.
+        </p>
+        <a href={`/${lang}/why`} class="inline-flex items-center gap-3 mt-10 text-accent hover:text-accent-light font-display text-sm tracking-wide transition-colors duration-300 reveal" data-delay="300">
+          Read the full thesis
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- Pillars preview -->
-  <section class="py-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-3xl font-bold text-bark-earth-dark text-center mb-12">Cinco Pilares</h2>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-        {[
-          { icon: '⚡', name: 'Techno Park', desc: 'R&D lab and maker space', link: `/${lang}/pillars/technopark` },
-          { icon: '🚀', name: 'Incubator', desc: 'Startup launchpad', link: `/${lang}/pillars/incubator` },
-          { icon: '💱', name: 'Trading House', desc: 'Economic engine', link: `/${lang}/pillars/trading` },
-          { icon: '🌀', name: 'Retreat Center', desc: 'Healing and culture', link: `/${lang}/pillars/retreat` },
-          { icon: '🔋', name: 'Infrastructure', desc: 'Energy, water, food', link: `/${lang}/pillars/infrastructure` },
-        ].map(pillar => (
-          <a href={pillar.link} class="group text-center p-5 rounded-xl bg-white border border-bark-green/10 hover:border-bark-emerald/40 hover:shadow-md transition-all">
-            <div class="text-3xl mb-2">{pillar.icon}</div>
-            <h3 class="font-semibold text-bark-earth-dark group-hover:text-bark-green transition-colors">{pillar.name}</h3>
-            <p class="text-xs text-bark-earth mt-1">{pillar.desc}</p>
+  <!-- Five Pillars -->
+  <section class="py-32 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        <div>
+          <span class="text-label text-accent reveal">Structure</span>
+          <h2 class="text-headline text-bark-800 mt-4 reveal" data-delay="100">Five Pillars</h2>
+        </div>
+        <a href={`/${lang}/pillars`} class="text-accent font-display text-sm tracking-wide hover:text-accent-dim transition-colors reveal" data-delay="200">
+          View all pillars —
+        </a>
+      </div>
+
+      <div class="space-y-px">
+        {pillars.map((p, i) => (
+          <a href={p.link} class="group flex flex-col md:flex-row md:items-center justify-between gap-4 py-8 px-6 bg-bark-50 hover:bg-bark-100 border-b border-bark-200 transition-colors duration-300 reveal" data-delay={String(i * 80)}>
+            <div class="flex items-center gap-6">
+              <span class="text-label text-bark-300 w-8">0{i + 1}</span>
+              <h3 class="text-title text-bark-800 group-hover:text-bark-900 transition-colors">{p.name}</h3>
+            </div>
+            <p class="text-bark-500 md:max-w-md md:text-right">{p.desc}</p>
           </a>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative bg-night py-32 px-6 lg:px-10 overflow-hidden">
+    <div class="absolute inset-0 opacity-30">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[120px]"></div>
+    </div>
+    <div class="relative max-w-3xl mx-auto text-center">
+      <h2 class="text-headline text-bark-50 reveal">
+        Ready to build<br />something that matters?
+      </h2>
+      <p class="text-body-lg text-bark-400 mt-6 reveal" data-delay="100">
+        We're looking for co-creators — builders, investors, thinkers, and doers
+        who'd rather prepare than hope.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4 reveal" data-delay="200">
+        <a href={`/${lang}/participate`} class="group inline-flex items-center gap-3 px-8 py-4 bg-accent text-night font-display font-semibold text-sm tracking-wide rounded hover:bg-accent-light transition-colors duration-300">
+          Get Involved
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a href="https://github.com/PT32LAB" class="inline-flex items-center gap-2 px-8 py-4 border border-bark-700 text-bark-300 hover:text-bark-50 hover:border-bark-500 font-display text-sm tracking-wide rounded transition-all duration-300">
+          View Source
+        </a>
       </div>
     </div>
   </section>
