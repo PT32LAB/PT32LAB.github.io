@@ -25,25 +25,16 @@
   --color-gold: #d4a853;
   --color-cyan: #22d3ee;
 
-  --font-display: 'Space Grotesk', 'Space Grotesk Fallback', system-ui, sans-serif;
-  --font-body: 'DM Sans', 'DM Sans Fallback', system-ui, sans-serif;
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Source Sans 3', 'Source Sans 3 Fallback', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
 /* Font fallback metrics to reduce CLS during font swap */
 @font-face {
-  font-family: 'Space Grotesk Fallback';
+  font-family: 'Source Sans 3 Fallback';
   src: local('Arial');
-  size-adjust: 105%;
-  ascent-override: 90%;
-  descent-override: 22%;
-  line-gap-override: 0%;
-}
-
-@font-face {
-  font-family: 'DM Sans Fallback';
-  src: local('Arial');
-  size-adjust: 104%;
+  size-adjust: 103%;
   ascent-override: 93%;
   descent-override: 25%;
   line-gap-override: 0%;
