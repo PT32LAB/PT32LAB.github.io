@@ -10,9 +10,8 @@ const navGroups = [
     links: [
       { key: 'nav.vision' as const, desc: 'nav.desc.vision' as const, path: '/vision' },
       { key: 'nav.why' as const, desc: 'nav.desc.why' as const, path: '/why' },
-      { key: 'nav.location' as const, desc: 'nav.desc.location' as const, path: '/location' },
-      { key: 'nav.traditions' as const, desc: 'nav.desc.traditions' as const, path: '/traditions' },
       { key: 'nav.roadmap' as const, desc: 'nav.desc.roadmap' as const, path: '/roadmap' },
+      { key: 'nav.team' as const, desc: 'nav.desc.team' as const, path: '/team' },
     ],
   },
   {
@@ -22,8 +21,17 @@ const navGroups = [
       { key: 'nav.pillars' as const, desc: 'nav.desc.technopark' as const, path: '/pillars/technopark', sublabel: 'Techno Park' },
       { key: 'nav.pillars' as const, desc: 'nav.desc.incubator' as const, path: '/pillars/incubator', sublabel: 'Incubator' },
       { key: 'nav.pillars' as const, desc: 'nav.desc.trading' as const, path: '/pillars/trading', sublabel: 'Trading House' },
-      { key: 'nav.pillars' as const, desc: 'nav.desc.retreat' as const, path: '/pillars/retreat', sublabel: 'Retreat & Longevity' },
       { key: 'nav.pillars' as const, desc: 'nav.desc.infrastructure' as const, path: '/pillars/infrastructure', sublabel: 'Infrastructure' },
+    ],
+  },
+  {
+    label: 'nav.group.live' as const,
+    links: [
+      { key: 'nav.pillars' as const, desc: 'nav.desc.retreat' as const, path: '/pillars/retreat', sublabel: 'Retreat Center' },
+      { sublabel: 'Longevity District', desc: 'nav.desc.longevity' as const, path: '/pillars/retreat#longevity', key: 'nav.pillars' as const },
+      { key: 'nav.health' as const, desc: 'nav.desc.health' as const, path: '/health' },
+      { key: 'nav.safety' as const, desc: 'nav.desc.safety' as const, path: '/safety' },
+      { key: 'nav.traditions' as const, desc: 'nav.desc.traditions' as const, path: '/traditions' },
     ],
   },
   {
@@ -32,20 +40,18 @@ const navGroups = [
       { key: 'nav.investors' as const, desc: 'nav.desc.investors' as const, path: '/investors' },
       { key: 'nav.participate' as const, desc: 'nav.desc.participate' as const, path: '/participate' },
       { key: 'nav.partners' as const, desc: 'nav.desc.partners' as const, path: '/partners' },
-      { key: 'nav.team' as const, desc: 'nav.desc.team' as const, path: '/team' },
     ],
   },
   {
     label: 'nav.group.learn' as const,
     links: [
-      { key: 'nav.safety' as const, desc: 'nav.desc.safety' as const, path: '/safety' },
-      { key: 'nav.health' as const, desc: 'nav.desc.health' as const, path: '/health' },
+      { key: 'nav.location' as const, desc: 'nav.desc.location' as const, path: '/location' },
       { key: 'nav.economy' as const, desc: 'nav.desc.economy' as const, path: '/economy' },
       { key: 'nav.governance' as const, desc: 'nav.desc.governance' as const, path: '/governance' },
       { key: 'nav.community' as const, desc: 'nav.desc.community' as const, path: '/community' },
-      { key: 'nav.explore' as const, desc: 'nav.desc.explore' as const, path: '/explore' },
       { key: 'nav.faq' as const, desc: 'nav.desc.faq' as const, path: '/faq' },
       { key: 'nav.risk' as const, desc: 'nav.desc.risk' as const, path: '/risk' },
+      { key: 'nav.explore' as const, desc: 'nav.desc.explore' as const, path: '/explore' },
       { key: 'nav.glossary' as const, desc: 'nav.desc.glossary' as const, path: '/glossary' },
       { key: 'nav.gallery' as const, desc: 'nav.desc.gallery' as const, path: '/gallery' },
     ],

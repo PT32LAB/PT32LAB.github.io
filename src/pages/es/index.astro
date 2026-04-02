@@ -67,8 +67,9 @@ const pillars = [
   </section>
 
   <!-- What BARK is -- concise value prop -->
-  <section class="bg-bark-50 py-24 px-6 lg:px-10">
-    <div class="max-w-[900px] mx-auto text-center">
+  <section class="relative py-24 px-6 lg:px-10 overflow-hidden" style="background: linear-gradient(135deg, var(--color-bark-100) 0%, var(--color-bark-50) 40%, rgba(16,185,129,0.04) 100%);">
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 20% 50%, var(--color-accent) 1px, transparent 1px), radial-gradient(circle at 80% 20%, var(--color-accent) 1px, transparent 1px), radial-gradient(circle at 60% 80%, var(--color-accent) 1px, transparent 1px); background-size: 60px 60px, 80px 80px, 70px 70px;"></div>
+    <div class="relative max-w-[900px] mx-auto text-center">
       <span class="text-label text-accent reveal">What This Is</span>
       <h2 class="text-title text-bark-800 mt-4 reveal" data-delay="100">
         Not a bunker. Not a resort. A living system that feeds itself, powers itself, repairs itself, and governs itself -- and composts gracefully when any part fails.
@@ -83,7 +84,9 @@ const pillars = [
     </div>
   </section>
 
-  <div class="divider-accent"></div>
+  <div class="photo-frame h-48 md:h-64 w-full" style="border-radius:0;">
+    <img src="/images/yungas/yungas-landscape.jpg" alt="Cloud forest slopes of the Yungas" loading="lazy" class="w-full h-full object-cover" />
+  </div>
 
   <!-- Why -- dark pull-quote section -->
   <section class="bg-bark-900 py-28 px-6 lg:px-10 overflow-hidden">
