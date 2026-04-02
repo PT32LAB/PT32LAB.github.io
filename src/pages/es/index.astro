@@ -21,44 +21,72 @@ const pillars = [
 ---
 
 <Base title="Home">
-  <!-- Hero — dark, immersive, typography-driven -->
+  <!-- Hero — dark, immersive, kinetic typography -->
   <section class="relative min-h-screen flex items-end pb-20 overflow-hidden bg-night">
     <MyceliumCanvas />
     <div class="absolute inset-0 bg-gradient-to-t from-night via-night/80 to-transparent z-[1]"></div>
 
     <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
-      <div class="mb-8 reveal" data-delay="200">
+      <div class="mb-8 reveal" data-delay="100">
         <span class="text-label text-accent tracking-widest">Open-Source Community Project</span>
       </div>
 
-      <h1 class="text-display text-bark-50 max-w-5xl reveal" data-delay="400">
-        Build resilience.<br />
-        <span class="text-accent">Preserve</span> what matters.
+      <!-- Kinetic headline — word-by-word reveal -->
+      <h1 class="text-display text-bark-50 max-w-5xl text-split">
+        Build resilience. Preserve what matters.
       </h1>
 
-      <div class="mt-8 max-w-2xl reveal" data-delay="600">
+      <div class="mt-8 max-w-2xl reveal" data-delay="400">
         <p class="text-body-lg text-bark-300 leading-relaxed">
-          An off-grid community in the Bolivian Yungas. Techno park, startup incubator,
-          trading house, retreat center — semi-autonomous infrastructure integrated with
+          An off-grid community in the Bolivian Yungas — techno park, startup incubator,
+          trading house, retreat center. Semi-autonomous infrastructure integrated with
           local community and local economy.
         </p>
       </div>
 
-      <div class="mt-12 flex flex-wrap items-center gap-6 reveal" data-delay="800">
+      <div class="mt-12 flex flex-wrap items-center gap-6 reveal" data-delay="600">
         <a href={`/${lang}/participate`} class="group inline-flex items-center gap-3 px-7 py-4 bg-accent text-night font-display font-semibold text-sm tracking-wide rounded hover:bg-accent-light transition-colors duration-300">
           {t(lang, 'hero.cta')}
           <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
         <a href={`/${lang}/vision`} class="inline-flex items-center gap-2 text-bark-400 hover:text-bark-50 font-display text-sm tracking-wide transition-colors duration-300">
           {t(lang, 'hero.learn')}
-          <span class="text-accent">—</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
         </a>
       </div>
 
       <!-- Scroll indicator -->
       <div class="absolute bottom-8 right-6 lg:right-10 hidden md:flex flex-col items-center gap-2 text-bark-500 text-xs">
         <span class="text-label tracking-widest" style="writing-mode:vertical-lr;">Scroll</span>
-        <div class="w-px h-8 bg-gradient-to-b from-bark-500 to-transparent"></div>
+        <div class="w-px h-12 bg-gradient-to-b from-bark-500 to-transparent animate-pulse"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats strip — animated counters -->
+  <section class="bg-bark-900 py-10 px-6 lg:px-10 border-t border-bark-800">
+    <div class="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="text-center reveal">
+        <div class="text-headline text-accent font-display">
+          <span class="counter" data-target="5" data-suffix="">0</span>
+        </div>
+        <span class="text-label text-bark-500 mt-1 block">Pillars</span>
+      </div>
+      <div class="text-center reveal" data-delay="100">
+        <div class="text-headline text-bark-50 font-display">
+          <span class="counter" data-target="1700" data-suffix="m">0</span>
+        </div>
+        <span class="text-label text-bark-500 mt-1 block">Altitude</span>
+      </div>
+      <div class="text-center reveal" data-delay="200">
+        <div class="text-headline text-bark-50 font-display">
+          <span class="counter" data-target="365" data-suffix="">0</span>
+        </div>
+        <span class="text-label text-bark-500 mt-1 block">Growing Days/Year</span>
+      </div>
+      <div class="text-center reveal" data-delay="300">
+        <div class="text-headline text-accent font-display">100%</div>
+        <span class="text-label text-bark-500 mt-1 block">Open Source</span>
       </div>
     </div>
   </section>
@@ -68,7 +96,7 @@ const pillars = [
     <div class="max-w-[1400px] mx-auto">
       <div class="max-w-xl mb-20">
         <span class="text-label text-accent reveal">Find your path</span>
-        <h2 class="text-headline text-bark-800 mt-4 reveal" data-delay="100">
+        <h2 class="text-headline text-bark-800 mt-4 text-split">
           Built by many hands
         </h2>
         <p class="text-body-lg text-bark-500 mt-4 reveal" data-delay="200">
@@ -96,13 +124,13 @@ const pillars = [
     </div>
   </section>
 
-  <!-- Why strip — dark, typographic -->
+  <!-- Why strip — dark, typographic, dramatic -->
   <section class="bg-bark-900 py-32 px-6 lg:px-10 overflow-hidden">
     <div class="max-w-[1400px] mx-auto">
       <div class="max-w-3xl mx-auto text-center">
         <span class="text-label text-accent reveal">The Thesis</span>
-        <h2 class="text-headline text-bark-50 mt-6 reveal" data-delay="100">
-          Not a bunker.<br />A living community.
+        <h2 class="text-headline text-bark-50 mt-6 text-split">
+          Not a bunker. A living community.
         </h2>
         <p class="text-body-lg text-bark-400 mt-8 leading-relaxed reveal" data-delay="200">
           The world faces unprecedented convergence — geopolitical fragmentation,
@@ -118,13 +146,13 @@ const pillars = [
     </div>
   </section>
 
-  <!-- Five Pillars -->
+  <!-- Five Pillars — horizontal scroll on mobile, list on desktop -->
   <section class="py-32 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
         <div>
           <span class="text-label text-accent reveal">Structure</span>
-          <h2 class="text-headline text-bark-800 mt-4 reveal" data-delay="100">Five Pillars</h2>
+          <h2 class="text-headline text-bark-800 mt-4 text-split">Five Pillars</h2>
         </div>
         <a href={`/${lang}/pillars`} class="text-accent font-display text-sm tracking-wide hover:text-accent-dim transition-colors reveal" data-delay="200">
           View all pillars —
@@ -133,14 +161,52 @@ const pillars = [
 
       <div class="space-y-px">
         {pillars.map((p, i) => (
-          <a href={p.link} class="group flex flex-col md:flex-row md:items-center justify-between gap-4 py-8 px-6 bg-bark-50 hover:bg-bark-100 border-b border-bark-200 transition-colors duration-300 reveal" data-delay={String(i * 80)}>
+          <a href={p.link} class="group flex flex-col md:flex-row md:items-center justify-between gap-4 py-8 px-6 bg-bark-50 hover:bg-bark-100 border-b border-bark-200 transition-colors duration-300 reveal" data-delay={String(i * 60)}>
             <div class="flex items-center gap-6">
               <span class="text-label text-bark-300 w-8">0{i + 1}</span>
               <h3 class="text-title text-bark-800 group-hover:text-bark-900 transition-colors">{p.name}</h3>
             </div>
-            <p class="text-bark-500 md:max-w-md md:text-right">{p.desc}</p>
+            <div class="flex items-center gap-8">
+              <p class="text-bark-500 md:max-w-md md:text-right">{p.desc}</p>
+              <svg class="w-5 h-5 text-bark-300 group-hover:text-accent group-hover:translate-x-1 transition-all duration-300 hidden md:block flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </div>
           </a>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Location teaser -->
+  <section class="bg-bark-100 py-24 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-center gap-16">
+      <div class="md:w-1/2">
+        <span class="text-label text-accent reveal">Location</span>
+        <h2 class="text-headline text-bark-800 mt-4 text-split">Coroico, Yungas</h2>
+        <p class="text-body-lg text-bark-500 mt-6 leading-relaxed reveal" data-delay="200">
+          Subtropical cloud forest at 1,700m in the Bolivian Andes. Year-round growing season,
+          abundant water, extraordinary biodiversity. 3 hours from La Paz.
+        </p>
+        <a href={`/${lang}/location`} class="inline-flex items-center gap-2 mt-6 text-accent font-display text-sm tracking-wide hover:text-accent-dim transition-colors reveal" data-delay="300">
+          Why here —
+        </a>
+      </div>
+      <div class="md:w-1/2 grid grid-cols-2 gap-4">
+        <div class="bg-bark-50 p-6 rounded-xl reveal" data-delay="100">
+          <div class="text-title text-bark-800 font-display counter" data-target="1700" data-suffix="m">0</div>
+          <span class="text-label text-bark-400 mt-1 block">Elevation</span>
+        </div>
+        <div class="bg-bark-50 p-6 rounded-xl reveal" data-delay="200">
+          <div class="text-title text-bark-800 font-display">18-28°C</div>
+          <span class="text-label text-bark-400 mt-1 block">Temperature</span>
+        </div>
+        <div class="bg-bark-50 p-6 rounded-xl reveal" data-delay="300">
+          <div class="text-title text-accent font-display">Top 5%</div>
+          <span class="text-label text-bark-400 mt-1 block">Biodiversity</span>
+        </div>
+        <div class="bg-bark-50 p-6 rounded-xl reveal" data-delay="400">
+          <div class="text-title text-bark-800 font-display">3h</div>
+          <span class="text-label text-bark-400 mt-1 block">From La Paz</span>
+        </div>
       </div>
     </div>
   </section>
@@ -151,14 +217,14 @@ const pillars = [
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[120px]"></div>
     </div>
     <div class="relative max-w-3xl mx-auto text-center">
-      <h2 class="text-headline text-bark-50 reveal">
-        Ready to build<br />something that matters?
+      <h2 class="text-headline text-bark-50 text-split">
+        Ready to build something that matters?
       </h2>
-      <p class="text-body-lg text-bark-400 mt-6 reveal" data-delay="100">
+      <p class="text-body-lg text-bark-400 mt-6 reveal" data-delay="200">
         We're looking for co-creators — builders, investors, thinkers, and doers
         who'd rather prepare than hope.
       </p>
-      <div class="mt-10 flex flex-wrap justify-center gap-4 reveal" data-delay="200">
+      <div class="mt-10 flex flex-wrap justify-center gap-4 reveal" data-delay="300">
         <a href={`/${lang}/participate`} class="group inline-flex items-center gap-3 px-8 py-4 bg-accent text-night font-display font-semibold text-sm tracking-wide rounded hover:bg-accent-light transition-colors duration-300">
           Get Involved
           <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
