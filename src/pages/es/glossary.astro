@@ -2,46 +2,39 @@
 import Base from '../../layouts/Base.astro';
 
 const terms = [
-  { term: 'Achachilas', definition: 'Esp\u00edritus de las monta\u00f1as en la cosmolog\u00eda aymara.' },
-  { term: 'AFCOOP', definition: 'Autoridad de Fiscalizaci\u00f3n y Control de Cooperativas. El regulador de cooperativas de Bolivia.' },
-  { term: 'ANMI', definition: '\u00c1rea Natural de Manejo Integrado. Designaci\u00f3n de \u00e1rea de conservaci\u00f3n gestionada en Bolivia.' },
-  { term: 'Appropriate technology (Tecnolog\u00eda apropiada)', definition: 'Tecnolog\u00eda adecuada para las condiciones locales \u2014 mantenible, reparable y \u00fatil para la comunidad que la utiliza.' },
-  { term: 'Ayllu', definition: 'Modelo de gobernanza andina precolonial basado en la agricultura colectiva, redes de parentesco y obligaciones rec\u00edprocas. Reconocido constitucionalmente en Bolivia desde 2009.' },
-  { term: 'Ayni', definition: 'Concepto aymara/quechua de intercambio rec\u00edproco de trabajo. Yo te ayudo hoy, t\u00fa me ayudas ma\u00f1ana.' },
-  { term: 'BARK', definition: 'Bolivian Ark (Arca Boliviana). El nombre de este proyecto.' },
-  { term: 'Cooperativa', definition: 'Forma organizativa legal en Bolivia bajo la Ley 356 (2013). M\u00ednimo 10 miembros, un miembro-un voto.' },
-  { term: 'DAO', definition: 'Organizaci\u00f3n Aut\u00f3noma Descentralizada. Gobernanza basada en tokens usando blockchain.' },
-  { term: 'GVCS', definition: 'Global Village Construction Set. Conjunto de 50 m\u00e1quinas de c\u00f3digo abierto para la civilizaci\u00f3n, de Open Source Ecology.' },
-  { term: 'Ley 356', definition: 'Ley General de Cooperativas de Bolivia (2013) que rige todas las organizaciones cooperativas.' },
-  { term: 'Mandar obedeciendo', definition: 'Principio de gobernanza zapatista donde los l\u00edderes ejecutan las decisiones de la asamblea.' },
-  { term: 'Minka (Mink\u2019a)', definition: 'Trabajo comunal en beneficio de la comunidad. Todos contribuyen con trabajo a proyectos compartidos.' },
-  { term: 'NetworkTribes', definition: 'El marco de conocimiento dise\u00f1ado por Oleg. Mapea ideas a trav\u00e9s de m\u00faltiples dimensiones para su exploraci\u00f3n.' },
-  { term: 'Pachamama', definition: 'Madre Tierra en la cosmolog\u00eda andina. Central en la pr\u00e1ctica espiritual aymara y quechua.' },
-  { term: 'RepRap', definition: 'Replicating Rapid Prototyper. Proyecto de impresora 3D de c\u00f3digo abierto dise\u00f1ado para imprimir sus propios componentes.' },
-  { term: 'Saya', definition: 'Forma tradicional de m\u00fasica y danza afroboliviana, central para la identidad cultural de las comunidades yunge\u00f1as.' },
-  { term: 'Semi-aut\u00f3nomo', definition: 'Filosof\u00eda operativa de BARK: capaz de operar independientemente cuando sea necesario, normalmente integrado con los sistemas regionales.' },
-  { term: 'Tecnochamanismo', definition: 'T\u00e9rmino de BARK para integrar pr\u00e1cticas asistidas por tecnolog\u00eda (monitoreo biom\u00e9trico, an\u00e1lisis de datos) con pr\u00e1cticas tradicionales de sanaci\u00f3n y contemplaci\u00f3n.' },
-  { term: 'Yungas', definition: 'Zona ecol\u00f3gica de transici\u00f3n en las laderas orientales de los Andes. Bosque nuboso subtropical montano entre el altiplano y la cuenca del Amazonas.' },
+  { term: 'Achachilas', definition: 'Mountain spirits in Aymara cosmology.' },
+  { term: 'AFCOOP', definition: 'Autoridad de Fiscalizaci\u00f3n y Control de Cooperativas. Bolivia\u2019s cooperative regulator.' },
+  { term: 'ANMI', definition: '\u00c1rea Natural de Manejo Integrado. Managed conservation area designation in Bolivia.' },
+  { term: 'Appropriate technology', definition: 'Technology that is suitable for local conditions \u2014 maintainable, repairable, and useful by the community that uses it.' },
+  { term: 'Ayllu', definition: 'Pre-colonial Andean governance model based on collective agriculture, kinship networks, and reciprocal obligations. Constitutionally recognized in Bolivia since 2009.' },
+  { term: 'Ayni', definition: 'Aymara/Quechua concept of reciprocal labor exchange. I help you today, you help me tomorrow.' },
+  { term: 'BARK', definition: 'Bolivian Ark. The name of this project.' },
+  { term: 'Cooperative (Cooperativa)', definition: 'Legal organizational form in Bolivia under Ley 356 (2013). Minimum 10 members, one-member-one-vote.' },
+  { term: 'DAO', definition: 'Decentralized Autonomous Organization. Token-based governance using blockchain.' },
+  { term: 'GVCS', definition: 'Global Village Construction Set. Open Source Ecology\u2019s suite of 50 open-source machines for civilization.' },
+  { term: 'Ley 356', definition: 'Bolivia\u2019s 2013 General Cooperative Law governing all cooperative organizations.' },
+  { term: 'Mandar obedeciendo', definition: '\u201cLead by obeying.\u201d Zapatista governance principle where leaders execute the assembly\u2019s decisions.' },
+  { term: 'Minka (Mink\u2019a)', definition: 'Communal labor for community benefit. Everyone contributes work to shared projects.' },
+  { term: 'NetworkTribes', definition: 'The knowledge framework designed by Oleg. Maps ideas across multiple dimensions for exploration.' },
+  { term: 'Pachamama', definition: 'Earth Mother in Andean cosmology. Central to Aymara and Quechua spiritual practice.' },
+  { term: 'RepRap', definition: 'Replicating Rapid Prototyper. Open-source 3D printer project designed to print its own components.' },
+  { term: 'Saya', definition: 'Traditional Afro-Bolivian music and dance form, central to the cultural identity of Yungas communities.' },
+  { term: 'Semi-autonomous', definition: 'BARK\u2019s operating philosophy: capable of independent operation when needed, normally integrated with regional systems.' },
+  { term: 'Technoshamanism', definition: 'BARK\u2019s term for integrating technology-assisted practices (biometric monitoring, data analysis) with traditional healing and contemplative practices.' },
+  { term: 'Yungas', definition: 'Transitional ecological zone on the eastern slopes of the Andes. Subtropical montane cloud forest between the altiplano and the Amazon basin.' },
 ];
-
-function slugify(text: string): string {
-  return text.toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
 ---
 
-<Base title="Glosario" description="T\u00e9rminos y conceptos clave utilizados en el sitio web de BARK, definidos para mayor claridad y contexto cultural.">
+<Base title="Glossary" description="Key terms and concepts used throughout the BARK website, defined for clarity and cultural context.">
   <!-- Header -->
   <section class="pt-32 pb-16 px-6 lg:px-10">
     <div class="max-w-[900px] mx-auto">
-      <span class="text-label text-accent reveal">Referencia</span>
+      <span class="text-label text-accent reveal">Reference</span>
       <h1 class="text-headline text-bark-800 mt-4 reveal" data-delay="100">
-        T&eacute;rminos y Conceptos
+        Terms & Concepts
       </h1>
       <p class="text-body-lg text-bark-500 mt-4 max-w-2xl reveal" data-delay="200">
-        Estos t&eacute;rminos aparecen a lo largo del sitio web de BARK. Las definiciones se proporcionan para mayor claridad y contexto cultural.
+        These terms appear throughout the BARK website. Definitions are provided for clarity and cultural context.
       </p>
       <div class="accent-line mt-10 reveal" data-delay="300"></div>
     </div>
@@ -52,7 +45,7 @@ function slugify(text: string): string {
     <div class="max-w-[900px] mx-auto">
       <div class="divide-y divide-bark-200 border-t border-b border-bark-200">
         {terms.map((item, i) => (
-          <div class="py-6 reveal" data-delay={String(Math.min(i * 40, 400))} id={slugify(item.term)}>
+          <div class="py-6 reveal" data-delay={String(Math.min(i * 40, 400))} id={item.term.toLowerCase().replace(/[\s()'/]/g, '-')}>
             <h2 class="font-display font-semibold text-[1.1rem] text-bark-800 leading-snug">
               {item.term}
             </h2>
@@ -68,15 +61,15 @@ function slugify(text: string): string {
   <!-- CTA -->
   <section class="bg-bark-100 py-24 px-6 lg:px-10">
     <div class="max-w-xl mx-auto text-center">
-      <h2 class="text-title text-bark-800 reveal">&iquest;Falta un t&eacute;rmino?</h2>
+      <h2 class="text-title text-bark-800 reveal">Missing a term?</h2>
       <p class="text-bark-500 mt-4 reveal" data-delay="100">
-        Este glosario crece a medida que el proyecto crece. Si algo no est&aacute; claro, h&aacute;ganoslo saber.
+        This glossary grows as the project does. If something is unclear, let us know.
       </p>
       <a
         href="mailto:contact@pt32lab.org"
         class="group inline-flex items-center gap-3 mt-8 px-7 py-4 bg-bark-800 text-bark-50 font-display font-semibold text-sm tracking-wide rounded hover:bg-bark-900 transition-colors duration-300 reveal" data-delay="200"
       >
-        Sugerir un T&eacute;rmino
+        Suggest a Term
         <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
     </div>

@@ -1,0 +1,536 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="Economy" description="Bolivia macro economics, Yungas micro economy, business environment, and why BARK's cooperative structure works.">
+
+  <!-- Hero -->
+  <section class="relative h-[45vh] min-h-[380px] flex items-end overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-bark-700 via-bark-800 to-bark-900"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-bark-900/90 via-bark-900/40 to-transparent"></div>
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pb-12 w-full">
+      <span class="text-label text-accent">Economic Context</span>
+      <h1 class="text-headline text-bark-50 mt-2">Economy</h1>
+      <p class="text-body-lg text-bark-200 mt-2 max-w-xl">Macro and micro economic context for building in the Bolivian Yungas.</p>
+    </div>
+  </section>
+
+  <!-- Bolivia Macro Overview -->
+  <section class="py-24 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <h2 class="text-title text-bark-800 mb-3 reveal">Bolivia Macro Overview</h2>
+      <p class="text-bark-500 mb-10 max-w-2xl reveal" data-delay="100">
+        Bolivia is a lower-middle-income country with a resource-dependent economy and
+        a strong state role. Understanding the national picture is essential context for
+        any project here.
+      </p>
+
+      <!-- Key indicators -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-bark-200 rounded-xl overflow-hidden mb-12 reveal" data-delay="200">
+        <div class="bg-bark-50 p-8 text-center">
+          <span class="text-label text-bark-400 text-[0.6rem]">GDP</span>
+          <p class="text-headline text-bark-800 mt-2">$44&ndash;46B</p>
+          <p class="text-bark-500 text-xs mt-1">World Bank, recent years</p>
+        </div>
+        <div class="bg-bark-50 p-8 text-center">
+          <span class="text-label text-bark-400 text-[0.6rem]">GDP Per Capita</span>
+          <p class="text-headline text-bark-800 mt-2">~$3,700</p>
+          <p class="text-bark-500 text-xs mt-1">Lower-middle-income</p>
+        </div>
+        <div class="bg-bark-50 p-8 text-center">
+          <span class="text-label text-bark-400 text-[0.6rem]">Currency</span>
+          <p class="text-headline text-bark-800 mt-2">BOB</p>
+          <p class="text-bark-500 text-xs mt-1">Boliviano, ~6.9 per USD (managed peg)</p>
+        </div>
+        <div class="bg-bark-50 p-8 text-center">
+          <span class="text-label text-bark-400 text-[0.6rem]">Classification</span>
+          <p class="font-display font-bold text-bark-800 text-lg mt-2">Lower-Middle Income</p>
+          <p class="text-bark-500 text-xs mt-1">World Bank classification</p>
+        </div>
+      </div>
+
+      <!-- Economic model -->
+      <div class="grid md:grid-cols-2 gap-8 reveal" data-delay="300">
+        <div class="bg-bark-100 rounded-xl p-8 border border-bark-200">
+          <h3 class="font-display font-semibold text-bark-800 mb-3">Economic Model</h3>
+          <p class="text-bark-600 text-[0.95rem] leading-relaxed mb-4">
+            Bolivia operates a mixed economy with a strong state role and resource nationalism.
+            Natural gas, mining (zinc, gold, tin), and agricultural exports (soybeans, quinoa)
+            form the backbone. The government plays a direct role in resource extraction
+            and redistribution.
+          </p>
+          <p class="text-bark-600 text-[0.95rem] leading-relaxed">
+            The cooperative sector is constitutionally recognized &mdash; Bolivia's State Political
+            Constitution mentions cooperatives in 12 articles and promotes their participation
+            in the economy. There are over 15,000 active cooperatives regulated by AFCOOP.
+          </p>
+        </div>
+
+        <div class="bg-bark-100 rounded-xl p-8 border border-bark-200">
+          <h3 class="font-display font-semibold text-bark-800 mb-3">Key Exports</h3>
+          <ul class="space-y-3">
+            <li class="text-bark-600 text-sm pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[0.55em] before:w-1.5 before:h-1.5 before:rounded-full before:bg-accent/60">
+              <strong class="text-bark-800">Natural gas</strong> &mdash; historically the largest export revenue source
+            </li>
+            <li class="text-bark-600 text-sm pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[0.55em] before:w-1.5 before:h-1.5 before:rounded-full before:bg-accent/60">
+              <strong class="text-bark-800">Zinc and gold</strong> &mdash; significant mining sector
+            </li>
+            <li class="text-bark-600 text-sm pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[0.55em] before:w-1.5 before:h-1.5 before:rounded-full before:bg-accent/60">
+              <strong class="text-bark-800">Soybeans</strong> &mdash; primary agricultural export
+            </li>
+            <li class="text-bark-600 text-sm pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[0.55em] before:w-1.5 before:h-1.5 before:rounded-full before:bg-accent/60">
+              <strong class="text-bark-800">Quinoa</strong> &mdash; Bolivia is the world's top producer
+            </li>
+            <li class="text-bark-600 text-sm pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[0.55em] before:w-1.5 before:h-1.5 before:rounded-full before:bg-accent/60">
+              <strong class="text-bark-800">Coffee</strong> &mdash; specialty arabica from the Yungas, growing in value
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2024 crisis callout -->
+      <div class="mt-8 bg-ember/5 rounded-xl p-8 border border-ember/20 reveal" data-delay="400">
+        <h3 class="font-display font-semibold text-ember mb-3">2024 Economic Difficulties</h3>
+        <p class="text-bark-600 text-[0.95rem] leading-relaxed">
+          Bolivia experienced significant economic strain in 2024: severe dollar shortages,
+          fuel supply disruptions, and inflation pressures. The Boliviano's managed peg came
+          under stress. Political instability compounded economic challenges, with road blockades
+          disrupting supply chains. A new pro-reform government (elected August 2025) is working
+          with the IDB on a $4.5 billion stabilization package for 2026&ndash;2028.
+          <strong class="text-bark-800">Anyone building here needs to plan for economic volatility.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Yungas / Coroico Micro Economy -->
+  <section class="bg-bark-100 py-24 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <h2 class="text-title text-bark-800 mb-3 reveal">Yungas &amp; Coroico Micro Economy</h2>
+      <p class="text-bark-500 mb-10 max-w-2xl reveal" data-delay="100">
+        The local economy that BARK will integrate with &mdash; smallholder agriculture,
+        domestic tourism, and a university pipeline.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-12 reveal" data-delay="200">
+        <div class="bg-bark-50 rounded-xl border border-bark-200 p-8">
+          <span class="text-label text-accent text-[0.6rem]">Agriculture</span>
+          <h3 class="font-display font-semibold text-bark-800 mt-2 mb-3">Smallholder Farming</h3>
+          <p class="text-bark-600 text-sm leading-relaxed mb-4">
+            95% of Yungas coffee is grown by smallholders on 1&ndash;8 hectare plots.
+            The Yungas produces nearly all of Bolivia's arabica coffee, shade-cultivated
+            under forest canopy at 1,200&ndash;2,000m elevation.
+          </p>
+          <ul class="space-y-1.5">
+            <li class="text-bark-500 text-xs pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.5em] before:w-1 before:h-1 before:rounded-full before:bg-bark-300">Coca (legal, traditional, constitutionally protected)</li>
+            <li class="text-bark-500 text-xs pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.5em] before:w-1 before:h-1 before:rounded-full before:bg-bark-300">Coffee (specialty arabica)</li>
+            <li class="text-bark-500 text-xs pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.5em] before:w-1 before:h-1 before:rounded-full before:bg-bark-300">Cacao (fine-flavor wild Beniano varieties)</li>
+            <li class="text-bark-500 text-xs pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.5em] before:w-1 before:h-1 before:rounded-full before:bg-bark-300">Citrus, bananas, tropical fruit</li>
+          </ul>
+        </div>
+
+        <div class="bg-bark-50 rounded-xl border border-bark-200 p-8">
+          <span class="text-label text-accent text-[0.6rem]">Tourism</span>
+          <h3 class="font-display font-semibold text-bark-800 mt-2 mb-3">Domestic &amp; Backpacker</h3>
+          <p class="text-bark-600 text-sm leading-relaxed mb-4">
+            Coroico is a weekend getaway for La Paz residents and a backpacker staple.
+            The "Death Road" mountain biking experience draws international tourists year-round.
+          </p>
+          <ul class="space-y-1.5">
+            <li class="text-bark-500 text-xs pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.5em] before:w-1 before:h-1 before:rounded-full before:bg-bark-300">La Paz (3h drive) is the primary market</li>
+            <li class="text-bark-500 text-xs pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.5em] before:w-1 before:h-1 before:rounded-full before:bg-bark-300">Eco-lodges and hostels serve tourism</li>
+            <li class="text-bark-500 text-xs pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.5em] before:w-1 before:h-1 before:rounded-full before:bg-bark-300">Afro-Bolivian cultural visits from Coroico</li>
+            <li class="text-bark-500 text-xs pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.5em] before:w-1 before:h-1 before:rounded-full before:bg-bark-300">IDB $10M tourism development loan active</li>
+          </ul>
+        </div>
+
+        <div class="bg-bark-50 rounded-xl border border-bark-200 p-8">
+          <span class="text-label text-accent text-[0.6rem]">Education</span>
+          <h3 class="font-display font-semibold text-bark-800 mt-2 mb-3">Carmen Pampa University</h3>
+          <p class="text-bark-600 text-sm leading-relaxed mb-4">
+            A Catholic University satellite campus 12 km from Coroico with ~700 students
+            and ~50 faculty. Cited by a UN committee as "one of the leading examples of
+            how best to eradicate poverty."
+          </p>
+          <ul class="space-y-1.5">
+            <li class="text-bark-500 text-xs pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.5em] before:w-1 before:h-1 before:rounded-full before:bg-bark-300">Agronomy &mdash; sustainable agriculture</li>
+            <li class="text-bark-500 text-xs pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.5em] before:w-1 before:h-1 before:rounded-full before:bg-bark-300">Ecotourism &mdash; sustainable tourism</li>
+            <li class="text-bark-500 text-xs pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.5em] before:w-1 before:h-1 before:rounded-full before:bg-bark-300">Veterinary Science &mdash; animal production</li>
+            <li class="text-bark-500 text-xs pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.5em] before:w-1 before:h-1 before:rounded-full before:bg-bark-300">Nursing &mdash; public health</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Cost of living + market access -->
+      <div class="grid md:grid-cols-2 gap-8 reveal" data-delay="300">
+        <div class="bg-bark-50 rounded-xl border border-bark-200 p-8">
+          <h3 class="font-display font-semibold text-bark-800 mb-3">Cost of Living</h3>
+          <p class="text-bark-600 text-[0.95rem] leading-relaxed mb-4">
+            Cost of living in Coroico is approximately <strong class="text-bark-800">$500&ndash;800/month</strong>,
+            making it among the cheapest destinations in Latin America. Bolivia as a whole is
+            ranked the 2nd cheapest country in the region for expats.
+          </p>
+          <p class="text-bark-600 text-[0.95rem] leading-relaxed">
+            This low cost base is a strategic advantage for BARK &mdash; it means the community
+            can sustain itself at lower revenue thresholds while building out productive capacity.
+          </p>
+        </div>
+
+        <div class="bg-bark-50 rounded-xl border border-bark-200 p-8">
+          <h3 class="font-display font-semibold text-bark-800 mb-3">Market Access</h3>
+          <p class="text-bark-600 text-[0.95rem] leading-relaxed mb-4">
+            <strong class="text-bark-800">La Paz (3 hours)</strong> is the primary market for
+            Yungas agricultural products. The Mercado Rodriguez &mdash; a 5 km-long daily market &mdash;
+            is the main distribution point.
+          </p>
+          <p class="text-bark-600 text-[0.95rem] leading-relaxed">
+            Existing cooperatives like CENAPROC (founded 1992, organic/fair trade certified,
+            Cup of Excellence winner) demonstrate that Yungas agricultural products can reach
+            international specialty markets.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Environment -->
+  <section class="py-24 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <h2 class="text-title text-bark-800 mb-3 reveal">Business Environment</h2>
+      <p class="text-bark-500 mb-10 max-w-2xl reveal" data-delay="100">
+        What it takes to operate a business entity in Bolivia. The bureaucracy is real,
+        but the cooperative structure offers meaningful advantages.
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 reveal" data-delay="200">
+        <!-- Tax -->
+        <div class="bg-bark-50 rounded-xl border border-bark-200 p-8">
+          <span class="text-label text-bark-400 text-[0.6rem]">Tax</span>
+          <h3 class="font-display font-semibold text-bark-800 mt-2 mb-3">Tax Structure</h3>
+          <ul class="space-y-2">
+            <li class="text-bark-600 text-sm pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[0.55em] before:w-1.5 before:h-1.5 before:rounded-full before:bg-bark-300">
+              <strong class="text-bark-800">Corporate tax:</strong> 25% on profits
+            </li>
+            <li class="text-bark-600 text-sm pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[0.55em] before:w-1.5 before:h-1.5 before:rounded-full before:bg-bark-300">
+              <strong class="text-bark-800">Surtax:</strong> Additional 25% if profits exceed threshold
+            </li>
+            <li class="text-bark-600 text-sm pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[0.55em] before:w-1.5 before:h-1.5 before:rounded-full before:bg-bark-300">
+              <strong class="text-bark-800">VAT:</strong> 13%
+            </li>
+            <li class="text-bark-600 text-sm pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[0.55em] before:w-1.5 before:h-1.5 before:rounded-full before:bg-bark-300">
+              Cooperatives classified as non-profit &mdash; surplus reinvested or distributed per statute
+            </li>
+          </ul>
+        </div>
+
+        <!-- Bureaucracy -->
+        <div class="bg-bark-50 rounded-xl border border-bark-200 p-8">
+          <span class="text-label text-bark-400 text-[0.6rem]">Regulatory</span>
+          <h3 class="font-display font-semibold text-bark-800 mt-2 mb-3">Bureaucratic Reality</h3>
+          <p class="text-bark-600 text-sm leading-relaxed mb-3">
+            Bolivia ranked approximately 150th on the World Bank's Doing Business index
+            (now discontinued). Multiple registrations are required. Weak judicial security
+            and complex regulations are documented concerns.
+          </p>
+          <p class="text-bark-600 text-sm leading-relaxed">
+            Foreigners can own businesses but face a more involved process.
+            The 2014 Investment Law guarantees equal treatment for national and foreign firms,
+            though public investment takes priority.
+          </p>
+        </div>
+
+        <!-- Banking -->
+        <div class="bg-bark-50 rounded-xl border border-bark-200 p-8">
+          <span class="text-label text-bark-400 text-[0.6rem]">Finance</span>
+          <h3 class="font-display font-semibold text-bark-800 mt-2 mb-3">Banking Access</h3>
+          <p class="text-bark-600 text-sm leading-relaxed mb-3">
+            Banking is limited for foreigners. The cooperative structure provides better access
+            to the Bolivian financial system than a foreign-owned entity would.
+          </p>
+          <p class="text-bark-600 text-sm leading-relaxed">
+            <strong class="text-bark-800">Banco de Desarrollo Productivo (BDP)</strong> &mdash;
+            Bolivia's national development bank &mdash; offers loans for agriculture, manufacturing,
+            and renewable energy. It is also a Green Climate Fund Direct Access Entity,
+            capable of channeling international climate finance.
+          </p>
+        </div>
+      </div>
+
+      <!-- Cooperative law detail -->
+      <div class="bg-bark-100 rounded-xl p-8 border border-bark-200 reveal" data-delay="300">
+        <h3 class="font-display font-semibold text-bark-800 mb-3">Cooperative Framework (Ley 356)</h3>
+        <p class="text-bark-600 text-[0.95rem] leading-relaxed mb-4">
+          Bolivia's General Law of Cooperatives (Ley 356, 2013) provides the legal framework.
+          Key features: non-profit classification, democratic governance (one member, one vote),
+          autonomy from government, and regulatory oversight by AFCOOP. Registration requires
+          formation documents, organic statutes, and socio-economic study &mdash; submitted within
+          90 days of formation.
+        </p>
+        <p class="text-bark-600 text-[0.95rem] leading-relaxed">
+          The cooperative tradition in Bolivia is rooted in ancestral Andean practices:
+          <em>ayni</em> (reciprocity) and <em>ayllu</em> (community production). This is not
+          an imported model &mdash; it is indigenous to the culture.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Foreign Company Case Studies -->
+  <section class="bg-bark-100 py-24 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <h2 class="text-title text-bark-800 mb-3 reveal">Foreign Organizations Operating in Bolivia</h2>
+      <p class="text-bark-500 mb-10 max-w-2xl reveal" data-delay="100">
+        Others have navigated Bolivia's business environment successfully. Their approaches
+        offer lessons for BARK.
+      </p>
+
+      <div class="space-y-4 reveal" data-delay="200">
+        <div class="bg-bark-50 rounded-xl p-8 border border-bark-200">
+          <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+            <div class="flex-1">
+              <span class="text-label text-accent text-[0.6rem]">UK NGO &mdash; since ~1980s</span>
+              <h3 class="font-display font-semibold text-bark-800 mt-1 mb-2">Practical Action Bolivia</h3>
+              <p class="text-bark-600 text-sm leading-relaxed">
+                Adapted by hiring locally and working through Bolivian partner organizations.
+                La Paz office. Reached 29,000 people in 2023. Delivered a 365% productivity boost
+                through renewable energy for 4,300 farmers. Focus: regenerative agriculture
+                and climate resilience.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-bark-50 rounded-xl p-8 border border-bark-200">
+          <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+            <div class="flex-1">
+              <span class="text-label text-accent text-[0.6rem]">German Agency &mdash; since 1962</span>
+              <h3 class="font-display font-semibold text-bark-800 mt-1 mb-2">GIZ Bolivia</h3>
+              <p class="text-bark-600 text-sm leading-relaxed">
+                Long-term institutional presence. Programs in water/sanitation (benefiting 2M+ Bolivians),
+                resource-saving irrigation (200,000+ rural people), and vocational training.
+                Demonstrates that sustained foreign engagement works when aligned with
+                local development priorities.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-bark-50 rounded-xl p-8 border border-bark-200">
+          <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+            <div class="flex-1">
+              <span class="text-label text-accent text-[0.6rem]">International NGO &mdash; since 1985</span>
+              <h3 class="font-display font-semibold text-bark-800 mt-1 mb-2">Habitat for Humanity Bolivia</h3>
+              <p class="text-bark-600 text-sm leading-relaxed">
+                Three offices (Cochabamba, La Paz, Santa Cruz). Housing assistance, WASH programs
+                targeting 76,570 people, women's land rights (365 women trained). Active for
+                40 years, demonstrating long-term foreign NGO viability.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-bark-50 rounded-xl p-8 border border-bark-200">
+          <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+            <div class="flex-1">
+              <span class="text-label text-accent text-[0.6rem]">Wildlife Refuge &mdash; since 2003</span>
+              <h3 class="font-display font-semibold text-bark-800 mt-1 mb-2">La Senda Verde</h3>
+              <p class="text-bark-600 text-sm leading-relaxed">
+                Foreign-founded wildlife refuge and eco-lodge in Yolosa, 15 minutes from Coroico.
+                Rescues 54+ species. Built treehouses from local sustainable cypress.
+                Demonstrates that foreign-led eco-tourism ventures can operate successfully
+                in the Yungas specifically.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Risks callout -->
+      <div class="mt-8 bg-ember/5 rounded-xl p-8 border border-ember/20 reveal" data-delay="300">
+        <h3 class="font-display font-semibold text-ember mb-3">Documented Risks</h3>
+        <ul class="space-y-2">
+          <li class="text-bark-600 text-sm pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[0.55em] before:w-1.5 before:h-1.5 before:rounded-full before:bg-ember/60">
+            <strong class="text-bark-800">2019 political crisis</strong> affected foreign businesses across Bolivia
+          </li>
+          <li class="text-bark-600 text-sm pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[0.55em] before:w-1.5 before:h-1.5 before:rounded-full before:bg-ember/60">
+            <strong class="text-bark-800">Road blockades</strong> (bloqueos) routinely disrupt operations and supply chains
+          </li>
+          <li class="text-bark-600 text-sm pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[0.55em] before:w-1.5 before:h-1.5 before:rounded-full before:bg-ember/60">
+            <strong class="text-bark-800">Currency controls</strong> and dollar shortages created difficulties throughout 2024
+          </li>
+          <li class="text-bark-600 text-sm pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[0.55em] before:w-1.5 before:h-1.5 before:rounded-full before:bg-ember/60">
+            <strong class="text-bark-800">No US bilateral investment treaty</strong> since 2012
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BARK Revenue Lines -->
+  <section class="py-24 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <h2 class="text-title text-bark-800 mb-3 reveal">BARK Revenue Lines</h2>
+      <p class="text-bark-500 mb-10 max-w-2xl reveal" data-delay="100">
+        Conservative profit projections for BARK's five processing lines. All figures
+        use low-end production volumes, real market pricing, and pessimistic assumptions.
+      </p>
+
+      <!-- Summary table -->
+      <div class="overflow-x-auto reveal" data-delay="200">
+        <table class="w-full text-sm border-collapse rounded-xl overflow-hidden border border-bark-200">
+          <thead class="bg-bark-800">
+            <tr>
+              <th class="px-4 py-3 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-50">Processing Line</th>
+              <th class="px-4 py-3 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-50">Investment</th>
+              <th class="px-4 py-3 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-50">Year 1 Net Profit</th>
+              <th class="px-4 py-3 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-50">Break-Even</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-bark-100 bg-white">
+              <td class="px-4 py-3 text-bark-800 font-medium">Coffee (wet mill + roasting)</td>
+              <td class="px-4 py-3 text-bark-600">$25K&ndash;$55K</td>
+              <td class="px-4 py-3 text-accent font-semibold">$12K&ndash;$27.5K</td>
+              <td class="px-4 py-3 text-bark-600">1.5&ndash;3 years</td>
+            </tr>
+            <tr class="border-b border-bark-100 bg-bark-50">
+              <td class="px-4 py-3 text-bark-800 font-medium">Cacao bean-to-bar</td>
+              <td class="px-4 py-3 text-bark-600">$15K&ndash;$35K</td>
+              <td class="px-4 py-3 text-accent font-semibold">$6.3K&ndash;$18.8K</td>
+              <td class="px-4 py-3 text-bark-600">2&ndash;4 years</td>
+            </tr>
+            <tr class="border-b border-bark-100 bg-white">
+              <td class="px-4 py-3 text-bark-800 font-medium">Fruit solar dehydration</td>
+              <td class="px-4 py-3 text-bark-600">$2K&ndash;$8K</td>
+              <td class="px-4 py-3 text-accent font-semibold">$7.5K&ndash;$25K</td>
+              <td class="px-4 py-3 text-bark-600">3&ndash;12 months</td>
+            </tr>
+            <tr class="border-b border-bark-100 bg-bark-50">
+              <td class="px-4 py-3 text-bark-800 font-medium">Essential oil distillation</td>
+              <td class="px-4 py-3 text-bark-600">$8K&ndash;$20K</td>
+              <td class="px-4 py-3 text-accent font-semibold">$2K&ndash;$13K</td>
+              <td class="px-4 py-3 text-bark-600">2&ndash;5 years</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="px-4 py-3 text-bark-800 font-medium">Solar installation services</td>
+              <td class="px-4 py-3 text-bark-600">$15K&ndash;$40K</td>
+              <td class="px-4 py-3 text-accent font-semibold">$15K&ndash;$45K</td>
+              <td class="px-4 py-3 text-bark-600">1&ndash;2 years</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Combined portfolio -->
+      <div class="mt-12 grid md:grid-cols-3 gap-px bg-bark-200 rounded-xl overflow-hidden reveal" data-delay="300">
+        <div class="bg-bark-50 p-8 text-center">
+          <span class="text-label text-bark-400 text-[0.6rem]">Combined Investment</span>
+          <p class="font-display font-bold text-bark-800 text-2xl mt-2">$65K&ndash;$158K</p>
+          <p class="text-bark-500 text-xs mt-1">All five lines</p>
+        </div>
+        <div class="bg-bark-50 p-8 text-center">
+          <span class="text-label text-bark-400 text-[0.6rem]">Year 1 Combined Net</span>
+          <p class="font-display font-bold text-accent text-2xl mt-2">$43K&ndash;$129K</p>
+          <p class="text-bark-500 text-xs mt-1">Conservative to optimistic</p>
+        </div>
+        <div class="bg-bark-50 p-8 text-center">
+          <span class="text-label text-bark-400 text-[0.6rem]">Portfolio Break-Even</span>
+          <p class="font-display font-bold text-bark-800 text-2xl mt-2">12&ndash;18 months</p>
+          <p class="text-bark-500 text-xs mt-1">Diversified across all lines</p>
+        </div>
+      </div>
+
+      <!-- Key insight -->
+      <blockquote class="mt-8 border-l-3 border-accent pl-6 py-4 bg-accent/5 rounded-r-xl reveal" data-delay="400">
+        <p class="text-bark-700 font-display font-medium text-[1.05rem] leading-relaxed italic">
+          The biggest lever is selling roasted, not green. Green Bolivian coffee FOB is ~$4.60/lb.
+          Roasted retail Yungas specialty commands $25&ndash;45/lb. Self-growing (vs. buying green)
+          is the second biggest lever. Solar dried fruit has the best ROI-to-investment ratio.
+          Solar installation has the most certain demand &mdash; $325M in government-funded contracts.
+        </p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Why BARK's Structure Works -->
+  <section class="bg-bark-100 py-24 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <h2 class="text-title text-bark-800 mb-3 reveal">Why BARK's Structure Works</h2>
+      <p class="text-bark-500 mb-10 max-w-2xl reveal" data-delay="100">
+        BARK is designed as a cooperative, not a foreign-owned corporation. This is a
+        strategic choice, not a compromise.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8 reveal" data-delay="200">
+        <div class="bg-bark-50 rounded-xl border border-bark-200 p-8 border-l-4 border-l-accent">
+          <h3 class="font-display font-semibold text-bark-800 mb-3">Cultural Alignment</h3>
+          <p class="text-bark-600 text-[0.95rem] leading-relaxed">
+            Cooperatives are not foreign to Bolivia &mdash; they are indigenous. The Andean <em>ayllu</em>
+            system of communal production and the <em>ayni</em> tradition of reciprocity predate
+            Spanish colonization. BARK's cooperative structure aligns with deeply held cultural
+            values, reducing friction that a corporate entity would face.
+          </p>
+        </div>
+
+        <div class="bg-bark-50 rounded-xl border border-bark-200 p-8 border-l-4 border-l-accent">
+          <h3 class="font-display font-semibold text-bark-800 mb-3">Local Integration</h3>
+          <p class="text-bark-600 text-[0.95rem] leading-relaxed">
+            BARK hires locally, buys locally, and trains locally. This is not corporate social
+            responsibility theater &mdash; it is how cooperatives function. Every member has a vote.
+            The community is not extracting value; it is producing and sharing it. This model
+            has established precedent: CENAPROC has been doing it since 1992.
+          </p>
+        </div>
+
+        <div class="bg-bark-50 rounded-xl border border-bark-200 p-8 border-l-4 border-l-accent">
+          <h3 class="font-display font-semibold text-bark-800 mb-3">Government Alignment</h3>
+          <p class="text-bark-600 text-[0.95rem] leading-relaxed">
+            Bolivia's $325M rural solar electrification program, IDB's $4.5B package, the
+            World Bank's $125M rural electricity investment, and tourism development loans
+            all create alignment with BARK's objectives. A cooperative that trains solar
+            installers and processes local crops is exactly what these programs fund.
+          </p>
+        </div>
+
+        <div class="bg-bark-50 rounded-xl border border-bark-200 p-8 border-l-4 border-l-accent">
+          <h3 class="font-display font-semibold text-bark-800 mb-3">Established Precedent</h3>
+          <p class="text-bark-600 text-[0.95rem] leading-relaxed">
+            Small-scale agricultural processing cooperatives exist throughout the Yungas.
+            CENAPROC produces award-winning organic coffee. La Senda Verde runs eco-tourism.
+            FiBL/UMSA have 15 years of cacao research data. BARK is not inventing a model &mdash;
+            it is combining proven elements in a new way.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 px-6 lg:px-10">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="text-headline text-bark-800 reveal">The Numbers Work</h2>
+      <p class="text-body-lg text-bark-500 mt-4 reveal" data-delay="100">
+        Bolivia is not easy. The bureaucracy is real, the economic volatility is real,
+        and the infrastructure challenges are real. But the costs are low, the cooperative
+        framework is strong, the government programs create demand, and the local economy
+        provides a foundation to build on.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8 reveal" data-delay="200">
+        <a
+          href="/en/investors"
+          class="group inline-flex items-center gap-3 px-7 py-4 bg-bark-800 text-bark-50 font-display font-semibold text-sm tracking-wide rounded hover:bg-bark-900 transition-colors duration-300"
+        >
+          Investment Opportunity
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a
+          href="/en/risk"
+          class="group inline-flex items-center gap-3 px-7 py-4 border border-bark-300 text-bark-700 font-display font-semibold text-sm tracking-wide rounded hover:border-bark-500 transition-colors duration-300"
+        >
+          Risk Disclosure
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

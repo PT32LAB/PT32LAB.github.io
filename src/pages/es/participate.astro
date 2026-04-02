@@ -2,10 +2,10 @@
 import Base from '../../layouts/Base.astro';
 
 const ways = [
-  { num: '01', title: 'Invest', desc: 'Fund infrastructure, land acquisition, or specific components. We\'re structuring investment pathways that align financial return with community benefit.', items: ['Direct project funding', 'Cooperative membership shares', 'Component-specific sponsorship'] },
-  { num: '02', title: 'Build', desc: 'Contribute skills — engineering, agriculture, construction, software, design, medicine. On-site or remote.', items: ['Resident builder (relocate to Coroico)', 'Remote contributor (code, design, research)', 'Visiting expert (periodic on-site work)'] },
-  { num: '03', title: 'Think', desc: 'Contribute intellectual property — designs, research, methodologies, governance models. Open-source contributions to the project\'s knowledge base.', items: ['Governance model design', 'Technical architecture proposals', 'Research and analysis'] },
-  { num: '04', title: 'Spread', desc: 'Share the vision. Connect us with people, organizations, and resources. Write about the project. Translate content.', items: ['Social media and content', 'Translation (EN/ES and beyond)', 'Network connections'] },
+  { num: '01', title: 'Invest', desc: 'Put capital into land, solar arrays, processing equipment, or the cooperative structure itself. Every dollar becomes a physical thing in a specific place -- a cistern, a roasting drum, a panel on a roof.', items: ['Direct project funding', 'Cooperative membership shares', 'Component-specific sponsorship'] },
+  { num: '02', title: 'Build', desc: 'Bring a skill that has weight. Weld a frame, design a greywater system, write firmware for a mesh radio node, plant a food forest on a 30-degree slope. On-site in Coroico or remote.', items: ['Resident builder (relocate to Coroico)', 'Remote contributor (code, design, research)', 'Visiting expert (periodic on-site work)'] },
+  { num: '03', title: 'Think', desc: 'Contribute designs, governance models, legal architecture, research. The knowledge base is open-source -- your work propagates to every community that forks the model.', items: ['Governance model design', 'Technical architecture proposals', 'Research and analysis'] },
+  { num: '04', title: 'Spread', desc: 'Translate content into Spanish, Aymara, Portuguese. Connect us with cooperatives, agronomists, engineers, lawyers who know Bolivian land title law. Write honestly about the project.', items: ['Translation (EN/ES/AY and beyond)', 'Introductions to specific people', 'Honest writing about the work'] },
 ];
 ---
 
@@ -13,9 +13,9 @@ const ways = [
   <!-- Header -->
   <section class="pt-32 pb-16 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
-      <span class="text-label text-accent reveal">Join Us</span>
+      <span class="text-label text-accent reveal">Participate</span>
       <h1 class="text-headline text-bark-800 mt-4 max-w-3xl reveal" data-delay="100">
-        A project for co-creators,<br />not spectators.
+        The work is specific.<br />So are the people who do it.
       </h1>
       <div class="accent-line mt-10 max-w-xl reveal" data-delay="200"></div>
     </div>
@@ -47,10 +47,11 @@ const ways = [
   <section class="bg-bark-900 py-24 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-10">
       <div class="max-w-xl">
-        <span class="text-label text-accent reveal">Open Source First</span>
+        <span class="text-label text-accent reveal">Open Source as Reproduction</span>
         <p class="text-body-lg text-bark-300 mt-4 leading-relaxed reveal" data-delay="100">
-          Everything we produce — plans, code, research, governance frameworks — lives
-          in public GitHub repositories. Fork it, improve it, replicate it.
+          Every schematic, every governance document, every soil test result lives in public
+          repositories. Fork the entire project. Adapt it for a valley in Guatemala or a
+          hillside in Nepal. The design improves every time it propagates.
         </p>
       </div>
       <a
@@ -66,16 +67,17 @@ const ways = [
   <!-- Contact CTA -->
   <section class="py-32 px-6 lg:px-10">
     <div class="max-w-xl mx-auto text-center">
-      <h2 class="text-headline text-bark-800 reveal">Ready to talk?</h2>
+      <h2 class="text-headline text-bark-800 reveal">Write to us. Be specific.</h2>
       <p class="text-body-lg text-bark-500 mt-4 reveal" data-delay="100">
-        Reach out directly. We respond to everyone. Here's what happens: we reply within one week,
-        schedule a video call, and discuss how your skills and interests align with what we're building.
+        Tell us what you do, what you have built before, and what draws you to a cloud forest
+        cooperative in Bolivia. We reply within one week. Then a video call. Then the real
+        conversation about whether this is mutual.
       </p>
       <a
         href="mailto:contact@pt32lab.org"
         class="group inline-flex items-center gap-3 mt-8 px-7 py-4 bg-bark-800 text-bark-50 font-display font-semibold text-sm tracking-wide rounded hover:bg-bark-900 transition-colors duration-300 reveal" data-delay="200"
       >
-        Contact Us
+        Send an Email
         <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
     </div>
