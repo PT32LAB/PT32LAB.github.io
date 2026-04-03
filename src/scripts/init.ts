@@ -105,9 +105,51 @@ export function initTextSplits() {
   });
 }
 
+// Dark mode toggle
+export function initTheme() {
+  const stored = localStorage.getItem('bark-theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  if (stored === 'dark' || (!stored && prefersDark)) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+  }
+
+  function toggleTheme() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('bark-theme', 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('bark-theme', 'dark');
+    }
+    updateToggleIcons();
+  }
+
+  // Desktop toggle
+  const toggle = document.getElementById('theme-toggle');
+  toggle?.addEventListener('click', toggleTheme);
+
+  // Mobile toggle(s)
+  document.querySelectorAll('.theme-toggle-mobile').forEach(btn => {
+    btn.addEventListener('click', toggleTheme);
+  });
+
+  updateToggleIcons();
+}
+
+function updateToggleIcons() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.querySelectorAll('.dark-icon').forEach(el => el.classList.toggle('hidden', !isDark));
+  document.querySelectorAll('.light-icon').forEach(el => el.classList.toggle('hidden', isDark));
+}
+
 // Initialize all behaviors
 export function init() {
   initReveals();
   initCounters();
   initTextSplits();
+  initTheme();
 }

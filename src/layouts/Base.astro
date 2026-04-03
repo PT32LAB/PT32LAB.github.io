@@ -59,6 +59,16 @@ const { title, description = 'BARK — Bolivian Ark. An off-grid community prese
       "name": "BARK — Bolivian Ark",
       "url": "https://pt32lab.github.io"
     })} />
+    <script is:inline>
+      // Apply theme before render to prevent flash
+      (function() {
+        var stored = localStorage.getItem('bark-theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
     <ClientRouter />
   </head>
   <body class="min-h-screen flex flex-col">

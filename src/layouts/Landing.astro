@@ -32,6 +32,16 @@ const { title, description = 'BARK — Bolivian Ark. An off-grid community prese
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} | BARK`} />
     <meta name="twitter:description" content={description} />
+    <script is:inline>
+      // Apply theme before render to prevent flash
+      (function() {
+        var stored = localStorage.getItem('bark-theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
     <ClientRouter />
   </head>
   <body class="min-h-screen bg-bark-50 text-bark-800">

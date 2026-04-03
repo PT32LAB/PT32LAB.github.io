@@ -485,6 +485,58 @@ a:focus-visible, button:focus-visible {
   line-height: 1;
 }
 
+/* ============================================
+   DARK THEME
+   ============================================ */
+
+/* Dark theme: inverted bark scale */
+[data-theme="dark"] {
+  --color-bark-50: #1a1610;
+  --color-bark-100: #2d261e;
+  --color-bark-200: #3d3428;
+  --color-bark-300: #4a3f33;
+  --color-bark-400: #6b5d4d;
+  --color-bark-500: #8a7a66;
+  --color-bark-600: #a89a88;
+  --color-bark-700: #c9bfb2;
+  --color-bark-800: #e4ded6;
+  --color-bark-900: #faf9f7;
+}
+
+[data-theme="dark"] body {
+  background-color: #1a1610;
+  color: #e4ded6;
+}
+
+[data-theme="dark"] .bg-bark-50 { background-color: #1a1610; }
+[data-theme="dark"] .bg-bark-100 { background-color: #2d261e; }
+[data-theme="dark"] .bg-bark-900 { background-color: #0a0a0f; }
+[data-theme="dark"] .text-bark-800 { color: #e4ded6; }
+[data-theme="dark"] .text-bark-600 { color: #a89a88; }
+[data-theme="dark"] .text-bark-500 { color: #8a7a66; }
+
+/* Dark mode cards and borders */
+[data-theme="dark"] .card,
+[data-theme="dark"] .feature-card {
+  background: #2d261e;
+  border-color: #3d3428;
+}
+
+[data-theme="dark"] .evidence-box,
+[data-theme="dark"] .evidence {
+  background: #2d261e;
+}
+
+/* Nav in dark mode */
+[data-theme="dark"] #main-nav {
+  background: rgba(26, 22, 16, 0.9) !important;
+}
+
+[data-theme="dark"] .nav-dropdown > div {
+  background: #2d261e;
+  border-color: #3d3428;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }

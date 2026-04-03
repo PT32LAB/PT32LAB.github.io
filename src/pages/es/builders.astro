@@ -2,27 +2,51 @@
 import Landing from '../../layouts/Landing.astro';
 
 const systems = [
-  { num: '01', title: 'Energy', desc: 'Solar arrays, micro-hydro turbines, battery storage, grid tie-in. Design for 1,750m UV and wet-season clouds.' },
-  { num: '02', title: 'Water', desc: 'Spring capture, ceramic and biosand filtration, greywater recycling, rainwater harvesting. 1,300mm/yr to work with.' },
-  { num: '03', title: 'Communications', desc: 'Starlink backhaul, LoRa mesh for site telemetry, HF radio backup, local compute servers.' },
-  { num: '04', title: 'Fabrication', desc: '3D printing, CNC routing, Gingery-style foundry, RepRap self-replication. Make the tools that make the parts.' },
-  { num: '05', title: 'Agro-Processing', desc: 'Coffee wet mill, cacao fermentation line, solar dehydrators, essential oil distillation. Value-add at origin.' },
-  { num: '06', title: 'Infrastructure', desc: 'Road maintenance, earthbag and ferrocement buildings, greenhouse structures, aquaponics systems.' },
+  { num: '01', title: 'Energy', problem: 'Unreliable grid, high altitude UV, wet-season cloud cover.', build: 'Solar arrays, micro-hydro turbines, battery storage, grid tie-in.', why: 'Energy independence is the foundation — nothing else works without it.' },
+  { num: '02', title: 'Water', problem: 'No municipal treatment, seasonal variation, steep terrain runoff.', build: 'Spring capture, ceramic and biosand filtration, greywater recycling, rainwater harvesting.', why: '1,300mm/yr of rainfall is an asset if you can capture, clean, and store it.' },
+  { num: '03', title: 'Communications', problem: 'No fiber, no cell towers in many valleys, single point of failure.', build: 'Starlink backhaul, LoRa mesh for site telemetry, HF radio backup, local compute servers.', why: 'Connectivity enables remote work, telemedicine, and market access.' },
+  { num: '04', title: 'Fabrication', problem: 'Replacement parts take weeks. Nearest industrial supplier is La Paz.', build: '3D printing, CNC routing, Gingery-style foundry, RepRap self-replication.', why: 'Make the tools that make the parts. Repair matters more than novelty.' },
+  { num: '05', title: 'Agro-Processing', problem: 'Raw commodities leave the region at commodity prices.', build: 'Coffee wet mill, cacao fermentation line, solar dehydrators, essential oil distillation.', why: 'Value-add at origin captures margin that currently leaks to intermediaries.' },
+  { num: '06', title: 'Local Manufacturing', problem: 'Consumer goods arrive expensive, fragile, and ill-suited to conditions.', build: 'Earthbag and ferrocement construction, greenhouse structures, aquaponics, recycled-plastic products.', why: 'Regional manufacturing reduces dependency and creates local employment.' },
+];
+
+const whyCards = [
+  { title: 'Isolation creates design pressure', desc: 'When resupply takes days and the nearest city is hours away, every system must be robust, repairable, and locally sourceable.' },
+  { title: 'Repair matters more than novelty', desc: 'The Yungas does not need bleeding-edge prototypes. It needs things that work when the road washes out.' },
+  { title: 'Regional problems create product opportunities', desc: 'Solutions built for these constraints — energy, water, comms, processing — have markets across rural Latin America.' },
+  { title: 'Open-source infrastructure has regional value', desc: 'Documented, forkable systems can be replicated by other communities facing similar conditions.' },
+];
+
+const pipeline = [
+  { step: '01', title: 'Identify local need', desc: 'Talk to residents, observe failures, map what breaks and what is missing.' },
+  { step: '02', title: 'Prototype', desc: 'Build a minimum viable version using available materials and tools.' },
+  { step: '03', title: 'Test on site', desc: 'Deploy under real conditions — altitude, humidity, road access, power variability.' },
+  { step: '04', title: 'Refine', desc: 'Fix what failed. Simplify what was over-engineered. Reduce cost and complexity.' },
+  { step: '05', title: 'Document', desc: 'Publish plans, BOMs, test data, and failure reports under open licenses.' },
+  { step: '06', title: 'Replicate or spin into venture', desc: 'Scale to other sites, or build a business around the proven solution.' },
 ];
 
 const skills = [
   'Solar installation and off-grid power design',
   'Water systems — capture, filtration, greywater',
-  'Permaculture and agroforestry planning',
-  'Digital fabrication — 3D printing, CNC, foundry',
-  'Radio and mesh networking — LoRa, HF, Starlink',
+  'Fabrication — 3D printing, CNC, foundry work',
+  'Low-bandwidth networking — LoRa, HF, Starlink',
+  'Product design for regional use cases',
   'Software — embedded systems, monitoring, data pipelines',
+];
+
+const risks = [
+  { title: 'Road access', desc: 'A single road connects to La Paz. Landslides close it regularly in wet season (Dec-Mar).' },
+  { title: 'Healthcare limits', desc: 'Basic clinics exist in Coroico. Serious medical care requires evacuation to La Paz.' },
+  { title: 'Material scarcity', desc: 'Specialty components, industrial materials, and electronics must be sourced from La Paz or imported.' },
+  { title: 'Climate and terrain', desc: '1,750m altitude, high humidity, steep slopes. Rusts uncoated steel in weeks. Limits construction methods.' },
+  { title: 'Local fit matters', desc: 'Solutions must work for the people already here. Imported assumptions fail. Listen first.' },
 ];
 ---
 
 <Landing title="Builders" description="BARK needs engineers, makers, and fabricators. Real site, real constraints, open-source documentation. Build infrastructure that works at 1,750m in the Yungas." heroImage="/images/yungas/death-road.jpg">
 
-  <!-- Hero — photo bg with death-road.jpg -->
+  <!-- 1. Hero -->
   <section class="relative min-h-screen flex items-center px-6 lg:px-10 pt-16">
     <div class="absolute inset-0 z-0">
       <img src="/images/yungas/death-road.jpg" alt="Road carved into Yungas mountainside" width="1920" height="1277" class="w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async" />
@@ -31,13 +55,10 @@ const skills = [
     <div class="relative z-10 max-w-[900px] mx-auto py-20">
       <span class="text-label text-accent reveal">Builders</span>
       <h1 class="text-display text-bark-50 mt-6 reveal" data-delay="100">
-        Build Systems That Matter
+        Build Real Systems in the Yungas
       </h1>
       <p class="text-body-lg text-bark-200 mt-6 max-w-2xl reveal" data-delay="150">
-        BARK is a place to build energy, water, fabrication, communications, and local-production systems under real regional constraints in the Bolivian Yungas.
-      </p>
-      <p class="text-body-lg text-bark-300 mt-4 max-w-2xl reveal" data-delay="200">
-        This is not abstract innovation theater. It is a place where bad roads, fragile supply chains, steep terrain, and regional undercapacity create real design pressure.
+        BARK is a place to build infrastructure, tools, and ventures under real constraints in the Bolivian Yungas. Energy, water, fabrication, communications, local production — designed at 1,750m, documented for replication.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-4 mt-10 reveal" data-delay="300">
         <a href="#what-gets-built" class="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white font-display font-semibold text-sm tracking-wide rounded-full hover:bg-accent-dim transition-colors duration-300">
@@ -52,71 +73,106 @@ const skills = [
     </div>
   </section>
 
-  <!-- What Gets Built — 6 feature cards -->
-  <section id="what-gets-built" class="section-gap px-6 lg:px-10">
+  <!-- 2. Why Builders Matter Here -->
+  <section class="section-gap px-6 lg:px-10">
     <div class="max-w-[1100px] mx-auto">
-      <span class="text-label text-bark-500 reveal">What Gets Built</span>
+      <span class="text-label text-bark-500 reveal">Why Builders Matter Here</span>
       <h2 class="text-headline text-bark-800 mt-4 mb-10 reveal" data-delay="100">
-        Six systems, one site
+        This is not abstract design work
       </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {systems.map((s, i) => (
-          <div class="feature-card hover-lift reveal" data-delay={String(i * 80)}>
-            <span class="feature-number">{s.num}</span>
-            <h3 class="font-display font-semibold text-bark-800 text-lg mb-2 relative z-10">{s.title}</h3>
-            <p class="text-sm text-bark-500 leading-relaxed relative z-10">{s.desc}</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {whyCards.map((c, i) => (
+          <div class="card hover-lift reveal" data-delay={String(i * 80)}>
+            <h3 class="font-display font-semibold text-bark-800 text-lg mb-2">{c.title}</h3>
+            <p class="text-sm text-bark-500 leading-relaxed">{c.desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Why Yungas — dark section -->
-  <section class="section-dark section-gap px-6 lg:px-10">
-    <div class="content-width">
-      <span class="text-label text-accent reveal">Why Yungas</span>
-      <h2 class="text-headline mt-4 mb-8 reveal" data-delay="100">
-        Real constraints = real engineering
+  <!-- 3. What Gets Built — 6 system cards -->
+  <section id="what-gets-built" class="section-dark section-gap px-6 lg:px-10">
+    <div class="max-w-[1100px] mx-auto">
+      <span class="text-label text-accent reveal">What Gets Built</span>
+      <h2 class="text-headline text-bark-50 mt-4 mb-10 reveal" data-delay="100">
+        Six systems, one site
       </h2>
-      <div class="space-y-6 text-body-lg reveal" data-delay="200">
-        <p>
-          1,750m altitude. 1,300mm annual rainfall. Landslide season from December to March.
-          A single road connecting to La Paz. Humidity that rusts uncoated steel in weeks.
-        </p>
-        <p>
-          Every system you design here must handle these conditions or fail visibly.
-          There is no hiding behind controlled environments or unlimited budgets.
-          If it works here, it works anywhere.
-        </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {systems.map((s, i) => (
+          <div class="card-dark card hover-lift reveal" data-delay={String(i * 80)}>
+            <span class="text-label text-accent mb-3 block">{s.num} — {s.title}</span>
+            <p class="text-sm text-bark-400 leading-relaxed mb-2"><strong class="text-bark-300">Problem:</strong> {s.problem}</p>
+            <p class="text-sm text-bark-400 leading-relaxed mb-2"><strong class="text-bark-300">Build:</strong> {s.build}</p>
+            <p class="text-sm text-accent/80 leading-relaxed">{s.why}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Open Source Layer -->
+  <!-- 4. Build Pipeline -->
   <section class="section-gap px-6 lg:px-10">
-    <div class="content-width">
-      <span class="text-label text-bark-500 reveal">Open Source Layer</span>
-      <h2 class="text-headline text-bark-800 mt-4 mb-8 reveal" data-delay="100">
-        Everything documented. Everything published.
+    <div class="max-w-[1100px] mx-auto">
+      <span class="text-label text-bark-500 reveal">Build Pipeline</span>
+      <h2 class="text-headline text-bark-800 mt-4 mb-10 reveal" data-delay="100">
+        From local need to replicable system
       </h2>
-      <div class="space-y-6 text-body-lg text-bark-600 reveal" data-delay="200">
-        <p>
-          Plans, bills of materials, test results, failure reports -- all published under open licenses.
-          Fork the designs. Adapt them to your site. Send improvements back.
-        </p>
-        <p>
-          The stack builds on what already exists: the Global Village Construction Set,
-          RepRap self-replicating fabrication, Precious Plastic recycling machines.
-          We are not inventing from zero. We are integrating, testing, and documenting
-          at a specific site with specific constraints.
-        </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {pipeline.map((p, i) => (
+          <div class="flex gap-4 reveal" data-delay={String(i * 80)}>
+            <span class="font-display font-bold text-3xl text-bark-200 shrink-0 leading-none mt-1">{p.step}</span>
+            <div>
+              <h3 class="font-display font-semibold text-bark-800 text-base mb-1">{p.title}</h3>
+              <p class="text-sm text-bark-500 leading-relaxed">{p.desc}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <div class="divider-accent max-w-[900px] mx-auto"></div>
+  <!-- 5. Technopark + Infrastructure Split -->
+  <section class="bg-bark-100 section-gap px-6 lg:px-10">
+    <div class="max-w-[1100px] mx-auto">
+      <span class="text-label text-bark-500 reveal">Two Layers</span>
+      <h2 class="text-headline text-bark-800 mt-4 mb-10 reveal" data-delay="100">
+        Technopark vs. Infrastructure
+      </h2>
+      <div class="content-two-col">
+        <div class="bar-section reveal" data-delay="100">
+          <h3 class="font-display font-semibold text-bark-800 text-xl mb-4">Technopark</h3>
+          <p class="text-sm text-bark-600 leading-relaxed mb-3">Invention, prototyping, tools, repair, and venture support. The technopark is where new solutions are designed, tested, and refined before deployment.</p>
+          <ul class="space-y-2 text-sm text-bark-500">
+            <li>Fabrication workshops (3D printing, CNC, foundry)</li>
+            <li>Electronics and embedded systems lab</li>
+            <li>Product design and testing facilities</li>
+            <li>Incubation space for local ventures</li>
+          </ul>
+          <a href="/en/pillars/technopark" class="link-arrow mt-4 inline-flex">
+            Read Technopark
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
+        </div>
+        <div class="bar-section reveal" data-delay="200">
+          <h3 class="font-display font-semibold text-bark-800 text-xl mb-4">Infrastructure</h3>
+          <p class="text-sm text-bark-600 leading-relaxed mb-3">Energy, water, habitat, communications, and the operational backbone. Infrastructure is what keeps the site running day to day, season to season.</p>
+          <ul class="space-y-2 text-sm text-bark-500">
+            <li>Solar + micro-hydro energy systems</li>
+            <li>Water capture, filtration, and recycling</li>
+            <li>Communications backbone (Starlink, LoRa, HF)</li>
+            <li>Buildings, roads, and site maintenance</li>
+          </ul>
+          <a href="/en/pillars/infrastructure" class="link-arrow mt-4 inline-flex">
+            Read Infrastructure
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- What We Need Now -->
+  <!-- 6. What Skills Are Needed Now -->
   <section class="section-gap px-6 lg:px-10">
     <div class="max-w-[1100px] mx-auto">
       <span class="text-label text-bark-500 reveal">What We Need Now</span>
@@ -136,19 +192,80 @@ const skills = [
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- 7. Open Source Layer -->
+  <section class="section-dark section-gap px-6 lg:px-10">
+    <div class="content-width">
+      <span class="text-label text-accent reveal">Open Source Layer</span>
+      <h2 class="text-headline text-bark-50 mt-4 mb-8 reveal" data-delay="100">
+        Everything documented. Everything published.
+      </h2>
+      <div class="space-y-6 text-body-lg text-bark-300 reveal" data-delay="200">
+        <p>
+          Plans, bills of materials, test results, failure reports -- all published under open licenses.
+          Fork the designs. Adapt them to your site. Send improvements back.
+        </p>
+        <p>
+          The stack builds on what already exists: the Global Village Construction Set,
+          RepRap self-replicating fabrication, Precious Plastic recycling machines.
+          We are not inventing from zero. We are integrating, testing, and documenting
+          at a specific site with specific constraints.
+        </p>
+        <p>
+          Documentation is not an afterthought. It is the primary output.
+          A system that works but cannot be replicated is a hobby project, not infrastructure.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Risks / Realities -->
+  <section class="section-gap px-6 lg:px-10">
+    <div class="max-w-[1100px] mx-auto">
+      <span class="text-label text-bark-500 reveal">Risks and Realities</span>
+      <h2 class="text-headline text-bark-800 mt-4 mb-10 reveal" data-delay="100">
+        What you should know before committing
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {risks.map((r, i) => (
+          <div class="card hover-lift reveal" data-delay={String(i * 80)}>
+            <h3 class="font-display font-semibold text-bark-800 text-base mb-2">{r.title}</h3>
+            <p class="text-sm text-bark-500 leading-relaxed">{r.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CTA -->
   <section class="section-gap-lg bg-bark-100 px-6 lg:px-10">
     <div class="content-width text-center">
-      <h2 class="text-headline text-bark-800 mb-8 reveal">
+      <h2 class="text-headline text-bark-800 mb-4 reveal">
         Tell us what you build.
       </h2>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal" data-delay="100">
-        <a href="mailto:bark@pt32lab.org?subject=Builder%20inquiry" class="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white font-display font-semibold text-sm tracking-wide rounded-full hover:bg-accent-dim transition-colors duration-300">
-          Get in touch
+      <p class="text-body-lg text-bark-500 mb-8 reveal" data-delay="100">
+        BARK is looking for engineers, makers, fabricators, and technical operators who want to build systems that matter.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal" data-delay="200">
+        <a href="mailto:bark@pt32lab.org?subject=Join%20the%20Build%20Network" class="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white font-display font-semibold text-sm tracking-wide rounded-full hover:bg-accent-dim transition-colors duration-300">
+          Join the Build Network
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mt-6 reveal" data-delay="300">
         <a href="/en/pillars/technopark" class="link-arrow">
-          Read the technopark specs
+          Read the Technopark
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="/en/pillars/infrastructure" class="link-arrow">
+          Read Infrastructure
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="/en/economy" class="link-arrow">
+          Economy
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="/en/participate" class="link-arrow">
+          Participate
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
       </div>

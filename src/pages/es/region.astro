@@ -2,8 +2,10 @@
 import Landing from '../../layouts/Landing.astro';
 
 const capabilities = [
+  { title: 'Local suppliers', text: 'Construction materials, food, transport, services. BARK buys locally first. Every purchase is a vote for the regional economy.' },
   { title: 'Jobs', text: 'Local hiring for construction, agriculture, hospitality, maintenance. BARK is a payroll before it is a product.' },
   { title: 'Market access', text: 'The Trading House buys local surplus at fair prices and connects Yungas producers to international buyers. Growers keep their land and their margin.' },
+  { title: 'Producer partnerships', text: 'Direct relationships with coffee, coca, citrus, and cacao growers. Shared processing, shared logistics, shared upside.' },
   { title: 'Infrastructure', text: 'Solar arrays, water systems, mesh communications -- built to benefit the surrounding area, not fence it off.' },
   { title: 'Skills', text: 'Training programs, Carmen Pampa University partnership, tech transfer. Knowledge that stays in the valley.' },
   { title: 'Ventures', text: 'The Incubator launches businesses rooted in local needs -- processing, logistics, services the region actually lacks.' },
@@ -17,17 +19,21 @@ const notList = [
 ];
 
 const partners = [
-  { who: 'Farmers', how: 'Sell to the Trading House at transparent, fair-market prices.' },
+  { who: 'Producers', how: 'Sell to the Trading House at transparent, fair-market prices. Keep your land, keep your margin.' },
   { who: 'Cooperatives', how: 'Shared processing equipment, shared market access, shared logistics.' },
-  { who: 'University', how: 'Internships, field research, training programs with Carmen Pampa.' },
-  { who: 'Government', how: 'Alignment with Bolivia\'s $325M solar program and cooperative legal framework.' },
+  { who: 'Schools & University', how: 'Internships, field research, training programs with Carmen Pampa. Student projects with real outcomes.' },
+  { who: 'Municipal & Civic Bodies', how: 'Alignment with Bolivia\'s $325M solar program, cooperative legal framework, and local development goals.' },
+  { who: 'Technical Allies', how: 'Engineers, agronomists, builders, researchers. Contribute expertise, access shared infrastructure.' },
+  { who: 'Local Institutions', how: 'Health posts, transport operators, market associations. BARK integrates with what already works.' },
 ];
 
 const risks = [
   'Road access -- the La Paz-Coroico highway closes during landslides. Supply chain resilience is not optional.',
   'Healthcare -- limited local facilities. Nearest hospital is in La Paz, three hours away.',
   'Political instability -- Bolivia has real political cycles. The 2024 crisis disrupted the entire country.',
+  'Bureaucracy -- permits, inspections, legal processes move on their own timeline. Patience is a structural requirement.',
   'Economic crisis -- currency pressure, inflation, reserve depletion. We plan for this, not around it.',
+  'Local legitimacy must be earned -- no amount of investment substitutes for trust. That takes presence, time, and follow-through.',
 ];
 ---
 
@@ -77,13 +83,15 @@ const risks = [
         <span class="text-label text-bark-500">Why Here</span>
         <h2 class="text-title text-bark-800 mt-4 mb-6">Coroico and the Yungas</h2>
         <p class="text-bark-600 text-[1.05rem] leading-[1.8]">
-          1,750 meters. Year-round growing season. Three hours from La Paz.
-          An existing cooperative tradition through CENAPROC and the broader Yungas
-          agricultural network. The infrastructure of mutual aid already exists here &mdash;
-          BARK plugs into it, not over it.
+          1,750 meters. Year-round growing season. Three hours from La Paz via a
+          single road that doubles as lifeline and bottleneck. Extraordinary
+          biodiversity across altitude bands. An existing cooperative tradition through
+          CENAPROC and the broader Yungas agricultural network. Carmen Pampa University
+          within reach for research and training. The infrastructure of mutual aid
+          already exists here &mdash; BARK plugs into it, not over it.
         </p>
       </div>
-      <div class="grid grid-cols-2 gap-px bg-bark-200 rounded-xl overflow-hidden reveal" data-delay="100">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-px bg-bark-200 rounded-xl overflow-hidden reveal" data-delay="100">
         <div class="bg-bark-50 p-6 text-center">
           <p class="font-display font-bold text-bark-800 text-2xl">1,750m</p>
           <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Elevation</p>
@@ -100,6 +108,85 @@ const risks = [
           <p class="font-display font-bold text-accent text-2xl">Co-op</p>
           <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Tradition (CENAPROC)</p>
         </div>
+        <div class="bg-bark-50 p-6 text-center">
+          <p class="font-display font-bold text-bark-800 text-2xl">High</p>
+          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Biodiversity</p>
+        </div>
+        <div class="bg-bark-50 p-6 text-center">
+          <p class="font-display font-bold text-bark-800 text-2xl">UCB</p>
+          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Carmen Pampa nearby</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Regional Lift Model -->
+  <section class="section-gap px-6 lg:px-10">
+    <div class="max-w-[1100px] mx-auto">
+      <span class="text-label text-bark-500 reveal">Regional Lift Model</span>
+      <h2 class="text-title text-bark-800 mt-4 mb-4 reveal" data-delay="100">
+        How the ecosystem connects
+      </h2>
+      <p class="text-bark-600 mb-10 max-w-2xl reveal" data-delay="150">
+        BARK is one node in a regional network. Value flows outward -- to producers,
+        cooperatives, the university, local suppliers, and eventually to new ventures
+        and markets that did not exist before.
+      </p>
+
+      <!-- Ecosystem diagram: concentric rings -->
+      <div class="relative max-w-[700px] mx-auto reveal" data-delay="200">
+        <svg viewBox="0 0 700 420" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto" role="img" aria-label="Regional ecosystem diagram showing BARK at the center connected to farmers, cooperatives, university, suppliers, ventures, markets, and visitors">
+          <!-- Outer ring -->
+          <ellipse cx="350" cy="210" rx="330" ry="190" stroke="#e4ded6" stroke-width="1.5" stroke-dasharray="6 4" />
+          <!-- Middle ring -->
+          <ellipse cx="350" cy="210" rx="220" ry="130" stroke="#c9bfb2" stroke-width="1.5" />
+          <!-- Inner ring -->
+          <ellipse cx="350" cy="210" rx="80" ry="50" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-width="2" />
+          <!-- Center label -->
+          <text x="350" y="206" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="700" font-size="16" fill="#1a1610">BARK</text>
+          <text x="350" y="224" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="400" font-size="10" fill="#8a7a66">cooperative hub</text>
+
+          <!-- Middle ring nodes -->
+          <circle cx="170" cy="140" r="6" fill="#10b981" />
+          <text x="170" y="125" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="600" font-size="12" fill="#2d261e">Farmers</text>
+
+          <circle cx="530" cy="140" r="6" fill="#10b981" />
+          <text x="530" y="125" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="600" font-size="12" fill="#2d261e">Cooperatives</text>
+
+          <circle cx="170" cy="280" r="6" fill="#10b981" />
+          <text x="170" y="300" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="600" font-size="12" fill="#2d261e">University</text>
+
+          <circle cx="530" cy="280" r="6" fill="#10b981" />
+          <text x="530" y="300" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="600" font-size="12" fill="#2d261e">Suppliers</text>
+
+          <circle cx="350" cy="90" r="6" fill="#10b981" />
+          <text x="350" y="75" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="600" font-size="12" fill="#2d261e">Ventures</text>
+
+          <!-- Outer ring nodes -->
+          <circle cx="80" cy="210" r="5" fill="#d4a853" />
+          <text x="42" y="214" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="500" font-size="11" fill="#6b5d4d">Markets</text>
+
+          <circle cx="620" cy="210" r="5" fill="#d4a853" />
+          <text x="660" y="214" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="500" font-size="11" fill="#6b5d4d">Visitors</text>
+
+          <circle cx="350" cy="350" r="5" fill="#d4a853" />
+          <text x="350" y="372" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="500" font-size="11" fill="#6b5d4d">Talent</text>
+
+          <!-- Connection lines from center to middle ring -->
+          <line x1="280" y1="195" x2="176" y2="146" stroke="#10b981" stroke-width="1" stroke-opacity="0.4" />
+          <line x1="420" y1="195" x2="524" y2="146" stroke="#10b981" stroke-width="1" stroke-opacity="0.4" />
+          <line x1="280" y1="225" x2="176" y2="274" stroke="#10b981" stroke-width="1" stroke-opacity="0.4" />
+          <line x1="420" y1="225" x2="524" y2="274" stroke="#10b981" stroke-width="1" stroke-opacity="0.4" />
+          <line x1="350" y1="162" x2="350" y2="96" stroke="#10b981" stroke-width="1" stroke-opacity="0.4" />
+
+          <!-- Connection lines from middle to outer ring -->
+          <line x1="164" y1="140" x2="85" y2="210" stroke="#d4a853" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="4 3" />
+          <line x1="536" y1="140" x2="615" y2="210" stroke="#d4a853" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="4 3" />
+          <line x1="170" y1="286" x2="344" y2="345" stroke="#d4a853" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="4 3" />
+          <line x1="530" y1="286" x2="356" y2="345" stroke="#d4a853" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="4 3" />
+          <line x1="350" y1="84" x2="85" y2="205" stroke="#d4a853" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="4 3" />
+        </svg>
+        <p class="text-center text-bark-400 text-xs mt-4 font-display tracking-wide uppercase">Inner ring: direct partners &middot; Outer ring: downstream reach</p>
       </div>
     </div>
   </section>
@@ -129,7 +216,7 @@ const risks = [
       <h2 class="text-title text-bark-800 mt-4 mb-10 reveal" data-delay="100">
         How the relationship works
       </h2>
-      <div class="grid sm:grid-cols-2 gap-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {partners.map((p, i) => (
           <div class="card reveal" data-delay={String(i * 80)}>
             <span class="tag tag-accent mb-3">{p.who}</span>
@@ -175,11 +262,11 @@ const risks = [
       </h2>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
         <a href="mailto:pt32lab@proton.me?subject=Regional%20partnership%20inquiry" class="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white font-display font-semibold text-sm tracking-wide rounded-full hover:bg-accent-dim transition-colors duration-300 reveal" data-delay="100">
-          Start a conversation
+          Partner With BARK
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
-        <a href="/en/location" class="link-arrow reveal" data-delay="200">
-          Read the full location analysis
+        <a href="/en/economy" class="link-arrow reveal" data-delay="200">
+          See the Regional Economy
           <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
       </div>
