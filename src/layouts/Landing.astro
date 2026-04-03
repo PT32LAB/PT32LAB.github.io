@@ -74,15 +74,23 @@ const pathWithoutLang = Astro.url.pathname.replace(/^\/(en|es)/, '');
     <ClientRouter />
   </head>
   <body class="min-h-screen bg-bark-50 text-bark-800">
-    <!-- Minimal nav: logo + language -->
+    <!-- Landing nav: logo + landing links + full site + language -->
     <nav class="fixed top-0 w-full z-50 bg-bark-50/80 backdrop-blur-sm">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
         <a href={`/${lang}/`} class="font-display font-bold text-bark-800 text-lg tracking-tight hover:text-accent transition-colors">
           BARK
         </a>
-        <a href={`/${otherLang}${pathWithoutLang}`} class="text-[0.7rem] font-display font-medium tracking-[0.12em] uppercase text-bark-400 hover:text-accent transition-colors duration-300">
-          {languages[otherLang]}
-        </a>
+        <div class="flex items-center gap-5">
+          <a href="/landing/about" class="hidden md:inline text-[0.7rem] font-display font-medium tracking-[0.1em] uppercase text-bark-500 hover:text-bark-800 transition-colors">Overview</a>
+          <a href="/landing/invest" class="hidden md:inline text-[0.7rem] font-display font-medium tracking-[0.1em] uppercase text-bark-500 hover:text-bark-800 transition-colors">Invest</a>
+          <a href="/landing/builders" class="hidden md:inline text-[0.7rem] font-display font-medium tracking-[0.1em] uppercase text-bark-500 hover:text-bark-800 transition-colors">Build</a>
+          <a href="/landing/resilience" class="hidden md:inline text-[0.7rem] font-display font-medium tracking-[0.1em] uppercase text-bark-500 hover:text-bark-800 transition-colors">Resilience</a>
+          <span class="hidden md:inline w-px h-4 bg-bark-200"></span>
+          <a href={`/${lang}/`} class="hidden md:inline text-[0.7rem] font-display font-medium tracking-[0.1em] uppercase text-accent hover:text-accent-dim transition-colors">Full Site</a>
+          <a href={`/${otherLang}${pathWithoutLang}`} class="text-[0.7rem] font-display font-medium tracking-[0.12em] uppercase text-bark-400 hover:text-accent transition-colors duration-300">
+            {languages[otherLang]}
+          </a>
+        </div>
       </div>
     </nav>
 
