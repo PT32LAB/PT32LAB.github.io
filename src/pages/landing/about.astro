@@ -10,12 +10,12 @@ const components = [
 ];
 ---
 
-<Landing title="What is BARK?" description="BARK in 60 seconds. Five components, one system. A community in the Bolivian cloud forest learning to provision itself.">
+<Landing title="What is BARK?" description="BARK in 60 seconds. Five components, one system. A community in the Bolivian cloud forest learning to provision itself." heroImage="/images/yungas/valley.jpg">
 
   <!-- Hero with photo bg -->
   <section class="relative min-h-screen flex items-center px-6 lg:px-10 pt-16">
     <div class="absolute inset-0 z-0">
-      <img src="/images/yungas/valley.jpg" alt="Yungas valley" class="w-full h-full object-cover" />
+      <img src="/images/yungas/valley.jpg" alt="Yungas valley" width="1920" height="1282" class="w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async" />
       <div class="absolute inset-0 bg-gradient-to-b from-bark-900/70 via-bark-900/60 to-bark-900/90"></div>
     </div>
     <div class="relative z-10 max-w-[900px] mx-auto py-20">
@@ -66,7 +66,7 @@ const components = [
         </p>
       </div>
       <div class="photo-frame h-64 md:h-80 reveal" data-delay="100">
-        <img src="/images/yungas/coroico-clouds.jpg" alt="Coroico in the clouds" loading="lazy" />
+        <img src="/images/yungas/coroico-clouds.jpg" alt="Coroico in the clouds" width="1920" height="1282" loading="lazy" decoding="async" />
         <div class="photo-credit">Coroico, Yungas, Bolivia</div>
       </div>
     </div>

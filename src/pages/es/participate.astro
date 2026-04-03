@@ -1,35 +1,75 @@
 ---
 import Base from '../../layouts/Base.astro';
 
-const ways = [
-  { num: '01', title: 'Experience', desc: 'Come for a retreat. See if the place holds you. A week living in the community -- eating food from the gardens, meeting the builders, understanding the systems, breathing the cloud forest air -- is the most honest introduction to what BARK is. Some guests return. Some invest. Some relocate. The retreat is not tourism. It is temporary participation.', items: ['Attend a structured retreat program', 'Work alongside residents during your stay', 'Contribute your expertise to the community'] },
-  { num: '02', title: 'Invest', desc: 'Put capital into land, solar arrays, processing equipment, or the cooperative structure itself. Every dollar becomes a physical thing in a specific place -- a cistern, a roasting drum, a panel on a roof.', items: ['Direct project funding', 'Cooperative membership shares', 'Component-specific sponsorship'] },
-  { num: '03', title: 'Build', desc: 'Bring a skill that has weight. Weld a frame, design a greywater system, write firmware for a mesh radio node, plant a food forest on a 30-degree slope. On-site in Coroico or remote.', items: ['Resident builder (relocate to Coroico)', 'Remote contributor (code, design, research)', 'Visiting expert (periodic on-site work)'] },
-  { num: '04', title: 'Think', desc: 'Contribute designs, governance models, legal architecture, research. The knowledge base is open-source -- your work propagates to every community that forks the model.', items: ['Governance model design', 'Technical architecture proposals', 'Research and analysis'] },
-  { num: '05', title: 'Spread', desc: 'Translate content into Spanish, Aymara, Portuguese. Connect us with cooperatives, agronomists, engineers, lawyers who know Bolivian land title law. Write honestly about the project.', items: ['Translation (EN/ES/AY and beyond)', 'Introductions to specific people', 'Honest writing about the work'] },
+const pathways = [
+  {
+    num: '01',
+    title: 'Experience',
+    desc: 'Come for a retreat -- one week minimum. Live on-site, eat from the gardens, meet the builders, understand the systems. This is not tourism. You will work. You will be uncomfortable at least once. Some guests return. Some invest. Some relocate. Most do not. The retreat exists to find the ones who do.',
+    items: ['Structured retreat program (minimum 7 days)', 'Work alongside residents -- not observe from a distance', 'Honest assessment at the end: mutual fit or mutual goodbye'],
+  },
+  {
+    num: '02',
+    title: 'Invest',
+    desc: 'Put capital into land, solar arrays, processing equipment, or the cooperative structure itself. Every dollar becomes a physical thing in a specific place -- a cistern, a roasting drum, a panel on a roof. You will receive quarterly reporting on what your capital became. Not a pitch deck. Photographs and spreadsheets.',
+    items: ['Direct project funding with named asset allocation', 'Cooperative membership shares (one member, one vote)', 'Component-specific sponsorship with impact reporting'],
+  },
+  {
+    num: '03',
+    title: 'Build',
+    desc: 'Bring a skill that has weight. Weld a frame, design a greywater system, write firmware for a mesh radio node, plant a food forest on a 30-degree slope. We need people who have built things before -- not people who want to learn by experimenting on critical infrastructure. On-site in Coroico or remote.',
+    items: ['Resident builder -- relocate to Coroico, minimum 6-month commitment', 'Remote contributor -- code, design, research with defined deliverables', 'Visiting expert -- periodic on-site work on specific problems'],
+  },
+  {
+    num: '04',
+    title: 'Think',
+    desc: 'Contribute governance models, legal architecture, engineering designs, research. The knowledge base is open-source -- your work propagates to every community that forks the model. We need people who can write a document that survives contact with Bolivian administrative reality, not just theory.',
+    items: ['Governance model design grounded in Ley 356', 'Technical architecture with material and cost specificity', 'Research that cites sources and checks assumptions'],
+  },
+  {
+    num: '05',
+    title: 'Spread',
+    desc: 'Translate content into Spanish, Aymara, Portuguese. Connect us with cooperatives, agronomists, engineers, lawyers who know Bolivian land title law. Write honestly about the project -- including what does not work. Propaganda does not help us. Honest signal does.',
+    items: ['Translation with cultural adaptation, not word-for-word conversion', 'Introductions to specific people who solve specific problems', 'Honest public writing -- criticism included'],
+  },
 ];
 ---
 
-<Base title="Participate" description="Five ways to contribute: invest, build, think, spread, or come for a retreat.">
-  <!-- Header -->
-  <section class="pt-32 pb-16 px-6 lg:px-10">
-    <div class="max-w-[1400px] mx-auto">
-      <span class="text-label text-accent reveal">Participate</span>
-      <h1 class="text-headline text-bark-800 mt-4 max-w-3xl reveal" data-delay="100">
-        The work is specific.<br />So are the people who do it.
-      </h1>
-      <div class="accent-line mt-10 max-w-xl reveal" data-delay="200"></div>
+<Base title="Participate" description="Participation means real involvement. Five pathways for people who want to test whether they can build, contribute, and live inside a serious long-term project." heroImage="/images/yungas/valley.jpg">
+  <!-- Photo Hero -->
+  <section class="relative min-h-[50vh] flex items-end pb-16 overflow-hidden">
+    <img src="/images/yungas/valley.jpg" alt="The green valley of the Yungas, Coroico" width="1920" height="1282" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
+      <span class="text-label text-accent tracking-widest reveal">Participate</span>
+      <h1 class="text-headline text-white mt-4 reveal" data-delay="100">Participation Means Real Involvement</h1>
+      <p class="text-body-lg text-white/70 mt-4 max-w-2xl reveal" data-delay="200">BARK is not asking for passive belief. It is asking for people who want to test whether they can build, contribute, live, and learn inside a serious long-term project.</p>
     </div>
   </section>
 
-  <!-- Ways to participate -->
-  <section class="pb-32 px-6 lg:px-10">
+  <!-- Intro -->
+  <section class="pt-16 pb-16 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
+      <p class="text-body-lg text-bark-500 max-w-2xl reveal">
+        Participation here can begin lightly, but it should never remain vague. The project needs
+        presence, skill, commitment, and honesty about fit. Not everyone belongs here -- and that
+        is not a failure. It is a filter that protects both the project and the person.
+      </p>
+      <div class="accent-line mt-10 max-w-xl reveal" data-delay="100"></div>
+    </div>
+  </section>
+
+  <!-- Five Pathways -->
+  <section class="pb-24 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <span class="text-label text-bark-400 reveal">Pathways</span>
+      <h2 class="text-title text-bark-800 mt-4 mb-10 reveal" data-delay="100">Five ways in -- each with real expectations.</h2>
+
       <div class="grid md:grid-cols-2 gap-px bg-bark-200 rounded-xl overflow-hidden">
-        {ways.map((w, i) => (
+        {pathways.map((w, i) => (
           <div class="bg-bark-50 p-10 reveal" data-delay={String(i * 100)}>
             <span class="text-label text-bark-300">{w.num}</span>
-            <h2 class="text-title text-bark-800 mt-3">{w.title}</h2>
+            <h3 class="text-title text-bark-800 mt-3">{w.title}</h3>
             <p class="text-bark-500 mt-4 leading-relaxed">{w.desc}</p>
             <ul class="mt-6 space-y-2">
               {w.items.map(item => (
@@ -44,17 +84,52 @@ const ways = [
     </div>
   </section>
 
-  <!-- Photo break -->
-  <div class="photo-frame h-48 md:h-64 w-full my-12 reveal" style="border-radius:0;">
-    <img src="/images/yungas/valley.jpg" alt="The lush green valley of the Yungas region" loading="lazy" class="w-full h-full object-cover" />
-  </div>
+  <!-- Who This Is Not For -->
+  <section class="bg-bark-900 py-24 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <span class="text-label text-accent reveal">Honest Filter</span>
+      <h2 class="text-title text-bark-100 mt-4 mb-4 reveal" data-delay="100">Who This Is Not For</h2>
+      <p class="text-bark-400 mb-10 max-w-2xl reveal" data-delay="200">
+        Saying no early saves everyone time. If any of the following apply, this project is
+        probably not a good fit -- and that is fine. There are many good projects in the world.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-bark-800/60 rounded-xl p-8 reveal" data-delay="100">
+          <h3 class="font-display font-semibold text-bark-100 text-lg mb-3">Passive Investment Returns</h3>
+          <p class="text-bark-400 text-sm leading-relaxed">
+            If you are looking for a place to park capital and receive quarterly dividends without
+            involvement, this is the wrong vehicle. Cooperative shares are illiquid. Returns come
+            from participation, not extraction. There is no secondary market and no exit guarantee.
+          </p>
+        </div>
+        <div class="bg-bark-800/60 rounded-xl p-8 reveal" data-delay="200">
+          <h3 class="font-display font-semibold text-bark-100 text-lg mb-3">Vacation Property</h3>
+          <p class="text-bark-400 text-sm leading-relaxed">
+            This is not an eco-resort with a membership fee. Living here means participating in
+            governance, contributing labor, eating what the garden produces in season, and accepting
+            that the road washes out in February. If you want a retreat from reality, book a hotel.
+          </p>
+        </div>
+        <div class="bg-bark-800/60 rounded-xl p-8 reveal" data-delay="300">
+          <h3 class="font-display font-semibold text-bark-100 text-lg mb-3">Discomfort with Bolivia</h3>
+          <p class="text-bark-400 text-sm leading-relaxed">
+            Bolivia has fuel shortages, dollar scarcity, road blockades, and a political landscape
+            that does not conform to North American or European expectations. If you cannot work
+            within that reality -- respectfully, patiently, without trying to import your own
+            governance assumptions -- you will be unhappy here, and you will make others unhappy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Open Source -->
-  <section class="bg-bark-900 py-24 px-6 lg:px-10">
+  <section class="py-24 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-10">
       <div class="max-w-xl">
         <span class="text-label text-accent reveal">Open Source as Reproduction</span>
-        <p class="text-body-lg text-bark-300 mt-4 leading-relaxed reveal" data-delay="100">
+        <p class="text-body-lg text-bark-500 mt-4 leading-relaxed reveal" data-delay="100">
           Every schematic, every governance document, every soil test result lives in public
           repositories. Fork the entire project. Adapt it for a valley in Guatemala or a
           hillside in Nepal. The design improves every time it propagates.
@@ -71,9 +146,9 @@ const ways = [
   </section>
 
   <!-- Contact CTA -->
-  <section class="py-32 px-6 lg:px-10">
+  <section class="bg-bark-100 py-32 px-6 lg:px-10">
     <div class="max-w-xl mx-auto text-center">
-      <h2 class="text-headline text-bark-800 reveal">Write to us. Be specific.</h2>
+      <h2 class="text-headline text-bark-800 reveal">Start a Conversation</h2>
       <p class="text-body-lg text-bark-500 mt-4 reveal" data-delay="100">
         Tell us what you do, what you have built before, and what draws you to a cloud forest
         cooperative in Bolivia. We reply within one week. Then a video call. Then the real
