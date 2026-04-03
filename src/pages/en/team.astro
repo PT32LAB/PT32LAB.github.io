@@ -3,19 +3,18 @@ import Base from '../../layouts/Base.astro';
 ---
 
 <Base title="The Team" description="The people behind BARK — an initial spark and growing circle of contributors.">
-  <!-- Header -->
-  <section class="pt-32 pb-16 px-6 lg:px-10">
-    <div class="max-w-[1400px] mx-auto">
-      <span class="text-label text-accent reveal">Who We Are</span>
-      <h1 class="text-headline text-bark-800 mt-4 max-w-3xl reveal" data-delay="100">
-        A spark, not a hierarchy.
-      </h1>
-      <p class="text-body-lg text-bark-500 mt-6 max-w-2xl reveal" data-delay="200">
+  <!-- Photo Hero -->
+  <section class="relative min-h-[50vh] flex items-end pb-16 overflow-hidden">
+    <img src="/images/yungas/coroico-clouds.jpg" alt="Coroico emerging through the clouds, Yungas" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
+      <span class="text-label text-accent tracking-widest reveal">Who We Are</span>
+      <h1 class="text-headline text-white mt-4 reveal" data-delay="100">A spark, not a hierarchy.</h1>
+      <p class="text-body-lg text-white/70 mt-4 max-w-2xl reveal" data-delay="200">
         BARK began with one person asking a question and refusing to let the answer stay
         theoretical. It grows by finding people who commit specific skills, capital, or
         time to a specific place. The team is small. Everyone contributes something concrete.
       </p>
-      <div class="accent-line mt-10 max-w-xl reveal" data-delay="300"></div>
     </div>
   </section>
 

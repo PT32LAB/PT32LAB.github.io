@@ -50,7 +50,7 @@ const terms = [
     <div class="max-w-[900px] mx-auto">
       <div class="divide-y divide-bark-200 border-t border-b border-bark-200">
         {terms.map((item, i) => (
-          <div class="py-6 reveal" data-delay={String(Math.min(i * 40, 400))} id={item.term.toLowerCase().replace(/[\s()'/]/g, '-')}>
+          <div class="py-6 bar-section reveal" data-delay={String(Math.min(i * 40, 400))} id={item.term.toLowerCase().replace(/[\s()'/]/g, '-')}>
             <h2 class="font-display font-semibold text-[1.1rem] text-bark-800 leading-snug">
               {item.term}
             </h2>

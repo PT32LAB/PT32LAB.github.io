@@ -150,22 +150,30 @@ const unlocks: Record<string, { title: string; status: 'not-started' | 'in-progr
 ---
 
 <Base title="Roadmap" description="BARK project timeline — honest about where we are and where we're going.">
-  <!-- Header -->
-  <section class="pt-32 pb-16 px-6 lg:px-10">
+  <!-- Photo Hero -->
+  <section class="relative min-h-[50vh] flex items-end pb-16 overflow-hidden">
+    <img src="/images/yungas/road-panorama.jpg" alt="Panoramic view of the road through the Yungas mountains" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
+      <span class="text-label text-accent tracking-widest reveal">Timeline</span>
+      <h1 class="text-headline text-white mt-4 reveal" data-delay="100">Where we actually are.<br />Where we hope to go.</h1>
+      <p class="text-body-lg text-white/70 mt-4 max-w-2xl reveal" data-delay="200">
+        A living roadmap -- honest about what's done, what's in progress, and what's still a plan.
+      </p>
+    </div>
+  </section>
+
+  <!-- Current Status -->
+  <section class="pt-16 pb-16 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
-      <span class="text-label text-accent reveal">Timeline</span>
-      <h1 class="text-headline text-bark-800 mt-4 max-w-3xl reveal" data-delay="100">
-        Where we actually are.<br />Where we hope to go.
-      </h1>
-      <p class="text-body-lg text-bark-500 mt-6 max-w-2xl reveal" data-delay="200">
-        This is a living roadmap — honest about what's done, what's in progress, and what's
-        still a plan. We are currently 1-2 people with AI, doing research. We are not yet a project
+      <p class="text-body-lg text-bark-500 max-w-2xl reveal">
+        We are currently 1-2 people with AI, doing research. We are not yet a project
         seeking investment. We are a research initiative testing whether this idea survives contact
         with reality.
       </p>
 
       <!-- Current Status callout -->
-      <div class="mt-10 p-6 bg-bark-100 border border-bark-200 rounded-xl max-w-2xl reveal" data-delay="250">
+      <div class="mt-10 p-6 bg-bark-100 border border-bark-200 rounded-xl max-w-2xl reveal" data-delay="100">
         <p class="font-display font-semibold text-bark-800 text-sm tracking-wide uppercase mb-4">Current Status — Phase 0: Research & Vision</p>
         <div class="flex flex-wrap gap-3">
           <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-display font-medium bg-accent/10 text-accent">
@@ -187,7 +195,7 @@ const unlocks: Record<string, { title: string; status: 'not-started' | 'in-progr
         <p class="text-bark-500 text-sm mt-4">No land acquired. No cooperative formed. No team recruited. No site visited. Research phase only.</p>
       </div>
 
-      <div class="accent-line mt-10 max-w-xl reveal" data-delay="300"></div>
+      <div class="accent-line mt-10 max-w-xl reveal" data-delay="200"></div>
     </div>
   </section>
 
