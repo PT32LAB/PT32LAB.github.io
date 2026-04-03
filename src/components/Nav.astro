@@ -102,7 +102,7 @@ const navGroups = [
         <span class="w-px h-4 bg-bark-200 mx-2"></span>
 
         <a
-          href={getLocalePath(otherLang, Astro.url.pathname.replace(`/${lang}`, '') || '/')}
+          href={getLocalePath(otherLang, Astro.url.pathname.replace(new RegExp('^/' + lang + '(/|$)'), '$1') || '/')}
           class="text-[0.7rem] font-display font-medium tracking-[0.12em] uppercase text-bark-400 hover:text-accent transition-colors duration-300 px-2"
         >
           {languages[otherLang]}
@@ -154,7 +154,7 @@ const navGroups = [
       ))}
       <div class="pt-3 mt-1">
         <a
-          href={getLocalePath(otherLang, Astro.url.pathname.replace(`/${lang}`, '') || '/')}
+          href={getLocalePath(otherLang, Astro.url.pathname.replace(new RegExp('^/' + lang + '(/|$)'), '$1') || '/')}
           class="text-[0.7rem] font-display font-medium tracking-[0.1em] uppercase text-bark-400"
         >
           {languages[otherLang]}

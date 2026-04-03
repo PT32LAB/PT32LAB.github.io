@@ -87,9 +87,29 @@ const sections = [
     ],
   },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    sections[0].questions[0],
+    sections[0].questions[1],
+    sections[0].questions[2],
+    sections[0].questions[3],
+    sections[1].questions[0],
+  ].map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a.replace(/<[^>]*>/g, ''),
+    },
+  })),
+};
 ---
 
 <Base title="FAQ" description="Frequently asked questions about BARK — honest answers to real concerns.">
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <!-- Header -->
   <section class="pt-32 pb-16 px-6 lg:px-10">
     <div class="max-w-[900px] mx-auto">

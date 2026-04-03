@@ -77,7 +77,7 @@ const projectPages: PageData[] = [
       { claim: 'Foreign reserves near $100M, down from $14B', status: 'STALE', note: '$14B peak (2014) verified; ~$100M is 2025 figure, not confirmed at current date' },
       { claim: '20%+ inflation (2025)', status: 'UNVERIFIED', note: 'Post-training-cutoff figure' },
       { claim: 'WHO healthcare ranking 126th of 190', status: 'QUALIFIED', note: 'This ranking is from the year 2000 and has not been updated' },
-      { claim: '~98% of fresh food from small-scale family farms', status: 'QUALIFIED', note: 'Likely 80-90%; contradicts scenarios page "88%" figure' },
+      { claim: 'Majority (80-90%) of fresh food from small-scale family farms', status: 'SUPPORTED', note: 'Revised from ~98% claim; now qualified with range and consistent across pages' },
       { claim: 'Under compound scenario, safe-haven hierarchy inverts', status: 'SPECULATIVE', note: 'Argument: interesting thesis but untested and highly scenario-dependent' },
     ],
   },
@@ -492,8 +492,8 @@ function statusColor(status: string) {
       {
         "@context": "https://schema.org",
         "@type": "ClaimReview",
-        "claimReviewed": "Family farms produce ~98% of fresh food in Bolivia",
-        "reviewRating": { "@type": "Rating", "ratingValue": 3, "bestRating": 5, "alternateName": "QUALIFIED" },
+        "claimReviewed": "Family farms produce the majority (80-90%) of fresh food in Bolivia",
+        "reviewRating": { "@type": "Rating", "ratingValue": 4, "bestRating": 5, "alternateName": "SUPPORTED" },
         "itemReviewed": { "@type": "Claim", "author": { "@type": "Organization", "name": "BARK" } },
         "author": { "@type": "Organization", "name": "BARK Fact-Check Process" }
       }
@@ -749,11 +749,11 @@ function statusColor(status: string) {
             <ul class="text-[0.9rem] text-bark-600 leading-relaxed space-y-2 mt-1">
               <li class="flex items-start gap-2">
                 <span class="text-amber-500 shrink-0">&mdash;</span>
-                <span>Family farms produce "~98%" (Resilience) vs "88%" (Scenarios) of food</span>
+                <span>Family farms food share now consistently "80-90%" across pages (previously ~98% vs 88%)</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-amber-500 shrink-0">&mdash;</span>
-                <span>Portfolio break-even "12-18 months" (Economy) vs "3-4 years" (Investors) for same investment range</span>
+                <span>Portfolio break-even now consistently "3-4 years" across Economy and Investors pages (previously 12-18 months vs 3-4 years)</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-amber-500 shrink-0">&mdash;</span>

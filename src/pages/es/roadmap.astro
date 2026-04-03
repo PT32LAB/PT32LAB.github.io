@@ -5,115 +5,137 @@ const phases = [
   {
     id: 0,
     label: 'Phase 0',
-    title: 'Foundation',
-    time: 'Current — Q2 2026',
+    title: 'Research & Vision',
+    time: 'Current — Q1-Q2 2026',
     status: 'active',
+    description: 'We are 1-2 people with AI, experimenting, gathering information, and testing whether this idea survives contact with reality. We are not yet a project seeking investment. We are a research initiative.',
     items: [
       { text: 'Website and public presence', status: 'done' },
-      { text: 'Knowledge cosmos and research', status: 'done' },
-      { text: 'Team formation', status: 'progress' },
-      { text: 'Legal research', status: 'progress' },
-      { text: 'Site visits to Coroico area', status: 'planned' },
+      { text: 'Deep research: 16 documents, 449 verified links across geography, law, economics, safety, partners, and technology', status: 'done' },
+      { text: 'Crisis analysis: Bolivia as safe haven — honest assessment of strengths and vulnerabilities', status: 'done' },
+      { text: 'Economic modeling: conservative profit projections for 5 processing lines ($43K-$129K/yr combined)', status: 'done' },
+      { text: 'Legal research: Ley 356 cooperative law — foreigners CAN join, CANNOT lead without citizenship', status: 'done' },
+      { text: 'Community and partner mapping: 18 organizations, 8 government programs identified', status: 'done' },
+      { text: 'Fact-check protocol: all website claims verified against primary sources', status: 'done' },
+      { text: 'Team structure designed (24 human roles, 21 AI functions) — but no team recruited yet', status: 'progress' },
+      { text: 'Vision clarification — what exactly are we building and why', status: 'progress' },
     ],
   },
   {
     id: 1,
     label: 'Phase 1',
-    title: 'Legal & Land',
-    time: 'Q3–Q4 2026',
+    title: 'Ground Truth',
+    time: 'Q3-Q4 2026',
     status: 'upcoming',
+    description: 'Everything we know so far comes from research. This phase is about testing it against physical reality. "Going public" happens here — when we have evidence from the ground, not just from a screen.',
     items: [
-      { text: 'Cooperative formation under Ley 356', status: 'planned' },
-      { text: 'Land identification and negotiation', status: 'planned' },
-      { text: 'Initial community agreements', status: 'planned' },
-      { text: 'Environmental assessment', status: 'planned' },
-      { text: 'Local partnership development', status: 'planned' },
+      { text: 'Site visit to Coroico — photos, GPS coordinates, ground-truth all research', status: 'planned' },
+      { text: 'Meet CENAPROC, Carmen Pampa University, local community leaders', status: 'planned' },
+      { text: 'Legal consultation with a Bolivian cooperative lawyer', status: 'planned' },
+      { text: 'First letter of intent or memorandum of understanding', status: 'planned' },
+      { text: 'Assess real infrastructure: roads, power, water, internet in candidate areas', status: 'planned' },
+      { text: 'Talk to foreigners already operating in the Yungas (Gravity Bolivia, La Senda Verde)', status: 'planned' },
+      { text: 'Publish findings — the honest version, including what didn\'t match expectations', status: 'planned' },
     ],
   },
   {
     id: 2,
     label: 'Phase 2',
-    title: 'Infrastructure',
+    title: 'Formation',
     time: '2027',
     status: 'upcoming',
+    description: 'If Phase 1 confirms the idea is viable, this is where we become a real entity. The critical need: a Bolivian co-founder. Without local leadership, nothing here works.',
     items: [
-      { text: 'Core infrastructure: solar, water, shelter', status: 'planned' },
-      { text: 'Communications (Starlink + mesh)', status: 'planned' },
-      { text: 'First workshop / maker space', status: 'planned' },
-      { text: 'Agricultural systems started', status: 'planned' },
-      { text: 'First residents', status: 'planned' },
+      { text: 'Cooperative registration under Ley 356', status: 'planned' },
+      { text: 'Land identification and negotiation', status: 'planned' },
+      { text: 'First Bolivian team members — especially a local co-founder', status: 'planned' },
+      { text: 'Seed funding round ($50K-$100K for land option, legal fees, first equipment)', status: 'planned' },
+      { text: 'Advisory board formation', status: 'planned' },
+      { text: 'Environmental and community impact assessment', status: 'planned' },
     ],
   },
   {
     id: 3,
     label: 'Phase 3',
-    title: 'Growth',
-    time: '2028',
+    title: 'First Build',
+    time: '2027-2028',
     status: 'upcoming',
+    description: 'The first physical structures. The first harvest. The first revenue. Everything before this is preparation — this is where the project becomes real and tangible.',
     items: [
-      { text: 'Trading house operations', status: 'planned' },
-      { text: 'Incubator programs', status: 'planned' },
-      { text: 'Retreat center development', status: 'planned' },
-      { text: 'Community integration deepening', status: 'planned' },
-      { text: 'Open-source documentation', status: 'planned' },
+      { text: 'Core infrastructure: solar, water, shelter', status: 'planned' },
+      { text: 'Communications: Starlink + local ISP + mesh network', status: 'planned' },
+      { text: 'First processing line — coffee (fastest path to revenue)', status: 'planned' },
+      { text: 'First retreat programs', status: 'planned' },
+      { text: 'Community integration: hiring locally, buying locally, participating in local life', status: 'planned' },
     ],
   },
   {
     id: 4,
     label: 'Phase 4',
+    title: 'Growth',
+    time: '2028-2029',
+    status: 'upcoming',
+    description: 'Expanding what works. Adding processing lines. Hosting incubator programs. Documenting everything so others can learn from our mistakes and successes.',
+    items: [
+      { text: 'Additional processing lines (cacao, solar dehydration, essential oils)', status: 'planned' },
+      { text: 'Incubator and maker space programs', status: 'planned' },
+      { text: 'Retreat center expansion', status: 'planned' },
+      { text: 'Open-source documentation of everything built', status: 'planned' },
+    ],
+  },
+  {
+    id: 5,
+    label: 'Phase 5',
     title: 'Maturity',
     time: '2029+',
     status: 'upcoming',
+    description: 'Self-sustaining operations. Only after basic healthcare and infrastructure are solid do we begin the more ambitious programs.',
     items: [
-      { text: 'Full component operation', status: 'planned' },
-      { text: 'Self-sustaining economy', status: 'planned' },
-      { text: 'Knowledge sharing and replication', status: 'planned' },
-      { text: 'Dimensional explorer with AI navigation', status: 'planned' },
+      { text: 'Self-sustaining economy — not dependent on outside funding', status: 'planned' },
+      { text: 'Longevity research program (only after healthcare basics are established)', status: 'planned' },
+      { text: 'Replication — other communities fork the open-source blueprints', status: 'planned' },
+      { text: 'Knowledge sharing across the network', status: 'planned' },
     ],
   },
 ];
-
-function statusIcon(status: string) {
-  if (status === 'done') return 'done';
-  if (status === 'progress') return 'progress';
-  return 'planned';
-}
 ---
 
-<Base title="Roadmap" description="BARK project timeline — from foundation to maturity.">
+<Base title="Roadmap" description="BARK project timeline — honest about where we are and where we're going.">
   <!-- Header -->
   <section class="pt-32 pb-16 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
       <span class="text-label text-accent reveal">Timeline</span>
       <h1 class="text-headline text-bark-800 mt-4 max-w-3xl reveal" data-delay="100">
-        Where we are.<br />Where we're going.
+        Where we actually are.<br />Where we hope to go.
       </h1>
       <p class="text-body-lg text-bark-500 mt-6 max-w-2xl reveal" data-delay="200">
         This is a living roadmap — honest about what's done, what's in progress, and what's
-        still a plan. Timelines will shift as reality demands. We update this page as things change.
+        still a plan. We are currently 1-2 people with AI, doing research. We are not yet a project
+        seeking investment. We are a research initiative testing whether this idea survives contact
+        with reality.
       </p>
 
       <!-- Current Status callout -->
       <div class="mt-10 p-6 bg-bark-100 border border-bark-200 rounded-xl max-w-2xl reveal" data-delay="250">
-        <p class="font-display font-semibold text-bark-800 text-sm tracking-wide uppercase mb-4">Current Status — Phase 0</p>
+        <p class="font-display font-semibold text-bark-800 text-sm tracking-wide uppercase mb-4">Current Status — Phase 0: Research & Vision</p>
         <div class="flex flex-wrap gap-3">
           <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-display font-medium bg-accent/10 text-accent">
             <span class="w-2 h-2 rounded-full bg-accent"></span>Website live
           </span>
           <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-display font-medium bg-accent/10 text-accent">
-            <span class="w-2 h-2 rounded-full bg-accent"></span>Research published
+            <span class="w-2 h-2 rounded-full bg-accent"></span>16 research docs published
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-display font-medium bg-accent/10 text-accent">
+            <span class="w-2 h-2 rounded-full bg-accent"></span>449 verified links
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-display font-medium bg-accent/10 text-accent">
+            <span class="w-2 h-2 rounded-full bg-accent"></span>Legal research complete
           </span>
           <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-display font-medium bg-gold/10 text-gold">
-            <span class="w-2 h-2 rounded-full bg-gold"></span>Team forming
-          </span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-display font-medium bg-gold/10 text-gold">
-            <span class="w-2 h-2 rounded-full bg-gold"></span>Legal research
-          </span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-display font-medium bg-bark-200 text-bark-500">
-            <span class="w-2 h-2 rounded-full bg-bark-300"></span>Site visits planned
+            <span class="w-2 h-2 rounded-full bg-gold"></span>Vision clarifying
           </span>
         </div>
-        <p class="text-bark-500 text-sm mt-4">2 of 5 Phase 0 milestones complete. 2 in progress. No land acquired, no cooperative formed yet.</p>
+        <p class="text-bark-500 text-sm mt-4">No land acquired. No cooperative formed. No team recruited. No site visited. Research phase only.</p>
       </div>
 
       <div class="accent-line mt-10 max-w-xl reveal" data-delay="300"></div>
@@ -183,6 +205,10 @@ function statusIcon(status: string) {
             <h2 class="font-display font-semibold text-bark-800 text-xl mt-1">{phase.title}</h2>
             <p class="text-bark-400 text-sm mt-1">{phase.time}</p>
 
+            {phase.description && (
+              <p class="text-bark-500 text-sm mt-4 leading-relaxed italic">{phase.description}</p>
+            )}
+
             <ul class="mt-6 space-y-3">
               {phase.items.map(item => (
                 <li class="flex items-start gap-3 text-sm">
@@ -206,13 +232,86 @@ function statusIcon(status: string) {
     </div>
   </section>
 
+  <!-- What We've Learned So Far -->
+  <section class="bg-bark-100 py-20 px-6 lg:px-10">
+    <div class="max-w-[900px] mx-auto">
+      <span class="text-label text-accent reveal">Research findings</span>
+      <h2 class="text-headline text-bark-800 mt-4 reveal" data-delay="100">What we've learned so far.</h2>
+      <p class="text-body-lg text-bark-500 mt-4 max-w-2xl reveal" data-delay="200">
+        Key findings from 16 research documents, 449 verified links, and a rigorous fact-check of our own claims. This is what we know, what we don't know, and what surprised us.
+      </p>
+
+      <div class="mt-12 space-y-10">
+
+        <!-- Finding 1 -->
+        <div class="reveal" data-delay="100">
+          <h3 class="font-display font-semibold text-bark-800 text-lg">The legal path exists, but has constraints</h3>
+          <p class="text-bark-500 text-sm mt-2 leading-relaxed">
+            Bolivia's Ley 356 allows foreigners to be cooperative members (Art. 33), and the constitution grants foreigners equal rights (Art. 14). However, Art. 65 requires Bolivian <em>citizenship</em> for council and leadership positions. Cooperatives are subject to IUE (25%), IVA (13%), and IT (3%) taxes — they are not tax-free. Only mining cooperatives get near-zero taxation. A Bolivian co-founder is not optional. It is a legal requirement for leadership.
+          </p>
+        </div>
+
+        <!-- Finding 2 -->
+        <div class="reveal" data-delay="150">
+          <h3 class="font-display font-semibold text-bark-800 text-lg">Bolivia is safer than its reputation suggests — with caveats</h3>
+          <p class="text-bark-500 text-sm mt-2 leading-relaxed">
+            Bolivia's homicide rate is 4.32 per 100,000 — among the lowest in Latin America, comparable to Chile. During the 2019 political crisis, the annual homicide rate actually declined. Coroico specifically is described by visitors and travel guides as quiet and friendly. The Yungas has a Level 2 (not "Do Not Travel") advisory from the US State Department. However: no municipality-level crime data exists for Coroico, Bolivia's current economic crisis (reserves near $100M, 20%+ inflation) could change the picture, and the coca factor means some governments advise caution in the region.
+          </p>
+        </div>
+
+        <!-- Finding 3 -->
+        <div class="reveal" data-delay="200">
+          <h3 class="font-display font-semibold text-bark-800 text-lg">Foreigners have built successful projects in the Yungas</h3>
+          <p class="text-bark-500 text-sm mt-2 leading-relaxed">
+            Gravity Bolivia (New Zealand founder, 1998) pioneered Death Road mountain biking and still operates 28 years later. La Senda Verde (2003) runs a wildlife sanctuary and eco-lodge in Yolosa, near Coroico, using a hybrid NGO/eco-lodge model with international volunteers. El Ceibo Cooperative (1,200+ cacao families) used Inter-American Foundation grants to industrialize and went self-sufficient over 16 years. Practical Action, GIZ, Habitat for Humanity, and Engineers Without Borders all have active programs in Bolivia. The pattern: succeed by aligning with Bolivia's national priorities, partnering with indigenous communities, and framing work as capacity-building — not as outsiders coming to "save" anyone.
+          </p>
+        </div>
+
+        <!-- Finding 4 -->
+        <div class="reveal" data-delay="250">
+          <h3 class="font-display font-semibold text-bark-800 text-lg">The economics are plausible but unproven</h3>
+          <p class="text-bark-500 text-sm mt-2 leading-relaxed">
+            Conservative modeling of five processing lines (coffee, cacao, fruit dehydration, essential oils, solar installation) projects combined net income of $43K-$129K/year on $65K-$158K total investment. Coffee has the fastest ROI (1.5-3 years) and benefits from the Yungas producing 95% of Bolivia's arabica. Solar dehydration has the lowest entry cost ($2K-$8K) and fastest break-even (3-12 months). These are spreadsheet numbers. They assume finding buyers, maintaining quality, navigating Bolivian logistics, and not encountering any of the thousand things that can go wrong. We need Phase 1 ground-truth data before treating any of these as reliable.
+          </p>
+        </div>
+
+        <!-- Finding 5 -->
+        <div class="reveal" data-delay="300">
+          <h3 class="font-display font-semibold text-bark-800 text-lg">Our own website had claims that needed correction</h3>
+          <p class="text-bark-500 text-sm mt-2 leading-relaxed">
+            A rigorous fact-check of our core pages found that the road from La Paz drops ~1,890m (not "3,400m" as we stated — the larger figure is only accurate from the highest pass above La Paz). Several page descriptions used present tense for things that don't exist yet. The claim "open-source plans" had no public GitHub repos to back it up. The temperature range "18-28C" is accurate for daytime but omits nighttime lows of 12-15C in winter. We've corrected what we can and flagged the rest. Being wrong about our own facts, and admitting it, is part of the process.
+          </p>
+        </div>
+
+        <!-- Finding 6 -->
+        <div class="reveal" data-delay="350">
+          <h3 class="font-display font-semibold text-bark-800 text-lg">Bolivia's economic crisis is real and getting worse</h3>
+          <p class="text-bark-500 text-sm mt-2 leading-relaxed">
+            Foreign reserves are near $100M (critically low), inflation exceeds 20%, and a currency crisis is unfolding. Energy infrastructure is deteriorating and the country imports food (especially wheat). These conditions could either make BARK's self-sufficiency model more relevant — or make operating in Bolivia significantly harder. This is not a stable environment to build in. It's an environment where resilient systems are needed most, but also where they're hardest to establish.
+          </p>
+        </div>
+
+        <!-- Finding 7 -->
+        <div class="reveal" data-delay="400">
+          <h3 class="font-display font-semibold text-bark-800 text-lg">The biggest unknown: what we haven't seen with our own eyes</h3>
+          <p class="text-bark-500 text-sm mt-2 leading-relaxed">
+            No amount of research replaces a site visit. We don't know the real state of roads in rainy season. We don't know what the power grid is actually like. We don't know how community leaders will respond to our proposal. We don't know what land is actually available and at what price. Phase 1 exists entirely to answer these questions. Everything before it is educated guessing.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Honesty note -->
-  <section class="bg-bark-100 py-16 px-6 lg:px-10">
+  <section class="py-16 px-6 lg:px-10">
     <div class="max-w-[700px] mx-auto text-center reveal">
       <p class="text-bark-600 leading-relaxed">
         <strong class="text-bark-800">A note on honesty:</strong> This roadmap reflects our best current
-        thinking. Dates are targets, not promises. We'll update this page as plans evolve. If something
-        changes significantly, we'll say so — not quietly edit the timeline.
+        thinking. We are a research initiative — not a startup, not an NGO, not a funded project. We are
+        testing whether this idea is viable before asking anyone to invest time, money, or trust.
+        Dates are targets, not promises. If something changes, we'll say so publicly — not quietly
+        edit the timeline.
       </p>
     </div>
   </section>
@@ -220,15 +319,16 @@ function statusIcon(status: string) {
   <!-- CTA -->
   <section class="py-32 px-6 lg:px-10">
     <div class="max-w-xl mx-auto text-center">
-      <h2 class="text-headline text-bark-800 reveal">Help us move faster.</h2>
+      <h2 class="text-headline text-bark-800 reveal">Interested in where this goes?</h2>
       <p class="text-body-lg text-bark-500 mt-4 reveal" data-delay="100">
-        Every phase benefits from more hands, more minds, more perspectives.
+        We're not asking for money or commitments. We're looking for people who find this
+        interesting enough to follow along, ask hard questions, and share what they know.
       </p>
       <a
         href="/en/participate"
         class="group inline-flex items-center gap-3 mt-8 px-7 py-4 bg-bark-800 text-bark-50 font-display font-semibold text-sm tracking-wide rounded hover:bg-bark-900 transition-colors duration-300 reveal" data-delay="200"
       >
-        Get Involved
+        Follow Along
         <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
     </div>

@@ -1,27 +1,41 @@
+// Track observers so we can disconnect them on re-init (e.g. astro:page-load)
+let revealObserver: IntersectionObserver | null = null;
+let counterObserver: IntersectionObserver | null = null;
+
 // Scroll reveal observer
 export function initReveals() {
+  if (revealObserver) {
+    revealObserver.disconnect();
+    revealObserver = null;
+  }
+
   const reveals = document.querySelectorAll('.reveal');
   if (!reveals.length) return;
 
-  const observer = new IntersectionObserver((entries) => {
+  revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const delay = (entry.target as HTMLElement).dataset.delay || '0';
         setTimeout(() => entry.target.classList.add('is-visible'), parseInt(delay));
-        observer.unobserve(entry.target);
+        revealObserver?.unobserve(entry.target);
       }
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 
-  reveals.forEach(el => observer.observe(el));
+  reveals.forEach(el => revealObserver!.observe(el));
 }
 
 // Counter animation — animates .counter elements when they scroll into view
 export function initCounters() {
+  if (counterObserver) {
+    counterObserver.disconnect();
+    counterObserver = null;
+  }
+
   const counters = document.querySelectorAll('.counter');
   if (!counters.length) return;
 
-  const observer = new IntersectionObserver((entries) => {
+  counterObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const el = entry.target as HTMLElement;
@@ -29,7 +43,7 @@ export function initCounters() {
         const suffix = el.dataset.suffix || '';
         if (!target) return;
 
-        observer.unobserve(el);
+        counterObserver?.unobserve(el);
 
         const duration = 2000;
         const startTime = performance.now();
@@ -59,7 +73,7 @@ export function initCounters() {
     // reveal, we need to re-observe after reveals are triggered.
     // Strategy: observe immediately — the counter will intersect once its
     // parent .reveal gets is-visible and transitions into the viewport.
-    observer.observe(el);
+    counterObserver!.observe(el);
   });
 }
 
