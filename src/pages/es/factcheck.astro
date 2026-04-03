@@ -2,48 +2,48 @@
 import Base from '../../layouts/Base.astro';
 
 const claims = [
-  { claim: 'Elevación de Coroico: ~1.750m', page: 'Ubicación', source: 'Wikipedia, Climate-Data.org', status: 'VERIFICADO' },
-  { claim: 'Especies de aves: 400-500+ en corredor Yungas', page: 'Ubicación', source: 'BirdLife International IBA datazone', status: 'RESPALDADO' },
-  { claim: 'Especies de plantas: 3.000+ en zona Cotapata-Yungas', page: 'Ubicación', source: 'Evaluaciones botánicas de Kessler & Beck', status: 'RESPALDADO' },
-  { claim: 'Población: ~19.397 (censo 2012)', page: 'Ubicación', source: 'INE Bolivia (Instituto Nacional de Estadística)', status: 'VERIFICADO', note: 'Desactualizado: el censo de 2012 es el más reciente disponible' },
-  { claim: 'Precipitación: 1.100–1.300mm/año', page: 'Ubicación', source: 'Climate-Data.org', status: 'RESPALDADO' },
-  { claim: 'Rango de temperatura: 18–28°C', page: 'Ubicación', source: 'Climate-Data.org, registros meteorológicos locales', status: 'VERIFICADO' },
-  { claim: 'Starlink habilitado en Bolivia dic. 2024', page: 'Ubicación', source: 'Reportajes de AP/ABC News', status: 'VERIFICADO' },
-  { claim: 'Yungas = parte del Qhapaq Ñan de UNESCO', page: 'Ubicación', source: 'Lista de Patrimonio Mundial UNESCO #1459', status: 'VERIFICADO' },
-  { claim: 'ANMI Cotapata: 40.000ha de área protegida', page: 'Ubicación', source: 'SERNAP Bolivia', status: 'RESPALDADO' },
-  { claim: 'Carmen Pampa: 12km de Coroico', page: 'Red', source: 'Sitio web UAC Carmen Pampa, Google Maps', status: 'VERIFICADO' },
-  { claim: 'Tasa de homicidios de Bolivia: ~4,4/100K', page: 'Riesgos', source: 'Estudio Global sobre Homicidio UNODC, Banco Mundial 2023', status: 'VERIFICADO' },
-  { claim: 'Tasa de homicidios de Bolivia descendió 2017–2019', page: 'Riesgos', source: 'Serie de datos UNODC', status: 'VERIFICADO' },
-  { claim: 'Sin objetivos nucleares en Bolivia', page: 'Resiliencia', source: 'OPANAL, ICAN, registros de ratificación del TPNW', status: 'VERIFICADO' },
-  { claim: 'Precio FOB café especialidad: $4,60/lb', page: 'Economía', source: 'Guía de Transacciones de Café Especialidad 2024', status: 'VERIFICADO' },
-  { claim: 'Exportaciones de cacao: $2,9M / 621 toneladas métricas (2023)', page: 'Economía', source: 'IBCE (Instituto Boliviano de Comercio Exterior), Rio Times', status: 'RESPALDADO' },
-  { claim: 'Radiación solar: 3,5–4,5 kWh/m²/día', page: 'Componentes', source: 'Global Solar Atlas (Banco Mundial/ESMAP)', status: 'VERIFICADO' },
-  { claim: 'Programa de Electrificación Solar de $325M', page: 'Inversores', source: 'Comunicado del Banco Mundial, nov. 2023', status: 'VERIFICADO' },
-  { claim: 'Paquete BID $4.500M (2026–2028)', page: 'Inversores', source: 'Anuncio oficial del BID', status: 'RESPALDADO' },
-  { claim: 'Ley de cooperativas: Ley 356 (2013)', page: 'Inversores', source: 'Infoleyes Bolivia (texto legal primario)', status: 'VERIFICADO' },
-  { claim: 'Extranjeros pueden unirse a cooperativas', page: 'Inversores', source: 'Ley 356, Artículo 33', status: 'VERIFICADO' },
-  { claim: 'Cargos directivos requieren ciudadanía', page: 'Inversores', source: 'Ley 356, Artículo 65', status: 'VERIFICADO' },
-  { claim: 'Las cooperativas NO están exentas de impuestos', page: 'Inversores', source: 'Ley 843, Artículo 37 (código tributario)', status: 'VERIFICADO' },
-  { claim: 'Reservas de Bolivia: ~$100M', page: 'Economía', source: 'FMI, International Banker (2024)', status: 'VERIFICADO', note: 'A 2024; cifra volátil' },
-  { claim: 'Inflación de Bolivia: 20%+', page: 'Economía', source: 'Perspectivas Económicas Mundiales del FMI', status: 'VERIFICADO', note: 'Estimaciones a mediados de 2025' },
-  { claim: 'Mondragón: 70.000+ empleados', page: 'Gobernanza', source: 'Informe anual de Corporación Mondragón', status: 'RESPALDADO', note: 'Fluctuante; fue ~80K en su punto máximo' },
-  { claim: 'Auto-replicación RepRap: 50–70% por peso de componentes', page: 'Componentes', source: 'Documentación del proyecto reprap.org', status: 'CALIFICADO', note: 'Depende del modelo de impresora y la metodología' },
-  { claim: 'Tasa de fracaso de comunidades: "la mayoría fracasa en 5 años"', page: 'Riesgos', source: 'Investigación de FIC (Fellowship for Intentional Community)', status: 'CALIFICADO', note: 'Ampliamente citado; detalles del estudio primario no confirmados' },
-  { claim: '15.000 cooperativas activas en Bolivia', page: 'Inversores', source: 'Datos del registro de AFCOOP', status: 'RESPALDADO' },
+  { claim: 'Coroico elevation: ~1,750m', page: 'Location', source: 'Wikipedia, Climate-Data.org', status: 'VERIFIED' },
+  { claim: 'Bird species: 400-500+ in Yungas corridor', page: 'Location', source: 'BirdLife International IBA datazone', status: 'SUPPORTED' },
+  { claim: 'Plant species: 3,000+ in Cotapata-Yungas zone', page: 'Location', source: 'Kessler & Beck botanical assessments', status: 'SUPPORTED' },
+  { claim: 'Population: ~19,397 (2012 census)', page: 'Location', source: 'INE Bolivia (Instituto Nacional de Estad\u00edstica)', status: 'VERIFIED', note: 'Stale: 2012 census is most recent available' },
+  { claim: 'Rainfall: 1,100\u20131,300mm/yr', page: 'Location', source: 'Climate-Data.org', status: 'SUPPORTED' },
+  { claim: 'Temperature range: 18\u201328\u00b0C', page: 'Location', source: 'Climate-Data.org, local weather records', status: 'VERIFIED' },
+  { claim: 'Starlink opened in Bolivia Dec 2024', page: 'Location', source: 'AP/ABC News reporting', status: 'VERIFIED' },
+  { claim: 'Yungas = part of UNESCO Qhapaq \u00d1an', page: 'Location', source: 'UNESCO World Heritage List #1459', status: 'VERIFIED' },
+  { claim: 'ANMI Cotapata: 40,000ha protected area', page: 'Location', source: 'SERNAP Bolivia', status: 'SUPPORTED' },
+  { claim: 'Carmen Pampa: 12km from Coroico', page: 'Network', source: 'UAC Carmen Pampa website, Google Maps', status: 'VERIFIED' },
+  { claim: 'Bolivia homicide rate: ~4.4/100K', page: 'Risks', source: 'UNODC Global Study on Homicide, World Bank 2023', status: 'VERIFIED' },
+  { claim: 'Bolivia homicide rate declined 2017\u20132019', page: 'Risks', source: 'UNODC data series', status: 'VERIFIED' },
+  { claim: 'No nuclear targets in Bolivia', page: 'Resilience', source: 'OPANAL, ICAN, TPNW ratification records', status: 'VERIFIED' },
+  { claim: 'Specialty coffee FOB price: $4.60/lb', page: 'Economy', source: '2024 Specialty Coffee Transaction Guide', status: 'VERIFIED' },
+  { claim: 'Cacao exports: $2.9M / 621 metric tons (2023)', page: 'Economy', source: 'IBCE (Instituto Boliviano de Comercio Exterior), Rio Times', status: 'SUPPORTED' },
+  { claim: 'Solar radiation: 3.5\u20134.5 kWh/m\u00b2/day', page: 'Components', source: 'Global Solar Atlas (World Bank/ESMAP)', status: 'VERIFIED' },
+  { claim: '$325M Solar Electrification Program', page: 'Investors', source: 'World Bank press release, Nov 2023', status: 'VERIFIED' },
+  { claim: 'IDB $4.5B development package (2026\u20132028)', page: 'Investors', source: 'IDB official announcement', status: 'SUPPORTED' },
+  { claim: 'Cooperative law: Ley 356 (2013)', page: 'Investors', source: 'Infoleyes Bolivia (primary legal text)', status: 'VERIFIED' },
+  { claim: 'Foreigners can join cooperatives', page: 'Investors', source: 'Ley 356, Art\u00edculo 33', status: 'VERIFIED' },
+  { claim: 'Leadership positions require citizenship', page: 'Investors', source: 'Ley 356, Art\u00edculo 65', status: 'VERIFIED' },
+  { claim: 'Cooperatives are NOT tax-exempt', page: 'Investors', source: 'Ley 843, Art\u00edculo 37 (tax code)', status: 'VERIFIED' },
+  { claim: 'Bolivia reserves: ~$100M', page: 'Economy', source: 'IMF, International Banker (2024)', status: 'VERIFIED', note: 'As of 2024; volatile figure' },
+  { claim: 'Bolivia inflation: 20%+', page: 'Economy', source: 'IMF World Economic Outlook', status: 'VERIFIED', note: 'As of mid-2025 estimates' },
+  { claim: 'Mondragon: 70,000+ employees', page: 'Governance', source: 'Mondragon Corporation annual report', status: 'SUPPORTED', note: 'Fluctuates; was ~80K at peak' },
+  { claim: 'RepRap self-replication: 50\u201370% by component weight', page: 'Components', source: 'reprap.org project documentation', status: 'QUALIFIED', note: 'Depends on printer model and methodology' },
+  { claim: 'Community failure rate: "most fail within 5 years"', page: 'Risks', source: 'FIC (Fellowship for Intentional Community) research', status: 'QUALIFIED', note: 'Cited widely; primary study details unconfirmed' },
+  { claim: '15,000 active cooperatives in Bolivia', page: 'Investors', source: 'AFCOOP registry data', status: 'SUPPORTED' },
 ];
 
 function statusColor(status: string) {
   switch (status) {
-    case 'VERIFICADO': return 'bg-emerald-100 text-emerald-800 border-emerald-200';
-    case 'RESPALDADO': return 'bg-cyan-100 text-cyan-800 border-cyan-200';
-    case 'CALIFICADO': return 'bg-amber-100 text-amber-800 border-amber-200';
-    case 'NO VERIFICADO': return 'bg-bark-100 text-bark-600 border-bark-200';
+    case 'VERIFIED': return 'bg-emerald-100 text-emerald-800 border-emerald-200';
+    case 'SUPPORTED': return 'bg-cyan-100 text-cyan-800 border-cyan-200';
+    case 'QUALIFIED': return 'bg-amber-100 text-amber-800 border-amber-200';
+    case 'UNVERIFIED': return 'bg-bark-100 text-bark-600 border-bark-200';
     default: return 'bg-bark-100 text-bark-600 border-bark-200';
   }
 }
 ---
 
-<Base title="Verificación de Datos" description="Cada afirmación factual en este sitio ha sido verificada contra fuentes primarias. Aquí está la evidencia.">
+<Base title="Fact-Checked" description="Every factual claim on this site has been verified against primary sources. Here is the evidence trail.">
 
   <!-- Hero -->
   <section class="relative h-[50vh] min-h-[420px] flex items-end overflow-hidden">
@@ -51,12 +51,12 @@ function statusColor(status: string) {
     <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 30% 70%, var(--color-accent) 0%, transparent 50%), radial-gradient(circle at 70% 30%, var(--color-cyan) 0%, transparent 50%);"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-bark-900/95 via-bark-900/40 to-transparent"></div>
     <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pb-14 w-full">
-      <span class="text-label text-accent">Transparencia</span>
-      <h1 class="text-headline text-bark-50 mt-2 text-split">Verificación de Datos</h1>
+      <span class="text-label text-accent">Transparency</span>
+      <h1 class="text-headline text-bark-50 mt-2 text-split">Fact-Checked</h1>
       <p class="text-body-lg text-bark-300 mt-3 max-w-2xl">
-        Cada afirmación factual en este sitio ha sido verificada contra fuentes primarias.
-        Aquí está la evidencia. Publicamos nuestros errores junto con nuestras fuentes
-        porque la confianza requiere transparencia.
+        Every factual claim on this site has been verified against primary sources.
+        Here is the evidence trail. We publish our mistakes alongside our sources
+        because trust requires transparency.
       </p>
     </div>
   </section>
@@ -65,56 +65,56 @@ function statusColor(status: string) {
   <section class="py-24 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
       <div class="max-w-3xl">
-        <h2 class="text-title text-bark-800 mb-6 reveal">Metodología</h2>
+        <h2 class="text-title text-bark-800 mb-6 reveal">Methodology</h2>
         <p class="text-bark-600 text-[1.1rem] leading-[1.85] mb-6 reveal" data-delay="100">
-          Las afirmaciones en este sitio se verifican contra fuentes primarias: bases de datos gubernamentales,
-          artículos académicos, informes oficiales, textos legales y organizaciones internacionales reconocidas.
-          No dependemos de redes sociales, foros anónimos o blogs sin fecha como evidencia primaria.
+          Claims on this site are verified against primary sources: government databases,
+          academic papers, official reports, legal texts, and recognized international organizations.
+          We do not rely on social media, anonymous forums, or undated blog posts as primary evidence.
         </p>
 
         <div class="grid sm:grid-cols-2 gap-6 mt-10 reveal" data-delay="200">
           <div class="bg-bark-50 border border-bark-200 rounded-xl p-6">
-            <h3 class="font-display font-semibold text-bark-800 text-[0.95rem] mb-3">Niveles de Confianza</h3>
+            <h3 class="font-display font-semibold text-bark-800 text-[0.95rem] mb-3">Confidence Levels</h3>
             <ul class="space-y-3 text-[0.9rem] text-bark-600 leading-relaxed">
               <li class="flex items-start gap-3">
-                <span class="inline-block mt-1 px-2 py-0.5 text-[0.65rem] font-display font-semibold tracking-wider uppercase rounded border bg-emerald-100 text-emerald-800 border-emerald-200 shrink-0">Verificado</span>
-                <span>Confirmado contra una fuente primaria (datos gubernamentales, texto legal, medición directa)</span>
+                <span class="inline-block mt-1 px-2 py-0.5 text-[0.65rem] font-display font-semibold tracking-wider uppercase rounded border bg-emerald-100 text-emerald-800 border-emerald-200 shrink-0">Verified</span>
+                <span>Confirmed against a primary source (government data, legal text, direct measurement)</span>
               </li>
               <li class="flex items-start gap-3">
-                <span class="inline-block mt-1 px-2 py-0.5 text-[0.65rem] font-display font-semibold tracking-wider uppercase rounded border bg-cyan-100 text-cyan-800 border-cyan-200 shrink-0">Respaldado</span>
-                <span>Confirmado contra una fuente secundaria creíble (periodismo reputado, informes institucionales)</span>
+                <span class="inline-block mt-1 px-2 py-0.5 text-[0.65rem] font-display font-semibold tracking-wider uppercase rounded border bg-cyan-100 text-cyan-800 border-cyan-200 shrink-0">Supported</span>
+                <span>Confirmed against a credible secondary source (reputable journalism, institutional reports)</span>
               </li>
               <li class="flex items-start gap-3">
-                <span class="inline-block mt-1 px-2 py-0.5 text-[0.65rem] font-display font-semibold tracking-wider uppercase rounded border bg-amber-100 text-amber-800 border-amber-200 shrink-0">Calificado</span>
-                <span>Verdadero con salvedades &mdash; la afirmación es correcta en general pero depende de la metodología, el periodo o la definición</span>
+                <span class="inline-block mt-1 px-2 py-0.5 text-[0.65rem] font-display font-semibold tracking-wider uppercase rounded border bg-amber-100 text-amber-800 border-amber-200 shrink-0">Qualified</span>
+                <span>True with caveats &mdash; the claim is broadly correct but depends on methodology, timeframe, or definition</span>
               </li>
               <li class="flex items-start gap-3">
-                <span class="inline-block mt-1 px-2 py-0.5 text-[0.65rem] font-display font-semibold tracking-wider uppercase rounded border bg-bark-100 text-bark-600 border-bark-200 shrink-0">No Verificado</span>
-                <span>Declarado en el sitio pero no pudimos confirmarlo contra ninguna fuente independiente &mdash; marcado como tal</span>
+                <span class="inline-block mt-1 px-2 py-0.5 text-[0.65rem] font-display font-semibold tracking-wider uppercase rounded border bg-bark-100 text-bark-600 border-bark-200 shrink-0">Unverified</span>
+                <span>Stated on the site but we could not confirm it against any independent source &mdash; flagged as such</span>
               </li>
             </ul>
           </div>
 
           <div class="bg-bark-50 border border-bark-200 rounded-xl p-6">
-            <h3 class="font-display font-semibold text-bark-800 text-[0.95rem] mb-3">Proceso</h3>
+            <h3 class="font-display font-semibold text-bark-800 text-[0.95rem] mb-3">Process</h3>
             <ul class="space-y-3 text-[0.9rem] text-bark-600 leading-relaxed">
               <li class="flex items-start gap-2">
                 <span class="text-accent font-semibold shrink-0">1.</span>
-                <span><strong>Pase automatizado</strong> &mdash; cada enlace probado, cada estadística verificada contra su fuente citada</span>
+                <span><strong>Automated pass</strong> &mdash; every link tested, every statistic cross-referenced against its cited source</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-accent font-semibold shrink-0">2.</span>
-                <span><strong>Verificación manual</strong> &mdash; cada afirmación factual rastreada hasta su fuente primaria y nivel de confianza asignado</span>
+                <span><strong>Manual fact-check</strong> &mdash; each factual claim traced to its primary source and confidence level assigned</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-accent font-semibold shrink-0">3.</span>
-                <span><strong>Auditoría editorial</strong> &mdash; revisión completa del sitio para consistencia, contradicciones y afirmaciones sin respaldo</span>
+                <span><strong>Editorial audit</strong> &mdash; full-site review for consistency, contradictions, and unsupported claims</span>
               </li>
             </ul>
             <p class="text-[0.85rem] text-bark-500 mt-5 leading-relaxed">
-              Todos los documentos de investigación son públicos. Los datos brutos, enlaces de fuentes e informes de auditoría
-              están disponibles en la
-              <a href="https://github.com/PT32LAB/PT32LAB.github.io/tree/main/research" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">carpeta de investigación en GitHub</a>.
+              All research documents are public. The raw data, source links, and audit reports
+              are available in the
+              <a href="https://github.com/PT32LAB/PT32LAB.github.io/tree/main/research" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">GitHub research folder</a>.
             </p>
           </div>
         </div>
@@ -124,27 +124,27 @@ function statusColor(status: string) {
 
   <!-- Photo break -->
   <div class="photo-frame h-48 md:h-64 w-full reveal" style="border-radius:0;">
-    <img src="/images/yungas/yungas-landscape.jpg" alt="El bosque nublado de los Yungas donde se origina cada afirmación de este sitio" loading="lazy" class="w-full h-full object-cover" />
-    <div class="photo-credit">La evidencia comienza con el lugar</div>
+    <img src="/images/yungas/yungas-landscape.jpg" alt="The Yungas cloud forest where every claim on this site originates" loading="lazy" class="w-full h-full object-cover" />
+    <div class="photo-credit">Evidence starts with place</div>
   </div>
 
   <!-- Claims Table -->
   <section class="py-24 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
-      <h2 class="text-title text-bark-800 mb-3 reveal">Afirmaciones y Fuentes</h2>
+      <h2 class="text-title text-bark-800 mb-3 reveal">Claims &amp; Sources</h2>
       <p class="text-bark-500 mb-10 max-w-2xl reveal" data-delay="100">
-        {claims.length} afirmaciones factuales clave en todo el sitio, cada una con su fuente y estado de verificación.
-        Esto no es exhaustivo &mdash; cubre las afirmaciones con mayor probabilidad de influir en la decisión de un lector.
+        {claims.length} key factual claims across the site, each with its source and verification status.
+        This is not exhaustive &mdash; it covers the claims most likely to influence a reader's decision.
       </p>
 
       <div class="overflow-x-auto reveal" data-delay="200">
         <table class="w-full text-sm border-collapse rounded-xl overflow-hidden border border-bark-200">
           <thead class="bg-bark-800">
             <tr>
-              <th class="px-4 py-3 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-50">Afirmación</th>
-              <th class="px-4 py-3 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-50 hidden md:table-cell">Página</th>
-              <th class="px-4 py-3 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-50">Fuente</th>
-              <th class="px-4 py-3 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-50 w-32">Estado</th>
+              <th class="px-4 py-3 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-50">Claim</th>
+              <th class="px-4 py-3 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-50 hidden md:table-cell">Page</th>
+              <th class="px-4 py-3 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-50">Source</th>
+              <th class="px-4 py-3 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-50 w-28">Status</th>
             </tr>
           </thead>
           <tbody>
@@ -174,19 +174,19 @@ function statusColor(status: string) {
       <div class="flex flex-wrap gap-4 mt-8 reveal" data-delay="300">
         <div class="flex items-center gap-2 text-[0.85rem] text-bark-600">
           <span class="inline-block w-3 h-3 rounded bg-emerald-200 border border-emerald-300"></span>
-          Verificado: {claims.filter(c => c.status === 'VERIFICADO').length}
+          Verified: {claims.filter(c => c.status === 'VERIFIED').length}
         </div>
         <div class="flex items-center gap-2 text-[0.85rem] text-bark-600">
           <span class="inline-block w-3 h-3 rounded bg-cyan-200 border border-cyan-300"></span>
-          Respaldado: {claims.filter(c => c.status === 'RESPALDADO').length}
+          Supported: {claims.filter(c => c.status === 'SUPPORTED').length}
         </div>
         <div class="flex items-center gap-2 text-[0.85rem] text-bark-600">
           <span class="inline-block w-3 h-3 rounded bg-amber-200 border border-amber-300"></span>
-          Calificado: {claims.filter(c => c.status === 'CALIFICADO').length}
+          Qualified: {claims.filter(c => c.status === 'QUALIFIED').length}
         </div>
         <div class="flex items-center gap-2 text-[0.85rem] text-bark-600">
           <span class="inline-block w-3 h-3 rounded bg-bark-200 border border-bark-300"></span>
-          No verificado: {claims.filter(c => c.status === 'NO VERIFICADO').length}
+          Unverified: {claims.filter(c => c.status === 'UNVERIFIED').length}
         </div>
       </div>
     </div>
@@ -196,40 +196,40 @@ function statusColor(status: string) {
   <section class="bg-bark-100 py-24 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
       <div class="max-w-3xl">
-        <h2 class="text-title text-bark-800 mb-6 reveal">Limitaciones Conocidas</h2>
+        <h2 class="text-title text-bark-800 mb-6 reveal">Known Limitations</h2>
         <p class="text-bark-600 text-[1.05rem] leading-[1.85] mb-8 reveal" data-delay="100">
-          No pudimos verificar todo. Los siguientes datos se presentan como estimaciones o
-          afirmaciones calificadas en todo el sitio porque las fuentes primarias confiables no existen
-          o no son accesibles públicamente.
+          We could not verify everything. The following data points are stated as estimates or
+          qualified claims throughout the site because reliable primary sources do not exist
+          or are not publicly accessible.
         </p>
 
         <div class="space-y-6 reveal" data-delay="200">
           <div class="bg-white border border-bark-200 rounded-xl p-6">
-            <h3 class="font-display font-semibold text-bark-800 text-[0.95rem] mb-4">Lo Que No Pudimos Verificar</h3>
+            <h3 class="font-display font-semibold text-bark-800 text-[0.95rem] mb-4">What We Could Not Verify</h3>
             <ul class="space-y-3 text-[0.9rem] text-bark-600 leading-relaxed">
               <li class="flex items-start gap-3">
                 <span class="text-amber-500 mt-0.5 shrink-0">&mdash;</span>
-                <span><strong>Estadísticas de crimen específicas de Coroico.</strong> Bolivia publica datos nacionales y departamentales, pero no existen datos públicos de crimen a nivel municipal para la provincia Nor Yungas. Nuestra evaluación de seguridad usa cifras nacionales y regionales.</span>
+                <span><strong>Coroico-specific crime statistics.</strong> Bolivia publishes national and departmental data, but no public municipal-level crime data exists for Nor Yungas province. Our safety assessment uses national and regional figures.</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-amber-500 mt-0.5 shrink-0">&mdash;</span>
-                <span><strong>Velocidades actuales de internet en Coroico.</strong> No hay datos públicos de monitoreo de velocidad para el área. La disponibilidad de Starlink está confirmada; la experiencia real del usuario es anecdótica.</span>
+                <span><strong>Current internet speeds in Coroico.</strong> No public speed-test monitoring data for the area. Starlink availability is confirmed; actual user experience is anecdotal.</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-amber-500 mt-0.5 shrink-0">&mdash;</span>
-                <span><strong>Precios exactos de terrenos.</strong> Bolivia no tiene un registro público de bienes raíces con precios de transacción para el área de Coroico. Las afirmaciones de precios en el sitio están marcadas como estimaciones basadas en consultas locales.</span>
+                <span><strong>Exact land prices.</strong> Bolivia has no public real-estate registry with transaction prices for the Coroico area. Pricing claims on the site are marked as estimates based on local inquiry.</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-amber-500 mt-0.5 shrink-0">&mdash;</span>
-                <span><strong>Niveles de personal hospitalario.</strong> Coroico tiene un hospital, pero los datos de personal (número de médicos, especialistas, equipos) no se publican en línea. La página de salud nota esta brecha.</span>
+                <span><strong>Hospital staffing levels.</strong> Coroico has a hospital, but staffing data (number of doctors, specialists, equipment) is not published online. The health page notes this gap.</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-amber-500 mt-0.5 shrink-0">&mdash;</span>
-                <span><strong>Resultados detallados del censo 2024.</strong> Los datos censales detallados más recientes de Bolivia a nivel municipal son de 2012. Las cifras de población actualizadas son estimaciones extrapoladas.</span>
+                <span><strong>2024 census detailed results.</strong> Bolivia's most recent detailed census data at the municipal level dates from 2012. Updated population figures are extrapolated estimates.</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-amber-500 mt-0.5 shrink-0">&mdash;</span>
-                <span><strong>Tasa de fracaso de comunidades intencionales.</strong> Ampliamente citado ("la mayoría fracasa en cinco años") pero el estudio primario específico no es fácilmente rastreable. Citamos investigación de FIC con una calificación.</span>
+                <span><strong>Intentional community failure rate.</strong> Widely cited ("most fail within five years") but the specific primary study is not easily traceable. We cite FIC research with a qualification.</span>
               </li>
             </ul>
           </div>
@@ -242,27 +242,27 @@ function statusColor(status: string) {
   <section class="py-24 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
       <div class="max-w-3xl">
-        <h2 class="text-title text-bark-800 mb-6 reveal">Biblioteca de Investigación</h2>
+        <h2 class="text-title text-bark-800 mb-6 reveal">Research Library</h2>
         <p class="text-bark-600 text-[1.05rem] leading-[1.85] mb-8 reveal" data-delay="100">
-          Toda la investigación que respalda este sitio es pública. La
-          <a href="https://github.com/PT32LAB/PT32LAB.github.io/tree/main/research" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline font-medium">carpeta de investigación en GitHub</a>
-          contiene 13 documentos de investigación con 449 enlaces verificados que cubren:
+          All research backing this site is public. The
+          <a href="https://github.com/PT32LAB/PT32LAB.github.io/tree/main/research" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline font-medium">research folder on GitHub</a>
+          contains 13 research documents with 449 verified links covering:
         </p>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 reveal" data-delay="200">
           {[
-            { title: 'Ubicación y Geografía', desc: 'Clima, terreno, infraestructura, conectividad' },
-            { title: 'Economía y Comercio', desc: 'Café, cacao, datos macro de Bolivia, ley cooperativa' },
-            { title: 'Seguridad y Riesgo', desc: 'Datos de crimen, peligros naturales, estabilidad política' },
-            { title: 'Modelos de Gobernanza', desc: 'Cooperativas, DAOs, ayllu, estudios de caso' },
-            { title: 'Tecnología y Energía', desc: 'Potencial solar, fabricación, RepRap, GVCS' },
-            { title: 'Salud y Retiro', desc: 'Infraestructura médica, investigación en longevidad, estado legal de medicina vegetal' },
-            { title: 'Redes Comunitarias', desc: 'Vecinos, aliados, comunidades afrobolivianas, universidades' },
-            { title: 'Contexto de Inversión', desc: 'Programas del Banco Mundial, paquetes del BID, marco regulatorio de Bolivia' },
-            { title: 'Análisis de Resiliencia', desc: 'Escenarios de crisis, zonas libres de armas nucleares, independencia de cadena de suministro' },
-            { title: 'Diseño y Medios', desc: 'Bibliotecas de imágenes, sistemas de diseño, fuentes de fotografía' },
-            { title: 'Auditoría Editorial', desc: 'Revisión completa del contenido del sitio, verificación de consistencia, reescrituras' },
-            { title: 'Verificación de Enlaces', desc: '449 enlaces probados y categorizados por estado' },
+            { title: 'Location & Geography', desc: 'Climate, terrain, infrastructure, connectivity' },
+            { title: 'Economy & Trade', desc: 'Coffee, cacao, Bolivia macro data, cooperative law' },
+            { title: 'Safety & Risk', desc: 'Crime data, natural hazards, political stability' },
+            { title: 'Governance Models', desc: 'Cooperatives, DAOs, ayllu, case studies' },
+            { title: 'Technology & Energy', desc: 'Solar potential, fabrication, RepRap, GVCS' },
+            { title: 'Health & Retreat', desc: 'Medical infrastructure, longevity research, plant medicine legal status' },
+            { title: 'Community Networks', desc: 'Neighbors, allies, Afro-Bolivian communities, universities' },
+            { title: 'Investment Context', desc: 'World Bank programs, IDB packages, Bolivia regulatory framework' },
+            { title: 'Resilience Analysis', desc: 'Crisis scenarios, nuclear-free zones, supply chain independence' },
+            { title: 'Design & Media', desc: 'Image libraries, design systems, photography sources' },
+            { title: 'Editorial Audit', desc: 'Full-site content review, consistency check, rewrites' },
+            { title: 'Link Verification', desc: '449 links tested and categorized by status' },
           ].map(item => (
             <div class="bg-bark-50 border border-bark-200 rounded-lg p-4">
               <h3 class="font-display font-semibold text-bark-800 text-[0.85rem] mb-1">{item.title}</h3>
@@ -277,7 +277,7 @@ function statusColor(status: string) {
           rel="noopener noreferrer"
           class="group inline-flex items-center gap-3 mt-10 px-7 py-4 bg-bark-800 text-bark-50 font-display font-semibold text-sm tracking-wide rounded hover:bg-bark-900 transition-colors duration-300 reveal" data-delay="300"
         >
-          Ver Toda la Investigación en GitHub
+          Browse All Research on GitHub
           <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
       </div>
@@ -288,17 +288,17 @@ function statusColor(status: string) {
   <section class="bg-bark-100 py-16 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
       <div class="max-w-3xl">
-        <h2 class="font-display font-semibold text-bark-800 text-[1.1rem] mb-4 reveal">Registro de Actualizaciones</h2>
+        <h2 class="font-display font-semibold text-bark-800 text-[1.1rem] mb-4 reveal">Update Log</h2>
         <div class="space-y-3 text-[0.9rem] text-bark-600 leading-relaxed reveal" data-delay="100">
           <p>
-            <strong>Abril 2026</strong> &mdash; Publicación inicial. Todas las afirmaciones verificadas contra las fuentes listadas arriba.
-            Revisión de tres pases completada (verificación automatizada de enlaces, verificación manual de hechos, auditoría editorial).
+            <strong>April 2026</strong> &mdash; Initial publication. All claims verified against sources listed above.
+            Three-pass review completed (automated link check, manual fact-check, editorial audit).
           </p>
           <p class="text-bark-500 text-[0.85rem]">
-            Esta página se actualiza cuando las afirmaciones cambian, nuevas fuentes están disponibles o se descubren errores.
-            Si encuentra un error, por favor
-            <a href="mailto:contact@pt32lab.org" class="text-accent hover:underline">háganos saber</a> o
-            <a href="https://github.com/PT32LAB/PT32LAB.github.io/issues" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">abra un issue en GitHub</a>.
+            This page is updated when claims change, new sources become available, or errors are discovered.
+            If you find an error, please
+            <a href="mailto:contact@pt32lab.org" class="text-accent hover:underline">let us know</a> or
+            <a href="https://github.com/PT32LAB/PT32LAB.github.io/issues" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">open a GitHub issue</a>.
           </p>
         </div>
       </div>
@@ -308,10 +308,10 @@ function statusColor(status: string) {
   <!-- CTA -->
   <section class="py-24 px-6 lg:px-10">
     <div class="max-w-xl mx-auto text-center">
-      <h2 class="text-title text-bark-800 reveal">La confianza se construye en público.</h2>
+      <h2 class="text-title text-bark-800 reveal">Trust is built in public.</h2>
       <p class="text-bark-500 mt-4 reveal" data-delay="100">
-        Cada afirmación documentada. Cada limitación revelada. Cada documento de investigación publicado.
-        Ese es el estándar al que nos comprometemos.
+        Every claim sourced. Every limitation disclosed. Every research document published.
+        That is the standard we hold ourselves to.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8 reveal" data-delay="200">
         <a
@@ -320,14 +320,14 @@ function statusColor(status: string) {
           rel="noopener noreferrer"
           class="group inline-flex items-center justify-center gap-3 px-7 py-4 bg-bark-800 text-bark-50 font-display font-semibold text-sm tracking-wide rounded hover:bg-bark-900 transition-colors duration-300"
         >
-          Ver Investigación
+          View Research
           <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
         <a
           href="mailto:contact@pt32lab.org"
           class="group inline-flex items-center justify-center gap-3 px-7 py-4 border-2 border-bark-300 text-bark-700 font-display font-semibold text-sm tracking-wide rounded hover:border-bark-500 hover:text-bark-900 transition-colors duration-300"
         >
-          Reportar un Error
+          Report an Error
           <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
       </div>
