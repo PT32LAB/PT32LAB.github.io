@@ -105,8 +105,11 @@ export function initTextSplits() {
   });
 }
 
-// Dark mode toggle
+// Dark mode toggle — listeners attached once via event delegation
+let themeInitialized = false;
+
 export function initTheme() {
+  // Apply theme from storage/preference — always runs on every page load
   const stored = localStorage.getItem('bark-theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -116,7 +119,15 @@ export function initTheme() {
     document.documentElement.removeAttribute('data-theme');
   }
 
-  function toggleTheme() {
+  updateToggleIcons();
+
+  // Attach listeners only once — event delegation on body survives DOM replacement
+  if (themeInitialized) return;
+  themeInitialized = true;
+
+  document.body.addEventListener('click', (e) => {
+    const target = (e.target as HTMLElement).closest('#theme-toggle, .theme-toggle-mobile');
+    if (!target) return;
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     if (isDark) {
       document.documentElement.removeAttribute('data-theme');
@@ -126,18 +137,7 @@ export function initTheme() {
       localStorage.setItem('bark-theme', 'dark');
     }
     updateToggleIcons();
-  }
-
-  // Desktop toggle
-  const toggle = document.getElementById('theme-toggle');
-  toggle?.addEventListener('click', toggleTheme);
-
-  // Mobile toggle(s)
-  document.querySelectorAll('.theme-toggle-mobile').forEach(btn => {
-    btn.addEventListener('click', toggleTheme);
   });
-
-  updateToggleIcons();
 }
 
 function updateToggleIcons() {

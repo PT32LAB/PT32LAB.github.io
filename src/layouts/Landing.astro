@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
+import { getLangFromUrl, languages, type Lang } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -9,14 +10,20 @@ interface Props {
 }
 
 const { title, description = 'BARK — Bolivian Ark. An off-grid community preserving humanistic values through resilient technology.', heroImage } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const otherLang: Lang = lang === 'en' ? 'es' : 'en';
+const pathWithoutLang = Astro.url.pathname.replace(/^\/(en|es)/, '');
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={Astro.currentLocale || 'en'}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <link rel="alternate" hreflang="en" href={`https://pt32lab.github.io/en${pathWithoutLang}`} />
+    <link rel="alternate" hreflang="es" href={`https://pt32lab.github.io/es${pathWithoutLang}`} />
     <link rel="canonical" href={`https://pt32lab.github.io${Astro.url.pathname}`} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     {heroImage && <link rel="preload" as="image" href={heroImage} />}
@@ -29,9 +36,31 @@ const { title, description = 'BARK — Bolivian Ark. An off-grid community prese
     <meta property="og:description" content={description} />
     <meta property="og:image" content="https://pt32lab.github.io/images/yungas/valley.jpg" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BARK — Bolivian Ark" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} | BARK`} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://pt32lab.github.io/images/yungas/valley.jpg" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "BARK — Bolivian Ark",
+      "url": "https://pt32lab.github.io",
+      "description": description,
+      "foundingDate": "2026",
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Coroico, Yungas, Bolivia",
+        "geo": { "@type": "GeoCoordinates", "latitude": -16.18, "longitude": -67.72 }
+      },
+      "sameAs": ["https://github.com/PT32LAB"]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BARK — Bolivian Ark",
+      "url": "https://pt32lab.github.io"
+    })} />
     <script is:inline>
       // Apply theme before render to prevent flash
       (function() {
@@ -48,11 +77,11 @@ const { title, description = 'BARK — Bolivian Ark. An off-grid community prese
     <!-- Minimal nav: logo + language -->
     <nav class="fixed top-0 w-full z-50 bg-bark-50/80 backdrop-blur-sm">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
-        <a href="/en/" class="font-display font-bold text-bark-800 text-lg tracking-tight hover:text-accent transition-colors">
+        <a href={`/${lang}/`} class="font-display font-bold text-bark-800 text-lg tracking-tight hover:text-accent transition-colors">
           BARK
         </a>
-        <a href="/es/" class="text-[0.7rem] font-display font-medium tracking-[0.12em] uppercase text-bark-400 hover:text-accent transition-colors duration-300">
-          Espanol
+        <a href={`/${otherLang}${pathWithoutLang}`} class="text-[0.7rem] font-display font-medium tracking-[0.12em] uppercase text-bark-400 hover:text-accent transition-colors duration-300">
+          {languages[otherLang]}
         </a>
       </div>
     </nav>

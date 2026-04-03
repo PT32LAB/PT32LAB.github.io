@@ -2,83 +2,83 @@
 import Landing from '../../layouts/Landing.astro';
 
 const systems = [
-  { num: '01', title: 'Energy', problem: 'Unreliable grid, high altitude UV, wet-season cloud cover.', build: 'Solar arrays, micro-hydro turbines, battery storage, grid tie-in.', why: 'Energy independence is the foundation — nothing else works without it.' },
-  { num: '02', title: 'Water', problem: 'No municipal treatment, seasonal variation, steep terrain runoff.', build: 'Spring capture, ceramic and biosand filtration, greywater recycling, rainwater harvesting.', why: '1,300mm/yr of rainfall is an asset if you can capture, clean, and store it.' },
-  { num: '03', title: 'Communications', problem: 'No fiber, no cell towers in many valleys, single point of failure.', build: 'Starlink backhaul, LoRa mesh for site telemetry, HF radio backup, local compute servers.', why: 'Connectivity enables remote work, telemedicine, and market access.' },
-  { num: '04', title: 'Fabrication', problem: 'Replacement parts take weeks. Nearest industrial supplier is La Paz.', build: '3D printing, CNC routing, Gingery-style foundry, RepRap self-replication.', why: 'Make the tools that make the parts. Repair matters more than novelty.' },
-  { num: '05', title: 'Agro-Processing', problem: 'Raw commodities leave the region at commodity prices.', build: 'Coffee wet mill, cacao fermentation line, solar dehydrators, essential oil distillation.', why: 'Value-add at origin captures margin that currently leaks to intermediaries.' },
-  { num: '06', title: 'Local Manufacturing', problem: 'Consumer goods arrive expensive, fragile, and ill-suited to conditions.', build: 'Earthbag and ferrocement construction, greenhouse structures, aquaponics, recycled-plastic products.', why: 'Regional manufacturing reduces dependency and creates local employment.' },
+  { num: '01', title: 'Energía', problem: 'Red eléctrica poco fiable, radiación UV de gran altitud, nubosidad en temporada de lluvias.', build: 'Paneles solares, microturbinas hidráulicas, almacenamiento en baterías, conexión a la red.', why: 'La independencia energética es la base — nada funciona sin ella.' },
+  { num: '02', title: 'Agua', problem: 'Sin tratamiento municipal, variación estacional, escorrentía en terreno empinado.', build: 'Captación de manantiales, filtración cerámica y de bioarena, reciclaje de aguas grises, cosecha de lluvia.', why: '1.300 mm/año de lluvia son un recurso si se puede captar, purificar y almacenar.' },
+  { num: '03', title: 'Comunicaciones', problem: 'Sin fibra óptica, sin torres celulares en muchos valles, punto único de fallo.', build: 'Starlink como enlace principal, malla LoRa para telemetría del sitio, radio HF de respaldo, servidores locales.', why: 'La conectividad habilita el trabajo remoto, la telemedicina y el acceso a mercados.' },
+  { num: '04', title: 'Fabricación', problem: 'Los repuestos tardan semanas. El proveedor industrial más cercano está en La Paz.', build: 'Impresión 3D, fresado CNC, fundición estilo Gingery, autorreplicación RepRap.', why: 'Hacer las herramientas que fabrican las piezas. Reparar importa más que innovar.' },
+  { num: '05', title: 'Agroprocesamiento', problem: 'Las materias primas salen de la región a precios de commodity.', build: 'Beneficio húmedo de café, línea de fermentación de cacao, deshidratadores solares, destilación de aceites esenciales.', why: 'El valor agregado en origen captura el margen que hoy se pierde con los intermediarios.' },
+  { num: '06', title: 'Manufactura Local', problem: 'Los bienes de consumo llegan caros, frágiles y poco adaptados a las condiciones.', build: 'Construcción con bolsas de tierra y ferrocemento, invernaderos, acuaponía, productos de plástico reciclado.', why: 'La manufactura regional reduce la dependencia y genera empleo local.' },
 ];
 
 const whyCards = [
-  { title: 'Isolation creates design pressure', desc: 'When resupply takes days and the nearest city is hours away, every system must be robust, repairable, and locally sourceable.' },
-  { title: 'Repair matters more than novelty', desc: 'The Yungas does not need bleeding-edge prototypes. It needs things that work when the road washes out.' },
-  { title: 'Regional problems create product opportunities', desc: 'Solutions built for these constraints — energy, water, comms, processing — have markets across rural Latin America.' },
-  { title: 'Open-source infrastructure has regional value', desc: 'Documented, forkable systems can be replicated by other communities facing similar conditions.' },
+  { title: 'El aislamiento genera presión de diseño', desc: 'Cuando el reabastecimiento tarda días y la ciudad más cercana queda a horas de distancia, cada sistema debe ser robusto, reparable y abastecido localmente.' },
+  { title: 'Reparar importa más que innovar', desc: 'Los Yungas no necesitan prototipos de vanguardia. Necesitan cosas que funcionen cuando el camino se derrumba.' },
+  { title: 'Los problemas regionales crean oportunidades', desc: 'Las soluciones diseñadas para estas restricciones — energía, agua, comunicaciones, procesamiento — tienen mercado en toda la América Latina rural.' },
+  { title: 'La infraestructura abierta tiene valor regional', desc: 'Sistemas documentados y replicables pueden ser adoptados por otras comunidades que enfrentan condiciones similares.' },
 ];
 
 const pipeline = [
-  { step: '01', title: 'Identify local need', desc: 'Talk to residents, observe failures, map what breaks and what is missing.' },
-  { step: '02', title: 'Prototype', desc: 'Build a minimum viable version using available materials and tools.' },
-  { step: '03', title: 'Test on site', desc: 'Deploy under real conditions — altitude, humidity, road access, power variability.' },
-  { step: '04', title: 'Refine', desc: 'Fix what failed. Simplify what was over-engineered. Reduce cost and complexity.' },
-  { step: '05', title: 'Document', desc: 'Publish plans, BOMs, test data, and failure reports under open licenses.' },
-  { step: '06', title: 'Replicate or spin into venture', desc: 'Scale to other sites, or build a business around the proven solution.' },
+  { step: '01', title: 'Identificar la necesidad local', desc: 'Hablar con los residentes, observar las fallas, mapear qué se rompe y qué falta.' },
+  { step: '02', title: 'Prototipar', desc: 'Construir una versión mínima viable con materiales y herramientas disponibles.' },
+  { step: '03', title: 'Probar en sitio', desc: 'Desplegar en condiciones reales — altitud, humedad, acceso vial, variabilidad eléctrica.' },
+  { step: '04', title: 'Refinar', desc: 'Corregir lo que falló. Simplificar lo sobreingeniado. Reducir costo y complejidad.' },
+  { step: '05', title: 'Documentar', desc: 'Publicar planos, listas de materiales, datos de prueba e informes de fallas bajo licencias abiertas.' },
+  { step: '06', title: 'Replicar o convertir en emprendimiento', desc: 'Escalar a otros sitios, o construir un negocio alrededor de la solución probada.' },
 ];
 
 const skills = [
-  'Solar installation and off-grid power design',
-  'Water systems — capture, filtration, greywater',
-  'Fabrication — 3D printing, CNC, foundry work',
-  'Low-bandwidth networking — LoRa, HF, Starlink',
-  'Product design for regional use cases',
-  'Software — embedded systems, monitoring, data pipelines',
+  'Instalación solar y diseño de sistemas fuera de red',
+  'Sistemas de agua — captación, filtración, aguas grises',
+  'Fabricación — impresión 3D, CNC, fundición',
+  'Redes de bajo ancho de banda — LoRa, HF, Starlink',
+  'Diseño de productos para casos de uso regionales',
+  'Software — sistemas embebidos, monitoreo, pipelines de datos',
 ];
 
 const risks = [
-  { title: 'Road access', desc: 'A single road connects to La Paz. Landslides close it regularly in wet season (Dec-Mar).' },
-  { title: 'Healthcare limits', desc: 'Basic clinics exist in Coroico. Serious medical care requires evacuation to La Paz.' },
-  { title: 'Material scarcity', desc: 'Specialty components, industrial materials, and electronics must be sourced from La Paz or imported.' },
-  { title: 'Climate and terrain', desc: '1,750m altitude, high humidity, steep slopes. Rusts uncoated steel in weeks. Limits construction methods.' },
-  { title: 'Local fit matters', desc: 'Solutions must work for the people already here. Imported assumptions fail. Listen first.' },
+  { title: 'Acceso vial', desc: 'Un solo camino conecta con La Paz. Los deslizamientos lo cierran regularmente en temporada de lluvias (dic-mar).' },
+  { title: 'Salud limitada', desc: 'Hay clínicas básicas en Coroico. La atención médica seria requiere evacuación a La Paz.' },
+  { title: 'Escasez de materiales', desc: 'Componentes especializados, materiales industriales y electrónica deben conseguirse en La Paz o importarse.' },
+  { title: 'Clima y terreno', desc: '1.750 m de altitud, alta humedad, pendientes pronunciadas. Oxida el acero sin recubrimiento en semanas. Limita los métodos de construcción.' },
+  { title: 'La adaptación local importa', desc: 'Las soluciones deben funcionar para la gente que ya vive aquí. Las suposiciones importadas fracasan. Primero escuchar.' },
 ];
 ---
 
-<Landing title="Builders" description="BARK needs engineers, makers, and fabricators. Real site, real constraints, open-source documentation. Build infrastructure that works at 1,750m in the Yungas." heroImage="/images/yungas/death-road.jpg">
+<Landing title="Constructores" description="BARK necesita ingenieros, fabricantes y constructores. Sitio real, restricciones reales, documentación de código abierto. Construir infraestructura que funcione a 1.750 m en los Yungas." heroImage="/images/yungas/death-road.jpg">
 
   <!-- 1. Hero -->
   <section class="relative min-h-screen flex items-center px-6 lg:px-10 pt-16">
     <div class="absolute inset-0 z-0">
-      <img src="/images/yungas/death-road.jpg" alt="Road carved into Yungas mountainside" width="1920" height="1277" class="w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async" />
+      <img src="/images/yungas/death-road.jpg" alt="Camino tallado en la ladera de los Yungas" width="1920" height="1277" class="w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async" />
       <div class="absolute inset-0 bg-gradient-to-b from-bark-900/70 via-bark-900/60 to-bark-900/90"></div>
     </div>
     <div class="relative z-10 max-w-[900px] mx-auto py-20">
-      <span class="text-label text-accent reveal">Builders</span>
+      <span class="text-label text-accent reveal">Constructores</span>
       <h1 class="text-display text-bark-50 mt-6 reveal" data-delay="100">
-        Build Real Systems in the Yungas
+        Construir Sistemas Reales en los Yungas
       </h1>
       <p class="text-body-lg text-bark-200 mt-6 max-w-2xl reveal" data-delay="150">
-        BARK is a place to build infrastructure, tools, and ventures under real constraints in the Bolivian Yungas. Energy, water, fabrication, communications, local production — designed at 1,750m, documented for replication.
+        BARK es un lugar para construir infraestructura, herramientas y emprendimientos bajo restricciones reales en los Yungas bolivianos. Energía, agua, fabricación, comunicaciones, producción local — diseñados a 1.750 m, documentados para su replicación.
       </p>
       <div class="flex flex-col sm:flex-row items-start gap-4 mt-10 reveal" data-delay="300">
-        <a href="#what-gets-built" class="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white font-display font-semibold text-sm tracking-wide rounded-full hover:bg-accent-dim transition-colors duration-300">
-          See What Gets Built
+        <a href="#que-se-construye" class="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white font-display font-semibold text-sm tracking-wide rounded-full hover:bg-accent-dim transition-colors duration-300">
+          Ver Qué Se Construye
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
         </a>
-        <a href="mailto:bark@pt32lab.org?subject=Build%20Team%20Inquiry" class="inline-flex items-center gap-3 px-8 py-4 border border-bark-400 text-bark-200 font-display font-semibold text-sm tracking-wide rounded-full hover:bg-white/10 transition-colors duration-300">
-          Talk to the Build Team
+        <a href="mailto:bark@pt32lab.org?subject=Consulta%20Equipo%20de%20Construcción" class="inline-flex items-center gap-3 px-8 py-4 border border-bark-400 text-bark-200 font-display font-semibold text-sm tracking-wide rounded-full hover:bg-white/10 transition-colors duration-300">
+          Hablar con el Equipo
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- 2. Why Builders Matter Here -->
+  <!-- 2. Por Qué los Constructores Importan Aquí -->
   <section class="section-gap px-6 lg:px-10">
     <div class="max-w-[1100px] mx-auto">
-      <span class="text-label text-bark-500 reveal">Why Builders Matter Here</span>
+      <span class="text-label text-bark-500 reveal">Por Qué los Constructores Importan Aquí</span>
       <h2 class="text-headline text-bark-800 mt-4 mb-10 reveal" data-delay="100">
-        This is not abstract design work
+        Esto no es diseño abstracto
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {whyCards.map((c, i) => (
@@ -91,19 +91,19 @@ const risks = [
     </div>
   </section>
 
-  <!-- 3. What Gets Built — 6 system cards -->
-  <section id="what-gets-built" class="section-dark section-gap px-6 lg:px-10">
+  <!-- 3. Qué Se Construye — 6 tarjetas de sistemas -->
+  <section id="que-se-construye" class="section-dark section-gap px-6 lg:px-10">
     <div class="max-w-[1100px] mx-auto">
-      <span class="text-label text-accent reveal">What Gets Built</span>
+      <span class="text-label text-accent reveal">Qué Se Construye</span>
       <h2 class="text-headline text-bark-50 mt-4 mb-10 reveal" data-delay="100">
-        Six systems, one site
+        Seis sistemas, un sitio
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {systems.map((s, i) => (
           <div class="card-dark card hover-lift reveal" data-delay={String(i * 80)}>
             <span class="text-label text-accent mb-3 block">{s.num} — {s.title}</span>
-            <p class="text-sm text-bark-400 leading-relaxed mb-2"><strong class="text-bark-300">Problem:</strong> {s.problem}</p>
-            <p class="text-sm text-bark-400 leading-relaxed mb-2"><strong class="text-bark-300">Build:</strong> {s.build}</p>
+            <p class="text-sm text-bark-400 leading-relaxed mb-2"><strong class="text-bark-300">Problema:</strong> {s.problem}</p>
+            <p class="text-sm text-bark-400 leading-relaxed mb-2"><strong class="text-bark-300">Construcción:</strong> {s.build}</p>
             <p class="text-sm text-accent/80 leading-relaxed">{s.why}</p>
           </div>
         ))}
@@ -111,12 +111,12 @@ const risks = [
     </div>
   </section>
 
-  <!-- 4. Build Pipeline -->
+  <!-- 4. Pipeline de Construcción -->
   <section class="section-gap px-6 lg:px-10">
     <div class="max-w-[1100px] mx-auto">
-      <span class="text-label text-bark-500 reveal">Build Pipeline</span>
+      <span class="text-label text-bark-500 reveal">Pipeline de Construcción</span>
       <h2 class="text-headline text-bark-800 mt-4 mb-10 reveal" data-delay="100">
-        From local need to replicable system
+        De la necesidad local al sistema replicable
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {pipeline.map((p, i) => (
@@ -132,39 +132,39 @@ const risks = [
     </div>
   </section>
 
-  <!-- 5. Technopark + Infrastructure Split -->
+  <!-- 5. Tecnoparque + Infraestructura -->
   <section class="bg-bark-100 section-gap px-6 lg:px-10">
     <div class="max-w-[1100px] mx-auto">
-      <span class="text-label text-bark-500 reveal">Two Layers</span>
+      <span class="text-label text-bark-500 reveal">Dos Capas</span>
       <h2 class="text-headline text-bark-800 mt-4 mb-10 reveal" data-delay="100">
-        Technopark vs. Infrastructure
+        Tecnoparque vs. Infraestructura
       </h2>
       <div class="content-two-col">
         <div class="bar-section reveal" data-delay="100">
-          <h3 class="font-display font-semibold text-bark-800 text-xl mb-4">Technopark</h3>
-          <p class="text-sm text-bark-600 leading-relaxed mb-3">Invention, prototyping, tools, repair, and venture support. The technopark is where new solutions are designed, tested, and refined before deployment.</p>
+          <h3 class="font-display font-semibold text-bark-800 text-xl mb-4">Tecnoparque</h3>
+          <p class="text-sm text-bark-600 leading-relaxed mb-3">Invención, prototipado, herramientas, reparación y apoyo a emprendimientos. El tecnoparque es donde las nuevas soluciones se diseñan, prueban y refinan antes de ser desplegadas.</p>
           <ul class="space-y-2 text-sm text-bark-500">
-            <li>Fabrication workshops (3D printing, CNC, foundry)</li>
-            <li>Electronics and embedded systems lab</li>
-            <li>Product design and testing facilities</li>
-            <li>Incubation space for local ventures</li>
+            <li>Talleres de fabricación (impresión 3D, CNC, fundición)</li>
+            <li>Laboratorio de electrónica y sistemas embebidos</li>
+            <li>Instalaciones de diseño y prueba de productos</li>
+            <li>Espacio de incubación para emprendimientos locales</li>
           </ul>
-          <a href="/en/pillars/technopark" class="link-arrow mt-4 inline-flex">
-            Read Technopark
+          <a href="/es/pillars/technopark" class="link-arrow mt-4 inline-flex">
+            Leer sobre el Tecnoparque
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
           </a>
         </div>
         <div class="bar-section reveal" data-delay="200">
-          <h3 class="font-display font-semibold text-bark-800 text-xl mb-4">Infrastructure</h3>
-          <p class="text-sm text-bark-600 leading-relaxed mb-3">Energy, water, habitat, communications, and the operational backbone. Infrastructure is what keeps the site running day to day, season to season.</p>
+          <h3 class="font-display font-semibold text-bark-800 text-xl mb-4">Infraestructura</h3>
+          <p class="text-sm text-bark-600 leading-relaxed mb-3">Energía, agua, hábitat, comunicaciones y la columna vertebral operativa. La infraestructura es lo que mantiene el sitio funcionando día a día, temporada a temporada.</p>
           <ul class="space-y-2 text-sm text-bark-500">
-            <li>Solar + micro-hydro energy systems</li>
-            <li>Water capture, filtration, and recycling</li>
-            <li>Communications backbone (Starlink, LoRa, HF)</li>
-            <li>Buildings, roads, and site maintenance</li>
+            <li>Sistemas de energía solar + microhidráulica</li>
+            <li>Captación, filtración y reciclaje de agua</li>
+            <li>Red de comunicaciones (Starlink, LoRa, HF)</li>
+            <li>Edificaciones, caminos y mantenimiento del sitio</li>
           </ul>
-          <a href="/en/pillars/infrastructure" class="link-arrow mt-4 inline-flex">
-            Read Infrastructure
+          <a href="/es/pillars/infrastructure" class="link-arrow mt-4 inline-flex">
+            Leer sobre Infraestructura
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
           </a>
         </div>
@@ -172,12 +172,12 @@ const risks = [
     </div>
   </section>
 
-  <!-- 6. What Skills Are Needed Now -->
+  <!-- 6. Habilidades Que Necesitamos Ahora -->
   <section class="section-gap px-6 lg:px-10">
     <div class="max-w-[1100px] mx-auto">
-      <span class="text-label text-bark-500 reveal">What We Need Now</span>
+      <span class="text-label text-bark-500 reveal">Lo Que Necesitamos Ahora</span>
       <h2 class="text-headline text-bark-800 mt-4 mb-10 reveal" data-delay="100">
-        Specific skills, on-site or remote
+        Habilidades específicas, presenciales o remotas
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {skills.map((skill, i) => (
@@ -192,38 +192,38 @@ const risks = [
     </div>
   </section>
 
-  <!-- 7. Open Source Layer -->
+  <!-- 7. Capa de Código Abierto -->
   <section class="section-dark section-gap px-6 lg:px-10">
     <div class="content-width">
-      <span class="text-label text-accent reveal">Open Source Layer</span>
+      <span class="text-label text-accent reveal">Capa de Código Abierto</span>
       <h2 class="text-headline text-bark-50 mt-4 mb-8 reveal" data-delay="100">
-        Everything documented. Everything published.
+        Todo documentado. Todo publicado.
       </h2>
       <div class="space-y-6 text-body-lg text-bark-300 reveal" data-delay="200">
         <p>
-          Plans, bills of materials, test results, failure reports -- all published under open licenses.
-          Fork the designs. Adapt them to your site. Send improvements back.
+          Planos, listas de materiales, resultados de pruebas, informes de fallas — todo publicado bajo licencias abiertas.
+          Bifurca los diseños. Adáptalos a tu sitio. Envía las mejoras de vuelta.
         </p>
         <p>
-          The stack builds on what already exists: the Global Village Construction Set,
-          RepRap self-replicating fabrication, Precious Plastic recycling machines.
-          We are not inventing from zero. We are integrating, testing, and documenting
-          at a specific site with specific constraints.
+          El stack se apoya en lo que ya existe: el Global Village Construction Set,
+          la fabricación autorreplicante RepRap, las máquinas de reciclaje Precious Plastic.
+          No estamos inventando desde cero. Estamos integrando, probando y documentando
+          en un sitio específico con restricciones específicas.
         </p>
         <p>
-          Documentation is not an afterthought. It is the primary output.
-          A system that works but cannot be replicated is a hobby project, not infrastructure.
+          La documentación no es un paso posterior. Es el producto principal.
+          Un sistema que funciona pero no se puede replicar es un pasatiempo, no infraestructura.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- 8. Risks / Realities -->
+  <!-- 8. Riesgos / Realidades -->
   <section class="section-gap px-6 lg:px-10">
     <div class="max-w-[1100px] mx-auto">
-      <span class="text-label text-bark-500 reveal">Risks and Realities</span>
+      <span class="text-label text-bark-500 reveal">Riesgos y Realidades</span>
       <h2 class="text-headline text-bark-800 mt-4 mb-10 reveal" data-delay="100">
-        What you should know before committing
+        Lo que debes saber antes de comprometerte
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {risks.map((r, i) => (
@@ -240,32 +240,32 @@ const risks = [
   <section class="section-gap-lg bg-bark-100 px-6 lg:px-10">
     <div class="content-width text-center">
       <h2 class="text-headline text-bark-800 mb-4 reveal">
-        Tell us what you build.
+        Cuéntanos qué construyes.
       </h2>
       <p class="text-body-lg text-bark-500 mb-8 reveal" data-delay="100">
-        BARK is looking for engineers, makers, fabricators, and technical operators who want to build systems that matter.
+        BARK busca ingenieros, fabricantes, constructores y operadores técnicos que quieran construir sistemas que importan.
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal" data-delay="200">
-        <a href="mailto:bark@pt32lab.org?subject=Join%20the%20Build%20Network" class="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white font-display font-semibold text-sm tracking-wide rounded-full hover:bg-accent-dim transition-colors duration-300">
-          Join the Build Network
+        <a href="mailto:bark@pt32lab.org?subject=Unirse%20a%20la%20Red%20de%20Constructores" class="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white font-display font-semibold text-sm tracking-wide rounded-full hover:bg-accent-dim transition-colors duration-300">
+          Unirse a la Red de Constructores
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
       </div>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mt-6 reveal" data-delay="300">
-        <a href="/en/pillars/technopark" class="link-arrow">
-          Read the Technopark
+        <a href="/es/pillars/technopark" class="link-arrow">
+          Leer sobre el Tecnoparque
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
-        <a href="/en/pillars/infrastructure" class="link-arrow">
-          Read Infrastructure
+        <a href="/es/pillars/infrastructure" class="link-arrow">
+          Leer sobre Infraestructura
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
-        <a href="/en/economy" class="link-arrow">
-          Economy
+        <a href="/es/economy" class="link-arrow">
+          Economía
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
-        <a href="/en/participate" class="link-arrow">
-          Participate
+        <a href="/es/participate" class="link-arrow">
+          Participar
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
       </div>
