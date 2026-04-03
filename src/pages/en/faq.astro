@@ -137,7 +137,7 @@ const faqSchema = {
   <section class="pb-32 px-6 lg:px-10">
     <div class="max-w-[900px] mx-auto">
       {sections.map((section, si) => (
-        <div class="mb-16 last:mb-0 reveal" data-delay={String(si * 100)}>
+        <div class={`mb-16 last:mb-0 reveal${si % 2 === 0 ? ' bg-warm-gradient rounded-xl p-8' : ''}`} data-delay={String(si * 100)}>
           <span class="text-label text-bark-400">{section.label}</span>
           <div class="mt-6 divide-y divide-bark-200 border-t border-b border-bark-200">
             {section.questions.map((item) => (

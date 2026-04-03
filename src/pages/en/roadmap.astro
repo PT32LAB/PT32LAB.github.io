@@ -98,6 +98,55 @@ const phases = [
     ],
   },
 ];
+
+// Unlock actions between phases — concrete, verifiable steps to advance
+const unlocks: Record<string, { title: string; status: 'not-started' | 'in-progress' | 'complete'; items: { text: string; done: boolean }[] }> = {
+  '0-1': {
+    title: 'What unlocks Phase 1',
+    status: 'not-started',
+    items: [
+      { text: 'Book and complete site visit to Coroico (photos, video, ground-truth)', done: false },
+      { text: 'Meet CENAPROC coffee cooperative leadership', done: false },
+      { text: 'Meet Carmen Pampa University administration', done: false },
+      { text: 'Attend a local asamblea or sindicato meeting', done: false },
+      { text: 'Consult with a Bolivian cooperative lawyer (Ley 356 path)', done: false },
+      { text: 'Talk to foreigners already operating in Yungas (Gravity Bolivia, La Senda Verde)', done: false },
+      { text: 'Publish site visit report with honest findings (including failures)', done: false },
+    ],
+  },
+  '1-2': {
+    title: 'What unlocks Phase 2',
+    status: 'not-started',
+    items: [
+      { text: 'Identify a Bolivian partner/co-founder (legally required for cooperative leadership)', done: false },
+      { text: 'Secure letter of intent for land', done: false },
+      { text: 'First MOU with a local organization (CENAPROC, Carmen Pampa, or similar)', done: false },
+      { text: 'Legal opinion from Bolivian lawyer confirming cooperative viability', done: false },
+      { text: 'Resolve: can we actually form this entity as described?', done: false },
+    ],
+  },
+  '2-3': {
+    title: 'What unlocks Phase 3',
+    status: 'not-started',
+    items: [
+      { text: 'Cooperative legally registered under Ley 356', done: false },
+      { text: 'Land acquired or long-term leased', done: false },
+      { text: 'Seed funding secured ($50K-$100K minimum)', done: false },
+      { text: 'At least 3 committed founding members (including 1+ Bolivian)', done: false },
+      { text: 'First equipment purchased', done: false },
+    ],
+  },
+  '3-4': {
+    title: 'What unlocks Phase 4',
+    status: 'not-started',
+    items: [
+      { text: 'First processing line operational (coffee recommended — fastest ROI)', done: false },
+      { text: 'First retreat completed with guest feedback', done: false },
+      { text: 'Community integration evidence (local hires, local purchases, festival participation)', done: false },
+      { text: '12 months of financial data', done: false },
+    ],
+  },
+};
 ---
 
 <Base title="Roadmap" description="BARK project timeline — honest about where we are and where we're going.">
@@ -174,62 +223,129 @@ const phases = [
       <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-bark-200 md:-translate-x-px"></div>
 
       {phases.map((phase, i) => (
-        <div class:list={[
-          'relative mb-16 last:mb-0 reveal',
-          i % 2 === 0 ? 'md:pr-[calc(50%+2rem)]' : 'md:pl-[calc(50%+2rem)]',
-        ]} data-delay={String(i * 100)}>
-          <!-- Timeline dot -->
+        <Fragment>
+          {/* Phase card */}
           <div class:list={[
-            'absolute left-6 md:left-1/2 w-4 h-4 rounded-full border-2 -translate-x-1/2 top-8 z-10',
-            phase.status === 'active'
-              ? 'bg-accent border-accent shadow-[0_0_12px_rgba(16,185,129,0.4)]'
-              : 'bg-bark-50 border-bark-300',
-          ]}></div>
+            'relative mb-16 reveal',
+            i % 2 === 0 ? 'md:pr-[calc(50%+2rem)]' : 'md:pl-[calc(50%+2rem)]',
+          ]} data-delay={String(i * 100)}>
+            {/* Timeline dot */}
+            <div class:list={[
+              'absolute left-6 md:left-1/2 w-4 h-4 rounded-full border-2 -translate-x-1/2 top-8 z-10',
+              phase.status === 'active'
+                ? 'bg-accent border-accent shadow-[0_0_12px_rgba(16,185,129,0.4)]'
+                : 'bg-bark-50 border-bark-300',
+            ]}></div>
 
-          <!-- Card -->
-          <div class:list={[
-            'ml-14 md:ml-0 p-8 rounded-xl border',
-            phase.status === 'active'
-              ? 'bg-bark-50 border-accent/30 shadow-sm'
-              : 'bg-bark-50 border-bark-200',
-          ]}>
-            <div class="flex items-center gap-3 mb-1">
-              <span class:list={[
-                'text-label',
-                phase.status === 'active' ? 'text-accent' : 'text-bark-400',
-              ]}>{phase.label}</span>
-              {phase.status === 'active' && (
-                <span class="text-[0.65rem] font-display font-medium tracking-wider uppercase px-2 py-0.5 bg-accent/10 text-accent rounded-full">Current</span>
-              )}
-            </div>
-            <h2 class="font-display font-semibold text-bark-800 text-xl mt-1">{phase.title}</h2>
-            <p class="text-bark-400 text-sm mt-1">{phase.time}</p>
-
-            {phase.description && (
-              <div class="bar-section mt-4">
-                <p class="text-bark-500 text-sm leading-relaxed italic">{phase.description}</p>
+            {/* Card */}
+            <div class:list={[
+              'ml-14 md:ml-0 p-8 rounded-xl border',
+              phase.status === 'active'
+                ? 'bg-bark-50 border-accent/30 shadow-sm'
+                : 'bg-bark-50 border-bark-200',
+            ]}>
+              <div class="flex items-center gap-3 mb-1">
+                <span class:list={[
+                  'text-label',
+                  phase.status === 'active' ? 'text-accent' : 'text-bark-400',
+                ]}>{phase.label}</span>
+                {phase.status === 'active' && (
+                  <span class="text-[0.65rem] font-display font-medium tracking-wider uppercase px-2 py-0.5 bg-accent/10 text-accent rounded-full">Current</span>
+                )}
               </div>
-            )}
+              <h2 class="font-display font-semibold text-bark-800 text-xl mt-1">{phase.title}</h2>
+              <p class="text-bark-400 text-sm mt-1">{phase.time}</p>
 
-            <ul class="mt-6 space-y-3">
-              {phase.items.map(item => (
-                <li class="flex items-start gap-3 text-sm">
-                  <span class:list={[
-                    'mt-1 w-2.5 h-2.5 rounded-full shrink-0',
-                    item.status === 'done' ? 'bg-accent' : item.status === 'progress' ? 'bg-gold' : 'bg-bark-300',
-                  ]}></span>
-                  <span class:list={[
-                    item.status === 'done' ? 'text-bark-600' : item.status === 'progress' ? 'text-bark-600' : 'text-bark-400',
-                  ]}>
-                    {item.text}
-                    {item.status === 'done' && <span class="text-accent ml-1 font-medium">&check;</span>}
-                    {item.status === 'progress' && <span class="text-gold ml-1 text-xs font-medium">in progress</span>}
-                  </span>
-                </li>
-              ))}
-            </ul>
+              {phase.description && (
+                <div class="bar-section mt-4">
+                  <p class="text-bark-500 text-sm leading-relaxed italic">{phase.description}</p>
+                </div>
+              )}
+
+              <ul class="mt-6 space-y-3">
+                {phase.items.map(item => (
+                  <li class="flex items-start gap-3 text-sm">
+                    <span class:list={[
+                      'mt-1 w-2.5 h-2.5 rounded-full shrink-0',
+                      item.status === 'done' ? 'bg-accent' : item.status === 'progress' ? 'bg-gold' : 'bg-bark-300',
+                    ]}></span>
+                    <span class:list={[
+                      item.status === 'done' ? 'text-bark-600' : item.status === 'progress' ? 'text-bark-600' : 'text-bark-400',
+                    ]}>
+                      {item.text}
+                      {item.status === 'done' && <span class="text-accent ml-1 font-medium">&check;</span>}
+                      {item.status === 'progress' && <span class="text-gold ml-1 text-xs font-medium">in progress</span>}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
+
+          {/* Unlock block between phases */}
+          {unlocks[`${phase.id}-${phase.id + 1}`] && (
+            <div class="relative mb-16 ml-14 md:ml-0 md:mx-auto md:max-w-[calc(50%-2rem)] reveal" data-delay={String(i * 100 + 50)}>
+              {/* Connector diamond on timeline */}
+              <div class="absolute left-[-2.15rem] md:left-auto md:right-auto md:left-1/2 md:-translate-x-[calc(50%+0.5rem)] top-6 w-3 h-3 rotate-45 border-2 border-bark-300 bg-bark-100 z-10 hidden md:block" style="margin-left: calc(-50% - 2rem);"></div>
+
+              <div class="p-6 rounded-xl border border-dashed border-bark-300 bg-bark-100/60">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="font-display font-semibold text-bark-700 text-sm tracking-wide">
+                    {unlocks[`${phase.id}-${phase.id + 1}`].title}
+                  </h3>
+                  <span class:list={[
+                    'inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[0.65rem] font-display font-medium tracking-wider uppercase shrink-0',
+                    unlocks[`${phase.id}-${phase.id + 1}`].status === 'complete'
+                      ? 'bg-accent/10 text-accent'
+                      : unlocks[`${phase.id}-${phase.id + 1}`].status === 'in-progress'
+                        ? 'bg-gold/10 text-gold'
+                        : 'bg-bark-200 text-bark-400',
+                  ]}>
+                    <span class:list={[
+                      'w-1.5 h-1.5 rounded-full',
+                      unlocks[`${phase.id}-${phase.id + 1}`].status === 'complete'
+                        ? 'bg-accent'
+                        : unlocks[`${phase.id}-${phase.id + 1}`].status === 'in-progress'
+                          ? 'bg-gold'
+                          : 'bg-bark-400',
+                    ]}></span>
+                    {unlocks[`${phase.id}-${phase.id + 1}`].status === 'complete'
+                      ? 'Complete'
+                      : unlocks[`${phase.id}-${phase.id + 1}`].status === 'in-progress'
+                        ? 'In progress'
+                        : 'Not started'}
+                  </span>
+                </div>
+                <ul class="space-y-2.5">
+                  {unlocks[`${phase.id}-${phase.id + 1}`].items.map(item => (
+                    <li class="flex items-start gap-2.5 text-sm">
+                      <span class:list={[
+                        'mt-0.5 w-4 h-4 rounded border shrink-0 flex items-center justify-center',
+                        item.done
+                          ? 'bg-accent border-accent text-white'
+                          : 'border-bark-300 bg-white',
+                      ]}>
+                        {item.done && (
+                          <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        )}
+                      </span>
+                      <span class:list={[
+                        item.done ? 'text-bark-500 line-through' : 'text-bark-600',
+                      ]}>
+                        {item.text}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <p class="text-bark-400 text-xs mt-4 italic">
+                  All items must be completed before advancing to {phases[phase.id + 1]?.label}.
+                </p>
+              </div>
+            </div>
+          )}
+        </Fragment>
       ))}
     </div>
   </section>

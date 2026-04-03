@@ -103,7 +103,7 @@ const allNodes = clusters.flatMap(c => c.nodes.map(n => ({ ...n, cluster: c.name
     <div class="max-w-[1400px] mx-auto">
       <!-- Cluster blocks -->
       {clusters.map((cluster, ci) => (
-        <div class="mb-16 reveal relative" data-delay={String(ci * 100)}>
+        <div class={`mb-16 reveal relative${ci % 2 === 1 ? ' bg-cool-gradient rounded-xl p-6' : ''}`} data-delay={String(ci * 100)}>
           <!-- Floating particle dots behind cluster section -->
           <div class="cluster-particles absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
             {Array.from({length: 12}).map((_, i) => (
