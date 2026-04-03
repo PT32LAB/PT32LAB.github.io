@@ -1,0 +1,186 @@
+---
+import Landing from '../../layouts/Landing.astro';
+
+const capabilities = [
+  { title: 'Jobs', text: 'Local hiring for construction, agriculture, hospitality, maintenance. BARK is a payroll before it is a product.' },
+  { title: 'Market access', text: 'The Trading House buys local surplus at fair prices and connects Yungas producers to international buyers. Growers keep their land and their margin.' },
+  { title: 'Infrastructure', text: 'Solar arrays, water systems, mesh communications -- built to benefit the surrounding area, not fence it off.' },
+  { title: 'Skills', text: 'Training programs, Carmen Pampa University partnership, tech transfer. Knowledge that stays in the valley.' },
+  { title: 'Ventures', text: 'The Incubator launches businesses rooted in local needs -- processing, logistics, services the region actually lacks.' },
+];
+
+const notList = [
+  { label: 'Not a ZEDE', text: 'No special economic zone. No separate jurisdiction. Bolivian law applies fully.' },
+  { label: 'Not an expat bunker', text: 'The cooperative requires Bolivian leadership by law (Ley 356 Art. 65). This is by design.' },
+  { label: 'Not extractive', text: 'We buy local, process local, sell for local benefit. Value stays in the Yungas.' },
+  { label: 'Not replacing livelihoods', text: 'Market connector, not competitor. Farmers gain a buyer, not a rival.' },
+];
+
+const partners = [
+  { who: 'Farmers', how: 'Sell to the Trading House at transparent, fair-market prices.' },
+  { who: 'Cooperatives', how: 'Shared processing equipment, shared market access, shared logistics.' },
+  { who: 'University', how: 'Internships, field research, training programs with Carmen Pampa.' },
+  { who: 'Government', how: 'Alignment with Bolivia\'s $325M solar program and cooperative legal framework.' },
+];
+
+const risks = [
+  'Road access -- the La Paz-Coroico highway closes during landslides. Supply chain resilience is not optional.',
+  'Healthcare -- limited local facilities. Nearest hospital is in La Paz, three hours away.',
+  'Political instability -- Bolivia has real political cycles. The 2024 crisis disrupted the entire country.',
+  'Economic crisis -- currency pressure, inflation, reserve depletion. We plan for this, not around it.',
+];
+---
+
+<Landing title="Region" description="BARK exists to increase Coroico's capability, not to build walls around a compound. Regional integration, not enclave.">
+
+  <!-- Hero with tocana-landscape photo -->
+  <section class="relative min-h-[70vh] flex items-end overflow-hidden">
+    <img src="/images/yungas/tocana-landscape.jpg" alt="Tocana landscape, Yungas valley below Coroico" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
+    <div class="absolute inset-0 bg-gradient-to-t from-bark-900/90 via-bark-900/50 to-transparent"></div>
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pb-16 w-full">
+      <span class="text-label text-accent reveal">Regional Integration</span>
+      <h1 class="text-display text-bark-50 mt-4 max-w-3xl reveal" data-delay="100">Region over enclave.</h1>
+      <p class="text-body-lg text-bark-300 mt-6 max-w-2xl reveal" data-delay="200">
+        BARK exists to increase Coroico's capability, not to build walls around a compound.
+      </p>
+    </div>
+  </section>
+
+  <!-- What BARK Means for This Place -->
+  <section class="section-gap px-6 lg:px-10">
+    <div class="max-w-[1100px] mx-auto">
+      <span class="text-label text-bark-500 reveal">What BARK Means for This Place</span>
+      <h2 class="text-headline text-bark-800 mt-4 mb-10 reveal" data-delay="100">
+        Capability, not enclosure
+      </h2>
+      <div class="space-y-4">
+        {capabilities.map((c, i) => (
+          <div class="flex items-start gap-4 py-5 border-b border-bark-200 last:border-b-0 reveal" data-delay={String(i * 80)}>
+            <span class="text-label text-accent shrink-0 w-8 pt-1">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h3 class="font-display font-semibold text-bark-800">{c.title}</h3>
+              <p class="text-bark-500 mt-1">{c.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Coroico / Yungas -->
+  <section class="section-gap bg-bark-100 px-6 lg:px-10">
+    <div class="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="reveal">
+        <span class="text-label text-bark-500">Why Here</span>
+        <h2 class="text-title text-bark-800 mt-4 mb-6">Coroico and the Yungas</h2>
+        <p class="text-bark-600 text-[1.05rem] leading-[1.8]">
+          1,750 meters. Year-round growing season. Three hours from La Paz.
+          An existing cooperative tradition through CENAPROC and the broader Yungas
+          agricultural network. The infrastructure of mutual aid already exists here &mdash;
+          BARK plugs into it, not over it.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-px bg-bark-200 rounded-xl overflow-hidden reveal" data-delay="100">
+        <div class="bg-bark-50 p-6 text-center">
+          <p class="font-display font-bold text-bark-800 text-2xl">1,750m</p>
+          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Elevation</p>
+        </div>
+        <div class="bg-bark-50 p-6 text-center">
+          <p class="font-display font-bold text-bark-800 text-2xl">12mo</p>
+          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Growing season</p>
+        </div>
+        <div class="bg-bark-50 p-6 text-center">
+          <p class="font-display font-bold text-bark-800 text-2xl">3h</p>
+          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">From La Paz</p>
+        </div>
+        <div class="bg-bark-50 p-6 text-center">
+          <p class="font-display font-bold text-accent text-2xl">Co-op</p>
+          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Tradition (CENAPROC)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What BARK Is NOT -- dark section -->
+  <section class="section-gap bg-bark-900 text-bark-300 px-6 lg:px-10">
+    <div class="max-w-[1100px] mx-auto">
+      <span class="text-label text-accent reveal">What BARK Is Not</span>
+      <h2 class="text-headline text-bark-50 mt-4 mb-10 reveal" data-delay="100">
+        No enclaves. No exceptions.
+      </h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        {notList.map((item, i) => (
+          <div class="card-dark p-6 rounded-xl border border-white/8 reveal" data-delay={String(i * 100)}>
+            <h3 class="font-display font-semibold text-bark-50 mb-2">{item.label}</h3>
+            <p class="text-bark-400 text-[0.95rem] leading-relaxed">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnership Paths -->
+  <section class="section-gap px-6 lg:px-10">
+    <div class="max-w-[1100px] mx-auto">
+      <span class="text-label text-bark-500 reveal">Partnership Paths</span>
+      <h2 class="text-title text-bark-800 mt-4 mb-10 reveal" data-delay="100">
+        How the relationship works
+      </h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        {partners.map((p, i) => (
+          <div class="card reveal" data-delay={String(i * 80)}>
+            <span class="tag tag-accent mb-3">{p.who}</span>
+            <p class="text-bark-600 text-[0.95rem] leading-relaxed">{p.how}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-accent max-w-[900px] mx-auto"></div>
+
+  <!-- Risks We Acknowledge -->
+  <section class="section-gap px-6 lg:px-10">
+    <div class="content-width">
+      <span class="text-label text-bark-500 reveal">Risks We Acknowledge</span>
+      <h2 class="text-title text-bark-800 mt-4 mb-8 reveal" data-delay="100">
+        Honest about the hard parts
+      </h2>
+      <div class="space-y-4">
+        {risks.map((r, i) => (
+          <div class="flex items-start gap-3 reveal" data-delay={String(i * 80)}>
+            <span class="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-ember"></span>
+            <p class="text-bark-600 text-[1rem] leading-relaxed">{r}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-bark-500 mt-8 reveal" data-delay="400">
+        We have researched this honestly.
+        <a href="/en/risks" class="link-arrow inline-flex">
+          Read our full risk assessment
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-gap-lg bg-bark-100 px-6 lg:px-10">
+    <div class="content-width text-center">
+      <h2 class="text-headline text-bark-800 mb-6 reveal">
+        Let's talk about what this means for your community.
+      </h2>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+        <a href="mailto:pt32lab@proton.me?subject=Regional%20partnership%20inquiry" class="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white font-display font-semibold text-sm tracking-wide rounded-full hover:bg-accent-dim transition-colors duration-300 reveal" data-delay="100">
+          Start a conversation
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="/en/location" class="link-arrow reveal" data-delay="200">
+          Read the full location analysis
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Landing>

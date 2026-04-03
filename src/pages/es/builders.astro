@@ -1,0 +1,147 @@
+---
+import Landing from '../../layouts/Landing.astro';
+
+const systems = [
+  { num: '01', title: 'Energy', desc: 'Solar arrays, micro-hydro turbines, battery storage, grid tie-in. Design for 1,750m UV and wet-season clouds.' },
+  { num: '02', title: 'Water', desc: 'Spring capture, ceramic and biosand filtration, greywater recycling, rainwater harvesting. 1,300mm/yr to work with.' },
+  { num: '03', title: 'Communications', desc: 'Starlink backhaul, LoRa mesh for site telemetry, HF radio backup, local compute servers.' },
+  { num: '04', title: 'Fabrication', desc: '3D printing, CNC routing, Gingery-style foundry, RepRap self-replication. Make the tools that make the parts.' },
+  { num: '05', title: 'Agro-Processing', desc: 'Coffee wet mill, cacao fermentation line, solar dehydrators, essential oil distillation. Value-add at origin.' },
+  { num: '06', title: 'Infrastructure', desc: 'Road maintenance, earthbag and ferrocement buildings, greenhouse structures, aquaponics systems.' },
+];
+
+const skills = [
+  'Solar installation and off-grid power design',
+  'Water systems — capture, filtration, greywater',
+  'Permaculture and agroforestry planning',
+  'Digital fabrication — 3D printing, CNC, foundry',
+  'Radio and mesh networking — LoRa, HF, Starlink',
+  'Software — embedded systems, monitoring, data pipelines',
+];
+---
+
+<Landing title="Builders" description="BARK needs engineers, makers, and fabricators. Real site, real constraints, open-source documentation. Build infrastructure that works at 1,750m in the Yungas.">
+
+  <!-- Hero — photo bg with death-road.jpg -->
+  <section class="relative min-h-screen flex items-center px-6 lg:px-10 pt-16">
+    <div class="absolute inset-0 z-0">
+      <img src="/images/yungas/death-road.jpg" alt="Road carved into Yungas mountainside" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-b from-bark-900/70 via-bark-900/60 to-bark-900/90"></div>
+    </div>
+    <div class="relative z-10 max-w-[900px] mx-auto py-20">
+      <span class="text-label text-accent reveal">Builders</span>
+      <h1 class="text-display text-bark-50 mt-6 reveal" data-delay="100">
+        The build site is real.<br/>The constraints are real.<br/>The tools are open-source.
+      </h1>
+      <p class="text-body-lg text-bark-300 mt-8 max-w-2xl reveal" data-delay="200">
+        BARK needs people who wire solar arrays, design greywater systems,
+        fabricate replacement parts, and document everything.
+      </p>
+      <div class="accent-line max-w-xs mt-12 reveal" data-delay="300"></div>
+    </div>
+  </section>
+
+  <!-- What Gets Built — 6 feature cards -->
+  <section class="section-gap px-6 lg:px-10">
+    <div class="max-w-[1100px] mx-auto">
+      <span class="text-label text-bark-500 reveal">What Gets Built</span>
+      <h2 class="text-headline text-bark-800 mt-4 mb-10 reveal" data-delay="100">
+        Six systems, one site
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {systems.map((s, i) => (
+          <div class="feature-card hover-lift reveal" data-delay={String(i * 80)}>
+            <span class="feature-number">{s.num}</span>
+            <h3 class="font-display font-semibold text-bark-800 text-lg mb-2 relative z-10">{s.title}</h3>
+            <p class="text-sm text-bark-500 leading-relaxed relative z-10">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Yungas — dark section -->
+  <section class="section-dark section-gap px-6 lg:px-10">
+    <div class="content-width">
+      <span class="text-label text-accent reveal">Why Yungas</span>
+      <h2 class="text-headline mt-4 mb-8 reveal" data-delay="100">
+        Real constraints = real engineering
+      </h2>
+      <div class="space-y-6 text-body-lg reveal" data-delay="200">
+        <p>
+          1,750m altitude. 1,300mm annual rainfall. Landslide season from December to March.
+          A single road connecting to La Paz. Humidity that rusts uncoated steel in weeks.
+        </p>
+        <p>
+          Every system you design here must handle these conditions or fail visibly.
+          There is no hiding behind controlled environments or unlimited budgets.
+          If it works here, it works anywhere.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Source Layer -->
+  <section class="section-gap px-6 lg:px-10">
+    <div class="content-width">
+      <span class="text-label text-bark-500 reveal">Open Source Layer</span>
+      <h2 class="text-headline text-bark-800 mt-4 mb-8 reveal" data-delay="100">
+        Everything documented. Everything published.
+      </h2>
+      <div class="space-y-6 text-body-lg text-bark-600 reveal" data-delay="200">
+        <p>
+          Plans, bills of materials, test results, failure reports -- all published under open licenses.
+          Fork the designs. Adapt them to your site. Send improvements back.
+        </p>
+        <p>
+          The stack builds on what already exists: the Global Village Construction Set,
+          RepRap self-replicating fabrication, Precious Plastic recycling machines.
+          We are not inventing from zero. We are integrating, testing, and documenting
+          at a specific site with specific constraints.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-accent max-w-[900px] mx-auto"></div>
+
+  <!-- What We Need Now -->
+  <section class="section-gap px-6 lg:px-10">
+    <div class="max-w-[1100px] mx-auto">
+      <span class="text-label text-bark-500 reveal">What We Need Now</span>
+      <h2 class="text-headline text-bark-800 mt-4 mb-10 reveal" data-delay="100">
+        Specific skills, on-site or remote
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {skills.map((skill, i) => (
+          <div class="flex items-start gap-3 py-3 reveal" data-delay={String(i * 60)}>
+            <span class="text-accent mt-1 shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
+            </span>
+            <span class="text-bark-700 font-display text-sm font-medium">{skill}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-gap-lg bg-bark-100 px-6 lg:px-10">
+    <div class="content-width text-center">
+      <h2 class="text-headline text-bark-800 mb-8 reveal">
+        Tell us what you build.
+      </h2>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal" data-delay="100">
+        <a href="mailto:bark@pt32lab.org?subject=Builder%20inquiry" class="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white font-display font-semibold text-sm tracking-wide rounded-full hover:bg-accent-dim transition-colors duration-300">
+          Get in touch
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="/en/pillars/technopark" class="link-arrow">
+          Read the technopark specs
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Landing>
