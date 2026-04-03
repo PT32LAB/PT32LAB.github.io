@@ -8,9 +8,10 @@ interface Props {
   title: string;
   description?: string;
   dark?: boolean;
+  heroImage?: string;
 }
 
-const { title, description = 'BARK — Bolivian Ark. An off-grid community preserving humanistic values through resilient technology.', dark = false } = Astro.props;
+const { title, description = 'BARK — Bolivian Ark. An off-grid community preserving humanistic values through resilient technology.', dark = false, heroImage } = Astro.props;
 ---
 
 <!doctype html>
@@ -23,6 +24,7 @@ const { title, description = 'BARK — Bolivian Ark. An off-grid community prese
     <link rel="alternate" hreflang="es" href={`https://pt32lab.github.io/es${Astro.url.pathname.replace(/^\/(en|es)/, '')}`} />
     <link rel="canonical" href={`https://pt32lab.github.io${Astro.url.pathname}`} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {heroImage && <link rel="preload" as="image" href={heroImage} />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />

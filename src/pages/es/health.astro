@@ -2,11 +2,11 @@
 import Base from '../../layouts/Base.astro';
 ---
 
-<Base title="Health & Wellness" description="Medical infrastructure near BARK, health plans, honest risks, and what to bring.">
+<Base title="Health & Wellness" description="Medical infrastructure near BARK, health plans, honest risks, and what to bring." heroImage="/images/yungas/yungas-landscape.jpg">
 
   <!-- Hero -->
   <section class="relative min-h-[40vh] flex items-end pb-12 overflow-hidden">
-    <img src="/images/yungas/yungas-landscape.jpg" alt="Yungas cloud forest" class="absolute inset-0 w-full h-full object-cover" />
+    <img src="/images/yungas/yungas-landscape.jpg" alt="Yungas cloud forest" width="1920" height="1440" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async" />
     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
     <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
       <span class="text-label text-accent">Wellness</span>

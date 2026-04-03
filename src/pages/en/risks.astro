@@ -2,11 +2,11 @@
 import Base from '../../layouts/Base.astro';
 ---
 
-<Base title="Risks & Realities" description="Safety data, risk disclosure, and honest assessment of what's dangerous, what's uncertain, and what we're doing about it.">
+<Base title="Risks & Realities" description="Safety data, risk disclosure, and honest assessment of what's dangerous, what's uncertain, and what we're doing about it." heroImage="/images/yungas/death-road.jpg">
 
   <!-- Hero -->
   <section class="relative min-h-[40vh] flex items-end pb-12 overflow-hidden">
-    <img src="/images/yungas/death-road.jpg" alt="The famous Death Road winding through the Yungas mountains" class="absolute inset-0 w-full h-full object-cover" />
+    <img src="/images/yungas/death-road.jpg" alt="The famous Death Road winding through the Yungas mountains" width="1920" height="1277" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async" />
     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
     <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
       <span class="text-label text-accent">Honest Assessment</span>
@@ -17,7 +17,7 @@ import Base from '../../layouts/Base.astro';
 
   <!-- Photo break -->
   <div class="photo-frame h-48 md:h-64 reveal">
-    <img src="/images/yungas/road-panorama.jpg" alt="Panoramic view of the Yungas road" loading="lazy" class="w-full h-full object-cover" />
+    <img src="/images/yungas/road-panorama.jpg" alt="Panoramic view of the Yungas road" width="1920" height="1013" loading="lazy" decoding="async" class="w-full h-full object-cover" />
     <div class="photo-credit">The road is both the connection and the risk</div>
   </div>
 

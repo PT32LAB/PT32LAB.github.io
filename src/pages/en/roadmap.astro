@@ -149,10 +149,10 @@ const unlocks: Record<string, { title: string; status: 'not-started' | 'in-progr
 };
 ---
 
-<Base title="Roadmap" description="BARK project timeline — honest about where we are and where we're going.">
+<Base title="Roadmap" description="BARK project timeline — honest about where we are and where we're going." heroImage="/images/yungas/road-panorama.jpg">
   <!-- Photo Hero -->
   <section class="relative min-h-[50vh] flex items-end pb-16 overflow-hidden">
-    <img src="/images/yungas/road-panorama.jpg" alt="Panoramic view of the road through the Yungas mountains" class="absolute inset-0 w-full h-full object-cover" />
+    <img src="/images/yungas/road-panorama.jpg" alt="Panoramic view of the road through the Yungas mountains" width="1920" height="1013" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async" />
     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
     <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
       <span class="text-label text-accent tracking-widest reveal">Timeline</span>
@@ -201,7 +201,7 @@ const unlocks: Record<string, { title: string; status: 'not-started' | 'in-progr
 
   <!-- Photo break -->
   <div class="photo-frame h-48 md:h-64 w-full my-12 reveal" style="border-radius:0;">
-    <img src="/images/yungas/road-panorama.jpg" alt="Panoramic view of the road through the Yungas mountains" loading="lazy" class="w-full h-full object-cover" />
+    <img src="/images/yungas/road-panorama.jpg" alt="Panoramic view of the road through the Yungas mountains" width="1920" height="1013" loading="lazy" decoding="async" class="w-full h-full object-cover" />
   </div>
 
   <!-- Legend -->

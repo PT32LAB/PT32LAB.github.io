@@ -20,10 +20,10 @@ const pillars = [
 ];
 ---
 
-<Base title="Home">
+<Base title="Home" heroImage="/images/yungas/valley.jpg">
   <!-- Hero -- photo-first, works without JS -->
   <section class="relative min-h-screen flex items-end pb-20 overflow-hidden">
-    <img src="/images/yungas/valley.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    <img src="/images/yungas/valley.jpg" alt="" width="1920" height="1282" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async" />
     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
 
     <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
@@ -68,7 +68,7 @@ const pillars = [
   </section>
 
   <div class="photo-frame h-48 md:h-64 w-full" style="border-radius:0;">
-    <img src="/images/yungas/yungas-landscape.jpg" alt="Cloud forest slopes of the Yungas" loading="lazy" class="w-full h-full object-cover" />
+    <img src="/images/yungas/yungas-landscape.jpg" alt="Cloud forest slopes of the Yungas" width="1920" height="1440" loading="lazy" decoding="async" class="w-full h-full object-cover" />
   </div>
 
   <!-- Why -- dark pull-quote section -->
@@ -184,7 +184,7 @@ const pillars = [
     <div class="max-w-[1400px] mx-auto">
       <!-- Full-width hero image -->
       <div class="relative rounded-xl overflow-hidden mb-16 reveal">
-        <img src="/images/yungas/coroico-clouds.jpg" alt="Coroico valley at dawn, clouds rolling through the Yungas cloud forest" class="w-full h-72 md:h-[28rem] object-cover" loading="lazy" />
+        <img src="/images/yungas/coroico-clouds.jpg" alt="Coroico valley at dawn, clouds rolling through the Yungas cloud forest" width="1920" height="1282" class="w-full h-72 md:h-[28rem] object-cover" loading="lazy" decoding="async" />
         <div class="absolute inset-0 bg-gradient-to-t from-bark-900/70 via-transparent to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-8">
           <span class="text-label text-accent">Location</span>
@@ -227,7 +227,7 @@ const pillars = [
           </div>
           <!-- Valley photo below stats -->
           <div class="relative rounded-xl overflow-hidden mt-4 reveal" data-delay="500">
-            <img src="/images/yungas/valley.jpg" alt="Yungas valley, Bolivia -- dramatic green slopes descending into cloud forest" class="w-full h-48 object-cover" loading="lazy" />
+            <img src="/images/yungas/valley.jpg" alt="Yungas valley, Bolivia -- dramatic green slopes descending into cloud forest" width="1920" height="1282" class="w-full h-48 object-cover" loading="lazy" decoding="async" />
             <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-bark-900/80 to-transparent">
               <span class="text-xs text-bark-300">Photo: CC BY-SA 3.0, Jerrye & Roy Klotz MD via Wikimedia Commons</span>
             </div>
@@ -274,7 +274,7 @@ const pillars = [
           <span class="text-label text-bark-400">How they connect</span>
         </div>
         <div class="bg-bark-100 rounded-xl p-8 flex justify-center">
-          <img src="/images/diagrams/system-interconnection.svg" alt="Diagram showing how BARK's five components interconnect: Techno Park, Incubator, Trading House, Retreat Center, and Infrastructure linked by R&amp;D, supply, culture, and revenue flows" class="w-full max-w-2xl" loading="lazy" />
+          <img src="/images/diagrams/system-interconnection.svg" alt="Diagram showing how BARK's five components interconnect: Techno Park, Incubator, Trading House, Retreat Center, and Infrastructure linked by R&amp;D, supply, culture, and revenue flows" class="w-full max-w-2xl" loading="lazy" decoding="async" />
         </div>
       </div>
     </div>

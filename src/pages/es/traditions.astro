@@ -2,11 +2,11 @@
 import Base from '../../layouts/Base.astro';
 ---
 
-<Base title="Local Traditions & Culture" description="Aymara heritage, Afro-Bolivian culture, ayllu governance, festivals, coca traditions, and language.">
+<Base title="Local Traditions & Culture" description="Aymara heritage, Afro-Bolivian culture, ayllu governance, festivals, coca traditions, and language." heroImage="/images/yungas/tocana-landscape.jpg">
 
   <!-- Hero -->
   <section class="relative min-h-[40vh] flex items-end pb-12 overflow-hidden">
-    <img src="/images/yungas/tocana-landscape.jpg" alt="Tocana village landscape, Afro-Bolivian community in the Yungas" class="absolute inset-0 w-full h-full object-cover" />
+    <img src="/images/yungas/tocana-landscape.jpg" alt="Tocana village landscape, Afro-Bolivian community in the Yungas" width="1920" height="1440" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async" />
     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
     <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
       <span class="text-label text-gold">Culture</span>
@@ -39,7 +39,7 @@ import Base from '../../layouts/Base.astro';
 
   <!-- Photo break -->
   <div class="photo-frame h-56 md:h-80 reveal">
-    <img src="/images/yungas/tocana-landscape.jpg" alt="Tocana village landscape, Afro-Bolivian community in the Yungas" loading="lazy" class="w-full h-full object-cover" />
+    <img src="/images/yungas/tocana-landscape.jpg" alt="Tocana village landscape, Afro-Bolivian community in the Yungas" width="1920" height="1440" loading="lazy" decoding="async" class="w-full h-full object-cover" />
     <div class="photo-credit">Tocana, Nor Yungas -- home of the Afro-Bolivian saya tradition</div>
   </div>
 
