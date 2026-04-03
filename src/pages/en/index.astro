@@ -21,47 +21,30 @@ const pillars = [
 ---
 
 <Base title="Home">
-  <!-- Hero -- dark, immersive, kinetic typography -->
-  <section class="relative min-h-screen flex items-end pb-20 overflow-hidden bg-night">
-    <MyceliumCanvas />
-    <div class="absolute inset-0 bg-gradient-to-t from-night via-night/80 to-transparent z-[1]"></div>
+  <!-- Hero -- photo-first, works without JS -->
+  <section class="relative min-h-screen flex items-end pb-20 overflow-hidden">
+    <img src="/images/yungas/valley.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
 
     <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
-      <div class="mb-8 reveal" data-delay="100">
-        <span class="text-label text-accent tracking-widest">Coroico, Bolivia -- 1,750 m</span>
-      </div>
-
-      <!-- Kinetic headline -- word-by-word reveal -->
-      <h1 class="text-display text-bark-50 max-w-5xl text-split">
-        Soil and voltage. A community that tends itself.
+      <span class="text-label text-accent tracking-widest">Coroico, Bolivia -- 1,750 m</span>
+      <h1 class="text-display text-white mt-4 max-w-4xl" style="text-shadow: 0 2px 20px rgba(0,0,0,0.5);">
+        Soil and voltage.<br/>A community that tends itself.
       </h1>
-
-      <div class="mt-8 max-w-2xl reveal" data-delay="400">
-        <p class="text-body-lg text-bark-300 leading-relaxed">
-          BARK -- the <strong class="text-bark-100">Bolivian Ark</strong> -- is a
-          community learning to provision itself in the Yungas cloud forest. Five organs, one body:
-          solar arrays and spring-fed cisterns generate power and water. Vertical farms and terraced
-          plots grow food twelve months a year. A fabrication lab repairs what breaks. An incubator
-          spawns livelihoods. A trading house moves Yungas coffee and cacao on terms the growers set.
-          All of it published. All of it forkable. The plans belong to anyone willing to use them.
-        </p>
-      </div>
-
-      <div class="mt-12 flex flex-wrap items-center gap-6 reveal" data-delay="600">
+      <p class="text-body-lg text-white/80 mt-6 max-w-2xl">
+        BARK -- the <strong class="text-white">Bolivian Ark</strong> -- is a
+        community learning to provision itself in the Yungas cloud forest. Five organs, one body.
+        All of it published. All of it forkable. The plans belong to anyone willing to use them.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-6">
         <a href={`/${lang}/participate`} class="group inline-flex items-center gap-3 px-7 py-4 bg-accent text-night font-display font-semibold text-sm tracking-wide rounded hover:bg-accent-light transition-colors duration-300">
           {t(lang, 'hero.cta')}
           <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
-        <a href={`/${lang}/vision`} class="inline-flex items-center gap-2 text-bark-400 hover:text-bark-50 font-display text-sm tracking-wide transition-colors duration-300">
+        <a href={`/${lang}/vision`} class="inline-flex items-center gap-2 text-white/60 hover:text-white font-display text-sm tracking-wide transition-colors duration-300">
           {t(lang, 'hero.learn')}
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
         </a>
-      </div>
-
-      <!-- Scroll indicator -->
-      <div class="absolute bottom-8 right-6 lg:right-10 hidden md:flex flex-col items-center gap-2 text-bark-500 text-xs">
-        <span class="text-label tracking-widest" style="writing-mode:vertical-lr;">Scroll</span>
-        <div class="w-px h-12 bg-gradient-to-b from-bark-500 to-transparent animate-pulse"></div>
       </div>
     </div>
   </section>
@@ -89,8 +72,9 @@ const pillars = [
   </div>
 
   <!-- Why -- dark pull-quote section -->
-  <section class="bg-bark-900 py-28 px-6 lg:px-10 overflow-hidden">
-    <div class="max-w-[1400px] mx-auto">
+  <section class="relative bg-bark-900 py-28 px-6 lg:px-10 overflow-hidden">
+    <MyceliumCanvas />
+    <div class="max-w-[1400px] mx-auto relative z-10">
       <div class="max-w-3xl mx-auto text-center">
         <span class="text-label text-accent reveal">The Thesis</span>
         <h2 class="text-headline text-bark-50 mt-6 text-split">
