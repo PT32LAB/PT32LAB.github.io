@@ -206,7 +206,9 @@ const phases = [
             <p class="text-bark-400 text-sm mt-1">{phase.time}</p>
 
             {phase.description && (
-              <p class="text-bark-500 text-sm mt-4 leading-relaxed italic">{phase.description}</p>
+              <div class="bar-section mt-4">
+                <p class="text-bark-500 text-sm leading-relaxed italic">{phase.description}</p>
+              </div>
             )}
 
             <ul class="mt-6 space-y-3">
