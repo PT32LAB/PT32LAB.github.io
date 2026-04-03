@@ -1,0 +1,154 @@
+---
+import Landing from '../../layouts/Landing.astro';
+
+const modalities = [
+  { icon: '&#9878;', title: 'Cooperative Shares', desc: 'Membership under Bolivia\'s Ley 356. One member, one vote. Foreign nationals welcome.' },
+  { icon: '&#9881;', title: 'Component Funding', desc: 'Fund a solar micro-grid, coffee line, or fab lab. Your capital becomes a named, physical thing.' },
+  { icon: '&#9733;', title: 'In-Kind Contributions', desc: 'Ship panels, tools, or contribute engineering designs. Valued at fair market, converted to shares.' },
+  { icon: '&#8962;', title: 'Residency Investment', desc: 'Buy-in for community membership plus living space. Land remains collectively owned.' },
+  { icon: '&#9775;', title: 'Working Contributions', desc: 'Earn shares through labor -- construction, agriculture, teaching, maintenance. Sweat equity with caps.' },
+];
+---
+
+<Landing title="A Cooperative in the Cloud Forest" description="BARK investment thesis. Cooperative structure, five investment modalities, revenue projections, and radical honesty about what exists today.">
+
+  <!-- Hero -->
+  <section class="min-h-screen flex items-center px-6 lg:px-10 pt-16">
+    <div class="max-w-[900px] mx-auto py-20">
+      <span class="text-label text-accent reveal">Investment</span>
+      <h1 class="text-display text-bark-800 mt-6 reveal" data-delay="100">
+        BARK does not yet exist.<br/>Here's why it should.
+      </h1>
+      <p class="text-body-lg text-bark-500 mt-8 max-w-2xl reveal" data-delay="200">
+        No land has been purchased. No legal entity has been formed. No revenue has been generated.
+        We are publishing this thesis because we believe radical transparency attracts the right
+        kind of capital -- patient, aligned, and clear-eyed about risk.
+      </p>
+      <div class="accent-line max-w-xs mt-12 reveal" data-delay="300"></div>
+    </div>
+  </section>
+
+  <!-- The model -->
+  <section class="section-gap bg-bark-100 px-6 lg:px-10">
+    <div class="content-width">
+      <span class="text-label text-bark-500 reveal">The Model</span>
+      <h2 class="text-headline text-bark-800 mt-4 mb-8 reveal" data-delay="100">
+        Market connector, not charity
+      </h2>
+      <div class="space-y-6 text-body-lg text-bark-600 reveal" data-delay="200">
+        <p>
+          BARK connects Yungas producers to global markets through direct trade, retreat tourism,
+          and technical services. Five integrated components -- techno park, incubator, trading house,
+          retreat center, infrastructure -- share power, labor, and data.
+        </p>
+        <p>
+          Each component generates independent revenue. Together, they create redundancy:
+          when one stream dips, the others compensate. This is not a single-product bet.
+        </p>
+        <p>
+          The cooperative structure means every member has voice. Wealth does not buy extra governance.
+          Open-source documentation means the model is forkable -- every replication validates the original.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Revenue potential -->
+  <section class="section-gap px-6 lg:px-10">
+    <div class="max-w-[1100px] mx-auto">
+      <span class="text-label text-bark-500 reveal">Revenue Potential</span>
+      <h2 class="text-headline text-bark-800 mt-4 mb-4 reveal" data-delay="100">
+        $43-129K/yr combined revenue
+      </h2>
+      <p class="text-bark-500 mb-10 reveal" data-delay="150">
+        On $65-158K total investment. At full operation, years 2-4.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card hover-lift reveal" data-delay="100">
+          <div class="tag mb-4">Conservative</div>
+          <div class="stat-block text-left">
+            <div class="stat-value text-bark-700">$43K</div>
+            <div class="stat-label text-left">Per year, year 3-5</div>
+          </div>
+          <p class="text-sm text-bark-500 mt-4">Coffee and cacao at minimal scale. No retreat revenue. Basic solar services. ~$65K invested.</p>
+        </div>
+        <div class="card hover-lift border-accent reveal" data-delay="200">
+          <div class="tag tag-accent mb-4">Base Case</div>
+          <div class="stat-block text-left">
+            <div class="stat-value text-accent">$80K</div>
+            <div class="stat-label text-left">Per year, year 5-7</div>
+          </div>
+          <p class="text-sm text-bark-500 mt-4">Moderate scale, established supply chains. Retreat center operational. Solar training active. ~$110K invested.</p>
+        </div>
+        <div class="card hover-lift reveal" data-delay="300">
+          <div class="tag mb-4">Optimistic</div>
+          <div class="stat-block text-left">
+            <div class="stat-value text-bark-700">$129K</div>
+            <div class="stat-label text-left">Per year, year 7-10</div>
+          </div>
+          <p class="text-sm text-bark-500 mt-4">All components operational. Premium brands established. Fab lab generating incubator revenue. ~$158K invested.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-accent max-w-[1100px] mx-auto"></div>
+
+  <!-- 5 modalities -->
+  <section class="section-gap px-6 lg:px-10">
+    <div class="max-w-[1100px] mx-auto">
+      <span class="text-label text-bark-500 reveal">Five Ways In</span>
+      <h2 class="text-headline text-bark-800 mt-4 mb-10 reveal" data-delay="100">
+        Investment modalities
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {modalities.map((m, i) => (
+          <div class="card hover-lift reveal" data-delay={String(i * 100)}>
+            <div class="text-2xl mb-3" set:html={m.icon} />
+            <h3 class="font-display font-semibold text-bark-800 mb-2">{m.title}</h3>
+            <p class="text-sm text-bark-500 leading-relaxed">{m.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What makes it different -->
+  <section class="section-gap bg-bark-900 text-bark-300 px-6 lg:px-10">
+    <div class="content-width">
+      <span class="text-label text-accent reveal">What's Different</span>
+      <h2 class="text-headline text-bark-50 mt-4 mb-8 reveal" data-delay="100">
+        Not a startup. Not a charity.
+      </h2>
+      <div class="space-y-6 text-body-lg text-bark-400 reveal" data-delay="200">
+        <p>
+          <strong class="text-bark-200">Cooperative structure.</strong> Bolivia's Ley 356 allows foreign
+          membership with full voice and vote. Governance cannot be purchased -- one member, one vote.
+        </p>
+        <p>
+          <strong class="text-bark-200">Open source.</strong> Every schematic, every governance decision,
+          every agricultural trial published. The model survives its founders and resists capture.
+        </p>
+        <p>
+          <strong class="text-bark-200">Government alignment.</strong> Bolivia actively seeks rural
+          electrification, cooperative formation, and agroforestry investment. BARK aligns with
+          existing national programs, not against them.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-gap-lg px-6 lg:px-10">
+    <div class="content-width text-center">
+      <h2 class="text-headline text-bark-800 mb-8 reveal">
+        Read the full thesis.
+      </h2>
+      <a href="/en/investors" class="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white font-display font-semibold text-sm tracking-wide rounded-full hover:bg-accent-dim transition-colors duration-300 reveal" data-delay="100">
+        Read the investment thesis
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+      </a>
+    </div>
+  </section>
+
+</Landing>

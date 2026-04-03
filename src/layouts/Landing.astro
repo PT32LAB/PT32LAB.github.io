@@ -1,0 +1,57 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'BARK — Bolivian Ark. An off-grid community preserving humanistic values through resilient technology.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={`https://pt32lab.github.io${Astro.url.pathname}`} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" /></noscript>
+    <title>{title} | BARK</title>
+    <meta property="og:title" content={`${title} | BARK — Bolivian Ark`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://pt32lab.github.io/images/yungas/valley.jpg" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | BARK`} />
+    <meta name="twitter:description" content={description} />
+    <ClientRouter />
+  </head>
+  <body class="min-h-screen bg-bark-50 text-bark-800">
+    <!-- Minimal nav: logo + language -->
+    <nav class="fixed top-0 w-full z-50 bg-bark-50/80 backdrop-blur-sm">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
+        <a href="/en/" class="font-display font-bold text-bark-800 text-lg tracking-tight hover:text-accent transition-colors">
+          BARK
+        </a>
+        <a href="/es/" class="text-[0.7rem] font-display font-medium tracking-[0.12em] uppercase text-bark-400 hover:text-accent transition-colors duration-300">
+          Espanol
+        </a>
+      </div>
+    </nav>
+
+    <main transition:animate="fade">
+      <slot />
+    </main>
+
+    <script>
+      import { init } from '../scripts/init';
+      document.addEventListener('astro:page-load', init);
+    </script>
+  </body>
+</html>
