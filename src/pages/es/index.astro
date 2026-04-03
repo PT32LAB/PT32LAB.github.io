@@ -12,11 +12,11 @@ const pathways = [
 ];
 
 const pillars = [
-  { name: 'Techno Park', desc: 'A fabrication lab where broken water pumps get fixed, circuit boards get milled, and the tools the supply chain abandoned get redesigned in the open.', link: `/${lang}/pillars/technopark` },
-  { name: 'Incubator', desc: 'Ventures that prove themselves in Coroico before they scale anywhere else. Built around local needs and local supply chains.', link: `/${lang}/pillars/incubator` },
-  { name: 'Trading House', desc: 'Yungas coffee and cacao moving through channels we built -- not middlemen who have never tasted the fruit wet off the branch.', link: `/${lang}/pillars/trading` },
-  { name: 'Retreat Center', desc: 'Biometric-monitored contemplative practice. Aymara healers and biosensors in the same room, learning from each other.', link: `/${lang}/pillars/retreat` },
-  { name: 'Infrastructure', desc: 'Solar panels, spring-fed cisterns, vertical growing walls, mesh radios. The foundation that keeps everything else running.', link: `/${lang}/pillars/infrastructure` },
+  { name: 'Techno Park', icon: 'technopark', desc: 'A fabrication lab where broken water pumps get fixed, circuit boards get milled, and the tools the supply chain abandoned get redesigned in the open.', link: `/${lang}/pillars/technopark` },
+  { name: 'Incubator', icon: 'incubator', desc: 'Ventures that prove themselves in Coroico before they scale anywhere else. Built around local needs and local supply chains.', link: `/${lang}/pillars/incubator` },
+  { name: 'Trading House', icon: 'trading', desc: 'Yungas coffee and cacao moving through channels we built -- not middlemen who have never tasted the fruit wet off the branch.', link: `/${lang}/pillars/trading` },
+  { name: 'Retreat Center', icon: 'retreat', desc: 'Biometric-monitored contemplative practice. Aymara healers and biosensors in the same room, learning from each other.', link: `/${lang}/pillars/retreat` },
+  { name: 'Infrastructure', icon: 'infrastructure', desc: 'Solar panels, spring-fed cisterns, vertical growing walls, mesh radios. The foundation that keeps everything else running.', link: `/${lang}/pillars/infrastructure` },
 ];
 ---
 
@@ -67,7 +67,7 @@ const pillars = [
   </section>
 
   <!-- What BARK is -- concise value prop -->
-  <section class="relative py-24 px-6 lg:px-10 overflow-hidden" style="background: linear-gradient(135deg, var(--color-bark-100) 0%, var(--color-bark-50) 40%, rgba(16,185,129,0.04) 100%);">
+  <section class="relative py-24 px-6 lg:px-10 overflow-hidden bg-warm-gradient bg-dots" style="background: linear-gradient(135deg, var(--color-bark-100) 0%, var(--color-bark-50) 40%, rgba(16,185,129,0.04) 100%);">
     <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 20% 50%, var(--color-accent) 1px, transparent 1px), radial-gradient(circle at 80% 20%, var(--color-accent) 1px, transparent 1px), radial-gradient(circle at 60% 80%, var(--color-accent) 1px, transparent 1px); background-size: 60px 60px, 80px 80px, 70px 70px;"></div>
     <div class="relative max-w-[900px] mx-auto text-center">
       <span class="text-label text-accent reveal">What This Is</span>
@@ -134,6 +134,7 @@ const pillars = [
       <div class="grid md:grid-cols-2 gap-px bg-bark-200 rounded-xl overflow-hidden">
         {pathways.map((p, i) => (
           <a href={p.link} class="group relative bg-bark-50 p-10 hover:bg-bark-100 transition-colors duration-500 reveal" data-delay={String(i * 100)}>
+            <span class="absolute top-2 right-4 font-display text-[4rem] font-extrabold text-bark-100 leading-none select-none">{p.num}</span>
             <span class="text-label text-bark-300 group-hover:text-accent transition-colors duration-300">{p.num}</span>
             <h3 class="text-title text-bark-800 mt-3 group-hover:text-bark-900 transition-colors duration-300">
               {t(lang, `paths.${p.key}.title` as any)}
@@ -272,6 +273,7 @@ const pillars = [
           <a href={p.link} class="group flex flex-col md:flex-row md:items-center justify-between gap-4 py-8 px-6 bg-bark-50 hover:bg-bark-100 border-b border-bark-200 transition-colors duration-300 reveal" data-delay={String(i * 60)}>
             <div class="flex items-center gap-6">
               <span class="text-label text-bark-300 w-8">0{i + 1}</span>
+              <img src={`/images/icons/${p.icon}.svg`} alt="" class="w-8 h-8 opacity-40 hidden md:block" />
               <h3 class="text-title text-bark-800 group-hover:text-bark-900 transition-colors">{p.name}</h3>
             </div>
             <div class="flex items-center gap-8">

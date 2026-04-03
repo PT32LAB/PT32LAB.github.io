@@ -73,16 +73,30 @@ const { title, subtitle, description } = Astro.props;
     line-height: 1.2;
     letter-spacing: -0.01em;
     color: var(--color-bark-800);
-    margin-top: 3.5rem;
+    margin-top: 4rem;
     margin-bottom: 1.5rem;
-    padding-top: 3rem;
-    border-top: 1px solid var(--color-bark-200);
+    padding-top: 4rem;
+    position: relative;
+  }
+
+  .content-prose > h2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), transparent);
+    border-radius: 2px;
   }
 
   .content-prose > h2:first-child {
     margin-top: 0;
     padding-top: 0;
-    border-top: none;
+  }
+
+  .content-prose > h2:first-child::before {
+    display: none;
   }
 
   .content-prose > h3 {
@@ -301,6 +315,14 @@ const { title, subtitle, description } = Astro.props;
   #toc-nav a.toc-active {
     color: var(--color-accent);
     border-left-color: var(--color-accent);
+  }
+
+  /* --- Opt-in visual variation for content sections --- */
+  .content-prose.content-visual > h2:nth-of-type(even) ~ p,
+  .content-prose.content-visual > h2:nth-of-type(even) ~ ul,
+  .content-prose.content-visual > h2:nth-of-type(even) ~ .evidence {
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--color-bark-200);
   }
 </style>
 
