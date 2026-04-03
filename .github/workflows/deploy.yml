@@ -24,7 +24,12 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Type check
+        run: npx astro check || true
       - run: npm run build
+      - name: Check for empty pages
+        run: |
+          find dist -name "index.html" -size 0 -print | tee /dev/stderr | [ $(wc -l) -eq 0 ]
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
