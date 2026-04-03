@@ -2,65 +2,65 @@
 import Landing from '../../layouts/Landing.astro';
 
 const capabilities = [
-  { title: 'Proveedores locales', text: 'Materiales de construcción, alimentos, transporte, servicios. BARK compra localmente primero. Cada compra es un voto por la economía regional.' },
-  { title: 'Empleo', text: 'Contratación local para construcción, agricultura, hotelería, mantenimiento. BARK es una nómina antes de ser un producto.' },
-  { title: 'Acceso a mercados', text: 'La Casa Comercial compra excedentes locales a precios justos y conecta a los productores yungueños con compradores internacionales. Los productores conservan su tierra y su margen.' },
-  { title: 'Alianzas con productores', text: 'Relaciones directas con cultivadores de café, coca, cítricos y cacao. Procesamiento compartido, logística compartida, beneficios compartidos.' },
-  { title: 'Infraestructura', text: 'Paneles solares, sistemas de agua, comunicaciones en malla — construidos para beneficiar a la zona circundante, no para aislarla.' },
-  { title: 'Capacitación', text: 'Programas de formación, alianza con la Universidad Carmen Pampa, transferencia tecnológica. Conocimiento que se queda en el valle.' },
-  { title: 'Emprendimientos', text: 'La Incubadora lanza negocios enraizados en necesidades locales — procesamiento, logística, servicios que realmente faltan en la región.' },
+  { title: 'Local suppliers', text: 'Construction materials, food, transport, services. BARK buys locally first. Every purchase is a vote for the regional economy.' },
+  { title: 'Jobs', text: 'Local hiring for construction, agriculture, hospitality, maintenance. BARK is a payroll before it is a product.' },
+  { title: 'Market access', text: 'The Trading House buys local surplus at fair prices and connects Yungas producers to international buyers. Growers keep their land and their margin.' },
+  { title: 'Producer partnerships', text: 'Direct relationships with coffee, coca, citrus, and cacao growers. Shared processing, shared logistics, shared upside.' },
+  { title: 'Infrastructure', text: 'Solar arrays, water systems, mesh communications -- built to benefit the surrounding area, not fence it off.' },
+  { title: 'Skills', text: 'Training programs, Carmen Pampa University partnership, tech transfer. Knowledge that stays in the valley.' },
+  { title: 'Ventures', text: 'The Incubator launches businesses rooted in local needs -- processing, logistics, services the region actually lacks.' },
 ];
 
 const notList = [
-  { label: 'No es una ZEDE', text: 'Sin zona económica especial. Sin jurisdicción separada. La ley boliviana se aplica plenamente.' },
-  { label: 'No es un búnker de expatriados', text: 'La cooperativa requiere liderazgo boliviano por ley (Ley 356 Art. 65). Esto es por diseño.' },
-  { label: 'No es extractivista', text: 'Compramos local, procesamos local, vendemos para beneficio local. El valor se queda en los Yungas.' },
-  { label: 'No reemplaza medios de vida', text: 'Conector de mercado, no competidor. Los agricultores ganan un comprador, no un rival.' },
+  { label: 'Not a ZEDE', text: 'No special economic zone. No separate jurisdiction. Bolivian law applies fully.' },
+  { label: 'Not an expat bunker', text: 'The cooperative requires Bolivian leadership by law (Ley 356 Art. 65). This is by design.' },
+  { label: 'Not extractive', text: 'We buy local, process local, sell for local benefit. Value stays in the Yungas.' },
+  { label: 'Not replacing livelihoods', text: 'Market connector, not competitor. Farmers gain a buyer, not a rival.' },
 ];
 
 const partners = [
-  { who: 'Productores', how: 'Vender a la Casa Comercial a precios transparentes y de mercado justo. Conservas tu tierra, conservas tu margen.' },
-  { who: 'Cooperativas', how: 'Equipamiento de procesamiento compartido, acceso a mercados compartido, logística compartida.' },
-  { who: 'Escuelas y Universidad', how: 'Pasantías, investigación de campo, programas de formación con Carmen Pampa. Proyectos estudiantiles con resultados reales.' },
-  { who: 'Entes Municipales y Cívicos', how: 'Alineamiento con el programa solar de $325M de Bolivia, el marco legal cooperativo y los objetivos de desarrollo local.' },
-  { who: 'Aliados Técnicos', how: 'Ingenieros, agrónomos, constructores, investigadores. Aportan experiencia, acceden a infraestructura compartida.' },
-  { who: 'Instituciones Locales', how: 'Postas de salud, operadores de transporte, asociaciones de mercado. BARK se integra con lo que ya funciona.' },
+  { who: 'Producers', how: 'Sell to the Trading House at transparent, fair-market prices. Keep your land, keep your margin.' },
+  { who: 'Cooperatives', how: 'Shared processing equipment, shared market access, shared logistics.' },
+  { who: 'Schools & University', how: 'Internships, field research, training programs with Carmen Pampa. Student projects with real outcomes.' },
+  { who: 'Municipal & Civic Bodies', how: 'Alignment with Bolivia\'s $325M solar program, cooperative legal framework, and local development goals.' },
+  { who: 'Technical Allies', how: 'Engineers, agronomists, builders, researchers. Contribute expertise, access shared infrastructure.' },
+  { who: 'Local Institutions', how: 'Health posts, transport operators, market associations. BARK integrates with what already works.' },
 ];
 
 const risks = [
-  'Acceso vial — la carretera La Paz-Coroico se cierra por deslizamientos. La resiliencia de la cadena de suministro no es opcional.',
-  'Salud — instalaciones locales limitadas. El hospital más cercano está en La Paz, a tres horas.',
-  'Inestabilidad política — Bolivia tiene ciclos políticos reales. La crisis de 2024 afectó a todo el país.',
-  'Burocracia — permisos, inspecciones, procesos legales avanzan a su propio ritmo. La paciencia es un requisito estructural.',
-  'Crisis económica — presión cambiaria, inflación, agotamiento de reservas. Planificamos para esto, no alrededor de esto.',
-  'La legitimidad local se gana — ninguna cantidad de inversión sustituye la confianza. Eso requiere presencia, tiempo y cumplimiento.',
+  'Road access -- the La Paz-Coroico highway closes during landslides. Supply chain resilience is not optional.',
+  'Healthcare -- limited local facilities. Nearest hospital is in La Paz, three hours away.',
+  'Political instability -- Bolivia has real political cycles. The 2024 crisis disrupted the entire country.',
+  'Bureaucracy -- permits, inspections, legal processes move on their own timeline. Patience is a structural requirement.',
+  'Economic crisis -- currency pressure, inflation, reserve depletion. We plan for this, not around it.',
+  'Local legitimacy must be earned -- no amount of investment substitutes for trust. That takes presence, time, and follow-through.',
 ];
 ---
 
-<Landing title="Región" description="BARK existe para aumentar la capacidad de Coroico, no para construir muros alrededor de un recinto. Integración regional, no enclave." heroImage="/images/yungas/tocana-landscape.jpg">
+<Landing title="Region" description="BARK exists to increase Coroico's capability, not to build walls around a compound. Regional integration, not enclave." heroImage="/images/yungas/tocana-landscape.jpg">
 
-  <!-- Hero con foto de tocana-landscape -->
+  <!-- Hero with tocana-landscape photo -->
   <section class="relative min-h-[70vh] flex items-end overflow-hidden">
-    <img src="/images/yungas/tocana-landscape.jpg" alt="Paisaje de Tocaña, valle yungueño debajo de Coroico" width="1920" height="1440" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async" />
+    <img src="/images/yungas/tocana-landscape.jpg" alt="Tocana landscape, Yungas valley below Coroico" width="1920" height="1440" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async" />
     <div class="absolute inset-0 bg-gradient-to-t from-bark-900/90 via-bark-900/50 to-transparent"></div>
     <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pb-16 w-full">
-      <span class="text-label text-accent reveal">Integración Regional</span>
-      <h1 class="text-display text-bark-50 mt-4 max-w-3xl reveal" data-delay="100">Región, No Enclave</h1>
+      <span class="text-label text-accent reveal">Regional Integration</span>
+      <h1 class="text-display text-bark-50 mt-4 max-w-3xl reveal" data-delay="100">Region, Not Enclave</h1>
       <p class="text-body-lg text-bark-200 mt-6 max-w-2xl reveal" data-delay="150">
-        BARK se construye en los Yungas para aumentar la capacidad local, no para retirarse de la región que lo hace posible.
+        BARK is being built in the Yungas to increase local capability, not to withdraw from the region that makes it possible.
       </p>
       <p class="text-body-lg text-bark-300 mt-4 max-w-2xl reveal" data-delay="200">
-        El proyecto solo tiene legitimidad si contribuye al territorio circundante: productores, proveedores, capacitación, infraestructura y nuevas formas de vida económica regional.
+        The project only has legitimacy if it contributes to the surrounding territory: producers, suppliers, skills, infrastructure, and new forms of regional economic life.
       </p>
     </div>
   </section>
 
-  <!-- Lo Que BARK Significa para Este Lugar -->
+  <!-- What BARK Means for This Place -->
   <section class="section-gap px-6 lg:px-10">
     <div class="max-w-[1100px] mx-auto">
-      <span class="text-label text-bark-500 reveal">Lo Que BARK Significa para Este Lugar</span>
+      <span class="text-label text-bark-500 reveal">What BARK Means for This Place</span>
       <h2 class="text-headline text-bark-800 mt-4 mb-10 reveal" data-delay="100">
-        Capacidad, no encierro
+        Capability, not enclosure
       </h2>
       <div class="space-y-4">
         {capabilities.map((c, i) => (
@@ -76,127 +76,127 @@ const risks = [
     </div>
   </section>
 
-  <!-- Por Qué Coroico / Yungas -->
+  <!-- Why Coroico / Yungas -->
   <section class="section-gap bg-bark-100 px-6 lg:px-10">
     <div class="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       <div class="reveal">
-        <span class="text-label text-bark-500">Por Qué Aquí</span>
-        <h2 class="text-title text-bark-800 mt-4 mb-6">Coroico y los Yungas</h2>
+        <span class="text-label text-bark-500">Why Here</span>
+        <h2 class="text-title text-bark-800 mt-4 mb-6">Coroico and the Yungas</h2>
         <p class="text-bark-600 text-[1.05rem] leading-[1.8]">
-          1.750 metros. Temporada de cultivo durante todo el año. A tres horas de La Paz por
-          un solo camino que funciona como línea de vida y cuello de botella a la vez. Biodiversidad
-          extraordinaria a lo largo de franjas altitudinales. Una tradición cooperativa existente
-          a través de CENAPROC y la red agrícola yungueña. La Universidad Carmen Pampa
-          al alcance para investigación y formación. La infraestructura de ayuda mutua
-          ya existe aquí &mdash; BARK se conecta a ella, no la reemplaza.
+          1,750 meters. Year-round growing season. Three hours from La Paz via a
+          single road that doubles as lifeline and bottleneck. Extraordinary
+          biodiversity across altitude bands. An existing cooperative tradition through
+          CENAPROC and the broader Yungas agricultural network. Carmen Pampa University
+          within reach for research and training. The infrastructure of mutual aid
+          already exists here &mdash; BARK plugs into it, not over it.
         </p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-px bg-bark-200 rounded-xl overflow-hidden reveal" data-delay="100">
         <div class="bg-bark-50 p-6 text-center">
-          <p class="font-display font-bold text-bark-800 text-2xl">1.750m</p>
-          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Altitud</p>
+          <p class="font-display font-bold text-bark-800 text-2xl">1,750m</p>
+          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Elevation</p>
         </div>
         <div class="bg-bark-50 p-6 text-center">
-          <p class="font-display font-bold text-bark-800 text-2xl">12 meses</p>
-          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Temporada de cultivo</p>
+          <p class="font-display font-bold text-bark-800 text-2xl">12mo</p>
+          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Growing season</p>
         </div>
         <div class="bg-bark-50 p-6 text-center">
           <p class="font-display font-bold text-bark-800 text-2xl">3h</p>
-          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Desde La Paz</p>
+          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">From La Paz</p>
         </div>
         <div class="bg-bark-50 p-6 text-center">
           <p class="font-display font-bold text-accent text-2xl">Co-op</p>
-          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Tradición (CENAPROC)</p>
+          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Tradition (CENAPROC)</p>
         </div>
         <div class="bg-bark-50 p-6 text-center">
-          <p class="font-display font-bold text-bark-800 text-2xl">Alta</p>
-          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Biodiversidad</p>
+          <p class="font-display font-bold text-bark-800 text-2xl">High</p>
+          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Biodiversity</p>
         </div>
         <div class="bg-bark-50 p-6 text-center">
           <p class="font-display font-bold text-bark-800 text-2xl">UCB</p>
-          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Carmen Pampa cercana</p>
+          <p class="text-label text-bark-400 mt-1 text-[0.6rem]">Carmen Pampa nearby</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Modelo de Desarrollo Regional -->
+  <!-- Regional Lift Model -->
   <section class="section-gap px-6 lg:px-10">
     <div class="max-w-[1100px] mx-auto">
-      <span class="text-label text-bark-500 reveal">Modelo de Desarrollo Regional</span>
+      <span class="text-label text-bark-500 reveal">Regional Lift Model</span>
       <h2 class="text-title text-bark-800 mt-4 mb-4 reveal" data-delay="100">
-        Cómo se conecta el ecosistema
+        How the ecosystem connects
       </h2>
       <p class="text-bark-600 mb-10 max-w-2xl reveal" data-delay="150">
-        BARK es un nodo en una red regional. El valor fluye hacia afuera — hacia productores,
-        cooperativas, la universidad, proveedores locales, y eventualmente hacia nuevos
-        emprendimientos y mercados que antes no existían.
+        BARK is one node in a regional network. Value flows outward -- to producers,
+        cooperatives, the university, local suppliers, and eventually to new ventures
+        and markets that did not exist before.
       </p>
 
-      <!-- Diagrama del ecosistema: anillos concéntricos -->
+      <!-- Ecosystem diagram: concentric rings -->
       <div class="relative max-w-[700px] mx-auto reveal" data-delay="200">
-        <svg viewBox="0 0 700 420" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto" role="img" aria-label="Diagrama del ecosistema regional mostrando a BARK en el centro conectado con agricultores, cooperativas, universidad, proveedores, emprendimientos, mercados y visitantes">
-          <!-- Anillo exterior -->
+        <svg viewBox="0 0 700 420" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto" role="img" aria-label="Regional ecosystem diagram showing BARK at the center connected to farmers, cooperatives, university, suppliers, ventures, markets, and visitors">
+          <!-- Outer ring -->
           <ellipse cx="350" cy="210" rx="330" ry="190" stroke="#e4ded6" stroke-width="1.5" stroke-dasharray="6 4" />
-          <!-- Anillo medio -->
+          <!-- Middle ring -->
           <ellipse cx="350" cy="210" rx="220" ry="130" stroke="#c9bfb2" stroke-width="1.5" />
-          <!-- Anillo interior -->
+          <!-- Inner ring -->
           <ellipse cx="350" cy="210" rx="80" ry="50" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-width="2" />
-          <!-- Etiqueta central -->
+          <!-- Center label -->
           <text x="350" y="206" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="700" font-size="16" fill="#1a1610">BARK</text>
-          <text x="350" y="224" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="400" font-size="10" fill="#8a7a66">eje cooperativo</text>
+          <text x="350" y="224" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="400" font-size="10" fill="#8a7a66">cooperative hub</text>
 
-          <!-- Nodos del anillo medio -->
+          <!-- Middle ring nodes -->
           <circle cx="170" cy="140" r="6" fill="#10b981" />
-          <text x="170" y="125" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="600" font-size="12" fill="#2d261e">Agricultores</text>
+          <text x="170" y="125" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="600" font-size="12" fill="#2d261e">Farmers</text>
 
           <circle cx="530" cy="140" r="6" fill="#10b981" />
-          <text x="530" y="125" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="600" font-size="12" fill="#2d261e">Cooperativas</text>
+          <text x="530" y="125" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="600" font-size="12" fill="#2d261e">Cooperatives</text>
 
           <circle cx="170" cy="280" r="6" fill="#10b981" />
-          <text x="170" y="300" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="600" font-size="12" fill="#2d261e">Universidad</text>
+          <text x="170" y="300" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="600" font-size="12" fill="#2d261e">University</text>
 
           <circle cx="530" cy="280" r="6" fill="#10b981" />
-          <text x="530" y="300" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="600" font-size="12" fill="#2d261e">Proveedores</text>
+          <text x="530" y="300" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="600" font-size="12" fill="#2d261e">Suppliers</text>
 
           <circle cx="350" cy="90" r="6" fill="#10b981" />
-          <text x="350" y="75" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="600" font-size="12" fill="#2d261e">Emprendimientos</text>
+          <text x="350" y="75" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="600" font-size="12" fill="#2d261e">Ventures</text>
 
-          <!-- Nodos del anillo exterior -->
+          <!-- Outer ring nodes -->
           <circle cx="80" cy="210" r="5" fill="#d4a853" />
-          <text x="42" y="214" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="500" font-size="11" fill="#6b5d4d">Mercados</text>
+          <text x="42" y="214" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="500" font-size="11" fill="#6b5d4d">Markets</text>
 
           <circle cx="620" cy="210" r="5" fill="#d4a853" />
-          <text x="660" y="214" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="500" font-size="11" fill="#6b5d4d">Visitantes</text>
+          <text x="660" y="214" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="500" font-size="11" fill="#6b5d4d">Visitors</text>
 
           <circle cx="350" cy="350" r="5" fill="#d4a853" />
-          <text x="350" y="372" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="500" font-size="11" fill="#6b5d4d">Talento</text>
+          <text x="350" y="372" text-anchor="middle" font-family="Libre Franklin, system-ui, sans-serif" font-weight="500" font-size="11" fill="#6b5d4d">Talent</text>
 
-          <!-- Líneas de conexión del centro al anillo medio -->
+          <!-- Connection lines from center to middle ring -->
           <line x1="280" y1="195" x2="176" y2="146" stroke="#10b981" stroke-width="1" stroke-opacity="0.4" />
           <line x1="420" y1="195" x2="524" y2="146" stroke="#10b981" stroke-width="1" stroke-opacity="0.4" />
           <line x1="280" y1="225" x2="176" y2="274" stroke="#10b981" stroke-width="1" stroke-opacity="0.4" />
           <line x1="420" y1="225" x2="524" y2="274" stroke="#10b981" stroke-width="1" stroke-opacity="0.4" />
           <line x1="350" y1="162" x2="350" y2="96" stroke="#10b981" stroke-width="1" stroke-opacity="0.4" />
 
-          <!-- Líneas de conexión del anillo medio al exterior -->
+          <!-- Connection lines from middle to outer ring -->
           <line x1="164" y1="140" x2="85" y2="210" stroke="#d4a853" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="4 3" />
           <line x1="536" y1="140" x2="615" y2="210" stroke="#d4a853" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="4 3" />
           <line x1="170" y1="286" x2="344" y2="345" stroke="#d4a853" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="4 3" />
           <line x1="530" y1="286" x2="356" y2="345" stroke="#d4a853" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="4 3" />
           <line x1="350" y1="84" x2="85" y2="205" stroke="#d4a853" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="4 3" />
         </svg>
-        <p class="text-center text-bark-400 text-xs mt-4 font-display tracking-wide uppercase">Anillo interior: socios directos &middot; Anillo exterior: alcance indirecto</p>
+        <p class="text-center text-bark-400 text-xs mt-4 font-display tracking-wide uppercase">Inner ring: direct partners &middot; Outer ring: downstream reach</p>
       </div>
     </div>
   </section>
 
-  <!-- Lo Que BARK NO Es — sección oscura -->
+  <!-- What BARK Is NOT -- dark section -->
   <section class="section-gap bg-bark-900 text-bark-300 px-6 lg:px-10">
     <div class="max-w-[1100px] mx-auto">
-      <span class="text-label text-accent reveal">Lo Que BARK No Es</span>
+      <span class="text-label text-accent reveal">What BARK Is Not</span>
       <h2 class="text-headline text-bark-50 mt-4 mb-10 reveal" data-delay="100">
-        Sin enclaves. Sin excepciones.
+        No enclaves. No exceptions.
       </h2>
       <div class="grid sm:grid-cols-2 gap-6">
         {notList.map((item, i) => (
@@ -209,12 +209,12 @@ const risks = [
     </div>
   </section>
 
-  <!-- Vías de Alianza -->
+  <!-- Partnership Paths -->
   <section class="section-gap px-6 lg:px-10">
     <div class="max-w-[1100px] mx-auto">
-      <span class="text-label text-bark-500 reveal">Vías de Alianza</span>
+      <span class="text-label text-bark-500 reveal">Partnership Paths</span>
       <h2 class="text-title text-bark-800 mt-4 mb-10 reveal" data-delay="100">
-        Cómo funciona la relación
+        How the relationship works
       </h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {partners.map((p, i) => (
@@ -229,12 +229,12 @@ const risks = [
 
   <div class="divider-accent max-w-[900px] mx-auto"></div>
 
-  <!-- Riesgos Que Reconocemos -->
+  <!-- Risks We Acknowledge -->
   <section class="section-gap px-6 lg:px-10">
     <div class="content-width">
-      <span class="text-label text-bark-500 reveal">Riesgos Que Reconocemos</span>
+      <span class="text-label text-bark-500 reveal">Risks We Acknowledge</span>
       <h2 class="text-title text-bark-800 mt-4 mb-8 reveal" data-delay="100">
-        Honestos sobre las partes difíciles
+        Honest about the hard parts
       </h2>
       <div class="space-y-4">
         {risks.map((r, i) => (
@@ -245,9 +245,9 @@ const risks = [
         ))}
       </div>
       <p class="text-bark-500 mt-8 reveal" data-delay="400">
-        Hemos investigado esto con honestidad.
-        <a href="/es/risks" class="link-arrow inline-flex">
-          Leer nuestra evaluación completa de riesgos
+        We have researched this honestly.
+        <a href="/en/risks" class="link-arrow inline-flex">
+          Read our full risk assessment
           <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
       </p>
@@ -258,15 +258,15 @@ const risks = [
   <section class="section-gap-lg bg-bark-100 px-6 lg:px-10">
     <div class="content-width text-center">
       <h2 class="text-headline text-bark-800 mb-6 reveal">
-        Hablemos de lo que esto significa para tu comunidad.
+        Let's talk about what this means for your community.
       </h2>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-        <a href="mailto:pt32lab@proton.me?subject=Consulta%20de%20alianza%20regional" class="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white font-display font-semibold text-sm tracking-wide rounded-full hover:bg-accent-dim transition-colors duration-300 reveal" data-delay="100">
-          Aliarse con BARK
+        <a href="mailto:pt32lab@proton.me?subject=Regional%20partnership%20inquiry" class="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white font-display font-semibold text-sm tracking-wide rounded-full hover:bg-accent-dim transition-colors duration-300 reveal" data-delay="100">
+          Partner With BARK
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
-        <a href="/es/economy" class="link-arrow reveal" data-delay="200">
-          Ver la Economía Regional
+        <a href="/en/economy" class="link-arrow reveal" data-delay="200">
+          See the Regional Economy
           <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
       </div>

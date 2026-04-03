@@ -1,73 +1,149 @@
 ---
-import ContentPage from '../../components/ContentPage.astro';
+import Base from '../../layouts/Base.astro';
 ---
 
-<ContentPage title="The Vision" subtitle="A community in the Bolivian cloud forest, learning to provision its own power, food, shelter, and governance -- and to keep doing so when the external systems it once depended on stop being reliable." description="A semi-autonomous community in the Bolivian cloud forest. Five components, one system.">
-  <p>
-    BARK -- the Bolivian Ark -- is taking root at 1,750 meters in the Yungas, the subtropical crease where
-    the Andes collapse into the Amazon basin. The name matters. An ark is not a bunker. It carries living
-    things through rough water and sets them down somewhere they can keep living. Bunkers entomb.
-    Arks travel.
-  </p>
+<Base title="The Vision" description="A semi-autonomous community in the Bolivian cloud forest. Five components, one system." heroImage="/images/yungas/coroico-clouds.jpg">
+  <!-- Photo Hero -->
+  <section class="relative min-h-[50vh] flex items-end pb-16 overflow-hidden">
+    <img src="/images/yungas/coroico-clouds.jpg" alt="Coroico in morning cloud" width="1600" height="1068" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
+      <span class="text-label text-accent tracking-widest reveal">Vision</span>
+      <h1 class="text-headline text-white mt-4 reveal" data-delay="100">The Vision</h1>
+      <p class="text-body-lg text-white/70 mt-4 max-w-2xl reveal" data-delay="200">A community in the Bolivian cloud forest, learning to provision its own power, food, shelter, and governance -- and to keep doing so when the external systems it once depended on stop being reliable.</p>
+    </div>
+  </section>
 
-  <h2>A Community, Not a Compound</h2>
-  <div class="content-two-col">
-    <p>
-      Compounds store supplies behind walls. Communities produce what they need. BARK runs on five linked components:
-      a <strong>fabrication lab and techno park</strong> where broken water pumps get repaired, circuit boards
-      get milled, and appropriate technology gets documented in the open; a <strong>startup incubator</strong>
-      that launches ventures rooted in Coroico's actual soil and actual needs; a <strong>trading house</strong>
-      that moves Yungas coffee, cacao, and craft goods through channels the growers built themselves.
-    </p>
-    <p>
-      A <strong>retreat center</strong> where Aymara healers and biosensor engineers sit in the same room,
-      comparing notes on what the body is doing during ceremony; and the <strong>infrastructure layer</strong>
-      underneath -- solar panels, spring-fed cisterns, vertical growing walls, mesh radios -- that makes
-      autonomy a material fact, not an aspiration on a slide deck.
-    </p>
-  </div>
-  <blockquote><p>A maker space without its own power grid is a hobby. A retreat center that cannot feed its guests is a resort with incense.</p></blockquote>
+  <!-- Content with sidebar TOC -->
+  <section class="pb-32 px-6 lg:px-10 pt-16">
+    <div class="max-w-[900px] mx-auto lg:max-w-[1100px] lg:flex lg:gap-16">
 
-  <p>
-    No single component here is unprecedented. Solar works. Permaculture works. Cooperatives work.
-    The ambition is in the connections between them -- shared power, shared data, shared labor pools
-    that let each component compensate when another struggles. When the road to La Paz washes out in
-    the February rains, the community keeps eating, keeps communicating, keeps working.
-  </p>
+      <!-- Sidebar TOC (desktop only) -->
+      <aside class="hidden lg:block lg:w-[200px] lg:shrink-0 lg:order-2">
+        <div class="sticky top-24" id="toc-container">
+          <p class="text-label text-bark-400 mb-4">On this page</p>
+          <nav id="toc-nav" class="space-y-1.5" aria-label="Table of contents">
+            <!-- Populated by JS from h2 elements -->
+          </nav>
+        </div>
+      </aside>
 
-  <div class="photo-frame h-64 md:h-96 my-12 reveal"><img src="/images/yungas/valley.jpg" alt="Yungas valley, Bolivia" width="1920" height="1282" loading="lazy" decoding="async" /><div class="photo-credit">CC BY-SA 3.0 via Wikimedia Commons</div></div>
+      <!-- Main content -->
+      <div class="content-prose lg:flex-1 lg:min-w-0 lg:order-1">
+        <p>
+          BARK -- the Bolivian Ark -- is taking root at 1,750 meters in the Yungas, the subtropical crease where
+          the Andes collapse into the Amazon basin. The name matters. An ark is not a bunker. It carries living
+          things through rough water and sets them down somewhere they can keep living. Bunkers entomb.
+          Arks travel.
+        </p>
 
-  <h2>Open Source as Survival Strategy</h2>
-  <p>
-    Every solar array schematic, every governance vote, every agricultural trial result gets published.
-    This is practical, not altruistic. Open-source projects attract better collaborators,
-    survive their founders, and resist capture by any single faction. If BARK works, the plans should
-    spread. One community in one valley is an experiment. Twenty communities
-    across three continents is a proof of concept.
-  </p>
+        <h2>A Community, Not a Compound</h2>
+        <div class="content-two-col">
+          <p>
+            Compounds store supplies behind walls. Communities produce what they need. BARK runs on five linked components:
+            a <strong>fabrication lab and techno park</strong> where broken water pumps get repaired, circuit boards
+            get milled, and appropriate technology gets documented in the open; a <strong>startup incubator</strong>
+            that launches ventures rooted in Coroico's actual soil and actual needs; a <strong>trading house</strong>
+            that moves Yungas coffee, cacao, and craft goods through channels the growers built themselves.
+          </p>
+          <p>
+            A <strong>retreat center</strong> where Aymara healers and biosensor engineers sit in the same room,
+            comparing notes on what the body is doing during ceremony; and the <strong>infrastructure layer</strong>
+            underneath -- solar panels, spring-fed cisterns, vertical growing walls, mesh radios -- that makes
+            autonomy a material fact, not an aspiration on a slide deck.
+          </p>
+        </div>
+        <blockquote><p>A maker space without its own power grid is a hobby. A retreat center that cannot feed its guests is a resort with incense.</p></blockquote>
 
-  <h2>Embedded, Not Parachuted In</h2>
-  <p>
-    Coroico has existed since before the Spanish arrived. The terraced slopes above town carry a thousand
-    years of agricultural intelligence in their contour lines. This place does not need rescue. What it
-    can use is investment that stays put, jobs that persist beyond a construction phase, and technology
-    transfer that runs in both directions -- the fabrication lab learns from the farmer as much as the
-    farmer learns from the lab. BARK hires locally, buys locally, and submits its governance to mechanisms
-    that give the Coroiqueno community real leverage over what happens on their land.
-  </p>
+        <p>
+          No single component here is unprecedented. Solar works. Permaculture works. Cooperatives work.
+          The ambition is in the connections between them -- shared power, shared data, shared labor pools
+          that let each component compensate when another struggles. When the road to La Paz washes out in
+          the February rains, the community keeps eating, keeps communicating, keeps working.
+        </p>
 
-  <h2>Capability, Not Stockpiles</h2>
-  <p>
-    Hoarding is a losing game. Supplies run out. Canned food expires. Skills atrophy in storage. BARK invests
-    in living capability instead. The question is never "how many months of rice do we have in the warehouse"
-    but "can we grow cassava, mill a replacement pump shaft, stitch a wound, and teach someone else to do all
-    three?" Energy independence, local manufacturing, medical knowledge preserved in daily practice rather
-    than entombed on a hard drive. A community that can repair its own systems does not need to predict
-    which specific crisis arrives next.
-  </p>
+        <div class="photo-frame h-64 md:h-96 my-12 reveal"><img src="/images/yungas/valley.jpg" alt="Yungas valley, Bolivia" width="1920" height="1282" loading="lazy" decoding="async" /><div class="photo-credit">CC BY-SA 3.0 via Wikimedia Commons</div></div>
 
-  <div class="cta-box">
-    <p class="font-display font-semibold text-bark-800 mb-2">The first cohort is forming.</p>
-    <p>We need engineers, capital, and people who finish things. <a href="/en/participate">What the work looks like</a>.</p>
-  </div>
-</ContentPage>
+        <h2>Open Source as Survival Strategy</h2>
+        <p>
+          Every solar array schematic, every governance vote, every agricultural trial result gets published.
+          This is practical, not altruistic. Open-source projects attract better collaborators,
+          survive their founders, and resist capture by any single faction. If BARK works, the plans should
+          spread. One community in one valley is an experiment. Twenty communities
+          across three continents is a proof of concept.
+        </p>
+
+        <h2>Embedded, Not Parachuted In</h2>
+        <p>
+          Coroico has existed since before the Spanish arrived. The terraced slopes above town carry a thousand
+          years of agricultural intelligence in their contour lines. This place does not need rescue. What it
+          can use is investment that stays put, jobs that persist beyond a construction phase, and technology
+          transfer that runs in both directions -- the fabrication lab learns from the farmer as much as the
+          farmer learns from the lab. BARK hires locally, buys locally, and submits its governance to mechanisms
+          that give the Coroiqueno community real leverage over what happens on their land.
+        </p>
+
+        <h2>Capability, Not Stockpiles</h2>
+        <p>
+          Hoarding is a losing game. Supplies run out. Canned food expires. Skills atrophy in storage. BARK invests
+          in living capability instead. The question is never "how many months of rice do we have in the warehouse"
+          but "can we grow cassava, mill a replacement pump shaft, stitch a wound, and teach someone else to do all
+          three?" Energy independence, local manufacturing, medical knowledge preserved in daily practice rather
+          than entombed on a hard drive. A community that can repair its own systems does not need to predict
+          which specific crisis arrives next.
+        </p>
+
+        <div class="cta-box">
+          <p class="font-display font-semibold text-bark-800 mb-2">The first cohort is forming.</p>
+          <p>We need engineers, capital, and people who finish things. <a href="/en/participate">What the work looks like</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  function initContentPage() {
+    const content = document.querySelector('.content-prose');
+    const tocNav = document.getElementById('toc-nav');
+    if (!content || !tocNav) return;
+
+    const headings = content.querySelectorAll('h2');
+    if (headings.length < 2) {
+      const tocContainer = document.getElementById('toc-container');
+      if (tocContainer) tocContainer.style.display = 'none';
+      return;
+    }
+
+    while (tocNav.firstChild) {
+      tocNav.removeChild(tocNav.firstChild);
+    }
+
+    headings.forEach((h2) => {
+      if (!h2.id) {
+        h2.id = 'section-' + (h2.textContent || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      }
+      const link = document.createElement('a');
+      link.href = '#' + h2.id;
+      link.textContent = h2.textContent || '';
+      tocNav.appendChild(link);
+    });
+
+    const tocLinks = tocNav.querySelectorAll('a');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          tocLinks.forEach(link => {
+            link.classList.toggle('toc-active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+
+    headings.forEach(h2 => observer.observe(h2));
+  }
+
+  initContentPage();
+  document.addEventListener('astro:page-load', initContentPage);
+</script>

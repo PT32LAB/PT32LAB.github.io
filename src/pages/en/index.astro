@@ -5,10 +5,10 @@ import { t } from '../../i18n/ui';
 const lang = 'en';
 
 const pathways = [
-  { key: 'builders' as const, num: '01', link: `/${lang}/builders`, cta: 'See what we\u2019re building \u2192' },
-  { key: 'investors' as const, num: '02', link: `/${lang}/investors`, cta: 'Read the investment thesis \u2192' },
-  { key: 'community' as const, num: '03', link: `/${lang}/participate`, cta: 'Find your role \u2192' },
-  { key: 'locals' as const, num: '04', link: `/${lang}/region`, cta: 'Our commitment to Coroico \u2192' },
+  { key: 'builders' as const, num: '01', link: `/${lang}/builders`, cta: 'See what we\u2019re building \u2192', accent: '#22d3ee' },
+  { key: 'investors' as const, num: '02', link: `/${lang}/investors`, cta: 'Read the investment thesis \u2192', accent: '#d4a853' },
+  { key: 'community' as const, num: '03', link: `/${lang}/participate`, cta: 'Find your role \u2192', accent: '#10b981' },
+  { key: 'locals' as const, num: '04', link: `/${lang}/region`, cta: 'Our commitment to Coroico \u2192', accent: '#a89a88' },
 ];
 
 const pillars = [
@@ -49,26 +49,31 @@ const pillars = [
     </div>
   </section>
 
-  <!-- What BARK is -- concise value prop -->
-  <section class="relative py-24 px-6 lg:px-10 overflow-hidden bg-warm-gradient bg-dots" style="background: linear-gradient(135deg, var(--color-bark-100) 0%, var(--color-bark-50) 40%, rgba(16,185,129,0.04) 100%);">
-    <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 20% 50%, var(--color-accent) 1px, transparent 1px), radial-gradient(circle at 80% 20%, var(--color-accent) 1px, transparent 1px), radial-gradient(circle at 60% 80%, var(--color-accent) 1px, transparent 1px); background-size: 60px 60px, 80px 80px, 70px 70px;"></div>
-    <div class="relative max-w-[900px] mx-auto text-center">
-      <span class="text-label text-accent reveal">What This Is</span>
-      <h2 class="text-title text-bark-800 mt-4 reveal" data-delay="100">
-        Not a bunker. Not a resort. A community that grows its own food, generates its own power, fixes its own equipment, and governs itself -- and keeps working when any single part breaks.
+  <!-- What BARK is -- manifesto -->
+  <section class="relative py-32 md:py-40 px-6 lg:px-10 overflow-hidden bg-bark-900">
+    <div class="absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle, var(--color-accent) 1px, transparent 1px); background-size: 32px 32px;"></div>
+    <div class="relative max-w-[1000px] mx-auto text-center">
+      <span class="text-label text-accent tracking-[0.25em] reveal">What This Is</span>
+      <h2 class="font-display text-bark-50 mt-8 reveal" data-delay="100" style="font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.25; letter-spacing: -0.02em;">
+        Not a bunker.<br class="hidden md:block" /> Not a resort.<br />
+        A community that grows its own food,<br class="hidden md:block" />
+        generates its own power,<br class="hidden md:block" />
+        fixes its own equipment,<br class="hidden md:block" />
+        and governs itself.
       </h2>
-      <p class="text-body-lg text-bark-500 mt-6 leading-relaxed reveal" data-delay="200">
+      <div class="w-16 h-px bg-accent mx-auto mt-10 mb-10 reveal" data-delay="150"></div>
+      <p class="font-display text-bark-400 mt-0 leading-relaxed reveal" data-delay="200" style="font-size: clamp(1.05rem, 1.4vw, 1.3rem); line-height: 1.9;">
         Energy, food, manufacturing, commerce, governance -- five systems designed to keep each other running.
         The solar array powers the fabrication lab that maintains the irrigation pump that waters the
         food forest that feeds the people who vote on the budget. Remove one loop and the others
-        compensate. The entire design is open-source, because a model that cannot be replicated
-        dies with its founders.
+        compensate. <span class="text-bark-200 font-semibold">The entire design is open-source, because a model that cannot be replicated
+        dies with its founders.</span>
       </p>
     </div>
   </section>
 
-  <div class="photo-frame h-48 md:h-64 w-full" style="border-radius:0;">
-    <img src="/images/yungas/yungas-landscape.jpg" alt="Cloud forest slopes of the Yungas" width="1920" height="1440" loading="lazy" decoding="async" class="w-full h-full object-cover" />
+  <div class="w-full h-64 md:h-80 overflow-hidden" style="border-radius:0;">
+    <img src="/images/yungas/yungas-landscape.jpg" alt="Cloud forest slopes of the Yungas" width="1920" height="1440" loading="lazy" decoding="async" class="w-full h-full object-cover" style="object-position: center 40%;" />
   </div>
 
   <!-- Why -- dark pull-quote section -->
@@ -117,8 +122,8 @@ const pillars = [
 
       <div class="grid md:grid-cols-2 gap-px bg-bark-200 rounded-xl overflow-hidden">
         {pathways.map((p, i) => (
-          <a href={p.link} class="group relative bg-bark-50 p-10 hover:bg-bark-100 transition-colors duration-500 reveal" data-delay={String(i * 100)}>
-            <span class="absolute top-2 right-4 font-display text-[4rem] font-extrabold text-bark-100 leading-none select-none">{p.num}</span>
+          <a href={p.link} class="group relative bg-bark-50 p-10 hover:bg-bark-100 transition-colors duration-500 reveal" data-delay={String(i * 100)} style={`border-top: 3px solid ${p.accent};`}>
+            <span class="absolute top-2 right-4 font-display text-[4rem] font-extrabold leading-none select-none" style={`color: ${p.accent}; opacity: 0.08;`}>{p.num}</span>
             <span class="text-label text-bark-300 group-hover:text-accent transition-colors duration-300">{p.num}</span>
             <h3 class="text-title text-bark-800 mt-3 group-hover:text-bark-900 transition-colors duration-300">
               {t(lang, `paths.${p.key}.title` as any)}
@@ -126,7 +131,7 @@ const pillars = [
             <p class="text-bark-500 mt-3 leading-relaxed max-w-sm">
               {t(lang, `paths.${p.key}.desc` as any)}
             </p>
-            <div class="mt-6 flex items-center gap-2 text-accent opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-[-8px] group-hover:translate-x-0">
+            <div class="mt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-[-8px] group-hover:translate-x-0" style={`color: ${p.accent};`}>
               <span class="text-sm font-display font-medium">{p.cta}</span>
             </div>
           </a>
@@ -138,41 +143,41 @@ const pillars = [
   <div class="divider"></div>
 
   <!-- Evidence -- stats that matter -->
-  <section class="bg-bark-900 py-16 px-6 lg:px-10 border-t border-bark-800">
+  <section class="bg-bark-900 py-20 md:py-24 px-6 lg:px-10 border-t border-bark-800">
     <div class="max-w-[1400px] mx-auto">
-      <div class="text-center mb-12">
-        <span class="text-label text-accent reveal">The Numbers</span>
+      <div class="text-center mb-16">
+        <span class="text-label text-accent tracking-[0.25em] reveal">The Numbers</span>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
         <div class="text-center reveal">
-          <div class="text-headline text-accent font-display">
+          <div class="text-accent font-display font-bold leading-none" style="font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -0.03em;">
             <span class="counter" data-target="1750" data-suffix="m">0</span>
           </div>
-          <span class="text-label text-bark-500 mt-2 block">Above Sea Level</span>
+          <span class="text-label text-bark-500 mt-3 block text-[0.65rem]">Above Sea Level</span>
           <span class="text-xs text-bark-600 mt-1 block">Where the Andes become jungle</span>
         </div>
         <div class="text-center reveal" data-delay="100">
-          <div class="text-headline text-bark-50 font-display">
+          <div class="text-bark-50 font-display font-bold leading-none" style="font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -0.03em;">
             <span class="counter" data-target="400" data-suffix="+">0</span>
           </div>
-          <span class="text-label text-bark-500 mt-2 block">Bird Species</span>
+          <span class="text-label text-bark-500 mt-3 block text-[0.65rem]">Bird Species</span>
           <span class="text-xs text-bark-600 mt-1 block">Cock-of-the-rock to condor</span>
         </div>
         <div class="text-center reveal" data-delay="150">
-          <div class="text-headline text-bark-50 font-display">
+          <div class="text-bark-50 font-display font-bold leading-none" style="font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -0.03em;">
             <span class="counter" data-target="3000" data-suffix="+">0</span>
           </div>
-          <span class="text-label text-bark-500 mt-2 block">Plant Species</span>
+          <span class="text-label text-bark-500 mt-3 block text-[0.65rem]">Plant Species</span>
           <span class="text-xs text-bark-600 mt-1 block">Documented in the Yungas</span>
         </div>
         <div class="text-center reveal" data-delay="200">
-          <div class="text-headline text-bark-50 font-display">18-28°C</div>
-          <span class="text-label text-bark-500 mt-2 block">Year Round</span>
+          <div class="text-bark-50 font-display font-bold leading-none" style="font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -0.03em;">18-28°C</div>
+          <span class="text-label text-bark-500 mt-3 block text-[0.65rem]">Year Round</span>
           <span class="text-xs text-bark-600 mt-1 block">Perpetual spring at altitude</span>
         </div>
         <div class="text-center reveal" data-delay="300">
-          <div class="text-headline text-accent font-display">Open Source</div>
-          <span class="text-label text-bark-500 mt-2 block">Everything</span>
+          <div class="text-accent font-display font-bold leading-none" style="font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.03em;">Open<br/>Source</div>
+          <span class="text-label text-bark-500 mt-3 block text-[0.65rem]">Everything</span>
           <span class="text-xs text-bark-600 mt-1 block">Plans, code, governance</span>
         </div>
       </div>
@@ -252,18 +257,20 @@ const pillars = [
         </a>
       </div>
 
-      <div class="space-y-px">
+      <div class="space-y-6">
         {pillars.map((p, i) => (
-          <a href={p.link} class="group flex flex-col md:flex-row md:items-center justify-between gap-4 py-8 px-6 bg-bark-50 hover:bg-bark-100 border-b border-bark-200 transition-colors duration-300 reveal" data-delay={String(i * 60)}>
-            <div class="flex items-center gap-6">
-              <span class="text-label text-bark-300 w-8">0{i + 1}</span>
-              <img src={`/images/icons/${p.icon}.svg`} alt="" class="w-8 h-8 opacity-40 hidden md:block" />
-              <h3 class="text-title text-bark-800 group-hover:text-bark-900 transition-colors">{p.name}</h3>
+          <a href={p.link} class={`group flex flex-col md:flex-row md:items-center gap-6 md:gap-10 py-10 px-8 bg-bark-50 hover:bg-bark-100 border border-bark-200 rounded-xl transition-all duration-300 reveal ${i % 2 === 1 ? 'md:flex-row-reverse md:text-right' : ''}`} data-delay={String(i * 60)}>
+            <div class="flex-shrink-0 flex items-center justify-center w-16 h-16 rounded-xl bg-bark-100 group-hover:bg-accent/10 transition-colors duration-300">
+              <img src={`/images/icons/${p.icon}.svg`} alt="" class="w-12 h-12 opacity-50 group-hover:opacity-80 transition-opacity duration-300" />
             </div>
-            <div class="flex items-center gap-8">
-              <p class="text-bark-500 md:max-w-md md:text-right">{p.desc}</p>
-              <svg class="w-5 h-5 text-bark-300 group-hover:text-accent group-hover:translate-x-1 transition-all duration-300 hidden md:block flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            <div class={`flex-1 ${i % 2 === 1 ? 'md:text-right' : ''}`}>
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-label text-bark-300">0{i + 1}</span>
+                <h3 class="text-title text-bark-800 group-hover:text-bark-900 transition-colors">{p.name}</h3>
+              </div>
+              <p class="text-bark-500 max-w-lg leading-relaxed">{p.desc}</p>
             </div>
+            <svg class={`w-6 h-6 text-bark-300 group-hover:text-accent group-hover:translate-x-1 transition-all duration-300 hidden md:block flex-shrink-0 ${i % 2 === 1 ? 'rotate-180 group-hover:-translate-x-1 group-hover:translate-x-0' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         ))}
       </div>
