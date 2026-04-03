@@ -4,66 +4,66 @@ import Base from '../../layouts/Base.astro';
 const pathways = [
   {
     num: '01',
-    title: 'Experience',
-    desc: 'Come for a retreat -- one week minimum. Live on-site, eat from the gardens, meet the builders, understand the systems. This is not tourism. You will work. You will be uncomfortable at least once. Some guests return. Some invest. Some relocate. Most do not. The retreat exists to find the ones who do.',
-    items: ['Structured retreat program (minimum 7 days)', 'Work alongside residents -- not observe from a distance', 'Honest assessment at the end: mutual fit or mutual goodbye'],
+    title: 'Experimentar',
+    desc: 'Ven a un retiro — mínimo una semana. Vive en el sitio, come de las huertas, conoce a los constructores, entiende los sistemas. Esto no es turismo. Vas a trabajar. Vas a estar incómodo al menos una vez. Algunos huéspedes vuelven. Algunos invierten. Algunos se mudan. La mayoría no. El retiro existe para encontrar a los que sí.',
+    items: ['Programa de retiro estructurado (mínimo 7 días)', 'Trabajar junto a los residentes — no observar desde la distancia', 'Evaluación honesta al final: encaje mutuo o despedida mutua'],
   },
   {
     num: '02',
-    title: 'Invest',
-    desc: 'Put capital into land, solar arrays, processing equipment, or the cooperative structure itself. Every dollar becomes a physical thing in a specific place -- a cistern, a roasting drum, a panel on a roof. You will receive quarterly reporting on what your capital became. Not a pitch deck. Photographs and spreadsheets.',
-    items: ['Direct project funding with named asset allocation', 'Cooperative membership shares (one member, one vote)', 'Component-specific sponsorship with impact reporting'],
+    title: 'Invertir',
+    desc: 'Pon capital en terrenos, paneles solares, equipos de procesamiento o la estructura cooperativa misma. Cada dólar se convierte en algo físico en un lugar concreto — una cisterna, un tambor de tostado, un panel en un techo. Recibirás informes trimestrales sobre en qué se convirtió tu capital. No un pitch deck. Fotografías y hojas de cálculo.',
+    items: ['Financiamiento directo de proyectos con asignación de activos nominados', 'Cuotas de membresía cooperativa (un miembro, un voto)', 'Patrocinio de componentes específicos con reportes de impacto'],
   },
   {
     num: '03',
-    title: 'Build',
-    desc: 'Bring a skill that has weight. Weld a frame, design a greywater system, write firmware for a mesh radio node, plant a food forest on a 30-degree slope. We need people who have built things before -- not people who want to learn by experimenting on critical infrastructure. On-site in Coroico or remote.',
-    items: ['Resident builder -- relocate to Coroico, minimum 6-month commitment', 'Remote contributor -- code, design, research with defined deliverables', 'Visiting expert -- periodic on-site work on specific problems'],
+    title: 'Construir',
+    desc: 'Trae una habilidad con peso. Suelda un bastidor, diseña un sistema de aguas grises, escribe firmware para un nodo de radio en malla, planta un bosque comestible en una pendiente de 30 grados. Necesitamos gente que ya haya construido cosas — no gente que quiera aprender experimentando con infraestructura crítica. Presencial en Coroico o remoto.',
+    items: ['Constructor residente — mudarse a Coroico, compromiso mínimo de 6 meses', 'Colaborador remoto — código, diseño, investigación con entregables definidos', 'Experto visitante — trabajo presencial periódico en problemas específicos'],
   },
   {
     num: '04',
-    title: 'Think',
-    desc: 'Contribute governance models, legal architecture, engineering designs, research. The knowledge base is open-source -- your work propagates to every community that forks the model. We need people who can write a document that survives contact with Bolivian administrative reality, not just theory.',
-    items: ['Governance model design grounded in Ley 356', 'Technical architecture with material and cost specificity', 'Research that cites sources and checks assumptions'],
+    title: 'Pensar',
+    desc: 'Aporta modelos de gobernanza, arquitectura legal, diseños de ingeniería, investigación. La base de conocimiento es de código abierto — tu trabajo se propaga a cada comunidad que bifurque el modelo. Necesitamos gente capaz de escribir un documento que sobreviva al contacto con la realidad administrativa boliviana, no solo teoría.',
+    items: ['Diseño de modelos de gobernanza basados en la Ley 356', 'Arquitectura técnica con especificidad de materiales y costos', 'Investigación que cite fuentes y verifique supuestos'],
   },
   {
     num: '05',
-    title: 'Spread',
-    desc: 'Translate content into Spanish, Aymara, Portuguese. Connect us with cooperatives, agronomists, engineers, lawyers who know Bolivian land title law. Write honestly about the project -- including what does not work. Propaganda does not help us. Honest signal does.',
-    items: ['Translation with cultural adaptation, not word-for-word conversion', 'Introductions to specific people who solve specific problems', 'Honest public writing -- criticism included'],
+    title: 'Difundir',
+    desc: 'Traduce contenido al español, aymara, portugués. Conéctanos con cooperativas, agrónomos, ingenieros, abogados que conozcan el derecho de títulos de tierra boliviano. Escribe con honestidad sobre el proyecto — incluyendo lo que no funciona. La propaganda no nos ayuda. La señal honesta sí.',
+    items: ['Traducción con adaptación cultural, no conversión palabra por palabra', 'Presentaciones a personas específicas que resuelven problemas específicos', 'Escritura pública honesta — incluyendo críticas'],
   },
 ];
 ---
 
-<Base title="Participate" description="Participation means real involvement. Five pathways for people who want to test whether they can build, contribute, and live inside a serious long-term project." heroImage="/images/yungas/valley.jpg">
-  <!-- Photo Hero -->
+<Base title="Participar" description="Participar significa compromiso real. Cinco vías para personas que quieren probar si pueden construir, contribuir y vivir dentro de un proyecto serio a largo plazo." heroImage="/images/yungas/valley.jpg">
+  <!-- Hero con foto -->
   <section class="relative min-h-[50vh] flex items-end pb-16 overflow-hidden">
-    <img src="/images/yungas/valley.jpg" alt="The green valley of the Yungas, Coroico" width="1920" height="1282" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async" />
+    <img src="/images/yungas/valley.jpg" alt="El valle verde de los Yungas, Coroico" width="1920" height="1282" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async" />
     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
     <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
-      <span class="text-label text-accent tracking-widest reveal">Participate</span>
-      <h1 class="text-headline text-white mt-4 reveal" data-delay="100">Participation Means Real Involvement</h1>
-      <p class="text-body-lg text-white/70 mt-4 max-w-2xl reveal" data-delay="200">BARK is not asking for passive belief. It is asking for people who want to test whether they can build, contribute, live, and learn inside a serious long-term project.</p>
+      <span class="text-label text-accent tracking-widest reveal">Participar</span>
+      <h1 class="text-headline text-white mt-4 reveal" data-delay="100">Participar Significa Compromiso Real</h1>
+      <p class="text-body-lg text-white/70 mt-4 max-w-2xl reveal" data-delay="200">BARK no pide fe pasiva. Pide personas que quieran probar si pueden construir, contribuir, vivir y aprender dentro de un proyecto serio a largo plazo.</p>
     </div>
   </section>
 
-  <!-- Intro -->
+  <!-- Introducción -->
   <section class="pt-16 pb-16 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
       <p class="text-body-lg text-bark-500 max-w-2xl reveal">
-        Participation here can begin lightly, but it should never remain vague. The project needs
-        presence, skill, commitment, and honesty about fit. Not everyone belongs here -- and that
-        is not a failure. It is a filter that protects both the project and the person.
+        La participación aquí puede comenzar liviana, pero nunca debe quedarse vaga. El proyecto necesita
+        presencia, habilidad, compromiso y honestidad sobre el encaje. No todos encajan aquí — y eso
+        no es un fracaso. Es un filtro que protege tanto al proyecto como a la persona.
       </p>
       <div class="accent-line mt-10 max-w-xl reveal" data-delay="100"></div>
     </div>
   </section>
 
-  <!-- Five Pathways -->
+  <!-- Cinco Vías -->
   <section class="pb-24 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
-      <span class="text-label text-bark-400 reveal">Pathways</span>
-      <h2 class="text-title text-bark-800 mt-4 mb-10 reveal" data-delay="100">Five ways in -- each with real expectations.</h2>
+      <span class="text-label text-bark-400 reveal">Vías</span>
+      <h2 class="text-title text-bark-800 mt-4 mb-10 reveal" data-delay="100">Cinco caminos de entrada — cada uno con expectativas reales.</h2>
 
       <div class="grid md:grid-cols-2 gap-px bg-bark-200 rounded-xl overflow-hidden">
         {pathways.map((w, i) => (
@@ -84,141 +84,141 @@ const pathways = [
     </div>
   </section>
 
-  <!-- What a Good Fit Looks Like -->
+  <!-- Cómo es un Buen Encaje -->
   <section class="py-24 px-6 lg:px-10 bg-warm-gradient">
     <div class="max-w-[1400px] mx-auto">
-      <span class="text-label text-accent reveal">Good Fit</span>
-      <h2 class="text-title text-bark-800 mt-4 mb-4 reveal" data-delay="100">What a Good Fit Looks Like</h2>
+      <span class="text-label text-accent reveal">Buen Encaje</span>
+      <h2 class="text-title text-bark-800 mt-4 mb-4 reveal" data-delay="100">Cómo es un Buen Encaje</h2>
       <p class="text-body-lg text-bark-500 mb-10 max-w-2xl reveal" data-delay="200">
-        The people who do well here share a few traits. Not credentials -- dispositions.
+        Las personas que prosperan aquí comparten algunos rasgos. No credenciales — disposiciones.
       </p>
 
       <div class="grid md:grid-cols-3 gap-6">
         <div class="card hover-lift reveal" data-delay="100">
-          <h3 class="font-display font-semibold text-bark-800 text-lg mb-3">You want real work</h3>
+          <h3 class="font-display font-semibold text-bark-800 text-lg mb-3">Quieres trabajo real</h3>
           <p class="text-bark-500 text-sm leading-relaxed">
-            You have built things before and you want to build again. You are not looking for a
-            community that validates your presence -- you are looking for one that needs your output.
+            Ya has construido cosas antes y quieres volver a hacerlo. No buscas una
+            comunidad que valide tu presencia — buscas una que necesite tu producción.
           </p>
         </div>
         <div class="card hover-lift reveal" data-delay="200">
-          <h3 class="font-display font-semibold text-bark-800 text-lg mb-3">You tolerate friction</h3>
+          <h3 class="font-display font-semibold text-bark-800 text-lg mb-3">Toleras la fricción</h3>
           <p class="text-bark-500 text-sm leading-relaxed">
-            Uncertainty, unfinished systems, changing plans, and the gap between intention and
-            reality do not paralyze you. You adapt. You communicate when something is not working
-            instead of withdrawing.
+            La incertidumbre, los sistemas incompletos, los planes cambiantes y la brecha entre
+            intención y realidad no te paralizan. Te adaptas. Comunicas cuando algo no funciona
+            en vez de retirarte.
           </p>
         </div>
         <div class="card hover-lift reveal" data-delay="300">
-          <h3 class="font-display font-semibold text-bark-800 text-lg mb-3">You contribute, not consume</h3>
+          <h3 class="font-display font-semibold text-bark-800 text-lg mb-3">Contribuyes, no consumes</h3>
           <p class="text-bark-500 text-sm leading-relaxed">
-            You are drawn to the project because of what you can put into it, not because of the
-            atmosphere it might provide. Community is a byproduct of shared labor -- not a service.
+            Te atrae el proyecto por lo que puedes aportar, no por la atmósfera que pueda
+            ofrecer. La comunidad es un subproducto del trabajo compartido — no un servicio.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- What This Is Not -->
+  <!-- Lo Que Esto No Es -->
   <section class="bg-bark-900 py-24 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
-      <span class="text-label text-accent reveal">Honest Filter</span>
-      <h2 class="text-title text-bark-100 mt-4 mb-4 reveal" data-delay="100">What This Is Not</h2>
+      <span class="text-label text-accent reveal">Filtro Honesto</span>
+      <h2 class="text-title text-bark-100 mt-4 mb-4 reveal" data-delay="100">Lo Que Esto No Es</h2>
       <p class="text-bark-400 mb-10 max-w-2xl reveal" data-delay="200">
-        Saying no early saves everyone time. If any of the following apply, this project is
-        probably not a good fit -- and that is fine. There are many good projects in the world.
+        Decir que no a tiempo le ahorra tiempo a todos. Si algo de lo siguiente aplica, este proyecto
+        probablemente no es para ti — y está bien. Hay muchos buenos proyectos en el mundo.
       </p>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="bg-bark-800/60 rounded-xl p-8 reveal" data-delay="100">
-          <h3 class="font-display font-semibold text-bark-100 text-lg mb-3">Passive Retreat Tourism</h3>
+          <h3 class="font-display font-semibold text-bark-100 text-lg mb-3">Turismo de Retiro Pasivo</h3>
           <p class="text-bark-400 text-sm leading-relaxed">
-            This is not an eco-resort with a membership fee. Living here means participating in
-            governance, contributing labor, eating what the garden produces in season, and accepting
-            that the road washes out in February.
+            Esto no es un eco-resort con cuota de membresía. Vivir aquí significa participar en
+            la gobernanza, aportar trabajo, comer lo que la huerta produce en temporada y aceptar
+            que el camino se derrumba en febrero.
           </p>
         </div>
         <div class="bg-bark-800/60 rounded-xl p-8 reveal" data-delay="200">
-          <h3 class="font-display font-semibold text-bark-100 text-lg mb-3">Instant Belonging</h3>
+          <h3 class="font-display font-semibold text-bark-100 text-lg mb-3">Pertenencia Instantánea</h3>
           <p class="text-bark-400 text-sm leading-relaxed">
-            Community forms through shared work over time. There is no initiation ceremony that
-            makes you part of this. There is only sustained contribution and mutual trust built
-            slowly.
+            La comunidad se forma a través del trabajo compartido con el tiempo. No hay ceremonia
+            de iniciación que te haga parte de esto. Solo existe la contribución sostenida y la
+            confianza mutua construida poco a poco.
           </p>
         </div>
         <div class="bg-bark-800/60 rounded-xl p-8 reveal" data-delay="300">
-          <h3 class="font-display font-semibold text-bark-100 text-lg mb-3">Polished Service</h3>
+          <h3 class="font-display font-semibold text-bark-100 text-lg mb-3">Servicio Pulido</h3>
           <p class="text-bark-400 text-sm leading-relaxed">
-            Bolivia has fuel shortages, dollar scarcity, road blockades, and a political landscape
-            that does not conform to North American or European expectations. Infrastructure here
-            is functional, not luxurious.
+            Bolivia tiene escasez de combustible, falta de dólares, bloqueos de carreteras y un
+            panorama político que no se ajusta a las expectativas norteamericanas o europeas.
+            La infraestructura aquí es funcional, no lujosa.
           </p>
         </div>
         <div class="bg-bark-800/60 rounded-xl p-8 reveal" data-delay="400">
-          <h3 class="font-display font-semibold text-bark-100 text-lg mb-3">Low-Friction Living</h3>
+          <h3 class="font-display font-semibold text-bark-100 text-lg mb-3">Vida Sin Fricción</h3>
           <p class="text-bark-400 text-sm leading-relaxed">
-            If you cannot work within Bolivian reality -- respectfully, patiently, without trying
-            to import your own governance assumptions -- you will be unhappy here, and you will
-            make others unhappy.
+            Si no puedes trabajar dentro de la realidad boliviana — con respeto, con paciencia,
+            sin tratar de importar tus propios supuestos de gobernanza — serás infeliz aquí,
+            y harás infelices a los demás.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- What Happens After Contact -->
+  <!-- Qué Pasa Después del Contacto -->
   <section class="py-24 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
-      <span class="text-label text-accent reveal">Process</span>
-      <h2 class="text-title text-bark-800 mt-4 mb-10 reveal" data-delay="100">What Happens After Contact</h2>
+      <span class="text-label text-accent reveal">Proceso</span>
+      <h2 class="text-title text-bark-800 mt-4 mb-10 reveal" data-delay="100">Qué Pasa Después del Contacto</h2>
 
       <div class="grid md:grid-cols-4 gap-8">
         <div class="relative reveal" data-delay="100">
           <span class="text-label text-bark-300 mb-3 block">01</span>
-          <h3 class="font-display font-semibold text-bark-800 text-lg mb-2">You Write</h3>
+          <h3 class="font-display font-semibold text-bark-800 text-lg mb-2">Escríbenos</h3>
           <p class="text-bark-500 text-sm leading-relaxed">
-            Send an email. Tell us what you do, what you have built, and what draws you here.
-            No form. No application portal. Just a real message.
+            Envía un correo. Cuéntanos qué haces, qué has construido y qué te atrae de este lugar.
+            Sin formularios. Sin portal de aplicación. Solo un mensaje real.
           </p>
         </div>
         <div class="relative reveal" data-delay="200">
           <span class="text-label text-bark-300 mb-3 block">02</span>
-          <h3 class="font-display font-semibold text-bark-800 text-lg mb-2">We Respond</h3>
+          <h3 class="font-display font-semibold text-bark-800 text-lg mb-2">Respondemos</h3>
           <p class="text-bark-500 text-sm leading-relaxed">
-            Within one week. If we do not reply, follow up -- small teams lose emails sometimes.
-            Silence is not rejection.
+            En una semana. Si no respondemos, insiste — los equipos pequeños a veces pierden correos.
+            El silencio no es rechazo.
           </p>
         </div>
         <div class="relative reveal" data-delay="300">
           <span class="text-label text-bark-300 mb-3 block">03</span>
-          <h3 class="font-display font-semibold text-bark-800 text-lg mb-2">First Conversation</h3>
+          <h3 class="font-display font-semibold text-bark-800 text-lg mb-2">Primera Conversación</h3>
           <p class="text-bark-500 text-sm leading-relaxed">
-            A video call. We talk about your background, your interests, and whether the project
-            matches what you are looking for. Honest in both directions.
+            Una videollamada. Hablamos sobre tu trayectoria, tus intereses, y si el proyecto
+            coincide con lo que buscas. Honestidad en ambas direcciones.
           </p>
         </div>
         <div class="relative reveal" data-delay="400">
           <span class="text-label text-bark-300 mb-3 block">04</span>
-          <h3 class="font-display font-semibold text-bark-800 text-lg mb-2">Mutual Evaluation</h3>
+          <h3 class="font-display font-semibold text-bark-800 text-lg mb-2">Evaluación Mutua</h3>
           <p class="text-bark-500 text-sm leading-relaxed">
-            We decide together whether to proceed -- a visit, a remote contribution, an investment
-            conversation. Fit is evaluated by both sides, not assigned.
+            Decidimos juntos si seguir adelante — una visita, una contribución remota, una
+            conversación sobre inversión. El encaje lo evalúan ambas partes, no se asigna.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Open Source -->
+  <!-- Código Abierto -->
   <section class="py-24 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-10">
       <div class="max-w-xl">
-        <span class="text-label text-accent reveal">Open Source as Reproduction</span>
+        <span class="text-label text-accent reveal">Código Abierto como Reproducción</span>
         <p class="text-body-lg text-bark-500 mt-4 leading-relaxed reveal" data-delay="100">
-          Every schematic, every governance document, every soil test result lives in public
-          repositories. Fork the entire project. Adapt it for a valley in Guatemala or a
-          hillside in Nepal. The design improves every time it propagates.
+          Cada esquema, cada documento de gobernanza, cada resultado de análisis de suelo vive en
+          repositorios públicos. Bifurca el proyecto entero. Adáptalo para un valle en Guatemala o
+          una ladera en Nepal. El diseño mejora cada vez que se propaga.
         </p>
       </div>
       <a
@@ -226,55 +226,55 @@ const pathways = [
         class="group inline-flex items-center gap-3 px-7 py-4 bg-accent text-night font-display font-semibold text-sm tracking-wide rounded hover:bg-accent-light transition-colors duration-300 reveal" data-delay="200"
       >
         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-        View on GitHub
+        Ver en GitHub
       </a>
     </div>
   </section>
 
-  <!-- Key Proof Pages -->
+  <!-- Páginas Clave -->
   <section class="bg-bark-100 py-24 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
-      <span class="text-label text-bark-400 reveal">Go Deeper</span>
-      <h2 class="text-title text-bark-800 mt-4 mb-10 reveal" data-delay="100">Before you write, read what matters.</h2>
+      <span class="text-label text-bark-400 reveal">Profundizar</span>
+      <h2 class="text-title text-bark-800 mt-4 mb-10 reveal" data-delay="100">Antes de escribir, lee lo que importa.</h2>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-        <a href="/en/risks" class="card hover-lift group reveal" data-delay="100">
-          <h3 class="font-display font-semibold text-bark-800 text-base group-hover:text-accent transition-colors">Risk</h3>
-          <p class="text-bark-500 text-sm mt-2 leading-relaxed">What can go wrong and what we are doing about it.</p>
+        <a href="/es/risks" class="card hover-lift group reveal" data-delay="100">
+          <h3 class="font-display font-semibold text-bark-800 text-base group-hover:text-accent transition-colors">Riesgos</h3>
+          <p class="text-bark-500 text-sm mt-2 leading-relaxed">Qué puede salir mal y qué estamos haciendo al respecto.</p>
         </a>
-        <a href="/en/team" class="card hover-lift group reveal" data-delay="150">
-          <h3 class="font-display font-semibold text-bark-800 text-base group-hover:text-accent transition-colors">Team</h3>
-          <p class="text-bark-500 text-sm mt-2 leading-relaxed">Who is behind the project and what they bring.</p>
+        <a href="/es/team" class="card hover-lift group reveal" data-delay="150">
+          <h3 class="font-display font-semibold text-bark-800 text-base group-hover:text-accent transition-colors">Equipo</h3>
+          <p class="text-bark-500 text-sm mt-2 leading-relaxed">Quién está detrás del proyecto y qué aportan.</p>
         </a>
-        <a href="/en/governance" class="card hover-lift group reveal" data-delay="200">
-          <h3 class="font-display font-semibold text-bark-800 text-base group-hover:text-accent transition-colors">Governance</h3>
-          <p class="text-bark-500 text-sm mt-2 leading-relaxed">How decisions are made under Bolivian cooperative law.</p>
+        <a href="/es/governance" class="card hover-lift group reveal" data-delay="200">
+          <h3 class="font-display font-semibold text-bark-800 text-base group-hover:text-accent transition-colors">Gobernanza</h3>
+          <p class="text-bark-500 text-sm mt-2 leading-relaxed">Cómo se toman las decisiones bajo la ley cooperativa boliviana.</p>
         </a>
-        <a href="/en/builders" class="card hover-lift group reveal" data-delay="250">
-          <h3 class="font-display font-semibold text-bark-800 text-base group-hover:text-accent transition-colors">Builders</h3>
-          <p class="text-bark-500 text-sm mt-2 leading-relaxed">The technical systems and what needs building next.</p>
+        <a href="/es/builders" class="card hover-lift group reveal" data-delay="250">
+          <h3 class="font-display font-semibold text-bark-800 text-base group-hover:text-accent transition-colors">Constructores</h3>
+          <p class="text-bark-500 text-sm mt-2 leading-relaxed">Los sistemas técnicos y lo que falta construir.</p>
         </a>
-        <a href="/en/investors" class="card hover-lift group reveal" data-delay="300">
-          <h3 class="font-display font-semibold text-bark-800 text-base group-hover:text-accent transition-colors">Investors</h3>
-          <p class="text-bark-500 text-sm mt-2 leading-relaxed">Capital structure, cooperative shares, and asset allocation.</p>
+        <a href="/es/investors" class="card hover-lift group reveal" data-delay="300">
+          <h3 class="font-display font-semibold text-bark-800 text-base group-hover:text-accent transition-colors">Inversores</h3>
+          <p class="text-bark-500 text-sm mt-2 leading-relaxed">Estructura de capital, cuotas cooperativas y asignación de activos.</p>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Contact CTA -->
+  <!-- CTA de Contacto -->
   <section class="bg-bark-900 py-32 px-6 lg:px-10">
     <div class="max-w-xl mx-auto text-center">
-      <h2 class="text-headline text-bark-100 reveal">Start a Conversation</h2>
+      <h2 class="text-headline text-bark-100 reveal">Inicia una Conversación</h2>
       <p class="text-body-lg text-bark-400 mt-4 reveal" data-delay="100">
-        Tell us what you do, what you have built, and what draws you to a cloud forest
-        cooperative in Bolivia.
+        Cuéntanos qué haces, qué has construido y qué te atrae de una cooperativa
+        en el bosque nublado de Bolivia.
       </p>
       <a
         href="mailto:contact@pt32lab.org"
         class="group inline-flex items-center gap-3 mt-8 px-7 py-4 bg-accent text-night font-display font-semibold text-sm tracking-wide rounded hover:bg-accent-light transition-colors duration-300 reveal" data-delay="200"
       >
-        Send an Email
+        Enviar un Correo
         <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
     </div>
