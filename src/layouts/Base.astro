@@ -34,6 +34,26 @@ const { title, description = 'BARK — Bolivian Ark. An off-grid community prese
     <meta name="twitter:title" content={`${title} | BARK`} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://pt32lab.github.io/images/yungas/valley.jpg" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "BARK — Bolivian Ark",
+      "url": "https://pt32lab.github.io",
+      "description": description,
+      "foundingDate": "2026",
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Coroico, Yungas, Bolivia",
+        "geo": { "@type": "GeoCoordinates", "latitude": -16.18, "longitude": -67.72 }
+      },
+      "sameAs": ["https://github.com/PT32LAB"]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BARK — Bolivian Ark",
+      "url": "https://pt32lab.github.io"
+    })} />
     <ClientRouter />
   </head>
   <body class="min-h-screen flex flex-col">

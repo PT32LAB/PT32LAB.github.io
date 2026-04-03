@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pt32lab.github.io/sitemap-index.xml
