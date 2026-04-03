@@ -2,7 +2,23 @@
 
 ## What This Is
 
-A 59-page bilingual website (EN/ES) for BARK — a semi-autonomous community planned for Coroico, Yungas, Bolivia at 1,750m. Built with Astro + Tailwind CSS, deployed to GitHub Pages.
+A 63-page bilingual website (EN/ES) for BARK — a semi-autonomous community planned for Coroico, Yungas, Bolivia at 1,750m. Built with Astro + Tailwind CSS, deployed to GitHub Pages.
+
+## Session Context
+
+Last major session: 2026-04-03 (session b7cef8f8). 66 commits, 29 issues closed, Lighthouse 99/95/100/100.
+
+## Key Learnings (for future AI sessions)
+
+- **Split large agent tasks into 5-7 file chunks** — agents stall on 20+ file tasks
+- **Photo heroes > CSS-only heroes** — canvas/animation heroes render as black voids without JS
+- **Pages must work WITHOUT JavaScript** — use real `<img>` tags, not canvas
+- **Screenshot with Playwright** (npx playwright screenshot) to see real JS-rendered output
+- **Codex creates useful GitHub issues** — read the full spec before implementing or closing
+- **Body text contrast**: use bark-700 minimum. bark-600 fades on bark-50 background
+- **Spanish pages need real translation** — copying EN files is not localization
+- **Terminology consistency matters**: "components" not "pillars", "semi-autonomous" not "off-grid"
+- **Design system doc** (docs/design-system.md) is THE reference for visual changes
 
 **Live:** https://pt32lab.github.io
 **Repo:** https://github.com/PT32LAB/PT32LAB.github.io
