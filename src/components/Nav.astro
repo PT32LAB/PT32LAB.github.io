@@ -87,7 +87,7 @@ const navGroups = [
               <div class="bg-bark-50 border border-bark-200 rounded-lg shadow-lg py-3 px-2 min-w-[260px]" style={`box-shadow: var(--shadow-lg);`}>
                 {group.links.map(link => (
                   <a
-                    href={getLocalePath(lang, link.path)}
+                    href={link.path.startsWith('/landing/') ? link.path : getLocalePath(lang, link.path)}
                     class="group flex flex-col px-3 py-2 rounded-md hover:bg-bark-100 transition-colors duration-150"
                   >
                     <span class="text-[0.75rem] font-display font-medium text-bark-700 group-hover:text-bark-900 transition-colors">
