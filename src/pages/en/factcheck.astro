@@ -1,35 +1,398 @@
 ---
 import Base from '../../layouts/Base.astro';
 
-const claims = [
-  { claim: 'Coroico elevation: ~1,750m', page: 'Location', source: 'Wikipedia, Climate-Data.org', status: 'VERIFIED' },
-  { claim: 'Bird species: 400-500+ in Yungas corridor', page: 'Location', source: 'BirdLife International IBA datazone', status: 'SUPPORTED' },
-  { claim: 'Plant species: 3,000+ in Cotapata-Yungas zone', page: 'Location', source: 'Kessler & Beck botanical assessments', status: 'SUPPORTED' },
-  { claim: 'Population: ~19,397 (2012 census)', page: 'Location', source: 'INE Bolivia (Instituto Nacional de Estad\u00edstica)', status: 'VERIFIED', note: 'Stale: 2012 census is most recent available' },
-  { claim: 'Rainfall: 1,100\u20131,300mm/yr', page: 'Location', source: 'Climate-Data.org', status: 'SUPPORTED' },
-  { claim: 'Temperature range: 18\u201328\u00b0C', page: 'Location', source: 'Climate-Data.org, local weather records', status: 'VERIFIED' },
-  { claim: 'Starlink opened in Bolivia Dec 2024', page: 'Location', source: 'AP/ABC News reporting', status: 'VERIFIED' },
-  { claim: 'Yungas = part of UNESCO Qhapaq \u00d1an', page: 'Location', source: 'UNESCO World Heritage List #1459', status: 'VERIFIED' },
-  { claim: 'ANMI Cotapata: 40,000ha protected area', page: 'Location', source: 'SERNAP Bolivia', status: 'SUPPORTED' },
-  { claim: 'Carmen Pampa: 12km from Coroico', page: 'Network', source: 'UAC Carmen Pampa website, Google Maps', status: 'VERIFIED' },
-  { claim: 'Bolivia homicide rate: ~4.4/100K', page: 'Risks', source: 'UNODC Global Study on Homicide, World Bank 2023', status: 'VERIFIED' },
-  { claim: 'Bolivia homicide rate declined 2017\u20132019', page: 'Risks', source: 'UNODC data series', status: 'VERIFIED' },
-  { claim: 'No nuclear targets in Bolivia', page: 'Resilience', source: 'OPANAL, ICAN, TPNW ratification records', status: 'VERIFIED' },
-  { claim: 'Specialty coffee FOB price: $4.60/lb', page: 'Economy', source: '2024 Specialty Coffee Transaction Guide', status: 'VERIFIED' },
-  { claim: 'Cacao exports: $2.9M / 621 metric tons (2023)', page: 'Economy', source: 'IBCE (Instituto Boliviano de Comercio Exterior), Rio Times', status: 'SUPPORTED' },
-  { claim: 'Solar radiation: 3.5\u20134.5 kWh/m\u00b2/day', page: 'Components', source: 'Global Solar Atlas (World Bank/ESMAP)', status: 'VERIFIED' },
-  { claim: '$325M Solar Electrification Program', page: 'Investors', source: 'World Bank press release, Nov 2023', status: 'VERIFIED' },
-  { claim: 'IDB $4.5B development package (2026\u20132028)', page: 'Investors', source: 'IDB official announcement', status: 'SUPPORTED' },
-  { claim: 'Cooperative law: Ley 356 (2013)', page: 'Investors', source: 'Infoleyes Bolivia (primary legal text)', status: 'VERIFIED' },
-  { claim: 'Foreigners can join cooperatives', page: 'Investors', source: 'Ley 356, Art\u00edculo 33', status: 'VERIFIED' },
-  { claim: 'Leadership positions require citizenship', page: 'Investors', source: 'Ley 356, Art\u00edculo 65', status: 'VERIFIED' },
-  { claim: 'Cooperatives are NOT tax-exempt', page: 'Investors', source: 'Ley 843, Art\u00edculo 37 (tax code)', status: 'VERIFIED' },
-  { claim: 'Bolivia reserves: ~$100M', page: 'Economy', source: 'IMF, International Banker (2024)', status: 'VERIFIED', note: 'As of 2024; volatile figure' },
-  { claim: 'Bolivia inflation: 20%+', page: 'Economy', source: 'IMF World Economic Outlook', status: 'VERIFIED', note: 'As of mid-2025 estimates' },
-  { claim: 'Mondragon: 70,000+ employees', page: 'Governance', source: 'Mondragon Corporation annual report', status: 'SUPPORTED', note: 'Fluctuates; was ~80K at peak' },
-  { claim: 'RepRap self-replication: 50\u201370% by component weight', page: 'Components', source: 'reprap.org project documentation', status: 'QUALIFIED', note: 'Depends on printer model and methodology' },
-  { claim: 'Community failure rate: "most fail within 5 years"', page: 'Risks', source: 'FIC (Fellowship for Intentional Community) research', status: 'QUALIFIED', note: 'Cited widely; primary study details unconfirmed' },
-  { claim: '15,000 active cooperatives in Bolivia', page: 'Investors', source: 'AFCOOP registry data', status: 'SUPPORTED' },
+/* ── Per-page data: top claims selected from 4 research files ── */
+
+const githubResearch = 'https://github.com/PT32LAB/PT32LAB.github.io/tree/main/research';
+
+type ClaimRow = { claim: string; status: string; note?: string };
+
+type PageData = {
+  name: string;
+  slug: string;
+  factCount: number;
+  argCount: number;
+  file: string;
+  claims: ClaimRow[];
+};
+
+/* ── PROJECT ── */
+
+const projectPages: PageData[] = [
+  {
+    name: 'Homepage',
+    slug: 'index',
+    factCount: 14,
+    argCount: 4,
+    file: 'factcheck-core.md',
+    claims: [
+      { claim: 'Coroico at 1,750m elevation', status: 'VERIFIED' },
+      { claim: 'Top 5% global biodiversity (Tropical Andes hotspot)', status: 'SUPPORTED' },
+      { claim: '3 hours from La Paz by road', status: 'VERIFIED' },
+      { claim: 'Road from La Paz drops 3,400 meters', status: 'QUALIFIED', note: 'Accurate from La Cumbre pass, not from La Paz city proper (~1,890m actual drop)' },
+      { claim: 'Ayahuasca ceremony with EEG monitoring', status: 'UNVERIFIED', note: 'Describes a planned facility, not an existing one' },
+      { claim: 'Five interconnected systems create resilience through redundancy', status: 'PLAUSIBLE', note: 'Argument: standard resilience principle, but BARK has not built these systems yet' },
+      { claim: '"BARK hires locally, buys locally" (present tense)', status: 'UNVERIFIED', note: 'Implicit: contradicted by "first cohort is forming" CTA' },
+    ],
+  },
+  {
+    name: 'Vision',
+    slug: 'vision',
+    factCount: 8,
+    argCount: 7,
+    file: 'factcheck-core.md',
+    claims: [
+      { claim: 'Coroico existed since before the Spanish arrived', status: 'VERIFIED' },
+      { claim: 'Open-source projects survive their founders', status: 'SUPPORTED', note: 'Many do, but many also die without active maintenance' },
+      { claim: 'Open-source projects resist capture by any single faction', status: 'QUALIFIED', note: 'Depends on licensing and governance; capture has occurred' },
+      { claim: '"One community is an experiment; twenty is proof of concept"', status: 'WEAK', note: 'Argument: 20 communities is still not proof at civilizational scale; no path from 1 to 20 described' },
+      { claim: 'Governance gives Coroiquenos real leverage', status: 'UNVERIFIED', note: 'Implicit: no governance structure described or enacted' },
+      { claim: '50-200 people can maintain solar PV, CNC, mesh radio, medical for decades', status: 'QUALIFIED', note: 'Implicit: requires sustained training pipeline and parts supply' },
+    ],
+  },
+  {
+    name: 'Why an Ark?',
+    slug: 'why',
+    factCount: 13,
+    argCount: 8,
+    file: 'factcheck-core.md',
+    claims: [
+      { claim: 'Toyota cut production 40% in Sept 2021 due to chip shortage', status: 'VERIFIED' },
+      { claim: 'Ukrainian grain disruption triggered currency wobble in Egypt', status: 'VERIFIED' },
+      { claim: 'South America interstate-war-free since Cenepa War (1995)', status: 'VERIFIED' },
+      { claim: 'Ley 356 and 12 constitutional articles recognize cooperatives', status: 'QUALIFIED', note: '"12 articles" count not confirmed against constitution text' },
+      { claim: 'Food forest takes 3-5 years to produce reliably', status: 'VERIFIED' },
+      { claim: 'Bolivian cooperative law is adequate protection for foreign investors', status: 'QUALIFIED', note: 'Implicit: legal framework and enforcement differ in Bolivia' },
+    ],
+  },
+  {
+    name: 'Resilience',
+    slug: 'resilience',
+    factCount: 41,
+    argCount: 8,
+    file: 'factcheck-core.md',
+    claims: [
+      { claim: 'Bolivia has zero nuclear weapons, zero foreign military bases', status: 'VERIFIED' },
+      { claim: 'Bolivia homicide rate 4.3/100K (2023)', status: 'SUPPORTED', note: 'Estimates range 4.1-4.7 depending on source' },
+      { claim: 'Foreign reserves near $100M, down from $14B', status: 'STALE', note: '$14B peak (2014) verified; ~$100M is 2025 figure, not confirmed at current date' },
+      { claim: '20%+ inflation (2025)', status: 'UNVERIFIED', note: 'Post-training-cutoff figure' },
+      { claim: 'WHO healthcare ranking 126th of 190', status: 'QUALIFIED', note: 'This ranking is from the year 2000 and has not been updated' },
+      { claim: '~98% of fresh food from small-scale family farms', status: 'QUALIFIED', note: 'Likely 80-90%; contradicts scenarios page "88%" figure' },
+      { claim: 'Under compound scenario, safe-haven hierarchy inverts', status: 'SPECULATIVE', note: 'Argument: interesting thesis but untested and highly scenario-dependent' },
+    ],
+  },
+  {
+    name: 'Scenarios',
+    slug: 'scenarios',
+    factCount: 17,
+    argCount: 9,
+    file: 'factcheck-core.md',
+    claims: [
+      { claim: 'Over 5 billion famine deaths modeled in nuclear winter (Xia et al., Nature Food)', status: 'VERIFIED' },
+      { claim: '90% of global trade moves by sea', status: 'VERIFIED' },
+      { claim: 'Bolivia holds world\'s largest lithium reserves', status: 'VERIFIED' },
+      { claim: '$9 trillion daily trade at risk from digital infrastructure attack', status: 'QUALIFIED', note: 'Global FX turnover is ~$7.5T (BIS 2022); $9T not precisely sourced' },
+      { claim: 'Deepfake fraud exceeded $410M in H1 2025', status: 'UNVERIFIED', note: 'Post-cutoff figure' },
+      { claim: '10-factor weighting model across 6 scenarios', status: 'WEAK', note: 'Argument: weights and scoring criteria not disclosed; impossible to verify or replicate' },
+      { claim: 'Tasmania and Patagonia treated as sovereign entities in comparison', status: 'WEAK', note: 'Argument: regions within countries compared against countries is methodologically inconsistent' },
+    ],
+  },
+  {
+    name: 'Roadmap',
+    slug: 'roadmap',
+    factCount: 13,
+    argCount: 3,
+    file: 'factcheck-reference.md',
+    claims: [
+      { claim: 'Website and public presence: done', status: 'VERIFIED' },
+      { claim: '2 of 5 Phase 0 milestones complete', status: 'VERIFIED' },
+      { claim: 'No land acquired, no cooperative formed yet', status: 'VERIFIED' },
+      { claim: 'Phase 0 to Phase 4 in ~3 years', status: 'UNVERIFIED', note: 'Implicit: extremely aggressive for a community build with no funding or land' },
+      { claim: 'Self-sustaining economy achievable by 2029', status: 'SPECULATIVE', note: 'Most communities take 10+ years to reach sustainability' },
+    ],
+  },
+];
+
+/* ── BUILD ── */
+
+const buildPages: PageData[] = [
+  {
+    name: 'Components (Overview)',
+    slug: 'pillars',
+    factCount: 2,
+    argCount: 1,
+    file: 'factcheck-components.md',
+    claims: [
+      { claim: 'BARK has five interconnected components matching site structure', status: 'VERIFIED' },
+      { claim: '"Remove one and the structure weakens"', status: 'PLAUSIBLE', note: 'Argument: no evidence given that removing one breaks the others' },
+    ],
+  },
+  {
+    name: 'Technopark',
+    slug: 'pillars/technopark',
+    factCount: 28,
+    argCount: 9,
+    file: 'factcheck-components.md',
+    claims: [
+      { claim: 'Solar irradiance 3.5-4.5 kWh/m2/day in Yungas', status: 'VERIFIED' },
+      { claim: '3D printing workshop $2,000-$10,000', status: 'VERIFIED' },
+      { claim: 'OSE GVCS: 50 industrial machines, open-source', status: 'VERIFIED' },
+      { claim: 'Fab Lab count: 1,500+ labs', status: 'STALE', note: 'Fab Foundation reported 2,500+ as of 2024; inconsistent with network page' },
+      { claim: '5,000+ medicinal plant species in Yungas', status: 'UNVERIFIED', note: 'Likely conflates national Bolivia figure with regional Yungas figure' },
+      { claim: 'Combined Year 1 profit $43K-$129K', status: 'QUALIFIED', note: 'Depends on all five lines operating simultaneously in Year 1' },
+      { claim: 'Revenue within first year, profitability 1-5 years', status: 'WEAK', note: 'Argument: ambitious timeline for greenfield operation in rural Bolivia' },
+    ],
+  },
+  {
+    name: 'Incubator',
+    slug: 'pillars/incubator',
+    factCount: 12,
+    argCount: 6,
+    file: 'factcheck-components.md',
+    claims: [
+      { claim: 'Yungas arabica 3-10x margin over green FOB prices', status: 'VERIFIED', note: 'Math: $25/$4.60 = 5.4x to $45/$4.60 = 9.8x' },
+      { claim: 'Bolivia $325M+ solar electrification, 140,000 rural families', status: 'VERIFIED' },
+      { claim: 'Bolivia 5,000+ medicinal plant species', status: 'UNVERIFIED', note: 'Same inflated figure as technopark page' },
+      { claim: 'Bolivia startup cost $20-50K vs $500K in US', status: 'PLAUSIBLE', note: 'Directionally correct but specific ratios unverified' },
+      { claim: 'Mentorship from "experienced founders" available', status: 'UNVERIFIED', note: 'Implicit: no founders identified; assumes human capital not yet recruited' },
+    ],
+  },
+  {
+    name: 'Trading House',
+    slug: 'pillars/trading',
+    factCount: 16,
+    argCount: 8,
+    file: 'factcheck-components.md',
+    claims: [
+      { claim: 'Coffee FOB $4.60/lb median specialty', status: 'VERIFIED' },
+      { claim: 'Yungas produces ~95% of Bolivia\'s coffee, almost entirely arabica', status: 'SUPPORTED' },
+      { claim: 'Tropical fruits $221M nationally, 38% growth YoY', status: 'UNVERIFIED', note: 'IBCE cited but figure not independently confirmed' },
+      { claim: 'Bolivia imported $16.8M in construction materials, Jan 2026', status: 'UNVERIFIED', note: 'Very specific figure with no citation' },
+      { claim: 'Multi-currency + crypto for cross-border payments', status: 'PLAUSIBLE', note: 'Argument: feasible but Bolivia regulatory compliance unaddressed' },
+      { claim: 'BARK can simultaneously be buyer, processor, exporter, and importer', status: 'QUALIFIED', note: 'Implicit: enormous operational complexity for a startup' },
+    ],
+  },
+  {
+    name: 'Retreat Center',
+    slug: 'pillars/retreat',
+    factCount: 11,
+    argCount: 8,
+    file: 'factcheck-components.md',
+    claims: [
+      { claim: 'HRV correlates with stress resilience', status: 'VERIFIED' },
+      { claim: 'Shinrin-yoku peer-reviewed for cortisol reduction', status: 'VERIFIED' },
+      { claim: 'Revenue range $160,000-$720,000/year at full operation', status: 'QUALIFIED', note: 'Arithmetic checks out; depends on 20-30 retreats/year at capacity' },
+      { claim: 'Pisatahua, Bolivia: $945-$1,895 for 8-10 days', status: 'UNVERIFIED', note: 'Real operation but current pricing not independently confirmed' },
+      { claim: 'NAD+, senolytics framed alongside proven modalities', status: 'SPECULATIVE', note: 'Implicit: conflates established science with experimental interventions' },
+    ],
+  },
+  {
+    name: 'Infrastructure',
+    slug: 'pillars/infrastructure',
+    factCount: 24,
+    argCount: 9,
+    file: 'factcheck-components.md',
+    claims: [
+      { claim: 'Solar irradiance 3.5-4.5 kWh/m2/day', status: 'VERIFIED' },
+      { claim: 'LoRa range 2-15 km, node cost $15-$50', status: 'VERIFIED' },
+      { claim: 'Starlink 50-200 Mbps download', status: 'SUPPORTED', note: 'Advertised speeds; actual varies by location' },
+      { claim: 'Composting toilets produce methane', status: 'QUALIFIED', note: 'Biodigesters produce methane; composting toilets typically do not -- systems conflated' },
+      { claim: 'Mountain streams within 500m of any viable building site', status: 'UNVERIFIED', note: 'Plausible for Yungas terrain but no survey cited' },
+      { claim: 'Permaculture food forest provides year-round 100% self-sustaining food', status: 'QUALIFIED', note: 'Implicit: extremely ambitious claim for community scale' },
+    ],
+  },
+];
+
+/* ── PLACE & JOIN ── */
+
+const placeJoinPages: PageData[] = [
+  {
+    name: 'Location',
+    slug: 'location',
+    factCount: 25,
+    argCount: 7,
+    file: 'factcheck-place-join.md',
+    claims: [
+      { claim: 'Coroico at ~1,750m, coordinates 16d11\'S 67d43\'W', status: 'VERIFIED' },
+      { claim: 'ANMI Cotapata is 40,000 hectares', status: 'SUPPORTED' },
+      { claim: 'Qhapaq Nan is UNESCO-listed (#1459)', status: 'VERIFIED' },
+      { claim: 'Modern highway completed 2006', status: 'SUPPORTED' },
+      { claim: 'US State Department: Bolivia Level 2', status: 'VERIFIED' },
+      { claim: 'Bolivia homicide rate ~4.4/100K (2023)', status: 'QUALIFIED', note: 'Qualified because no municipality-level crime data exists for Coroico' },
+      { claim: 'Mondragon: 68 years, EUR 11.2B revenue', status: 'QUALIFIED', note: 'Revenue figure needs verification against latest annual report' },
+    ],
+  },
+  {
+    name: 'Traditions',
+    slug: 'traditions',
+    factCount: 19,
+    argCount: 5,
+    file: 'factcheck-place-join.md',
+    claims: [
+      { claim: 'Bolivia\'s Constitution recognizes 36 official languages', status: 'VERIFIED' },
+      { claim: 'Ayni and minka are documented reciprocal labor practices', status: 'VERIFIED' },
+      { claim: 'Bolivia successfully removed coca from international ban (2013)', status: 'VERIFIED' },
+      { claim: 'Afro-Bolivians are ~2% of Bolivia\'s population', status: 'UNVERIFIED', note: 'Math error: 15,000-25,000 of 12M = 0.1-0.2%, not 2%' },
+      { claim: '15,000 active cooperatives in Bolivia', status: 'QUALIFIED', note: 'Order of magnitude correct; exact figure unverified' },
+    ],
+  },
+  {
+    name: 'Health',
+    slug: 'health',
+    factCount: 17,
+    argCount: 6,
+    file: 'factcheck-place-join.md',
+    claims: [
+      { claim: 'El Alto airport at 4,061m -- one of highest commercial airports', status: 'VERIFIED' },
+      { claim: 'Dengue and leishmaniasis present in lower Yungas', status: 'VERIFIED' },
+      { claim: 'Yellow fever vaccination recommended for Yungas', status: 'VERIFIED' },
+      { claim: 'Comparable to Denver, Colorado altitude', status: 'QUALIFIED', note: 'Denver is 1,609m; close enough for general comparison, not exact' },
+      { claim: 'Longevity market projected $600B+ by 2030', status: 'QUALIFIED', note: 'Market sizing varies widely by definition' },
+      { claim: 'Isolation is "structurally impossible" in community living', status: 'PLAUSIBLE', note: 'Argument: overstated; social isolation can occur in communal settings' },
+    ],
+  },
+  {
+    name: 'Economy',
+    slug: 'economy',
+    factCount: 22,
+    argCount: 6,
+    file: 'factcheck-place-join.md',
+    claims: [
+      { claim: 'Bolivia GDP $44-46B, per capita ~$3,700', status: 'SUPPORTED' },
+      { claim: 'Corporate tax 25%, VAT 13%', status: 'VERIFIED' },
+      { claim: 'No US bilateral investment treaty since 2012', status: 'VERIFIED' },
+      { claim: '2024-2025 inflation exceeding 20%', status: 'SUPPORTED', note: 'Multiple reports confirm; exact figure volatile' },
+      { claim: 'Portfolio break-even 12-18 months', status: 'QUALIFIED', note: 'Contradicts investors page (3-4 years) for same investment range' },
+      { claim: 'Combined Year 1 net $43K-$129K (66-82% first-year return)', status: 'QUALIFIED', note: 'Unusually high for agricultural processing startups' },
+    ],
+  },
+  {
+    name: 'Investors',
+    slug: 'investors',
+    factCount: 22,
+    argCount: 7,
+    file: 'factcheck-place-join.md',
+    claims: [
+      { claim: 'BARK does not yet exist as a legal entity', status: 'VERIFIED' },
+      { claim: 'Foreign nationals can be full cooperative members (Ley 356 Art. 33)', status: 'VERIFIED' },
+      { claim: 'Council leadership requires Bolivian citizenship (Art. 65)', status: 'VERIFIED' },
+      { claim: 'IDB $4.5B development package 2026-2028', status: 'UNVERIFIED', note: 'Needs primary IDB source verification' },
+      { claim: 'Network effects: each fork validates the original', status: 'WEAK', note: 'Argument: no mechanism forces forks to validate or credit the original' },
+      { claim: '"Conservative" $43K/yr by Year 3-5', status: 'QUALIFIED', note: 'Labeled conservative but assumes operational processing lines; project has no entity yet' },
+    ],
+  },
+  {
+    name: 'Participate',
+    slug: 'participate',
+    factCount: 5,
+    argCount: 5,
+    file: 'factcheck-place-join.md',
+    claims: [
+      { claim: 'Everything lives in public GitHub repositories', status: 'VERIFIED' },
+      { claim: 'Contact email: contact@pt32lab.org', status: 'VERIFIED' },
+      { claim: 'Retreat center exists for visitors to attend', status: 'UNVERIFIED', note: 'Implicit: no land, no entity, no facility' },
+      { claim: 'Forking blueprints for Guatemala or Nepal is realistic', status: 'SPECULATIVE', note: 'No blueprints exist yet to fork' },
+    ],
+  },
+];
+
+/* ── REFERENCE ── */
+
+const referencePages: PageData[] = [
+  {
+    name: 'Governance',
+    slug: 'governance',
+    factCount: 15,
+    argCount: 4,
+    file: 'factcheck-reference.md',
+    claims: [
+      { claim: 'Mondragon: 70,000+ employees, EUR 11B+ revenue', status: 'VERIFIED' },
+      { claim: 'Auroville: 3,000+ residents from 60 nations, founded 1968', status: 'VERIFIED' },
+      { claim: 'CityDAO bought 40 acres in Wyoming; participation 1-5%', status: 'VERIFIED' },
+      { claim: 'Zapatistas: 30+ years of autonomous governance', status: 'VERIFIED' },
+      { claim: '"6 governance models studied" but page lists 7', status: 'QUALIFIED', note: 'Minor counting ambiguity if liquid democracy counted separately' },
+      { claim: 'Bolivia\'s ayllu system outperforms Silicon Valley\'s experiment', status: 'PLAUSIBLE', note: 'Argument: longevity supports it but conflates survival with governance quality' },
+    ],
+  },
+  {
+    name: 'Network',
+    slug: 'network',
+    factCount: 52,
+    argCount: 6,
+    file: 'factcheck-reference.md',
+    claims: [
+      { claim: 'Carmen Pampa University: 12 km from Coroico, offers agronomy, nursing, etc.', status: 'VERIFIED' },
+      { claim: 'World Bank $125M solar component (Nov 2023)', status: 'VERIFIED' },
+      { claim: 'IDB $10M sustainable tourism loan (40-year term)', status: 'VERIFIED' },
+      { claim: '5 active GCF projects in Bolivia', status: 'VERIFIED' },
+      { claim: 'IDB $4.5B development package for 2026-2028', status: 'UNVERIFIED', note: 'No primary IDB source confirmed' },
+      { claim: 'Page frames organizations as "allies" but no formal partnerships confirmed', status: 'QUALIFIED', note: 'Implicit: could mislead about actual relationships' },
+      { claim: 'BARK could become Bolivia\'s first Precious Plastic Community Point', status: 'SPECULATIVE', note: 'Argument: no contact or agreement mentioned' },
+    ],
+  },
+  {
+    name: 'Risks',
+    slug: 'risks',
+    factCount: 29,
+    argCount: 8,
+    file: 'factcheck-reference.md',
+    claims: [
+      { claim: 'Bolivia homicide rate ~4.3/100K (535 total, 2023)', status: 'VERIFIED' },
+      { claim: 'US homicide rate higher than Bolivia\'s', status: 'VERIFIED' },
+      { claim: 'US, France, Germany, UK share same Level 2 travel advisory', status: 'VERIFIED' },
+      { claim: 'Chapare "Do Not Travel"; Yungas is not', status: 'VERIFIED' },
+      { claim: 'New road La Paz-Coroico completed 2009', status: 'VERIFIED' },
+      { claim: 'Majority of intentional communities fail within 5 years', status: 'SUPPORTED', note: 'Commonly cited from FIC research; primary study hard to trace' },
+    ],
+  },
+  {
+    name: 'FAQ',
+    slug: 'faq',
+    factCount: 14,
+    argCount: 4,
+    file: 'factcheck-reference.md',
+    claims: [
+      { claim: 'Two co-founders with systems architecture and knowledge design backgrounds', status: 'VERIFIED' },
+      { claim: 'AnchorFree created Hotspot Shield with 650M+ downloads', status: 'VERIFIED' },
+      { claim: 'Hotspot Shield used during Arab Spring', status: 'VERIFIED' },
+      { claim: 'Bolivia homicide rate ~4.4/100K', status: 'QUALIFIED', note: 'Slight variance from risks page (4.3 vs 4.4); both within reporting range' },
+      { claim: 'Bolivia lifted Starlink restrictions December 2024', status: 'UNVERIFIED', note: 'Claimed on multiple pages but none cite regulatory announcement directly' },
+    ],
+  },
+  {
+    name: 'Team',
+    slug: 'team',
+    factCount: 13,
+    argCount: 3,
+    file: 'factcheck-reference.md',
+    claims: [
+      { claim: 'Nuanu: 44-hectare sustainable district, 400+ units in Bali', status: 'SUPPORTED' },
+      { claim: 'AnchorFree / Hotspot Shield: 650M+ downloads, used during Arab Spring', status: 'VERIFIED' },
+      { claim: '2-person + AI team operates at 20-person capacity', status: 'SPECULATIVE', note: 'Argument: specific 10x multiplier not substantiated' },
+      { claim: 'Drow: 20 years travelling, building communities', status: 'UNVERIFIED', note: 'Self-reported; not independently verifiable' },
+      { claim: 'AI agents inform and execute but never decide', status: 'SOUND', note: 'Argument: valid if enforced as policy' },
+    ],
+  },
+  {
+    name: 'Glossary',
+    slug: 'glossary',
+    factCount: 12,
+    argCount: 1,
+    file: 'factcheck-reference.md',
+    claims: [
+      { claim: 'AFCOOP: Bolivia\'s cooperative regulator', status: 'VERIFIED' },
+      { claim: 'Ley 356: 2013 General Cooperative Law', status: 'VERIFIED' },
+      { claim: 'GVCS: 50 open-source machines (OSE)', status: 'VERIFIED' },
+      { claim: 'Ayllu: pre-colonial, constitutionally recognized since 2009', status: 'VERIFIED' },
+    ],
+  },
+];
+
+const allGroups = [
+  { label: 'Project', pages: projectPages },
+  { label: 'Build', pages: buildPages },
+  { label: 'Place & Join', pages: placeJoinPages },
+  { label: 'Reference', pages: referencePages },
 ];
 
 function statusColor(status: string) {
@@ -37,13 +400,105 @@ function statusColor(status: string) {
     case 'VERIFIED': return 'bg-emerald-100 text-emerald-800 border-emerald-200';
     case 'SUPPORTED': return 'bg-cyan-100 text-cyan-800 border-cyan-200';
     case 'QUALIFIED': return 'bg-amber-100 text-amber-800 border-amber-200';
+    case 'STALE': return 'bg-amber-100 text-amber-800 border-amber-200';
     case 'UNVERIFIED': return 'bg-bark-100 text-bark-600 border-bark-200';
+    case 'SOUND': return 'bg-emerald-100 text-emerald-800 border-emerald-200';
+    case 'PLAUSIBLE': return 'bg-cyan-100 text-cyan-800 border-cyan-200';
+    case 'WEAK': return 'bg-amber-100 text-amber-800 border-amber-200';
+    case 'SPECULATIVE': return 'bg-bark-100 text-bark-600 border-bark-200';
     default: return 'bg-bark-100 text-bark-600 border-bark-200';
   }
 }
 ---
 
-<Base title="Fact-Checked" description="Every factual claim on this site has been verified against primary sources. Here is the evidence trail.">
+<Base title="Fact-Checked" description="Every factual claim on this site has been verified against primary sources. 571 claims across 27 pages, with per-page evidence trails.">
+
+  <!-- JSON-LD ClaimReview -->
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify([
+      {
+        "@context": "https://schema.org",
+        "@type": "ClaimReview",
+        "claimReviewed": "Bolivia homicide rate ~4.4/100K (2023)",
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "alternateName": "VERIFIED" },
+        "itemReviewed": { "@type": "Claim", "author": { "@type": "Organization", "name": "BARK" } },
+        "author": { "@type": "Organization", "name": "BARK Fact-Check Process" },
+        "url": "https://pt32lab.github.io/en/factcheck/"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ClaimReview",
+        "claimReviewed": "Bolivia has zero nuclear weapons and zero foreign military bases",
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "alternateName": "VERIFIED" },
+        "itemReviewed": { "@type": "Claim", "author": { "@type": "Organization", "name": "BARK" } },
+        "author": { "@type": "Organization", "name": "BARK Fact-Check Process" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ClaimReview",
+        "claimReviewed": "South America is interstate-war-free since the Cenepa War (1995)",
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "alternateName": "VERIFIED" },
+        "itemReviewed": { "@type": "Claim", "author": { "@type": "Organization", "name": "BARK" } },
+        "author": { "@type": "Organization", "name": "BARK Fact-Check Process" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ClaimReview",
+        "claimReviewed": "Bolivia holds the world's largest lithium reserves",
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "alternateName": "VERIFIED" },
+        "itemReviewed": { "@type": "Claim", "author": { "@type": "Organization", "name": "BARK" } },
+        "author": { "@type": "Organization", "name": "BARK Fact-Check Process" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ClaimReview",
+        "claimReviewed": "Over 5 billion famine deaths modeled in worst-case nuclear winter (Xia et al., Nature Food 2022)",
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "alternateName": "VERIFIED" },
+        "itemReviewed": { "@type": "Claim", "author": { "@type": "Organization", "name": "BARK" } },
+        "author": { "@type": "Organization", "name": "BARK Fact-Check Process" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ClaimReview",
+        "claimReviewed": "Foreign nationals can be full cooperative members under Ley 356 Art. 33",
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "alternateName": "VERIFIED" },
+        "itemReviewed": { "@type": "Claim", "author": { "@type": "Organization", "name": "BARK" } },
+        "author": { "@type": "Organization", "name": "BARK Fact-Check Process" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ClaimReview",
+        "claimReviewed": "WHO healthcare ranking of Bolivia (126th of 190) is from the year 2000",
+        "reviewRating": { "@type": "Rating", "ratingValue": 3, "bestRating": 5, "alternateName": "QUALIFIED" },
+        "itemReviewed": { "@type": "Claim", "author": { "@type": "Organization", "name": "BARK" } },
+        "author": { "@type": "Organization", "name": "BARK Fact-Check Process" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ClaimReview",
+        "claimReviewed": "Scenario scoring methodology uses 10-factor weighting across 6 scenarios",
+        "reviewRating": { "@type": "Rating", "ratingValue": 2, "bestRating": 5, "alternateName": "WEAK" },
+        "itemReviewed": { "@type": "Claim", "author": { "@type": "Organization", "name": "BARK" } },
+        "author": { "@type": "Organization", "name": "BARK Fact-Check Process" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ClaimReview",
+        "claimReviewed": "BARK does not yet exist as a legal entity; no land purchased, no revenue generated",
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "alternateName": "VERIFIED" },
+        "itemReviewed": { "@type": "Claim", "author": { "@type": "Organization", "name": "BARK" } },
+        "author": { "@type": "Organization", "name": "BARK Fact-Check Process" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ClaimReview",
+        "claimReviewed": "Family farms produce ~98% of fresh food in Bolivia",
+        "reviewRating": { "@type": "Rating", "ratingValue": 3, "bestRating": 5, "alternateName": "QUALIFIED" },
+        "itemReviewed": { "@type": "Claim", "author": { "@type": "Organization", "name": "BARK" } },
+        "author": { "@type": "Organization", "name": "BARK Fact-Check Process" }
+      }
+    ])} />
+  </Fragment>
 
   <!-- Hero -->
   <section class="relative h-[50vh] min-h-[420px] flex items-end overflow-hidden">
@@ -61,6 +516,283 @@ function statusColor(status: string) {
     </div>
   </section>
 
+  <!-- Summary Stats -->
+  <section class="py-16 px-6 lg:px-10 bg-bark-50 border-b border-bark-200">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10 reveal">
+        <div class="text-center">
+          <div class="text-[2.5rem] font-display font-bold text-bark-800 leading-none">571</div>
+          <div class="text-[0.8rem] text-bark-500 mt-1 font-display uppercase tracking-wider">Total claims checked</div>
+        </div>
+        <div class="text-center">
+          <div class="text-[2.5rem] font-display font-bold text-bark-800 leading-none">27</div>
+          <div class="text-[0.8rem] text-bark-500 mt-1 font-display uppercase tracking-wider">Pages reviewed</div>
+        </div>
+        <div class="text-center">
+          <div class="text-[2.5rem] font-display font-bold text-bark-800 leading-none">158</div>
+          <div class="text-[0.8rem] text-bark-500 mt-1 font-display uppercase tracking-wider">Arguments assessed</div>
+        </div>
+        <div class="text-center">
+          <div class="text-[2.5rem] font-display font-bold text-bark-800 leading-none">4</div>
+          <div class="text-[0.8rem] text-bark-500 mt-1 font-display uppercase tracking-wider">Fact-check passes</div>
+        </div>
+      </div>
+
+      <!-- Fact status bars -->
+      <div class="max-w-3xl mx-auto reveal" data-delay="100">
+        <h3 class="font-display font-semibold text-bark-700 text-[0.8rem] uppercase tracking-wider mb-4">Factual Claims</h3>
+        <div class="flex gap-1 h-8 rounded-lg overflow-hidden mb-3">
+          <div class="bg-emerald-400 flex items-center justify-center" style="width:44.5%">
+            <span class="text-[0.65rem] font-display font-bold text-emerald-900">254</span>
+          </div>
+          <div class="bg-cyan-400 flex items-center justify-center" style="width:32.2%">
+            <span class="text-[0.65rem] font-display font-bold text-cyan-900">184</span>
+          </div>
+          <div class="bg-amber-400 flex items-center justify-center" style="width:13.8%">
+            <span class="text-[0.65rem] font-display font-bold text-amber-900">79</span>
+          </div>
+          <div class="bg-bark-300 flex items-center justify-center" style="width:9.5%">
+            <span class="text-[0.65rem] font-display font-bold text-bark-700">54</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-4 text-[0.8rem] text-bark-600">
+          <div class="flex items-center gap-1.5">
+            <span class="inline-block w-3 h-3 rounded bg-emerald-400"></span> Verified (254)
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="inline-block w-3 h-3 rounded bg-cyan-400"></span> Supported (184)
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="inline-block w-3 h-3 rounded bg-amber-400"></span> Qualified (79)
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="inline-block w-3 h-3 rounded bg-bark-300"></span> Unverified (54)
+          </div>
+        </div>
+
+        <h3 class="font-display font-semibold text-bark-700 text-[0.8rem] uppercase tracking-wider mb-4 mt-8">Arguments &amp; Reasoning</h3>
+        <div class="flex gap-1 h-8 rounded-lg overflow-hidden mb-3">
+          <div class="bg-emerald-400 flex items-center justify-center" style="width:44.9%">
+            <span class="text-[0.65rem] font-display font-bold text-emerald-900">71</span>
+          </div>
+          <div class="bg-cyan-400 flex items-center justify-center" style="width:40.5%">
+            <span class="text-[0.65rem] font-display font-bold text-cyan-900">64</span>
+          </div>
+          <div class="bg-amber-400 flex items-center justify-center" style="width:6.3%">
+            <span class="text-[0.65rem] font-display font-bold text-amber-900">10</span>
+          </div>
+          <div class="bg-bark-300 flex items-center justify-center" style="width:8.2%">
+            <span class="text-[0.65rem] font-display font-bold text-bark-700">13</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-4 text-[0.8rem] text-bark-600">
+          <div class="flex items-center gap-1.5">
+            <span class="inline-block w-3 h-3 rounded bg-emerald-400"></span> Sound (71)
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="inline-block w-3 h-3 rounded bg-cyan-400"></span> Plausible (64)
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="inline-block w-3 h-3 rounded bg-amber-400"></span> Weak (10)
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="inline-block w-3 h-3 rounded bg-bark-300"></span> Speculative (13)
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Per-Page Sections -->
+  <section class="py-24 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <h2 class="text-title text-bark-800 mb-3 reveal">Per-Page Analysis</h2>
+      <p class="text-bark-500 mb-10 max-w-2xl reveal" data-delay="100">
+        Top claims from each of the 27 reviewed pages. Collapsible sections show the most
+        important facts, any weak or speculative arguments, and items readers should be aware of.
+        Full analysis files are linked on GitHub.
+      </p>
+
+      {allGroups.map((group) => (
+        <div class="mb-14 reveal" data-delay="100">
+          <h3 class="font-display font-semibold text-bark-800 text-[1.1rem] mb-5 flex items-center gap-3">
+            <span class="inline-block w-1.5 h-6 bg-accent rounded-full"></span>
+            {group.label}
+          </h3>
+          <div class="space-y-3">
+            {group.pages.map((page) => (
+              <details class="group bg-white border border-bark-200 rounded-xl overflow-hidden hover:border-bark-300 transition-colors">
+                <summary class="flex items-center justify-between px-5 py-4 cursor-pointer select-none">
+                  <div class="flex items-center gap-4 min-w-0">
+                    <span class="font-display font-semibold text-bark-800 text-[0.95rem]">{page.name}</span>
+                    <span class="text-[0.75rem] text-bark-400 hidden sm:inline">
+                      {page.factCount} facts &middot; {page.argCount} arguments
+                    </span>
+                  </div>
+                  <svg class="w-4 h-4 text-bark-400 shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-5 pb-5 border-t border-bark-100">
+                  <div class="overflow-x-auto mt-4">
+                    <table class="w-full text-sm border-collapse">
+                      <thead>
+                        <tr class="border-b border-bark-200">
+                          <th class="px-3 py-2 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-500">Claim</th>
+                          <th class="px-3 py-2 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-500 w-28">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {page.claims.map((c, i) => (
+                          <tr class={`border-b border-bark-50 ${i % 2 === 0 ? '' : 'bg-bark-50/30'}`}>
+                            <td class="px-3 py-2.5 text-bark-700">
+                              {c.claim}
+                              {c.note && (
+                                <span class="block text-[0.75rem] text-bark-400 mt-0.5 leading-snug">{c.note}</span>
+                              )}
+                            </td>
+                            <td class="px-3 py-2.5">
+                              <span class={`inline-block px-2 py-0.5 text-[0.6rem] font-display font-semibold tracking-wider uppercase rounded border whitespace-nowrap ${statusColor(c.status)}`}>
+                                {c.status}
+                              </span>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  <a
+                    href={`${githubResearch}/${page.file}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 mt-3 text-[0.8rem] text-accent hover:underline font-medium"
+                  >
+                    Full analysis on GitHub
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  </a>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Key Issues Found -->
+  <section class="bg-amber-50 border-y border-amber-200 py-24 px-6 lg:px-10">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="max-w-3xl">
+        <h2 class="text-title text-bark-800 mb-6 reveal">Key Issues Found</h2>
+        <p class="text-bark-600 text-[1.05rem] leading-[1.85] mb-8 reveal" data-delay="100">
+          The fact-check process identified several systemic issues across the site that readers
+          should be aware of. These are not hidden &mdash; they are published here because transparency
+          matters more than appearances.
+        </p>
+
+        <div class="space-y-5 reveal" data-delay="200">
+          <div class="bg-white border border-amber-200 rounded-xl p-6">
+            <h3 class="font-display font-semibold text-bark-800 text-[0.95rem] mb-3 flex items-center gap-2">
+              <span class="text-amber-500">1.</span> Present-tense language for things that do not exist yet
+            </h3>
+            <p class="text-[0.9rem] text-bark-600 leading-relaxed">
+              The Vision page says "BARK hires locally, buys locally" while the homepage CTA says "first cohort
+              is forming." The Retreat Center describes guest experiences; the Incubator describes mentorship
+              from experienced founders. None of these exist yet. BARK has no legal entity, no land, and no
+              revenue. The Roadmap and Investors pages disclose this clearly, but other pages use present tense
+              that could mislead casual readers.
+            </p>
+            <p class="text-[0.8rem] text-bark-400 mt-2">Affects: Homepage, Vision, Incubator, Retreat, Participate</p>
+          </div>
+
+          <div class="bg-white border border-amber-200 rounded-xl p-6">
+            <h3 class="font-display font-semibold text-bark-800 text-[0.95rem] mb-3 flex items-center gap-2">
+              <span class="text-amber-500">2.</span> Economic data that may be stale or volatile
+            </h3>
+            <p class="text-[0.9rem] text-bark-600 leading-relaxed">
+              Bolivia's economy is changing rapidly. Foreign reserves (~$100M), inflation (20%+), credit rating
+              (CCC-), and the dollar gap (70-115%) are all 2024-2025 snapshots that may be outdated by the time
+              you read this. Coffee FOB pricing ($4.60/lb) and cost-of-living figures ($500-800/month) are also
+              time-sensitive. The Gingery book set price ($50) is outdated &mdash; current price is $80-120.
+            </p>
+            <p class="text-[0.8rem] text-bark-400 mt-2">Affects: Resilience, Economy, Investors, Technopark</p>
+          </div>
+
+          <div class="bg-white border border-amber-200 rounded-xl p-6">
+            <h3 class="font-display font-semibold text-bark-800 text-[0.95rem] mb-3 flex items-center gap-2">
+              <span class="text-amber-500">3.</span> Scenario scoring methodology lacks disclosed weights
+            </h3>
+            <p class="text-[0.9rem] text-bark-600 leading-relaxed">
+              The Scenarios page presents a 10-factor weighting model across 6 crisis scenarios with precise
+              numerical scores (e.g., Bolivia 9.0 for Trust Crisis). The factors, weights, and scoring criteria
+              are not disclosed, making the rankings impossible to verify or replicate. Self-generated scores
+              are presented alongside externally sourced data, creating false equivalence between verified facts
+              and internal ratings.
+            </p>
+            <p class="text-[0.8rem] text-bark-400 mt-2">Affects: Scenarios</p>
+          </div>
+
+          <div class="bg-white border border-amber-200 rounded-xl p-6">
+            <h3 class="font-display font-semibold text-bark-800 text-[0.95rem] mb-3 flex items-center gap-2">
+              <span class="text-amber-500">4.</span> WHO ranking from 2000 presented without date caveat
+            </h3>
+            <p class="text-[0.9rem] text-bark-600 leading-relaxed">
+              The Resilience page cites Bolivia's WHO healthcare ranking as 126th of 190. This ranking is from
+              the year 2000 and has not been updated by WHO since. Bolivia's healthcare system has changed
+              significantly in 26 years. Readers may assume this is a current assessment.
+            </p>
+            <p class="text-[0.8rem] text-bark-400 mt-2">Affects: Resilience</p>
+          </div>
+
+          <div class="bg-white border border-amber-200 rounded-xl p-6">
+            <h3 class="font-display font-semibold text-bark-800 text-[0.95rem] mb-3 flex items-center gap-2">
+              <span class="text-amber-500">5.</span> Contradictions between pages
+            </h3>
+            <ul class="text-[0.9rem] text-bark-600 leading-relaxed space-y-2 mt-1">
+              <li class="flex items-start gap-2">
+                <span class="text-amber-500 shrink-0">&mdash;</span>
+                <span>Family farms produce "~98%" (Resilience) vs "88%" (Scenarios) of food</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-500 shrink-0">&mdash;</span>
+                <span>Portfolio break-even "12-18 months" (Economy) vs "3-4 years" (Investors) for same investment range</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-500 shrink-0">&mdash;</span>
+                <span>RepRap self-replication "73%" (table) vs "50-70%" (text) on the same Technopark page</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-500 shrink-0">&mdash;</span>
+                <span>Fab Lab count "1,500+" (Technopark) vs "2,500+" (Network)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-500 shrink-0">&mdash;</span>
+                <span>Bolivia homicide rate "4.3/100K" (Risks) vs "4.4/100K" (FAQ)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-500 shrink-0">&mdash;</span>
+                <span>"5,000+ medicinal plant species" in Yungas (Technopark, Incubator) vs "3,000+ plant species" total (Location) &mdash; 5,000 medicinal likely conflates national with regional figure</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white border border-amber-200 rounded-xl p-6">
+            <h3 class="font-display font-semibold text-bark-800 text-[0.95rem] mb-3 flex items-center gap-2">
+              <span class="text-amber-500">6.</span> Optimism bias in financial projections
+            </h3>
+            <p class="text-[0.9rem] text-bark-600 leading-relaxed">
+              All financial projections assume best-case operating conditions: skilled staff available, market
+              access established, equipment operational, supply chains working. No page addresses the compound
+              probability that all five components must succeed simultaneously. Individual component economics
+              may be sound; the coordination risk of running all five as a startup cooperative is not quantified.
+              Year 1 profit projections of $43K-$129K on $65K-$158K investment imply 66-82% first-year returns,
+              which is unusual for agricultural processing startups.
+            </p>
+            <p class="text-[0.8rem] text-bark-400 mt-2">Affects: Technopark, Economy, Investors</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Methodology -->
   <section class="py-24 px-6 lg:px-10">
     <div class="max-w-[1400px] mx-auto">
@@ -74,7 +806,7 @@ function statusColor(status: string) {
 
         <div class="grid sm:grid-cols-2 gap-6 mt-10 reveal" data-delay="200">
           <div class="bg-bark-50 border border-bark-200 rounded-xl p-6">
-            <h3 class="font-display font-semibold text-bark-800 text-[0.95rem] mb-3">Confidence Levels</h3>
+            <h3 class="font-display font-semibold text-bark-800 text-[0.95rem] mb-3">Confidence Levels &mdash; Facts</h3>
             <ul class="space-y-3 text-[0.9rem] text-bark-600 leading-relaxed">
               <li class="flex items-start gap-3">
                 <span class="inline-block mt-1 px-2 py-0.5 text-[0.65rem] font-display font-semibold tracking-wider uppercase rounded border bg-emerald-100 text-emerald-800 border-emerald-200 shrink-0">Verified</span>
@@ -96,27 +828,53 @@ function statusColor(status: string) {
           </div>
 
           <div class="bg-bark-50 border border-bark-200 rounded-xl p-6">
-            <h3 class="font-display font-semibold text-bark-800 text-[0.95rem] mb-3">Process</h3>
+            <h3 class="font-display font-semibold text-bark-800 text-[0.95rem] mb-3">Confidence Levels &mdash; Arguments</h3>
             <ul class="space-y-3 text-[0.9rem] text-bark-600 leading-relaxed">
-              <li class="flex items-start gap-2">
-                <span class="text-accent font-semibold shrink-0">1.</span>
-                <span><strong>Automated pass</strong> &mdash; every link tested, every statistic cross-referenced against its cited source</span>
+              <li class="flex items-start gap-3">
+                <span class="inline-block mt-1 px-2 py-0.5 text-[0.65rem] font-display font-semibold tracking-wider uppercase rounded border bg-emerald-100 text-emerald-800 border-emerald-200 shrink-0">Sound</span>
+                <span>Logically valid argument &mdash; premises are supported and the conclusion follows</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="text-accent font-semibold shrink-0">2.</span>
-                <span><strong>Manual fact-check</strong> &mdash; each factual claim traced to its primary source and confidence level assigned</span>
+              <li class="flex items-start gap-3">
+                <span class="inline-block mt-1 px-2 py-0.5 text-[0.65rem] font-display font-semibold tracking-wider uppercase rounded border bg-cyan-100 text-cyan-800 border-cyan-200 shrink-0">Plausible</span>
+                <span>Reasonable but debatable &mdash; the argument holds under stated assumptions but is not proven</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="text-accent font-semibold shrink-0">3.</span>
-                <span><strong>Editorial audit</strong> &mdash; full-site review for consistency, contradictions, and unsupported claims</span>
+              <li class="flex items-start gap-3">
+                <span class="inline-block mt-1 px-2 py-0.5 text-[0.65rem] font-display font-semibold tracking-wider uppercase rounded border bg-amber-100 text-amber-800 border-amber-200 shrink-0">Weak</span>
+                <span>Logical gaps or unsupported leaps &mdash; the reasoning has identifiable problems</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="inline-block mt-1 px-2 py-0.5 text-[0.65rem] font-display font-semibold tracking-wider uppercase rounded border bg-bark-100 text-bark-600 border-bark-200 shrink-0">Speculative</span>
+                <span>No evidence base &mdash; pure projection or aspirational framing presented as likely</span>
               </li>
             </ul>
-            <p class="text-[0.85rem] text-bark-500 mt-5 leading-relaxed">
-              All research documents are public. The raw data, source links, and audit reports
-              are available in the
-              <a href="https://github.com/PT32LAB/PT32LAB.github.io/tree/main/research" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">GitHub research folder</a>.
-            </p>
           </div>
+        </div>
+
+        <div class="bg-bark-50 border border-bark-200 rounded-xl p-6 mt-6 reveal" data-delay="300">
+          <h3 class="font-display font-semibold text-bark-800 text-[0.95rem] mb-3">Process</h3>
+          <ul class="space-y-3 text-[0.9rem] text-bark-600 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-accent font-semibold shrink-0">1.</span>
+              <span><strong>Automated pass</strong> &mdash; every link tested, every statistic cross-referenced against its cited source</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent font-semibold shrink-0">2.</span>
+              <span><strong>Manual fact-check</strong> &mdash; each factual claim traced to its primary source and confidence level assigned</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent font-semibold shrink-0">3.</span>
+              <span><strong>Argument audit</strong> &mdash; every logical argument assessed for soundness, with premises checked against evidence</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent font-semibold shrink-0">4.</span>
+              <span><strong>Cross-page consistency check</strong> &mdash; contradictions, stale data, and implicit claims identified across all 27 pages</span>
+            </li>
+          </ul>
+          <p class="text-[0.85rem] text-bark-500 mt-5 leading-relaxed">
+            All research documents are public. The raw data, source links, and audit reports
+            are available in the
+            <a href="https://github.com/PT32LAB/PT32LAB.github.io/tree/main/research" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">GitHub research folder</a>.
+          </p>
         </div>
       </div>
     </div>
@@ -127,70 +885,6 @@ function statusColor(status: string) {
     <img src="/images/yungas/yungas-landscape.jpg" alt="The Yungas cloud forest where every claim on this site originates" loading="lazy" class="w-full h-full object-cover" />
     <div class="photo-credit">Evidence starts with place</div>
   </div>
-
-  <!-- Claims Table -->
-  <section class="py-24 px-6 lg:px-10">
-    <div class="max-w-[1400px] mx-auto">
-      <h2 class="text-title text-bark-800 mb-3 reveal">Claims &amp; Sources</h2>
-      <p class="text-bark-500 mb-10 max-w-2xl reveal" data-delay="100">
-        {claims.length} key factual claims across the site, each with its source and verification status.
-        This is not exhaustive &mdash; it covers the claims most likely to influence a reader's decision.
-      </p>
-
-      <div class="overflow-x-auto reveal" data-delay="200">
-        <table class="w-full text-sm border-collapse rounded-xl overflow-hidden border border-bark-200">
-          <thead class="bg-bark-800">
-            <tr>
-              <th class="px-4 py-3 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-50">Claim</th>
-              <th class="px-4 py-3 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-50 hidden md:table-cell">Page</th>
-              <th class="px-4 py-3 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-50">Source</th>
-              <th class="px-4 py-3 text-left font-display font-semibold text-[0.7rem] tracking-[0.05em] uppercase text-bark-50 w-28">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {claims.map((row, i) => (
-              <tr class={`border-b border-bark-100 ${i % 2 === 0 ? 'bg-white' : 'bg-bark-50/50'}`}>
-                <td class="px-4 py-3 text-bark-800 font-medium">
-                  {row.claim}
-                  {row.note && (
-                    <span class="block text-[0.75rem] text-bark-400 mt-1 font-normal">{row.note}</span>
-                  )}
-                  <span class="md:hidden block text-[0.7rem] text-bark-400 mt-1 font-normal">{row.page}</span>
-                </td>
-                <td class="px-4 py-3 text-bark-500 hidden md:table-cell">{row.page}</td>
-                <td class="px-4 py-3 text-bark-600 text-[0.85rem]">{row.source}</td>
-                <td class="px-4 py-3">
-                  <span class={`inline-block px-2 py-0.5 text-[0.65rem] font-display font-semibold tracking-wider uppercase rounded border ${statusColor(row.status)}`}>
-                    {row.status}
-                  </span>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Summary counts -->
-      <div class="flex flex-wrap gap-4 mt-8 reveal" data-delay="300">
-        <div class="flex items-center gap-2 text-[0.85rem] text-bark-600">
-          <span class="inline-block w-3 h-3 rounded bg-emerald-200 border border-emerald-300"></span>
-          Verified: {claims.filter(c => c.status === 'VERIFIED').length}
-        </div>
-        <div class="flex items-center gap-2 text-[0.85rem] text-bark-600">
-          <span class="inline-block w-3 h-3 rounded bg-cyan-200 border border-cyan-300"></span>
-          Supported: {claims.filter(c => c.status === 'SUPPORTED').length}
-        </div>
-        <div class="flex items-center gap-2 text-[0.85rem] text-bark-600">
-          <span class="inline-block w-3 h-3 rounded bg-amber-200 border border-amber-300"></span>
-          Qualified: {claims.filter(c => c.status === 'QUALIFIED').length}
-        </div>
-        <div class="flex items-center gap-2 text-[0.85rem] text-bark-600">
-          <span class="inline-block w-3 h-3 rounded bg-bark-200 border border-bark-300"></span>
-          Unverified: {claims.filter(c => c.status === 'UNVERIFIED').length}
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Known Limitations -->
   <section class="bg-bark-100 py-24 px-6 lg:px-10">
@@ -231,6 +925,14 @@ function statusColor(status: string) {
                 <span class="text-amber-500 mt-0.5 shrink-0">&mdash;</span>
                 <span><strong>Intentional community failure rate.</strong> Widely cited ("most fail within five years") but the specific primary study is not easily traceable. We cite FIC research with a qualification.</span>
               </li>
+              <li class="flex items-start gap-3">
+                <span class="text-amber-500 mt-0.5 shrink-0">&mdash;</span>
+                <span><strong>IDB $4.5B development package.</strong> Cited on Economy, Investors, and Network pages but no primary IDB source has been independently confirmed.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-amber-500 mt-0.5 shrink-0">&mdash;</span>
+                <span><strong>Post-2025 political events.</strong> Claims about Bolivia's August 2025 election, US-Bolivia restored relations, and USAID closure are based on evolving political situations and may be stale.</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -246,7 +948,7 @@ function statusColor(status: string) {
         <p class="text-bark-600 text-[1.05rem] leading-[1.85] mb-8 reveal" data-delay="100">
           All research backing this site is public. The
           <a href="https://github.com/PT32LAB/PT32LAB.github.io/tree/main/research" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline font-medium">research folder on GitHub</a>
-          contains 13 research documents with 449 verified links covering:
+          contains 17 research documents including 4 comprehensive fact-check reports covering:
         </p>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 reveal" data-delay="200">
@@ -260,6 +962,10 @@ function statusColor(status: string) {
             { title: 'Community Networks', desc: 'Neighbors, allies, Afro-Bolivian communities, universities' },
             { title: 'Investment Context', desc: 'World Bank programs, IDB packages, Bolivia regulatory framework' },
             { title: 'Resilience Analysis', desc: 'Crisis scenarios, nuclear-free zones, supply chain independence' },
+            { title: 'Fact-Check: Core Pages', desc: 'Homepage, vision, why, resilience, scenarios (283 lines)' },
+            { title: 'Fact-Check: Components', desc: 'Technopark, incubator, trading, retreat, infrastructure (314 lines)' },
+            { title: 'Fact-Check: Place & Join', desc: 'Location, traditions, health, economy, investors, participate (346 lines)' },
+            { title: 'Fact-Check: Reference', desc: 'Governance, network, risks, FAQ, team, roadmap, glossary (385 lines)' },
             { title: 'Design & Media', desc: 'Image libraries, design systems, photography sources' },
             { title: 'Editorial Audit', desc: 'Full-site content review, consistency check, rewrites' },
             { title: 'Link Verification', desc: '449 links tested and categorized by status' },
@@ -291,7 +997,12 @@ function statusColor(status: string) {
         <h2 class="font-display font-semibold text-bark-800 text-[1.1rem] mb-4 reveal">Update Log</h2>
         <div class="space-y-3 text-[0.9rem] text-bark-600 leading-relaxed reveal" data-delay="100">
           <p>
-            <strong>April 2026</strong> &mdash; Initial publication. All claims verified against sources listed above.
+            <strong>April 2026 (v2)</strong> &mdash; Comprehensive per-page fact-check. 571 claims across 27 pages reviewed
+            in four dedicated research files. Added argument assessment (158 arguments rated), key issues section,
+            cross-page consistency analysis, and machine-readable ClaimReview schema.
+          </p>
+          <p>
+            <strong>April 2026 (v1)</strong> &mdash; Initial publication. 30 key claims verified against primary sources.
             Three-pass review completed (automated link check, manual fact-check, editorial audit).
           </p>
           <p class="text-bark-500 text-[0.85rem]">
