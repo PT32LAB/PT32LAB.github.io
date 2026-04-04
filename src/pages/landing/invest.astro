@@ -92,15 +92,44 @@ const modalities = [
     </div>
   </section>
 
+  <!-- Use of funds -->
+  <section class="py-16 px-6 lg:px-10 bg-bark-100">
+    <div class="max-w-[1100px] mx-auto">
+      <span class="text-label text-accent reveal">Where Capital Goes</span>
+      <h2 class="text-title text-bark-800 mt-4 mb-8 reveal" data-delay="100">Seed-stage use of funds</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal" data-delay="200">
+        <div class="card"><div class="stat-value text-bark-700 text-2xl">$10-30K</div><div class="stat-label">Land option</div></div>
+        <div class="card"><div class="stat-value text-bark-700 text-2xl">$25-55K</div><div class="stat-label">First equipment</div><p class="text-xs text-bark-500 mt-1">Coffee roaster + solar array</p></div>
+        <div class="card"><div class="stat-value text-bark-700 text-2xl">$5-10K</div><div class="stat-label">Legal + cooperative</div></div>
+        <div class="card"><div class="stat-value text-bark-700 text-2xl">$10-20K</div><div class="stat-label">Operating reserve</div></div>
+      </div>
+      <p class="text-sm text-bark-500 mt-4 reveal" data-delay="300">Total seed: $50-115K. Comparable: CENAPROC, a Yungas coffee cooperative, demonstrates that cooperative agricultural processing works in this exact region at this scale.</p>
+    </div>
+  </section>
+
+  <!-- 90-day milestones -->
+  <section class="py-16 px-6 lg:px-10">
+    <div class="max-w-[1100px] mx-auto">
+      <span class="text-label text-accent reveal">Next 90 Days</span>
+      <h2 class="text-title text-bark-800 mt-4 mb-8 reveal" data-delay="100">Falsifiable milestones</h2>
+      <div class="grid sm:grid-cols-3 gap-6 reveal" data-delay="200">
+        <div class="bar-section"><h3 class="font-display font-semibold text-bark-800">Site visit to Coroico</h3><p class="text-sm text-bark-500 mt-2">Ground-truth all research. Photos, meetings, honest report published. Q3 2026.</p></div>
+        <div class="bar-section"><h3 class="font-display font-semibold text-bark-800">Bolivian legal consultation</h3><p class="text-sm text-bark-500 mt-2">Ley 356 cooperative viability confirmed by a Bolivian attorney. Q3 2026.</p></div>
+        <div class="bar-section"><h3 class="font-display font-semibold text-bark-800">First partner MOU</h3><p class="text-sm text-bark-500 mt-2">Letter of understanding with CENAPROC, Carmen Pampa, or local sindicato. Q4 2026.</p></div>
+      </div>
+    </div>
+  </section>
+
   <div class="divider-accent max-w-[1100px] mx-auto"></div>
 
-  <!-- 5 modalities -->
+  <!-- 5 modalities — when we're ready -->
   <section class="section-gap px-6 lg:px-10">
     <div class="max-w-[1100px] mx-auto">
-      <span class="text-label text-bark-500 reveal">Five Ways In</span>
-      <h2 class="text-headline text-bark-800 mt-4 mb-10 reveal" data-delay="100">
-        Investment modalities
+      <span class="text-label text-bark-500 reveal">When We're Ready</span>
+      <h2 class="text-headline text-bark-800 mt-4 mb-4 reveal" data-delay="100">
+        Investment modalities (post-entity formation)
       </h2>
+      <p class="text-bark-500 mb-10 reveal" data-delay="150">Capital cannot be accepted until a legal cooperative is formed. These are the structures we are designing for:</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {modalities.map((m, i) => (
           <div class="card hover-lift reveal" data-delay={String(i * 100)}>
