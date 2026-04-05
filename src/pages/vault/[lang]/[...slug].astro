@@ -1,0 +1,150 @@
+---
+/**
+ * Dynamic route that renders vault content.
+ *
+ * Generates pages for every vault entry × locale combination.
+ * Uses the `slug` frontmatter field to preserve existing URL paths.
+ *
+ * Once validated, this replaces src/pages/en/ and src/pages/es/.
+ */
+import { getCollection, render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import Landing from '../../../layouts/Landing.astro';
+import { getLocale, getNoteName } from '../../../lib/vault';
+
+export async function getStaticPaths() {
+  const allPages = await getCollection('pages');
+  const locales = ['en', 'es'];
+  const paths: any[] = [];
+
+  // Group entries by note name to handle locale fallback
+  const byNote = new Map<string, Map<string, (typeof allPages)[number]>>();
+  for (const entry of allPages) {
+    const noteName = getNoteName(entry.id);
+    const locale = getLocale(entry.id);
+    if (!byNote.has(noteName)) byNote.set(noteName, new Map());
+    byNote.get(noteName)!.set(locale, entry);
+  }
+
+  for (const [, localeMap] of byNote) {
+    for (const locale of locales) {
+      // Prefer locale-specific entry, fall back to English
+      const entry = localeMap.get(locale) || localeMap.get('en');
+      if (!entry || entry.data.slug === undefined) continue;
+
+      const slug = entry.data.slug;
+      paths.push({
+        params: {
+          lang: locale,
+          slug: slug || undefined, // empty string = index route
+        },
+        props: { entry, locale },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { entry, locale } = Astro.props;
+
+const { Content } = await render(entry);
+
+const { title, description, layout } = entry.data;
+const isLanding = layout === 'landing';
+const Layout = isLanding ? Landing : Base;
+---
+
+{isLanding ? (
+  <Landing title={title} description={description}>
+    <section class="pt-24 pb-32 px-6 lg:px-10">
+      <div class="max-w-[900px] mx-auto">
+        <div class="content-prose">
+          <Content />
+        </div>
+      </div>
+    </section>
+  </Landing>
+) : (
+  <Base title={title} description={description}>
+    {/* Accent band */}
+    <div class="h-1.5 bg-gradient-to-r from-accent via-accent-dim to-transparent"></div>
+
+    {/* Page header */}
+    <section class="pt-28 pb-12 px-6 lg:px-10">
+      <div class="max-w-[900px] mx-auto lg:max-w-[1100px]">
+        <div class="max-w-[900px]">
+          <h1 class="text-headline text-bark-800 reveal">{title}</h1>
+          {description && (
+            <p class="text-body-lg text-bark-500 mt-4 max-w-2xl reveal" data-delay="100">{description}</p>
+          )}
+          <div class="accent-line mt-10 reveal" data-delay="200"></div>
+        </div>
+      </div>
+    </section>
+
+    {/* Content with sidebar TOC */}
+    <section class="pb-32 px-6 lg:px-10">
+      <div class="max-w-[900px] mx-auto lg:max-w-[1100px] lg:flex lg:gap-16">
+        <aside class="hidden lg:block lg:w-[200px] lg:shrink-0 lg:order-2">
+          <div class="sticky top-24" id="toc-container">
+            <p class="text-label text-bark-400 mb-4">On this page</p>
+            <nav id="toc-nav" class="space-y-1.5" aria-label="Table of contents">
+              {/* Populated by JS from h2 elements */}
+            </nav>
+          </div>
+        </aside>
+
+        <div class="content-prose lg:flex-1 lg:min-w-0 lg:order-1">
+          <Content />
+        </div>
+      </div>
+    </section>
+  </Base>
+)}
+
+<script>
+  function initContentPage() {
+    const content = document.querySelector('.content-prose');
+    const tocNav = document.getElementById('toc-nav');
+    if (!content || !tocNav) return;
+
+    const headings = content.querySelectorAll('h2');
+    if (headings.length < 2) {
+      const tocContainer = document.getElementById('toc-container');
+      if (tocContainer) tocContainer.style.display = 'none';
+      return;
+    }
+
+    while (tocNav.firstChild) {
+      tocNav.removeChild(tocNav.firstChild);
+    }
+
+    headings.forEach((h2) => {
+      if (!h2.id) {
+        h2.id = 'section-' + (h2.textContent || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      }
+      const link = document.createElement('a');
+      link.href = '#' + h2.id;
+      link.textContent = h2.textContent || '';
+      tocNav.appendChild(link);
+    });
+
+    const tocLinks = tocNav.querySelectorAll('a');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          tocLinks.forEach(link => {
+            link.classList.toggle('toc-active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+
+    headings.forEach(h2 => observer.observe(h2));
+  }
+
+  initContentPage();
+  document.addEventListener('astro:page-load', initContentPage);
+</script>
