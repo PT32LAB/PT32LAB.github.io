@@ -1,0 +1,177 @@
+---
+/**
+ * Dynamic route that renders vault content.
+ * Supports three layouts: home (hero), prose (content page), landing (minimal).
+ */
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Landing from '../../layouts/Landing.astro';
+import { getLocale, getNoteName } from '../../lib/vault';
+
+export async function getStaticPaths() {
+  const allPages = await getCollection('pages');
+  const locales = ['en', 'es'];
+  const paths: any[] = [];
+
+  // Group by slug + locale to handle fallback (es falls back to en)
+  const bySlug = new Map<string, Map<string, (typeof allPages)[number]>>();
+  for (const entry of allPages) {
+    if (entry.data.slug === undefined) continue;
+    if (entry.data.slug.startsWith('landing/')) continue; // handled by /landing/ route
+    const slug = entry.data.slug;
+    const locale = getLocale(entry.id);
+    if (!bySlug.has(slug)) bySlug.set(slug, new Map());
+    bySlug.get(slug)!.set(locale, entry);
+  }
+
+  for (const [slug, localeMap] of bySlug) {
+    for (const locale of locales) {
+      const entry = localeMap.get(locale) || localeMap.get('en');
+      if (!entry) continue;
+      paths.push({
+        params: {
+          lang: locale,
+          slug: slug || undefined,
+        },
+        props: { entry, locale },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { entry, locale } = Astro.props;
+const { Content } = await render(entry);
+const { title, description, layout, hero } = entry.data;
+const heroImage = hero?.image;
+---
+
+{layout === 'landing' ? (
+  <Landing title={title} description={description}>
+    <section class="pt-24 pb-32 px-6 lg:px-10">
+      <div class="max-w-[900px] mx-auto">
+        <div class="content-prose">
+          <Content />
+        </div>
+      </div>
+    </section>
+  </Landing>
+) : (
+  <Base title={title} description={description} heroImage={heroImage}>
+
+    {/* Hero section — driven by frontmatter hero data */}
+    {hero?.image ? (
+      <section class:list={['relative flex items-end overflow-hidden', layout === 'home' ? 'min-h-screen pb-20' : 'min-h-[45vh] min-h-[380px] pb-12']}>
+        <img src={hero.image} alt="" width="1920" height="1282" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+        <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
+          {hero.label && <span class="text-label text-accent tracking-widest">{hero.label}</span>}
+          {layout === 'home' && hero.headline ? (
+            <h1 class="text-display text-white mt-4 max-w-4xl" style="text-shadow: 0 2px 20px rgba(0,0,0,0.5);" set:html={hero.headline} />
+          ) : (
+            <h1 class="text-headline text-white mt-4 max-w-4xl" style="text-shadow: 0 2px 20px rgba(0,0,0,0.5);">{title}</h1>
+          )}
+          {(hero.body || (layout !== 'home' && hero.headline) || (!hero.headline && !hero.body && description)) && (
+            <p class="text-body-lg text-white/80 mt-4 max-w-2xl" set:html={hero.body || hero.headline || description} />
+          )}
+          {hero.cta && hero.cta.length > 0 && (
+            <div class="mt-10 flex flex-wrap items-center gap-6">
+              {hero.cta.map(btn => (
+                btn.style === 'primary' ? (
+                  <a href={btn.href} class="group inline-flex items-center gap-3 px-7 py-4 bg-accent text-night font-display font-semibold text-sm tracking-wide rounded hover:bg-accent-light transition-colors duration-300">
+                    {btn.text}
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                  </a>
+                ) : (
+                  <a href={btn.href} class="inline-flex items-center gap-2 text-white/60 hover:text-white font-display text-sm tracking-wide transition-colors duration-300">
+                    {btn.text}
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
+                  </a>
+                )
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+    ) : (
+      /* Non-hero header: accent band + title */
+      <Fragment>
+        <div class="h-1.5 bg-gradient-to-r from-accent via-accent-dim to-transparent"></div>
+        <section class="pt-28 pb-12 px-6 lg:px-10">
+          <div class="max-w-[900px] mx-auto lg:max-w-[1100px]">
+            <div class="max-w-[900px]">
+              <h1 class="text-headline text-bark-800 reveal">{title}</h1>
+              {description && (
+                <p class="text-body-lg text-bark-500 mt-4 max-w-2xl reveal" data-delay="100">{description}</p>
+              )}
+              <div class="accent-line mt-10 reveal" data-delay="200"></div>
+            </div>
+          </div>
+        </section>
+      </Fragment>
+    )}
+
+    {/* Content body with sidebar TOC */}
+    <section class:list={['pb-32 px-6 lg:px-10', hero?.image ? 'pt-20 md:pt-28' : '']}>
+
+      <div class="max-w-[900px] mx-auto lg:max-w-[1100px] lg:flex lg:gap-16">
+        <aside class="hidden lg:block lg:w-[200px] lg:shrink-0 lg:order-2">
+          <div class="sticky top-24" id="toc-container">
+            <p class="text-label text-bark-400 mb-4">On this page</p>
+            <nav id="toc-nav" class="space-y-1.5" aria-label="Table of contents"></nav>
+          </div>
+        </aside>
+        <div class:list={['content-prose lg:flex-1 lg:min-w-0 lg:order-1', hero?.image && 'has-hero']}>
+          <Content />
+        </div>
+      </div>
+    </section>
+  </Base>
+)}
+
+<script>
+  function initContentPage() {
+    const content = document.querySelector('.content-prose');
+    const tocNav = document.getElementById('toc-nav');
+    if (!content || !tocNav) return;
+
+    const headings = content.querySelectorAll('h2');
+    if (headings.length < 2) {
+      const tocContainer = document.getElementById('toc-container');
+      if (tocContainer) tocContainer.style.display = 'none';
+      return;
+    }
+
+    while (tocNav.firstChild) {
+      tocNav.removeChild(tocNav.firstChild);
+    }
+
+    headings.forEach((h2) => {
+      if (!h2.id) {
+        h2.id = 'section-' + (h2.textContent || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      }
+      const link = document.createElement('a');
+      link.href = '#' + h2.id;
+      link.textContent = h2.textContent || '';
+      tocNav.appendChild(link);
+    });
+
+    const tocLinks = tocNav.querySelectorAll('a');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          tocLinks.forEach(link => {
+            link.classList.toggle('toc-active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+
+    headings.forEach(h2 => observer.observe(h2));
+  }
+
+  initContentPage();
+  document.addEventListener('astro:page-load', initContentPage);
+</script>
