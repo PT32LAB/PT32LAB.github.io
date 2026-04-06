@@ -4,12 +4,13 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import remarkWikilinks from './src/plugins/remark-wikilinks.ts';
+import remarkGfm from 'remark-gfm';
 
 export default defineConfig({
   site: 'https://pt32lab.github.io',
   integrations: [sitemap(), mdx()],
   markdown: {
-    remarkPlugins: [remarkWikilinks],
+    remarkPlugins: [remarkGfm, remarkWikilinks],
   },
   i18n: {
     defaultLocale: 'en',

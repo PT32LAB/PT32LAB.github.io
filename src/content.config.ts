@@ -10,6 +10,18 @@ const dimensionsSchema = z.object({
   scalability: z.number().min(0).max(1).optional(),
 }).optional();
 
+const heroSchema = z.object({
+  image: z.string().optional(),
+  label: z.string().optional(),
+  headline: z.string().optional(),
+  body: z.string().optional(),
+  cta: z.array(z.object({
+    text: z.string(),
+    href: z.string(),
+    style: z.enum(['primary', 'secondary']).default('primary'),
+  })).optional(),
+}).optional();
+
 const pages = defineCollection({
   loader: glob({ pattern: '**/*.{en,es,ru,pt,fr,de,zh,ja}.{md,mdx}', base: './content' }),
   schema: z.object({
@@ -20,6 +32,7 @@ const pages = defineCollection({
     type: z.string(),
     cluster: z.string(),
     status: z.string(),
+    hero: heroSchema,
     dimensions: dimensionsSchema,
     tags: z.array(z.string()).optional(),
     related: z.array(z.string()).optional(),
