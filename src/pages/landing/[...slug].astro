@@ -1,0 +1,42 @@
+---
+/**
+ * Landing pages route — no locale prefix.
+ * Renders vault landing pages at /landing/about, /landing/invest, etc.
+ */
+import { getCollection, render } from 'astro:content';
+import Landing from '../../layouts/Landing.astro';
+import { getLocale, getNoteName } from '../../lib/vault';
+
+export async function getStaticPaths() {
+  const allPages = await getCollection('pages');
+  const paths: any[] = [];
+
+  // Only English landing pages (landing pages don't have locale prefix)
+  for (const entry of allPages) {
+    if (getLocale(entry.id) !== 'en') continue;
+    if (!entry.data.slug?.startsWith('landing/')) continue;
+
+    const slug = entry.data.slug.replace('landing/', '');
+    paths.push({
+      params: { slug: slug || undefined },
+      props: { entry },
+    });
+  }
+
+  return paths;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, description } = entry.data;
+---
+
+<Landing title={title} description={description}>
+  <section class="pt-24 pb-32 px-6 lg:px-10">
+    <div class="max-w-[900px] mx-auto">
+      <div class="content-prose">
+        <Content />
+      </div>
+    </div>
+  </section>
+</Landing>
